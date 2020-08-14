@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.7.28)  30 JUL 2020 19:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.7.28)  14 AUG 2020 15:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -564,7 +564,7 @@ LaTeX Info: Redefining \nameref on input line 12.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-<tesi_images/logo.jpg, id=24, 398.4486pt x 156.585pt>
+<tesi_images/logo.jpg, id=68, 398.4486pt x 156.585pt>
 File: tesi_images/logo.jpg Graphic file (type jpg)
 <use tesi_images/logo.jpg>
 Package pdftex.def Info: tesi_images/logo.jpg  used on input line 16.
@@ -626,22 +626,22 @@ l.57 	\chapter
 
 ]
 Chapter 1.
-<tesi_images/LHC_structure.jpg, id=47, 180.35522pt x 170.1223pt>
+<tesi_images/LHC_structure.jpg, id=102, 180.35522pt x 170.1223pt>
 File: tesi_images/LHC_structure.jpg Graphic file (type jpg)
 <use tesi_images/LHC_structure.jpg>
 Package pdftex.def Info: tesi_images/LHC_structure.jpg  used on input line 64.
 (pdftex.def)             Requested size: 177.46086pt x 167.40141pt.
-<tesi_images/m_dipole.jpeg, id=49, 690.9012pt x 540.5796pt>
+<tesi_images/m_dipole.jpeg, id=104, 690.9012pt x 540.5796pt>
 File: tesi_images/m_dipole.jpeg Graphic file (type jpg)
 <use tesi_images/m_dipole.jpeg>
 Package pdftex.def Info: tesi_images/m_dipole.jpeg  used on input line 80.
 (pdftex.def)             Requested size: 188.21288pt x 147.2617pt.
-<tesi_images/m_quad.png, id=50, 469.755pt x 432.61626pt>
+<tesi_images/m_quad.png, id=105, 469.755pt x 432.61626pt>
 File: tesi_images/m_quad.png Graphic file (type png)
 <use tesi_images/m_quad.png>
 Package pdftex.def Info: tesi_images/m_quad.png  used on input line 81.
 (pdftex.def)             Requested size: 125.47737pt x 115.55373pt.
-<tesi_images/CERN.png, id=52, 760.8425pt x 614.295pt>
+<tesi_images/CERN.png, id=107, 760.8425pt x 614.295pt>
 File: tesi_images/CERN.png Graphic file (type png)
 <use tesi_images/CERN.png>
 Package pdftex.def Info: tesi_images/CERN.png  used on input line 90.
@@ -649,91 +649,97 @@ Package pdftex.def Info: tesi_images/CERN.png  used on input line 90.
 [2
 
 ] [3 <./tesi_images/LHC_structure.jpg> <./tesi_images/m_dipole.jpeg> <./tesi_im
-ages/m_quad.png (PNG copy)>]
-! Missing number, treated as zero.
-<to be read again> 
-                   a
-l.103 			\footnote[a]
-                     { $F = \frac{1}{\sqrt{1+(\frac{\eta_c\sigma_z}{2\sigma^...
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
+ages/m_quad.png (PNG copy)>] [4 <./tesi_images/CERN.png>]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
+11.
 
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 103.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 103.
-! Missing { inserted.
-<to be read again> 
-                   ^
-l.103 ... the transverse RMS beam size at the IP.}
-                                                  
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
+(/usr/share/texmf/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+<tesi_images/atlas_structure.jpg, id=142, 810.52812pt x 520.94624pt>
+File: tesi_images/atlas_structure.jpg Graphic file (type jpg)
+<use tesi_images/atlas_structure.jpg>
+Package pdftex.def Info: tesi_images/atlas_structure.jpg  used on input line 13
+5.
+(pdftex.def)             Requested size: 266.18678pt x 171.08609pt.
+<tesi_images/atlas_coord.jpeg, id=143, 504.88625pt x 241.90375pt>
+File: tesi_images/atlas_coord.jpeg Graphic file (type jpg)
+<use tesi_images/atlas_coord.jpeg>
+Package pdftex.def Info: tesi_images/atlas_coord.jpeg  used on input line 145.
+(pdftex.def)             Requested size: 177.46086pt x 85.02562pt.
+ [5]
+<tesi_images/magnet_system_atlas.png, id=152, 356.33125pt x 142.5325pt>
+File: tesi_images/magnet_system_atlas.png Graphic file (type png)
+<use tesi_images/magnet_system_atlas.png>
+Package pdftex.def Info: tesi_images/magnet_system_atlas.png  used on input lin
+e 158.
+(pdftex.def)             Requested size: 295.76509pt x 118.31062pt.
+ [6 <./tesi_images/atlas_structure.jpg> <./tesi_images/atlas_coord.jpeg>]
+<tesi_images/ID_structure.jpg, id=163, 161.60374pt x 161.60374pt>
+File: tesi_images/ID_structure.jpg Graphic file (type jpg)
+<use tesi_images/ID_structure.jpg>
+Package pdftex.def Info: tesi_images/ID_structure.jpg  used on input line 170.
+(pdftex.def)             Requested size: 177.46086pt x 177.47122pt.
+ [7 <./tesi_images/magnet_system_atlas.png> <./tesi_images/ID_structure.jpg>] [
+8] [9]
+Chapter 2.
+[10
 
-! Missing } inserted.
-<inserted text> 
-                }
-l.103 ... the transverse RMS beam size at the IP.}
-                                                  
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-[4 <./tesi_images/CERN.png>]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-06.
+] [11] [12]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
+63.
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 112.
- [5
+Underfull \hbox (badness 5893) in paragraph at lines 274--276
+[]\T1/lmr/m/n/10 H. Perneg-ger, \T1/lmr/m/it/10 The Pixel De-tec-tor of the AT-
+LAS Ex-per-i-ment for LHC Run-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--276
+\T1/lmr/m/it/10 2\T1/lmr/m/n/10 , ATL-INDET-PROC-2015-001. []$\T1/lmtt/m/n/10 h
+ttps : / / cds . cern . ch / record / 1985432 / files /
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 300.
+[13
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 112.
-
-(./tesi.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 112.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 112.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 300.
+ (./tesi.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 300.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 300.
 Package rerunfilecheck Info: File `tesi.out' has not changed.
-(rerunfilecheck)             Checksum: 3D5189D1306C323B60DDC6A439AE683A;326.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 112.
+(rerunfilecheck)             Checksum: DD91027AA04CD8A67EADBF9FEDF5F6BB;1118.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 300.
  ) 
 Here is how much of TeX's memory you used:
- 10375 strings out of 481239
- 167685 string characters out of 5920377
- 450542 words of memory out of 5000000
- 25385 multiletter control sequences out of 15000+600000
- 612048 words of font info for 70 fonts, out of 8000000 for 9000
+ 10466 strings out of 481239
+ 169773 string characters out of 5920377
+ 450895 words of memory out of 5000000
+ 25441 multiletter control sequences out of 15000+600000
+ 598414 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  50i,11n,49p,1161b,453s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
-st, replaced by a fixed one
-
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvip
-s/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/sha
-re/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-m
-athex.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/
-fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc1
-0.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/font
-s/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi5.pfb>
-</usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1
-/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/sh
-are/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/
-lm/lmr5.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/
-fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb
-></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/typ
-e1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/public/lm/lmro10.pfb></usr
-/share/texmf/fonts/type1/public/lm/lmsy5.pfb></usr/share/texmf/fonts/type1/publ
-ic/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on tesi.pdf (6 pages, 1148209 bytes).
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
+ips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/shar
+e/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/l
+m-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf/f
+onts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.
+pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts
+/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb>
+</usr/share/texmf/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1
+/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/sha
+re/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm
+/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf
+/fonts/type1/public/lm/lmro10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy1
+0.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts
+/type1/public/lm/lmtt10.pfb>
+Output written on tesi.pdf (14 pages, 1399107 bytes).
 PDF statistics:
- 183 PDF objects out of 1000 (max. 8388607)
- 147 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 310 PDF objects out of 1000 (max. 8388607)
+ 265 compressed objects within 3 object streams
+ 58 named destinations out of 1000 (max. 500000)
+ 174 words of extra memory for PDF output out of 10000 (max. 10000000)
 
