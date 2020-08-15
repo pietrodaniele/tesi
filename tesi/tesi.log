@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.7.28)  14 AUG 2020 15:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.7.28)  15 AUG 2020 10:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -226,9 +226,18 @@ Package caption Info: hyperref package is loaded.
 \sf@top=\skip53
 \sf@bottom=\skip54
 )
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip55
+\enit@outerparindent=\dimen157
+\enit@toks=\toks16
+\enit@inbox=\box45
+\enit@count@id=\count199
+\enitdp@description=\count266
+)
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2020/01/20 v2.17e AMS math features
-\@mathmargin=\skip55
+\@mathmargin=\skip56
 
 For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -236,51 +245,51 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks16
-\ex@=\dimen157
+\@emptytoks=\toks17
+\ex@=\dimen158
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen158
+\pmbraise@=\dimen159
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count199
+\inf@bad=\count267
 LaTeX Info: Redefining \frac on input line 227.
-\uproot@=\count266
-\leftroot@=\count267
+\uproot@=\count268
+\leftroot@=\count269
 LaTeX Info: Redefining \overline on input line 389.
-\classnum@=\count268
-\DOTSCASE@=\count269
+\classnum@=\count270
+\DOTSCASE@=\count271
 LaTeX Info: Redefining \ldots on input line 486.
 LaTeX Info: Redefining \dots on input line 489.
 LaTeX Info: Redefining \cdots on input line 610.
-\Mathstrutbox@=\box45
-\strutbox@=\box46
-\big@size=\dimen159
+\Mathstrutbox@=\box46
+\strutbox@=\box47
+\big@size=\dimen160
 LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
-\macc@depth=\count270
-\c@MaxMatrixCols=\count271
+\macc@depth=\count272
+\c@MaxMatrixCols=\count273
 \dotsspace@=\muskip17
-\c@parentequation=\count272
-\dspbrk@lvl=\count273
-\tag@help=\toks17
-\row@=\count274
-\column@=\count275
-\maxfields@=\count276
-\andhelp@=\toks18
-\eqnshift@=\dimen160
-\alignsep@=\dimen161
-\tagshift@=\dimen162
-\tagwidth@=\dimen163
-\totwidth@=\dimen164
-\lineht@=\dimen165
-\@envbody=\toks19
-\multlinegap=\skip56
-\multlinetaggap=\skip57
-\mathdisplay@stack=\toks20
+\c@parentequation=\count274
+\dspbrk@lvl=\count275
+\tag@help=\toks18
+\row@=\count276
+\column@=\count277
+\maxfields@=\count278
+\andhelp@=\toks19
+\eqnshift@=\dimen161
+\alignsep@=\dimen162
+\tagshift@=\dimen163
+\tagwidth@=\dimen164
+\totwidth@=\dimen165
+\lineht@=\dimen166
+\@envbody=\toks20
+\multlinegap=\skip57
+\multlinetaggap=\skip58
+\mathdisplay@stack=\toks21
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
 )
@@ -297,31 +306,31 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2017/10/31 v2.20.4
-\thm@style=\toks21
-\thm@bodyfont=\toks22
-\thm@headfont=\toks23
-\thm@notefont=\toks24
-\thm@headpunct=\toks25
-\thm@preskip=\skip58
-\thm@postskip=\skip59
-\thm@headsep=\skip60
-\dth@everypar=\toks26
+\thm@style=\toks22
+\thm@bodyfont=\toks23
+\thm@headfont=\toks24
+\thm@notefont=\toks25
+\thm@headpunct=\toks26
+\thm@preskip=\skip59
+\thm@postskip=\skip60
+\thm@headsep=\skip61
+\dth@everypar=\toks27
 )
 (/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2020/01/17 v1.23 mathematical typesetting tools
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count277
-\calc@Bcount=\count278
-\calc@Adimen=\dimen166
-\calc@Bdimen=\dimen167
-\calc@Askip=\skip61
-\calc@Bskip=\skip62
+\calc@Acount=\count279
+\calc@Bcount=\count280
+\calc@Adimen=\dimen167
+\calc@Bdimen=\dimen168
+\calc@Askip=\skip62
+\calc@Bskip=\skip63
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count279
-\calc@Cskip=\skip63
+\calc@Ccount=\count281
+\calc@Cskip=\skip64
 )
 (/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
@@ -330,15 +339,15 @@ LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
-\g_MT_multlinerow_int=\count280
-\l_MT_multwidth_dim=\dimen168
-\origjot=\skip64
-\l_MT_shortvdotswithinadjustabove_dim=\dimen169
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen170
-\l_MT_above_intertext_sep=\dimen171
-\l_MT_below_intertext_sep=\dimen172
-\l_MT_above_shortintertext_sep=\dimen173
-\l_MT_below_shortintertext_sep=\dimen174
+\g_MT_multlinerow_int=\count282
+\l_MT_multwidth_dim=\dimen169
+\origjot=\skip65
+\l_MT_shortvdotswithinadjustabove_dim=\dimen170
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen171
+\l_MT_above_intertext_sep=\dimen172
+\l_MT_below_intertext_sep=\dimen173
+\l_MT_above_shortintertext_sep=\dimen174
+\l_MT_below_shortintertext_sep=\dimen175
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2019/11/23 v1.2a Standard LaTeX Color (DPC)
@@ -354,20 +363,20 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
 s
-\f@nch@headwidth=\skip65
-\f@nch@O@elh=\skip66
-\f@nch@O@erh=\skip67
-\f@nch@O@olh=\skip68
-\f@nch@O@orh=\skip69
-\f@nch@O@elf=\skip70
-\f@nch@O@erf=\skip71
-\f@nch@O@olf=\skip72
-\f@nch@O@orf=\skip73
+\f@nch@headwidth=\skip66
+\f@nch@O@elh=\skip67
+\f@nch@O@erh=\skip68
+\f@nch@O@olh=\skip69
+\f@nch@O@orh=\skip70
+\f@nch@O@elf=\skip71
+\f@nch@O@erf=\skip72
+\f@nch@O@olf=\skip73
+\f@nch@O@orf=\skip74
 )
 (/usr/share/texlive/texmf-dist/tex/latex/braket/braket.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count281
+\etb@tempcnta=\count283
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xfrac/xfrac.sty
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
@@ -375,8 +384,8 @@ Package: expl3 2020-02-14 L3 programming layer (loader)
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count282
-\l__pdf_internal_box=\box47
+\l__kernel_color_stack_int=\count284
+\l__pdf_internal_box=\box48
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
 Package: l3keys2e 2020-02-14 LaTeX2e option processing using LaTeX3 keys
@@ -386,26 +395,26 @@ Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2020-02-14 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count283
-\g__xparse_grabber_int=\count284
-\l__xparse_m_args_int=\count285
-\l__xparse_v_nesting_int=\count286
+\l__xparse_current_arg_int=\count285
+\g__xparse_grabber_int=\count286
+\l__xparse_m_args_int=\count287
+\l__xparse_v_nesting_int=\count288
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
 Package: xtemplate 2020-02-14 L3 Experimental prototype document functions
-\l__xtemplate_tmp_dim=\dimen175
-\l__xtemplate_tmp_int=\count287
+\l__xtemplate_tmp_dim=\dimen176
+\l__xtemplate_tmp_int=\count289
 \l__xtemplate_tmp_muskip=\muskip18
-\l__xtemplate_tmp_skip=\skip74
+\l__xtemplate_tmp_skip=\skip75
 )
 Package: xfrac 2020-02-14 L3 Experimental split-level fractions
-\l__xfrac_slash_box=\box48
-\l__xfrac_tmp_box=\box49
-\l__xfrac_denominator_bot_sep_dim=\dimen176
-\l__xfrac_numerator_bot_sep_dim=\dimen177
-\l__xfrac_numerator_top_sep_dim=\dimen178
-\l__xfrac_slash_left_sep_dim=\dimen179
-\l__xfrac_slash_right_sep_dim=\dimen180
+\l__xfrac_slash_box=\box49
+\l__xfrac_tmp_box=\box50
+\l__xfrac_denominator_bot_sep_dim=\dimen177
+\l__xfrac_numerator_bot_sep_dim=\dimen178
+\l__xfrac_numerator_top_sep_dim=\dimen179
+\l__xfrac_slash_left_sep_dim=\dimen180
+\l__xfrac_slash_right_sep_dim=\dimen181
 \l__xfrac_slash_left_muskip=\muskip19
 \l__xfrac_slash_right_muskip=\muskip20
 
@@ -511,17 +520,17 @@ LaTeX Font Info:    ... okay on input line 12.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count288
-\scratchdimen=\dimen181
-\scratchbox=\box50
-\nofMPsegments=\count289
-\nofMParguments=\count290
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count291
-\MPscratchDim=\dimen182
-\MPnumerator=\count292
-\makeMPintoPDFobject=\count293
-\everyMPtoPDFconversion=\toks28
+\scratchcounter=\count290
+\scratchdimen=\dimen182
+\scratchbox=\box51
+\nofMPsegments=\count291
+\nofMParguments=\count292
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count293
+\MPscratchDim=\dimen183
+\MPnumerator=\count294
+\makeMPintoPDFobject=\count295
+\everyMPtoPDFconversion=\toks29
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 
@@ -539,7 +548,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box51
+\AtBeginShipoutBox=\box52
 Package hyperref Info: Link coloring OFF on input line 12.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -551,7 +560,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count294
+\c@section@level=\count296
 )
 LaTeX Info: Redefining \ref on input line 12.
 LaTeX Info: Redefining \pageref on input line 12.
@@ -685,40 +694,48 @@ Package pdftex.def Info: tesi_images/ID_structure.jpg  used on input line 170.
 Chapter 2.
 [10
 
-] [11] [12]
+] [11]
+<tesi_images/super_cluster.png, id=205, 853.1875pt x 546.04pt>
+File: tesi_images/super_cluster.png Graphic file (type png)
+<use tesi_images/super_cluster.png>
+Package pdftex.def Info: tesi_images/super_cluster.png  used on input line 274.
+
+(pdftex.def)             Requested size: 266.18678pt x 170.36212pt.
+ [12] [13 <./tesi_images/super_cluster.png>]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-63.
- (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+91.
+
+(/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Underfull \hbox (badness 5893) in paragraph at lines 274--276
+Underfull \hbox (badness 5893) in paragraph at lines 302--304
 []\T1/lmr/m/n/10 H. Perneg-ger, \T1/lmr/m/it/10 The Pixel De-tec-tor of the AT-
 LAS Ex-per-i-ment for LHC Run-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 274--276
+Underfull \hbox (badness 10000) in paragraph at lines 302--304
 \T1/lmr/m/it/10 2\T1/lmr/m/n/10 , ATL-INDET-PROC-2015-001. []$\T1/lmtt/m/n/10 h
 ttps : / / cds . cern . ch / record / 1985432 / files /
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 300.
-[13
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 328.
+[14
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 300.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 328.
  (./tesi.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 300.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 300.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 328.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 328.
 Package rerunfilecheck Info: File `tesi.out' has not changed.
 (rerunfilecheck)             Checksum: DD91027AA04CD8A67EADBF9FEDF5F6BB;1118.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 300.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 328.
  ) 
 Here is how much of TeX's memory you used:
- 10466 strings out of 481239
- 169773 string characters out of 5920377
- 450895 words of memory out of 5000000
- 25441 multiletter control sequences out of 15000+600000
+ 10796 strings out of 481239
+ 175378 string characters out of 5920377
+ 458591 words of memory out of 5000000
+ 25762 multiletter control sequences out of 15000+600000
  598414 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  50i,11n,49p,1161b,453s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -736,10 +753,10 @@ re/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm
 /fonts/type1/public/lm/lmro10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy1
 0.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts
 /type1/public/lm/lmtt10.pfb>
-Output written on tesi.pdf (14 pages, 1399107 bytes).
+Output written on tesi.pdf (15 pages, 1462389 bytes).
 PDF statistics:
- 310 PDF objects out of 1000 (max. 8388607)
- 265 compressed objects within 3 object streams
- 58 named destinations out of 1000 (max. 500000)
- 174 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 321 PDF objects out of 1000 (max. 8388607)
+ 273 compressed objects within 3 object streams
+ 62 named destinations out of 1000 (max. 500000)
+ 179 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,6 +1,6 @@
 \documentclass[a4paper, oneside]{book}
 
-\usepackage{geometry,url,graphicx, hyperref,subfig}
+\usepackage{geometry,url,graphicx, hyperref,subfig,enumitem}
 \usepackage{amsmath, amssymb, amsthm, mathtools, color, setspace}
 \usepackage{fancyhdr, braket, etoolbox}
 \usepackage{xfrac, lmodern} % xfrac gives font errors, add lmodern to remove them. Check whether this remains a problem!
@@ -252,11 +252,39 @@
 		\section{Supercluster reconstruction}
 		The reconstruction of electron and photon superclusters proceeds independently, each in two stages \cite{El ph reco}:
 		\begin{enumerate}
-		\item in the first stage, EM topo-clusters are tested for use as seed cluster candidates, which form the
-		basis of superclusters; 
-		\item in the second stage, EM topo-clusters near the seed candidates are identified as satellite cluster candidates, which may emerge from bremsstrahlung radiation or topo-cluster splitting. Satellite clusters are added to the seed candidates to form the final superclusters if they
-		satisfy the necessary selection criteria.
+		\item in the first stage, EM topo-clusters are tested for use as seed cluster candidates, which form the basis of superclusters; 
+		\item in the second stage, EM topo-clusters near the seed candidates are identified as satellite cluster candidates, which may emerge from bremsstrahlung radiation or topo-cluster splitting.
 		\end{enumerate}
+		Superclusters are built through various sets:
+		\begin{itemize}
+		\item the initial list of EM topo-clusters is
+		sorted according to descending $E_T$ , calculated using the EM energy.
+		\item the clusters are tested one by one in the sort order for use as seed clusters. There are two seed's kind:
+			\begin{enumerate}[label=\roman*.]
+				\item electron supercluster seed: a cluster with a minimum $E_T$ of 1 GeV and matched to a track with at least four hits in the silicon tracking detectors.
+				\item photon supercluster seed: a cluster with $E_T$ greater
+				than 1.5 GeV with no requirement made on any track or conversion
+				vertex matching.
+			\end{enumerate}
+		A cluster cannot be used as a seed cluster if it has already been added as a satellitecluster to another seed cluster.
+		\item if a cluster meets the characteristics of the previous point, the algorithm attempts to find satellite clusters,
+		using the process summarized in figure \ref{fig:super_cl}.
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.45\textheight]{tesi_images/super_cluster.png}
+			\caption{Diagram of the superclustering algorithm for electrons and photons. Seed clusters are shown in
+			red, satellite clusters in blue.}
+			\label{fig:super_cl}
+		\end{figure}
+		For both electrons and photons, a cluster is considered a satellite if it falls within a window of $\Delta\eta \times \Delta\varphi = 0.075 \times 0.125$ around the seed cluster barycentre, as these cases tend to represent secondary EM showers originating from the same initial electron or photon.
+		This window is a larger $\Delta\eta \times \Delta\varphi = 0.125 \times 0.300$
+		
+		
+		\end{itemize}
+	
+%%%If a cluster meets the seed cluster requirements, the algorithm attempts to find satellite clusters using the process summarized in figure 3. For both electrons and photons, a cluster is considered a satellite if it falls within a window of ∆η × ∆φ = 0.075 × 0.125 around the seed cluster barycentre, as these cases tend to represent secondary EM showers originating from the same initial electron or photon. For electrons, a cluster is also considered a satellite if it is within a window of ∆η × ∆φ = 0.125 × 0.300 around the seed cluster barycentre, and its ‘best-matched’ track is also the best-matched track for the seed cluster. For photons with conversion vertices made up only of tracks containing silicon hits, a cluster is added as a satellite if its best-matched (electron) track belongs to the conversion vertex matched to the seed cluster. These steps rely on tracking information to discriminate distant radiative photons or conversion electrons from pile-up noise or other unrelated clusters.%%%
+	
+	
 	\begin{thebibliography}{10}
 			% Chapter 1 %
 			% 1 %
