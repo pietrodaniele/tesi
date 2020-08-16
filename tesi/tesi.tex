@@ -248,14 +248,14 @@
 		\end{itemize}
 		
 		\section{Track-cluster matching and photon conversion reconstruction}
-		
+
 		\section{Supercluster reconstruction}
 		The reconstruction of electron and photon superclusters proceeds independently, each in two stages \cite{El ph reco}:
 		\begin{enumerate}
 		\item in the first stage, EM topo-clusters are tested for use as seed cluster candidates, which form the basis of superclusters; 
 		\item in the second stage, EM topo-clusters near the seed candidates are identified as satellite cluster candidates, which may emerge from bremsstrahlung radiation or topo-cluster splitting.
 		\end{enumerate}
-		Superclusters are built through various sets:
+		Superclusters are built through various steps:
 		\begin{itemize}
 		\item the initial list of EM topo-clusters is
 		sorted according to descending $E_T$ , calculated using the EM energy.
@@ -267,8 +267,7 @@
 				vertex matching.
 			\end{enumerate}
 		A cluster cannot be used as a seed cluster if it has already been added as a satellitecluster to another seed cluster.
-		\item if a cluster meets the characteristics of the previous point, the algorithm attempts to find satellite clusters,
-		using the process summarized in figure \ref{fig:super_cl}.
+		\item if a cluster meets the characteristics of the previous point, the algorithm attempts to find satellite clusters, using the process summarized in figure \ref{fig:super_cl}.
 		\begin{figure}
 			\centering
 			\includegraphics[width=0.45\textheight]{tesi_images/super_cluster.png}
@@ -277,14 +276,53 @@
 			\label{fig:super_cl}
 		\end{figure}
 		For both electrons and photons, a cluster is considered a satellite if it falls within a window of $\Delta\eta \times \Delta\varphi = 0.075 \times 0.125$ around the seed cluster barycentre, as these cases tend to represent secondary EM showers originating from the same initial electron or photon.
-		This window is a larger $\Delta\eta \times \Delta\varphi = 0.125 \times 0.300$
+		For electrons, this window could be larger, $\Delta\eta \times \Delta\varphi = 0.125 \times 0.300$, and its ‘best-matched’ track is also the best-matched track for the seed cluster. For photons with conversion vertices made up only of tracks containing silicon hits, a cluster is added as a satellite if its best-matched (electron) track belongs to the conversion vertex matched to the seed cluster. These steps rely on tracking information to discriminate distant radiative photons or conversion electrons from pile-up noise or other unrelated clusters. \\
+		The seed clusters with their associated satellite clusters are called superclusters.
 		
-		
+		\item The final step in the supercluster-building algorithm is to assign calorimeter cells to a given supercluster. Only cells from the presampler and the first three LAr calorimeter layers are considered, except in the transition region of $1.4 < |\eta| < 1.6$, where the energy measured in the scintillator between the calorimeter cryostats is also added. To limit the superclusters’ sensitivity to pile-up noise, the size of each constituent topo-cluster is restricted to a maximal width of 0.075 or 0.125 in the $\eta$ direction in the barrel or endcap region, respectively. Because the magnetic field in the ID is parallel to the beam-line, interactions between the electron or photon and detector material generally cause the EM shower to spread in the $\varphi$ direction, so the restriction in $\eta$ still generally allows the electron or photon energy to be captured. No restriction is applied in the $\varphi$-direction.	
 		\end{itemize}
+		\section{Creation of electrons and photons for analysis}
+		\cite{El ph reco}After the electron and photon superclusters are built, tracks are matched to electron superclusters and conversion vertices to photon superclusters. Then the analysis-level
+		electrons and photons are created. Because electron and photon superclusters are built independently, a given seed cluster can produce both an electron and a photon. In such cases, the procedure
+		presented in figure \ref{fig:el_ph_analisi} is applied. The purpose is that if a particular object can be easily identified only as a photon (a cluster with no good track attached) or only as an electron (a cluster with a good track attached and no good photon conversion vertex), then only a photon or an electron object is created for analysis; otherwise, both an electron and a photon object are created. Furthermore,these cases are marked explicitly as ambiguous, allowing the final classification of these objects to be determined based upon the specific requirements of each analysis.
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.45\textheight]{tesi_images/el_ph_analisi.png}
+			\caption{Flowchart showing the logic of the ambiguity resolution for particles initially reconstructed both as electrons and photons.}
+			\label{fig:el_ph_analisi}
+		\end{figure}
 	
-%%%If a cluster meets the seed cluster requirements, the algorithm attempts to find satellite clusters using the process summarized in figure 3. For both electrons and photons, a cluster is considered a satellite if it falls within a window of ∆η × ∆φ = 0.075 × 0.125 around the seed cluster barycentre, as these cases tend to represent secondary EM showers originating from the same initial electron or photon. For electrons, a cluster is also considered a satellite if it is within a window of ∆η × ∆φ = 0.125 × 0.300 around the seed cluster barycentre, and its ‘best-matched’ track is also the best-matched track for the seed cluster. For photons with conversion vertices made up only of tracks containing silicon hits, a cluster is added as a satellite if its best-matched (electron) track belongs to the conversion vertex matched to the seed cluster. These steps rely on tracking information to discriminate distant radiative photons or conversion electrons from pile-up noise or other unrelated clusters.%%%
-	
-	
+		\section{Identification}
+		\cite{Identification}Excellent electron and photon identification capabilities are crucial for many aspects of the ATLAS physics program, from standard model measurements (including Higgs boson) to new physics searches. The identification of prompt photons and the rejection of backgrounds, mostly coming from photons from hadron decays, relies on the high granularity of the ATLAS calorimeter. Electron identification is based on a likelihood (LH) discrimination to separate isolated electron candidates from candidates originating from photon conversions, hadron misidentification and heavy flavor decays. 
+			\subsection{Elettron identification}
+			\cite{El ph reco}The quantities used in the electron identification are chosen according to their ability to discriminate prompt isolated electrons from energy deposits from hadronic jets, from converted photons and from genuine electrons produced in the decays of heavy-flavour hadrons. The variables can be
+			grouped into properties of:
+			\begin{itemize}
+				\item the primary electron track, which is required to fulfil a set of quality requirements, namely hits in the two inner tracking layers closest to the beam line, as well as a number of hits in the silicon-strip detectors. The transverse impact parameter of the track and its significance are used to construct
+				the likelihood discriminant.
+				\item the lateral development of the electromagnetic shower, which is characterized with variables calculated separately in the first and second layer of the electromagnetic calorimeter. To reject clusters from multiple incident particles, $w_{s tot}$ is used. The lateral shower development is measured with $R_{\varphi}$ and $R_{\eta}$.
+				\item the longitudinal development of the electromagnetic shower, for them the numbers of cells contributing to the energy
+				measurement in each layer are chosen dynamically in the supercluster approach, compared with fixed numbers of cells in fixed-size clusters. The supercluster approach inherently suppresses noise in the calorimeter cells, resulting in lower values and narrower distributions. The electron
+				identification uses $f_1$ and $f_3$.
+				\item the spatial compatibility of the primary electron track with the reconstructed cluster, which are matched using $\Delta\eta_1$ and $\Delta\phi_{res}$. 
+			\end{itemize}
+			\begin{figure}
+				\centering
+				\includegraphics[width=0.45\textheight]{tesi_images/el_discr.png}
+				\caption{Electron discriminating variables}
+				\label{fig:el_discr}
+			\end{figure}
+			Then the combination of information from the tracker and the matching, information from the electromagnetic calorimeter, and hadronic leakage  are put together in likelihoods for a reconstructed electron to originate from signal,
+			$L_s$, or background, $L_b$. 
+			
+			
+			
+			
+			They are calculated from probability density functions (pdfs), $P$, which are created by smoothing histograms of the $n$ (typically 13) discriminating variables with an adaptive kernel density estimator (KDE) as implemented in TMVA, separately for signal and background and in 9 bins in $|\eta|$ and 7 bins of $E_T$:
+
+
+
+			\subsection{Photon identification}
 	\begin{thebibliography}{10}
 			% Chapter 1 %
 			% 1 %
@@ -324,5 +362,7 @@
 			\url{https://link.springer.com/content/pdf/10.1140/epjc/s10052-019-7140-6.pdf}in
 			% 14 % 
 			\bibitem{ID reco alg} \textit{Optimisation of the ATLAS Track Reconstruction Software for Run-2}, Andreas Salzburger, CERN, Switzerland, \url{http://iopscience.iop.org/1742-6596/664/7/072042}
+			% 15 % 
+			\bibitem{Identification} \textit{Electron and photon identification with the ATLAS detector}, Proklova Nadezda, ATLAS Collaboration, Aug 2018, ATL-PHYS-SLIDE-2018-606, \url{http://cds.cern.ch/record/2634679}
 	\end{thebibliography}
 \end{document}

@@ -14,3 +14,7 @@
 \contentsline {section}{\numberline {2.2}Track reconstruction}{11}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Track-cluster matching and photon conversion reconstruction}{12}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Supercluster reconstruction}{12}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Creation of electrons and photons for analysis}{13}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Identification}{13}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Elettron identification}{14}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Photon identification}{15}{subsection.2.6.2}%
