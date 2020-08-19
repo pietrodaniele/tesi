@@ -18,3 +18,12 @@
 \contentsline {section}{\numberline {2.6}Identification}{13}{section.2.6}%
 \contentsline {subsection}{\numberline {2.6.1}Elettron identification}{14}{subsection.2.6.1}%
 \contentsline {subsection}{\numberline {2.6.2}Photon identification}{15}{subsection.2.6.2}%
+\contentsline {section}{\numberline {2.7}Electron and photon isolation}{16}{section.2.7}%
+\contentsline {chapter}{\numberline {3}Machine Learning}{18}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Supervised Learning}{18}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Model and Parameters}{18}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Objective Function}{19}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Gradient boosted trees}{19}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Decision Tree}{19}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Decision Tree Ensembles}{19}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}LightGBM}{20}{section.3.3}%

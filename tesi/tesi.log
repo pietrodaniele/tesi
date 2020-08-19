@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.7.28)  16 AUG 2020 17:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.7.28)  19 AUG 2020 18:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -573,7 +573,7 @@ LaTeX Info: Redefining \nameref on input line 12.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-<tesi_images/logo.jpg, id=84, 398.4486pt x 156.585pt>
+<tesi_images/logo.jpg, id=120, 398.4486pt x 156.585pt>
 File: tesi_images/logo.jpg Graphic file (type jpg)
 <use tesi_images/logo.jpg>
 Package pdftex.def Info: tesi_images/logo.jpg  used on input line 16.
@@ -635,22 +635,22 @@ l.57 	\chapter
 
 ]
 Chapter 1.
-<tesi_images/LHC_structure.jpg, id=122, 180.35522pt x 170.1223pt>
+<tesi_images/LHC_structure.jpg, id=167, 180.35522pt x 170.1223pt>
 File: tesi_images/LHC_structure.jpg Graphic file (type jpg)
 <use tesi_images/LHC_structure.jpg>
 Package pdftex.def Info: tesi_images/LHC_structure.jpg  used on input line 64.
 (pdftex.def)             Requested size: 177.46086pt x 167.40141pt.
-<tesi_images/m_dipole.jpeg, id=124, 690.9012pt x 540.5796pt>
+<tesi_images/m_dipole.jpeg, id=169, 690.9012pt x 540.5796pt>
 File: tesi_images/m_dipole.jpeg Graphic file (type jpg)
 <use tesi_images/m_dipole.jpeg>
 Package pdftex.def Info: tesi_images/m_dipole.jpeg  used on input line 80.
 (pdftex.def)             Requested size: 188.21288pt x 147.2617pt.
-<tesi_images/m_quad.png, id=125, 469.755pt x 432.61626pt>
+<tesi_images/m_quad.png, id=170, 469.755pt x 432.61626pt>
 File: tesi_images/m_quad.png Graphic file (type png)
 <use tesi_images/m_quad.png>
 Package pdftex.def Info: tesi_images/m_quad.png  used on input line 81.
 (pdftex.def)             Requested size: 125.47737pt x 115.55373pt.
-<tesi_images/CERN.png, id=127, 760.8425pt x 614.295pt>
+<tesi_images/CERN.png, id=172, 760.8425pt x 614.295pt>
 File: tesi_images/CERN.png Graphic file (type png)
 <use tesi_images/CERN.png>
 Package pdftex.def Info: tesi_images/CERN.png  used on input line 90.
@@ -665,26 +665,26 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<tesi_images/atlas_structure.jpg, id=162, 810.52812pt x 520.94624pt>
+<tesi_images/atlas_structure.jpg, id=208, 810.52812pt x 520.94624pt>
 File: tesi_images/atlas_structure.jpg Graphic file (type jpg)
 <use tesi_images/atlas_structure.jpg>
 Package pdftex.def Info: tesi_images/atlas_structure.jpg  used on input line 13
 5.
 (pdftex.def)             Requested size: 266.18678pt x 171.08609pt.
-<tesi_images/atlas_coord.jpeg, id=163, 504.88625pt x 241.90375pt>
+<tesi_images/atlas_coord.jpeg, id=209, 504.88625pt x 241.90375pt>
 File: tesi_images/atlas_coord.jpeg Graphic file (type jpg)
 <use tesi_images/atlas_coord.jpeg>
 Package pdftex.def Info: tesi_images/atlas_coord.jpeg  used on input line 145.
 (pdftex.def)             Requested size: 177.46086pt x 85.02562pt.
  [5]
-<tesi_images/magnet_system_atlas.png, id=172, 356.33125pt x 142.5325pt>
+<tesi_images/magnet_system_atlas.png, id=218, 356.33125pt x 142.5325pt>
 File: tesi_images/magnet_system_atlas.png Graphic file (type png)
 <use tesi_images/magnet_system_atlas.png>
 Package pdftex.def Info: tesi_images/magnet_system_atlas.png  used on input lin
 e 158.
 (pdftex.def)             Requested size: 295.76509pt x 118.31062pt.
  [6 <./tesi_images/atlas_structure.jpg> <./tesi_images/atlas_coord.jpeg>]
-<tesi_images/ID_structure.jpg, id=184, 161.60374pt x 161.60374pt>
+<tesi_images/ID_structure.jpg, id=229, 161.60374pt x 161.60374pt>
 File: tesi_images/ID_structure.jpg Graphic file (type jpg)
 <use tesi_images/ID_structure.jpg>
 Package pdftex.def Info: tesi_images/ID_structure.jpg  used on input line 170.
@@ -695,81 +695,102 @@ Chapter 2.
 [10
 
 ] [11]
-<tesi_images/super_cluster.png, id=225, 853.1875pt x 546.04pt>
+<tesi_images/super_cluster.png, id=270, 853.1875pt x 546.04pt>
 File: tesi_images/super_cluster.png Graphic file (type png)
 <use tesi_images/super_cluster.png>
 Package pdftex.def Info: tesi_images/super_cluster.png  used on input line 273.
 
 (pdftex.def)             Requested size: 266.18678pt x 170.36212pt.
  [12]
-<tesi_images/el_ph_analisi.png, id=239, 1027.84pt x 770.88pt>
+<tesi_images/el_ph_analisi.png, id=284, 1027.84pt x 770.88pt>
 File: tesi_images/el_ph_analisi.png Graphic file (type png)
 <use tesi_images/el_ph_analisi.png>
 Package pdftex.def Info: tesi_images/el_ph_analisi.png  used on input line 290.
 
 (pdftex.def)             Requested size: 266.18678pt x 199.63597pt.
  [13 <./tesi_images/super_cluster.png>]
-<tesi_images/el_discr.png, id=249, 530.98375pt x 525.965pt>
+<tesi_images/el_discr.png, id=294, 530.98375pt x 525.965pt>
 File: tesi_images/el_discr.png Graphic file (type png)
 <use tesi_images/el_discr.png>
 Package pdftex.def Info: tesi_images/el_discr.png  used on input line 311.
 (pdftex.def)             Requested size: 266.18678pt x 263.67204pt.
- [14 <./tesi_images/el_ph_analisi.png>] [15 <./tesi_images/el_discr.png>]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
-24.
+ [14 <./tesi_images/el_ph_analisi.png>] [15 <./tesi_images/el_discr.png>] [16] 
+[17]
+Chapter 3.
+[18
 
-(/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+] [19] [20]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
+41.
+ (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Underfull \hbox (badness 5893) in paragraph at lines 335--337
+Underfull \hbox (badness 5893) in paragraph at lines 452--454
 []\T1/lmr/m/n/10 H. Perneg-ger, \T1/lmr/m/it/10 The Pixel De-tec-tor of the AT-
 LAS Ex-per-i-ment for LHC Run-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--337
+Underfull \hbox (badness 10000) in paragraph at lines 452--454
 \T1/lmr/m/it/10 2\T1/lmr/m/n/10 , ATL-INDET-PROC-2015-001. []$\T1/lmtt/m/n/10 h
 ttps : / / cds . cern . ch / record / 1985432 / files /
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 363.
-[16
 
-] [17]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 363.
+Underfull \hbox (badness 10000) in paragraph at lines 460--461
+
+ []
+
+[21
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 483--484
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 491--493
+\T1/lmtt/m/n/10 scholar . google . it / scholar ? q = K . P . +Murphy ,[] +Mach
+ine + Learning . +A + Probabilistic +
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 497.
+[22]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 497.
  (./tesi.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 363.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 363.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 497.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 497.
 Package rerunfilecheck Info: File `tesi.out' has not changed.
-(rerunfilecheck)             Checksum: 62C7512AEAC5EE659C3D3FC92823A2EB;1424.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 363.
+(rerunfilecheck)             Checksum: E4E6291CBC1D5867A5643B8B7AC50059;2032.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 497.
  ) 
 Here is how much of TeX's memory you used:
- 10825 strings out of 481239
- 175949 string characters out of 5920377
- 458855 words of memory out of 5000000
- 25779 multiletter control sequences out of 15000+600000
- 598414 words of font info for 59 fonts, out of 8000000 for 9000
+ 10869 strings out of 481239
+ 176484 string characters out of 5920377
+ 459020 words of memory out of 5000000
+ 25797 multiletter control sequences out of 15000+600000
+ 610366 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  50i,11n,49p,1161b,453s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
-ips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/shar
-e/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/l
-m-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf/f
+ips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share
+/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
+-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/f
 onts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.
 pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts
 /type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb>
-</usr/share/texmf/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1
-/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/sha
-re/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm
-/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf
-/fonts/type1/public/lm/lmro10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy1
-0.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts
-/type1/public/lm/lmtt10.pfb>
-Output written on tesi.pdf (18 pages, 1583237 bytes).
+</usr/share/texmf/fonts/type1/public/lm/lmmi5.pfb></usr/share/texmf/fonts/type1
+/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/sh
+are/texmf/fonts/type1/public/lm/lmr5.pfb></usr/share/texmf/fonts/type1/public/l
+m/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/f
+onts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri8.p
+fb></usr/share/texmf/fonts/type1/public/lm/lmro10.pfb></usr/share/texmf/fonts/t
+ype1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></u
+sr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
+Output written on tesi.pdf (23 pages, 1637020 bytes).
 PDF statistics:
- 369 PDF objects out of 1000 (max. 8388607)
- 313 compressed objects within 4 object streams
- 72 named destinations out of 1000 (max. 500000)
- 221 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 473 PDF objects out of 1000 (max. 8388607)
+ 409 compressed objects within 5 object streams
+ 94 named destinations out of 1000 (max. 500000)
+ 293 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -18,3 +18,12 @@
 \BOOKMARK [1][-]{section.2.6}{Identification}{chapter.2}% 18
 \BOOKMARK [2][-]{subsection.2.6.1}{Elettron identification}{section.2.6}% 19
 \BOOKMARK [2][-]{subsection.2.6.2}{Photon identification}{section.2.6}% 20
+\BOOKMARK [1][-]{section.2.7}{Electron and photon isolation}{chapter.2}% 21
+\BOOKMARK [0][-]{chapter.3}{Machine Learning}{}% 22
+\BOOKMARK [1][-]{section.3.1}{Supervised Learning}{chapter.3}% 23
+\BOOKMARK [2][-]{subsection.3.1.1}{Model and Parameters}{section.3.1}% 24
+\BOOKMARK [2][-]{subsection.3.1.2}{Objective Function}{section.3.1}% 25
+\BOOKMARK [1][-]{section.3.2}{Gradient boosted trees}{chapter.3}% 26
+\BOOKMARK [2][-]{subsection.3.2.1}{Decision Tree}{section.3.2}% 27
+\BOOKMARK [2][-]{subsection.3.2.2}{Decision Tree Ensembles}{section.3.2}% 28
+\BOOKMARK [1][-]{section.3.3}{LightGBM}{chapter.3}% 29

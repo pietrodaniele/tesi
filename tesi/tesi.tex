@@ -219,16 +219,16 @@
 		variables used to separate electrons or photons from background are added.
 		
 		\section{The topo-cluster reconstruction}
-		The topo-cluster reconstruction algorithm begins by forming proto-clusters in the EM and hadronic calorimeters using a set of noise thresholds in which the cell initiating the cluster is EM required to have significance $|\zeta_{cell}^{EM}| \geq 4$ where 
-		$$
-		\zeta_{cell}^{EM} = \frac{E_{cell}^{EM}}{\sigma_{cell}^{EM}}
-		$$		
-		$E_{cell}^{EM}$ is the energy cell at the EM scale and $\sigma_{cell}^{EM}$ is the expected cell noise, which includes the known electronic noise and an estimate of the pile-up noise corresponding
-		to the average instantaneous luminosity expected for Run 2. In order to suppres the formation of noise cluster, in this initial stage, cells from the presampler and the first LAr EM calorimeter layer are excluded from initiating proto-clusters.
-		An important role is played by the neighbouring cells. If they have a significance $|\zeta_{cell}^{EM}| \geq 2$, these cells are collected by proto-cluster. Each neighbour cell passing the threshold of $|\zeta_{cell}^{EM}| \geq 2$ becomes a seed cell in the next iteration, collecting each of its neighbours in the proto-cluster. If two proto-clusters EM contain the same cell with $|\zeta_{cell}^{EM}| \geq 2$ above the noise threshold, these proto-clusters are merged. A crown of nearest-neighbour cells is added to the cluster independently on their energy ($|\zeta_{cell}^{EM}| \geq 0$). This set of thresholds is commonly known as ‘4-2-0’ topo-cluster reconstruction.\\
-		Energy becomes an important feature when a cell has $|E_{cell}^{EM}| > 500$ MeV. A cell with this energy, at least four neighbours, and when none of the neighbours has a larger signal, is a local maximum. Proto-clusters with two or more local maxima are split into separate clusters.
-		
-		%Electron and photon reconstruction starts from the topo-clusters but only uses the energy from cells in the EM calorimeter, except in the transition region of $1.37<|\eta|<1.63$, where the energy measured in the presampler and the scintillator between the calorimeter cryostats is also added.%
+			The topo-cluster reconstruction algorithm begins by forming proto-clusters in the EM and hadronic calorimeters using a set of noise thresholds in which the cell initiating the cluster is EM required to have significance $|\zeta_{cell}^{EM}| \geq 4$ where 
+			$$
+			\zeta_{cell}^{EM} = \frac{E_{cell}^{EM}}{\sigma_{cell}^{EM}}
+			$$		
+			$E_{cell}^{EM}$ is the energy cell at the EM scale and $\sigma_{cell}^{EM}$ is the expected cell noise, which includes the known electronic noise and an estimate of the pile-up noise corresponding
+			to the average instantaneous luminosity expected for Run 2. In order to suppres the formation of noise cluster, in this initial stage, cells from the presampler and the first LAr EM calorimeter layer are excluded from initiating proto-clusters.
+			An important role is played by the neighbouring cells. If they have a significance $|\zeta_{cell}^{EM}| \geq 2$, these cells are collected by proto-cluster. Each neighbour cell passing the threshold of $|\zeta_{cell}^{EM}| \geq 2$ becomes a seed cell in the next iteration, collecting each of its neighbours in the proto-cluster. If two proto-clusters EM contain the same cell with $|\zeta_{cell}^{EM}| \geq 2$ above the noise threshold, these proto-clusters are merged. A crown of nearest-neighbour cells is added to the cluster independently on their energy ($|\zeta_{cell}^{EM}| \geq 0$). This set of thresholds is commonly known as ‘4-2-0’ topo-cluster reconstruction.\\
+			Energy becomes an important feature when a cell has $|E_{cell}^{EM}| > 500$ MeV. A cell with this energy, at least four neighbours, and when none of the neighbours has a larger signal, is a local maximum. Proto-clusters with two or more local maxima are split into separate clusters.
+			
+			%Electron and photon reconstruction starts from the topo-clusters but only uses the energy from cells in the EM calorimeter, except in the transition region of $1.37<|\eta|<1.63$, where the energy measured in the presampler and the scintillator between the calorimeter cryostats is also added.%
 		
 		\section{Track reconstruction}
 		Track finding is one of the most challenging tasks in reconstructing events from proton-proton  collisions  recorded  by  the  ATLAS  detector. The process consists in finding a track in the ID which can be matched to the energy clusters. The ID track reconstruction consists of several sequences with different strategies and the main sequence is referred to as inside-out track finding: \cite{ID reco alg}
@@ -313,18 +313,130 @@
 				\label{fig:el_discr}
 			\end{figure}
 			Then the combination of information from the tracker and the matching, information from the electromagnetic calorimeter, and hadronic leakage  are put together in likelihoods for a reconstructed electron to originate from signal,
-			$L_s$, or background, $L_b$. 
+			$L_S$, or background, $L_B$. They are calculated from probability density functions (pdfs), $P$:
+			$$
+			L_{S/B}(\textbf{x}) = \prod_{i=1}^{n}P_{S/B,i}(x_i)
+			$$
+			For signal and background the pdfs take the values $P_{S,i}(x_i)$ and $P_{B,i}(x_i)$, respectively, for the quantity $i$ at value $x_i$. The likelihood discriminant $d_L$ is defined as the natural logarithm of the ratio of $L_S$ and $L_B$:
+			$$
+			d_L = \ln{\frac{L_S}{L_B}}
+			$$
+			and each electron is assigned a specific value.\\
+			Using the same variables but different values of $d_L$, three different operating points: Loose, Medium and Tight. They are sorted with increasing threshold values, and are chosen in order to have efficiency for electrons with $E_T > 40$ GeV of 93\%, 88\%, and 80\% respectively. This means that they are inclusive, and one the subset of the other.
 			
-			
-			
-			
-			They are calculated from probability density functions (pdfs), $P$, which are created by smoothing histograms of the $n$ (typically 13) discriminating variables with an adaptive kernel density estimator (KDE) as implemented in TMVA, separately for signal and background and in 9 bins in $|\eta|$ and 7 bins of $E_T$:
-
-
-
 			\subsection{Photon identification}
-	\begin{thebibliography}{10}
-			% Chapter 1 %
+			\cite{El ph reco}The photon identification criteria are designed to efficiently select prompt, isolated photons and reject backgrounds from hadronic jets. The photon identification is constructed from one-dimensional
+			selection criteria, or a cut-based selection, using the shower shape variables. AGGIUNGERE TABELLA VARIABILI
+			The variables using the EM first layer play a particularly important role in rejecting $\pi^0$ decays into
+			two highly collimated photons. The primary identification selection is labelled as Tight, with less restrictive selections called
+			Medium and Loose, which are used fo the $R_{had}$, $R_{had_1}$, $R_{\eta}$, and $w_{\eta_2}$ shower shape variables. The Medium selection adds a loose cut on $E_{ratio}$. Because the reconstruction of photons in the ATLAS trigger system does not differentiate between converted and unconverted photons, the Loose and Medium identification criteria are the same for converted
+			and unconverted photons. The Tight identification criteria are designed to select a subset of the photon candidates passing the Medium criteria.\\
+			Because the shower shapes vary due to the geometry of the calorimeter, the cut-based selection of Loose, Medium and Tight
+			are optimized separately in bins of $|\eta|$. The Tight identification is also optimized in separate bins of $E_T$. The Tight identification is performed separately for converted and
+			unconverted photons. The shower shapes of converted photons differ from unconverted photons due to the opening angle of the $e^{+}e^{-}$ conversion pair, which is amplified by the magnetic field, and from the additional interaction of the conversion pair with the material upstream of the calorimeters. \\
+			The tight selections are separately optimised for unconverted and converted photons, to account for the generally broader lateral shower profile of the latter. The thresholds of the selection criteria are different in seven intervals of the reconstructed photon $|\eta|$ to account for the calorimeter geometry, and for different effects on the shower shapes from the material upstream of the calorimeter.
+			
+		\section{Electron and photon isolation}
+		The isolation progress, or isolation cut, is applied in order to reduce the backgrounds. Different criteria are defined, with different levels
+		of efficiency in rejecting the background. The isolation working points uses variables from the tracking and from the calorimeter.
+		
+		\cite{El ph reco}The activity near leptons and photons can be quantified from the tracks of nearby charged particles, or from energy deposits in the calorimeters, leading to two classes of isolation variables:
+		\begin{itemize}
+			\item The raw calorimeter isolation($E_{T,raw}^{isol}$) is built by summing the transverse energy of positive-energy topological clusters (in EM scale) whose barycentre falls within a cone centred around the electron or photon cluster barycentre. The raw calorimeter isolation includes the EM particle energy ($E_{T,core}$), which is subtracted by removing the energy of the EM calorimeter cells contained in a $\Delta\eta \times \Delta\varphi = 5 \times 7$ (in EM-middle-layer units) rectangular
+			cluster around the barycentre of the EM particle cluster. Other correction are done to account for the pile-up. %(using MC samples)%
+			
+			The fully corrected calorimeter isolation variable is computed as:
+			$$ 
+			E_{T}^{coneXX} = E_{T,raw}^{isolXX} - E_{T}^{core} - E_{T,leakage}(E_T,\eta,\Delta R) -E_{T,pile-up}(\eta,\Delta R)
+			$$
+			where XX refers to the size of the employed cone.
+			\item The track isolation variable ($p_T^{coneXX}$) is computed by summing the transverse momentum of selected tracks within a cone centred around the electron track or the photon cluster direction (excluding tracks matched to the electron or converted photon). \cite{El ph isol}In order to compensate for very busy environment at high $p_T$ the cone is of variable size:
+			$$
+			\Delta R = min\Bigl({\frac{10}{p_T[GeV]},\Delta R_{max}}\Bigr)
+			$$
+			where $\Delta R_{max}$ is the maximum cone size (typically 0.2).
+			
+			The tracks considered are required to have $p_T >$ 1 GeV and $|\eta| <$ 2.5, at least seven silicon (Pixel + SCT) hits, at most one shared hit, at most two silicon holes and at most one pixel hole. In addition, for electron isolation, the tracks are required to have a loose vertex association, i.e. the track was used in the primary vertex fit, or it was not used in any vertex fit but satisfies $|\Delta z_0|sin{\theta} < 3$ mm, where $|\Delta z_0|$ is the longitudinal impact parameter relative to the chosen primary vertex; for photon
+			isolation, all selected tracks satisfying $|\Delta z_0|sin{\theta} < 3$ mm are used.
+		\end{itemize}
+		
+		
+		
+		
+		
+	\chapter{Machine Learning}
+		Machine Learning (ML) as been instrumental for the advances of both data analysis and artificial intelligence (AI) \cite{Lifelong ML}. ML is an application of AI with the aim of generating systems with the ability to automatically learn and improve from experience without being explicitly programmed. The ML algorithm is exposed to a training dataset in order to generate a mathematical model,which is then applied in real-life performance tasks. %(it is used for making predictions).
+		
+		ML can be divided into three main categories \cite{ML categories}:
+		\begin{enumerate}
+			\item \textbf{Supervised Learning}: the goal is to learn a mapping from inputs \textbf{x} to outputs $y$, given a labeled set of input-output pairs $D = \{(x_i, y_i)\}_{i=1}^{N}$. Here $D$ is called the training set, and $N$ is the number of training examples. In the simplest setting, each training input $\textbf{x}_i$ is a $D$-dimensional vector of numbers, which are called features, attributes or covariates. In general, however, $\textbf{x}_i$ could be a complex structured object.
+			
+			The form of the output or response variable can in principle be anything, but most methods assume that $y_i$ is a categorical or nominal variable from some finite set, $y_i \epsilon  \{1, . . . , C\}$ or that $y_i$ is a real-valued scalar. When $y_i$ is categorical, the problem is known as classification or pattern recognition, and when $y_i$ is real-valued, the problem is known as regression.
+			
+			\item \textbf{Unsupervised learning}: here to the algorithm is only given inputs, $D = \{(x_i)\}_{i=1}^{N}$, and the goal is to find “interesting patterns” in the data. This is sometimes called knowledge discovery. %This is a much less well-defined problem, since we are not told what kinds of patterns to look for, and there is nocobvious error metric to use (unlike supervised learning, where we can compare our prediction of y for a given x to the observed value).%
+			
+			\item \textbf{Reinforcement learning}: this is useful for learning how to act or behave when given occasional reward or punishment signals. A reinforcement learning algorithm, or agent, learns by interacting with its environment. The agent receives rewards by performing correctly and penalties for performing incorrectly. The agent learns without intervention from a human by maximizing its reward and minimizing its penalty.
+			
+		\end{enumerate}
+		\section{Supervised Learning}
+		Let's focus on the supervised learning. \cite{GBT}
+			\subsection{Model and Parameters}
+			As written above, the model in supervised learning usually refers to the mathematical structure of by which the prediction $y_i$ is made from the input $\textbf{x}_i$.
+		
+			The parameters are the undetermined part that we need to learn from data. In linear regression problems, the parameters are the coefficients $\theta$. Usually $\theta$ is used to denote the parameters (there are many parameters in a model).
+		
+			\subsection{Objective Function}
+			In order to train the model, we need to define the a function of the parameters to measure how well the model fit the training data. This function is called: \textit{Objective function}.
+			
+			A characteristic of objective functions is that they are composed of two parts (also dependent on parameters): training loss $L$ and regularization term $\Omega$:
+			$$
+			obj(\theta) = L(\theta) + \Omega(\theta)
+			$$
+			The training loss measures how predictive our model is with respect to the training data. Common choices of $L$ are the mean squared error, which is given by:
+			$$
+			L(\theta) = \sum_{i}(y_i - y_{i_{pred}})^2
+			$$
+			or logistic loss, to be used for logistic regression:
+			$$
+			L(\theta) = \sum_{i}  [{ y_i\ln(1+e^{-y_{i_{pred}}}) + (1-y_i) \ln(1+e^{-y_{i_{pred}}})    }]
+			$$
+			
+			The regularization term controls the complexity of the model, which helps to avoid overfitting. The general principle is a simple and predictive model. The tradeoff between the two is also referred as bias-variance tradeoff in machine learning.
+		\section{Gradient boosted trees}
+		There are many models, which ML algorithms can use, and one of them is a
+		Decision Tree ensemble. If it is trained, it becomes a Gradient Boosted Tree. The basic unit is decision tree.
+			\subsection{Decision Tree}
+			Decision Trees (DTs) are a supervised learning method used for classification and regression.
+			\cite{Decision Tree}A decision tree is a hierarchical structure consisting of nodes and directed edges. The tree has three types of nodes:
+			\begin{itemize}
+				\item a root node that has no incoming edges and zero or more outgoing edges.
+				\item internal nodes, each of which has exactly one incoming edge and two or more outgoing edges.
+				\item leaf or terminal nodes, each of which has exactly one incoming edge and no outgoing edges.
+			\end{itemize}
+			
+			\subsection{Decision Tree Ensembles}
+			\cite{GBT}The tree ensemble model consists of a set of classification and regression trees (CART). A CART is a bit different from decision trees, in which the leaf only contains decision values. In CART, a real score is associated with each of the leaves. This also allows for a principled, unified approach to optimization.
+			
+			Usually, a single tree is not strong enough to be used in practice. So the ensemble model is used. In this model the prediction scores of each individual tree are summed up to get the final score:
+			$$
+			y_{i_{pred}} = \sum_{k=1}^{K} f_k(x_i), f_k \epsilon \mathcal{F}
+			$$
+			where $K$ is the number of trees, $f$ is a function in the functional space $\mathcal{F}$, and $\mathcal{F}$ is the set of all possible CARTs. The objective function to be optimized is given by:
+			$$
+			obj(\theta)
+			$$
+			
+		\section{LightGBM}
+		
+		
+		
+		
+		
+	\begin{thebibliography}{17}
+			
+			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+			%\textbf{\Large Chapter 2} 
+			
 			% 1 %
 			\bibitem{LHC design} European organization for nuclear research, \textit{LHC design report}, CERN libraries, Geneva (2004). \url{http://cds.cern.ch/record/782076/files/}
 			% 2 %
@@ -345,8 +457,11 @@
 			Geneva, ATL-INDET-PROC-2013-005, Apr 2013, ATL-INDET-PROC-2013-005. \url{https://cds.cern.ch/record/1537991}
 			% 9 %v
 			\bibitem{Calorimetry}
-			\url{http://ific.uv.es/~cabrera/teaching/atlas_i.pdf}
-			% Chapter 2 %
+			\url{http://ific.uv.es/~cabrera/teaching/atlas_i.pdf}\\
+			
+			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		 	\textbf{\Large Chapter 2} 
+		 	
 			% 10 %
 			\bibitem{El ph intro} Wu Xin, Clark Allan and Campanelli Mario \textit{Electron and photon identification in ATLAS}, Springer Berlin Heidelberg, Berlin, Heidelberg, 2006
 			\url{https://link.springer.com/chapter/10.1007/978-3-540-32841-4_21} 
@@ -364,5 +479,19 @@
 			\bibitem{ID reco alg} \textit{Optimisation of the ATLAS Track Reconstruction Software for Run-2}, Andreas Salzburger, CERN, Switzerland, \url{http://iopscience.iop.org/1742-6596/664/7/072042}
 			% 15 % 
 			\bibitem{Identification} \textit{Electron and photon identification with the ATLAS detector}, Proklova Nadezda, ATLAS Collaboration, Aug 2018, ATL-PHYS-SLIDE-2018-606, \url{http://cds.cern.ch/record/2634679}
+			% 16 %
+			\bibitem{El ph isol} \textit{SEARCH FOR SUPERSYMMETRY WITH A COMPRESSED MASS SPECTRUM USING THE ATLAS DETECTOR}, Rossini Lorenzo, \url{http://hdl.handle.net/2434/683343 }\\
+			
+			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+			\textbf{\Large Chapter 3}
+			
+			% 17 %
+			\bibitem{Lifelong ML} \textit{Lifelong Machine Learning}, Zhiyuan Chen and Bing Liu, Morgan \& Claypool Publishers, Nov 2016, \url{https://www.cs.uic.edu/~liub/lifelong-machine-learning-draft.pdf}
+			% 18 %
+			\bibitem{ML categories} \textit{Machine Learning: A Probabilistic Perspective}, Kevin P. Murphy, The MIT Press, \url{https://scholar.google.it/scholar?q=K.P.+Murphy,+Machine+Learning.+A+Probabilistic+Perspective+,+MITpress+(2012)&hl=it&as_sdt=0&as_vis=1&oi=scholart}
+			% 19 % 
+			\bibitem{GBT} \url{https://xgboost.readthedocs.io/en/latest/tutorials/model.html}
+			% 20 %
+			\bibitem{Decision Tree} \textit{4Classification:Basic Concepts,Decision Trees, andModel Evaluation}, \url{https://www-users.cs.umn.edu/~kumar001/dmbook/ch4.pdf}
 	\end{thebibliography}
 \end{document}
