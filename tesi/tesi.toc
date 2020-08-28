@@ -21,20 +21,20 @@
 \contentsline {subsection}{\numberline {2.6.1}Elettron identification}{18}{subsection.2.6.1}%
 \contentsline {subsection}{\numberline {2.6.2}Photon identification}{19}{subsection.2.6.2}%
 \contentsline {section}{\numberline {2.7}Electron and photon isolation}{22}{section.2.7}%
-\contentsline {chapter}{\numberline {3}Machine Learning}{23}{chapter.3}%
+\contentsline {chapter}{\numberline {3}Machine Learning and Gradient Boosted Trees}{23}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Supervised Learning}{23}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Model and Parameters}{23}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.1}Model and Parameters}{24}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}Objective Function}{24}{subsection.3.1.2}%
 \contentsline {section}{\numberline {3.2}Gradient boosted trees}{24}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Decision Tree}{24}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Decision Tree Ensembles}{24}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.2}Decision Tree Ensembles}{25}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}Tree Boosting}{25}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Learn the tree structure}{27}{subsection.3.2.4}%
 \contentsline {section}{\numberline {3.3}LightGBM}{27}{section.3.3}%
-\contentsline {chapter}{\numberline {4}BDT: Electron and photon classification}{28}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Dataframe and BDT training}{28}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Dataframe}{28}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Discriminating features}{28}{subsection.4.1.2}%
-\contentsline {subsubsection}{Electron features}{28}{section*.19}%
-\contentsline {subsubsection}{Photon features}{29}{section*.22}%
-\contentsline {section}{\numberline {4.2}Parameters and Hyperparameter optimization}{29}{section.4.2}%
+\contentsline {chapter}{\numberline {4}BDT: Electron and photon classification}{29}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Dataframe and BDT training}{29}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Dataframe}{29}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Discriminating features}{29}{subsection.4.1.2}%
+\contentsline {subsubsection}{Electron features}{29}{section*.19}%
+\contentsline {subsubsection}{Photon features}{30}{section*.22}%
+\contentsline {section}{\numberline {4.2}Parameters and Hyperparameter optimization}{30}{section.4.2}%
