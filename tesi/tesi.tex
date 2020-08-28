@@ -235,15 +235,26 @@
 						\item In the HLT, offline-like reconstruction algorithms run in a large farm of $\approx$ 40.000 processor cores and a decision is formed typically within 300 ms. The HLT is a software trigger providing typically 2500 independent trigger chains. These are sequences of offline-like algorithms executed within the L1 RoIs. Furthermore, full-event reconstruction is possible at the HLT. Events accepted by the HLT are written into different data streams to be used for physics analysis, trigger level analysis, monitoring or detector calibration. Depending on the datastream, the full event or only partial event information is written out, allowing for higher rates without consuming a significant amount of the available bandwidth.
 					\end{itemize}
 					
-					\begin{figure} [H]
+					\begin{figure}
 						\centering
 						\subfloat[]{\includegraphics[width=.42\textwidth]{tesi_images/L1.png}} \quad
 						\subfloat[]{\includegraphics[width=.45\textwidth]{tesi_images/HLT.png}} 
 						\caption{L1 (a) and HLT (b) physics trigger rates grouped by trigger signatures as a function of theluminosity block number, in a fill taken in July 2016 with a peak instantaneous luminosity of $1.2 \times 10^{34}cm^{-2}s^{-1}$ and an average (peak) pile-up }
 						\label{fig:Trigger system}
 					\end{figure}
-					
-				
+		\section{ATLAS Physics}
+			\cite{STD Model}ATLAS explores a range of physics topics, with the primary focus of improving our understanding of the fundamental constituents of matter. The basic building blocks of matter study is based on the Standard Model theory. The Standard Model describes the elementary subatomic particles of the universe which have been experimentally seen. ATLAS studies these particles and searches for others to determine if the particles we know are indeed elementary or if they are in fact composed of other more fundamental ones. 
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=.3\textwidth]{tesi_images/STD_model.png}
+				\caption{Particles in the Standard Model}
+				\label{fig:STD model}
+			\end{figure}
+			ATLAS is also useful int the study of forces that govern their interactions.Indeed, the Standard Model also describes the fundamental forces of Nature and how they act between fundamental particles. Possible future discoveries could validate models, such as Supersymmetry, where forces combine with very high energies.
+			
+			Due to the Proton-proton and heavy-ion collisions, LHC  recreate the conditions immediately following the Big Bang when the Universe was governed by high-energy particle physics and later by a primordial soup of quarks and gluons, and allow ATLAS to study fundamental questions such as the Brout-Englert-Higgs field or Dark Matter.
+			
+			One of the most important ATLAS discoveries is the proof of the existence of the Higgs boson. On 4 July 2012, the ATLAS and CMS experiments at CERN announced that they had independently observed a new particle in the mass region of around 126 GeV: a boson consistent with the Higgs boson.
 				
 	\chapter{Electron and photon reconstruction}
 		Events with electrons and photons in the final state are important signatures for many physics analyses envisaged at the LHC. Their reconstruction mainly  exploits data coming from the electromagnetic calorimeter (clusters) and the Inner Detector (ID) systems (tracks) \cite{El ph intro}\cite{El ph reco}: 
@@ -288,7 +299,18 @@
 		\end{itemize}
 		
 		\section{Track-cluster matching and photon conversion reconstruction}
-
+			\cite{El ph reco} After cluster and track reconstruction, the next step is the track-cluster matching. Fixed-size clusters in the calorimeter are used to create regions-of-interest (ROIs) and tracks intersecting
+			these regions are considered loosely matched to the cluster. Track candidates are then fitted with the global $\chi^2$ fitter. The loosely matched, re-fitted tracks are then matched to the EM topo-clusters (with requirements, see \cite{El ph reco}).
+			If multiple tracks are matched to a cluster, they are ranked in order to choose the best one. To assign the rank, tracks are compared on the number of hits in the Pixel and SCT detectors. Another rank characteristic is $\Delta R$: tracks with a better $\Delta R$ match between the track and cluster coordinates are preferred. So the highest-ranked track is used to define the reconstructed electron properties.
+			
+			Tracks loosely matched to fixed-size clusters serve as input to the reconstruction of the conversion vertex. Both tracks with silicon hits and tracks reconstructed only in the TRT are used for the conversion reconstruction. Two-track conversion vertices are reconstructed from two opposite-charge tracks forming a vertex consistent with that of a massless particle, while single-track vertices are essentially tracks without hits in the innermost sensitive layers. To increase the converted-photon purity, the tracks used to build conversion vertices must have a high probability to be electron tracks as determined by the TRT. The requirement is loose for Si tracks but tight for TRT tracks used to build double-track conversions, and even tighter for tracks used to build single-track conversions. 
+			
+			The conversion vertices are then matched to the EM topo-clusters. Using tracks with silicon hits, a conversion vertex is considered matched if extrapolated tracks
+			match the cluster to within $|\Delta \eta|$ and $|\Delta \phi|$ < 0.05. With TRT only tracks these requirements are looser.
+			If there are multiple conversion vertices matched to a cluster, double-track conversions with two silicon tracks are preferred over other double-track conversions, followed by single-track conversions. Within each category, the vertex with the smallest
+			conversion radius is preferred.
+			
+			
 		\section{Supercluster reconstruction}
 		The reconstruction of electron and photon superclusters proceeds independently, each in two stages \cite{El ph reco}:
 		\begin{enumerate}
@@ -779,11 +801,15 @@
 			\bibitem{Trigger intro}
 			\textit{Trigger and Data Acquisition System}
 			\url{https://atlas.cern/discover/detector/trigger-daq}	
-			% 13 $ 
+			% 13 % 
 			\bibitem{Trigger system}
 			\textit{The Run-2 ATLAS Trigger System: Design, Performance and
 			Plan}, Martin zur Nedden, CERN, ATLAS Collaboration, Geneva, Dec 2016, ATL-DAQ-PROC-2016-039,
 			\url{https://cds.cern.ch/record/2238679}
+			% 14 % 
+			\bibitem{STD Model}
+			\textit{The ATLAS Physics}
+			\url{https://atlas.cern/discover/physics}
 			
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		 	\textbf{\Large Chapter 2} 

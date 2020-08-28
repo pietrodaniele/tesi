@@ -10,28 +10,29 @@
 \BOOKMARK [2][-]{subsection.1.2.4}{Calorimetry system}{section.1.2}% 10
 \BOOKMARK [2][-]{subsection.1.2.5}{Muon spectrometer}{section.1.2}% 11
 \BOOKMARK [2][-]{subsection.1.2.6}{Trigger system}{section.1.2}% 12
-\BOOKMARK [0][-]{chapter.2}{Electron and photon reconstruction}{}% 13
-\BOOKMARK [1][-]{section.2.1}{The topo-cluster reconstruction}{chapter.2}% 14
-\BOOKMARK [1][-]{section.2.2}{Track reconstruction}{chapter.2}% 15
-\BOOKMARK [1][-]{section.2.3}{Track-cluster matching and photon conversion reconstruction}{chapter.2}% 16
-\BOOKMARK [1][-]{section.2.4}{Supercluster reconstruction}{chapter.2}% 17
-\BOOKMARK [1][-]{section.2.5}{Creation of electrons and photons for analysis}{chapter.2}% 18
-\BOOKMARK [1][-]{section.2.6}{Identification}{chapter.2}% 19
-\BOOKMARK [2][-]{subsection.2.6.1}{Elettron identification}{section.2.6}% 20
-\BOOKMARK [2][-]{subsection.2.6.2}{Photon identification}{section.2.6}% 21
-\BOOKMARK [1][-]{section.2.7}{Electron and photon isolation}{chapter.2}% 22
-\BOOKMARK [0][-]{chapter.3}{Machine Learning}{}% 23
-\BOOKMARK [1][-]{section.3.1}{Supervised Learning}{chapter.3}% 24
-\BOOKMARK [2][-]{subsection.3.1.1}{Model and Parameters}{section.3.1}% 25
-\BOOKMARK [2][-]{subsection.3.1.2}{Objective Function}{section.3.1}% 26
-\BOOKMARK [1][-]{section.3.2}{Gradient boosted trees}{chapter.3}% 27
-\BOOKMARK [2][-]{subsection.3.2.1}{Decision Tree}{section.3.2}% 28
-\BOOKMARK [2][-]{subsection.3.2.2}{Decision Tree Ensembles}{section.3.2}% 29
-\BOOKMARK [2][-]{subsection.3.2.3}{Tree Boosting}{section.3.2}% 30
-\BOOKMARK [2][-]{subsection.3.2.4}{Learn the tree structure}{section.3.2}% 31
-\BOOKMARK [1][-]{section.3.3}{LightGBM}{chapter.3}% 32
-\BOOKMARK [0][-]{chapter.4}{BDT: Electron and photon classification}{}% 33
-\BOOKMARK [1][-]{section.4.1}{Dataframe and BDT training}{chapter.4}% 34
-\BOOKMARK [2][-]{subsection.4.1.1}{Dataframe}{section.4.1}% 35
-\BOOKMARK [2][-]{subsection.4.1.2}{Discriminating features}{section.4.1}% 36
-\BOOKMARK [1][-]{section.4.2}{Parameters and Hyperparameter optimization}{chapter.4}% 37
+\BOOKMARK [1][-]{section.1.3}{ATLAS Physics}{chapter.1}% 13
+\BOOKMARK [0][-]{chapter.2}{Electron and photon reconstruction}{}% 14
+\BOOKMARK [1][-]{section.2.1}{The topo-cluster reconstruction}{chapter.2}% 15
+\BOOKMARK [1][-]{section.2.2}{Track reconstruction}{chapter.2}% 16
+\BOOKMARK [1][-]{section.2.3}{Track-cluster matching and photon conversion reconstruction}{chapter.2}% 17
+\BOOKMARK [1][-]{section.2.4}{Supercluster reconstruction}{chapter.2}% 18
+\BOOKMARK [1][-]{section.2.5}{Creation of electrons and photons for analysis}{chapter.2}% 19
+\BOOKMARK [1][-]{section.2.6}{Identification}{chapter.2}% 20
+\BOOKMARK [2][-]{subsection.2.6.1}{Elettron identification}{section.2.6}% 21
+\BOOKMARK [2][-]{subsection.2.6.2}{Photon identification}{section.2.6}% 22
+\BOOKMARK [1][-]{section.2.7}{Electron and photon isolation}{chapter.2}% 23
+\BOOKMARK [0][-]{chapter.3}{Machine Learning}{}% 24
+\BOOKMARK [1][-]{section.3.1}{Supervised Learning}{chapter.3}% 25
+\BOOKMARK [2][-]{subsection.3.1.1}{Model and Parameters}{section.3.1}% 26
+\BOOKMARK [2][-]{subsection.3.1.2}{Objective Function}{section.3.1}% 27
+\BOOKMARK [1][-]{section.3.2}{Gradient boosted trees}{chapter.3}% 28
+\BOOKMARK [2][-]{subsection.3.2.1}{Decision Tree}{section.3.2}% 29
+\BOOKMARK [2][-]{subsection.3.2.2}{Decision Tree Ensembles}{section.3.2}% 30
+\BOOKMARK [2][-]{subsection.3.2.3}{Tree Boosting}{section.3.2}% 31
+\BOOKMARK [2][-]{subsection.3.2.4}{Learn the tree structure}{section.3.2}% 32
+\BOOKMARK [1][-]{section.3.3}{LightGBM}{chapter.3}% 33
+\BOOKMARK [0][-]{chapter.4}{BDT: Electron and photon classification}{}% 34
+\BOOKMARK [1][-]{section.4.1}{Dataframe and BDT training}{chapter.4}% 35
+\BOOKMARK [2][-]{subsection.4.1.1}{Dataframe}{section.4.1}% 36
+\BOOKMARK [2][-]{subsection.4.1.2}{Discriminating features}{section.4.1}% 37
+\BOOKMARK [1][-]{section.4.2}{Parameters and Hyperparameter optimization}{chapter.4}% 38
