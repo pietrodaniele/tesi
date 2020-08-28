@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.7.28)  19 AUG 2020 18:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.7.28)  28 AUG 2020 12:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -293,6 +293,14 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
 LaTeX Info: Redefining \[ on input line 2859.
 LaTeX Info: Redefining \] on input line 2860.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count279
+\float@exts=\toks22
+\float@box=\box48
+\@float@everytoks=\toks23
+\@floatcapt=\box49
+)
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
@@ -306,30 +314,30 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2017/10/31 v2.20.4
-\thm@style=\toks22
-\thm@bodyfont=\toks23
-\thm@headfont=\toks24
-\thm@notefont=\toks25
-\thm@headpunct=\toks26
+\thm@style=\toks24
+\thm@bodyfont=\toks25
+\thm@headfont=\toks26
+\thm@notefont=\toks27
+\thm@headpunct=\toks28
 \thm@preskip=\skip59
 \thm@postskip=\skip60
 \thm@headsep=\skip61
-\dth@everypar=\toks27
+\dth@everypar=\toks29
 )
 (/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2020/01/17 v1.23 mathematical typesetting tools
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count279
-\calc@Bcount=\count280
+\calc@Acount=\count280
+\calc@Bcount=\count281
 \calc@Adimen=\dimen167
 \calc@Bdimen=\dimen168
 \calc@Askip=\skip62
 \calc@Bskip=\skip63
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count281
+\calc@Ccount=\count282
 \calc@Cskip=\skip64
 )
 (/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty
@@ -339,7 +347,7 @@ LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
-\g_MT_multlinerow_int=\count282
+\g_MT_multlinerow_int=\count283
 \l_MT_multwidth_dim=\dimen169
 \origjot=\skip65
 \l_MT_shortvdotswithinadjustabove_dim=\dimen170
@@ -376,7 +384,34 @@ s
 (/usr/share/texlive/texmf-dist/tex/latex/braket/braket.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count283
+\etb@tempcnta=\count284
+)
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen176
+\lightrulewidth=\dimen177
+\cmidrulewidth=\dimen178
+\belowrulesep=\dimen179
+\belowbottomsep=\dimen180
+\aboverulesep=\dimen181
+\abovetopsep=\dimen182
+\cmidrulesep=\dimen183
+\cmidrulekern=\dimen184
+\defaultaddspace=\dimen185
+\@cmidla=\count285
+\@cmidlb=\count286
+\@aboverulesep=\dimen186
+\@belowrulesep=\dimen187
+\@thisruleclass=\count287
+\@lastruleclass=\count288
+\@thisrulewidth=\dimen188
+)
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
+\multirow@colwidth=\skip75
+\multirow@cntb=\count289
+\multirow@dima=\skip76
+\bigstrutjot=\dimen189
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xfrac/xfrac.sty
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
@@ -384,8 +419,8 @@ Package: expl3 2020-02-14 L3 programming layer (loader)
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count284
-\l__pdf_internal_box=\box48
+\l__kernel_color_stack_int=\count290
+\l__pdf_internal_box=\box50
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
 Package: l3keys2e 2020-02-14 LaTeX2e option processing using LaTeX3 keys
@@ -395,26 +430,26 @@ Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 Package: xparse 2020-02-14 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count285
-\g__xparse_grabber_int=\count286
-\l__xparse_m_args_int=\count287
-\l__xparse_v_nesting_int=\count288
+\l__xparse_current_arg_int=\count291
+\g__xparse_grabber_int=\count292
+\l__xparse_m_args_int=\count293
+\l__xparse_v_nesting_int=\count294
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
 Package: xtemplate 2020-02-14 L3 Experimental prototype document functions
-\l__xtemplate_tmp_dim=\dimen176
-\l__xtemplate_tmp_int=\count289
+\l__xtemplate_tmp_dim=\dimen190
+\l__xtemplate_tmp_int=\count295
 \l__xtemplate_tmp_muskip=\muskip18
-\l__xtemplate_tmp_skip=\skip75
+\l__xtemplate_tmp_skip=\skip77
 )
 Package: xfrac 2020-02-14 L3 Experimental split-level fractions
-\l__xfrac_slash_box=\box49
-\l__xfrac_tmp_box=\box50
-\l__xfrac_denominator_bot_sep_dim=\dimen177
-\l__xfrac_numerator_bot_sep_dim=\dimen178
-\l__xfrac_numerator_top_sep_dim=\dimen179
-\l__xfrac_slash_left_sep_dim=\dimen180
-\l__xfrac_slash_right_sep_dim=\dimen181
+\l__xfrac_slash_box=\box51
+\l__xfrac_tmp_box=\box52
+\l__xfrac_denominator_bot_sep_dim=\dimen191
+\l__xfrac_numerator_bot_sep_dim=\dimen192
+\l__xfrac_numerator_top_sep_dim=\dimen193
+\l__xfrac_slash_left_sep_dim=\dimen194
+\l__xfrac_slash_right_sep_dim=\dimen195
 \l__xfrac_slash_left_muskip=\muskip19
 \l__xfrac_slash_right_muskip=\muskip20
 
@@ -520,17 +555,17 @@ LaTeX Font Info:    ... okay on input line 12.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count290
-\scratchdimen=\dimen182
-\scratchbox=\box51
-\nofMPsegments=\count291
-\nofMParguments=\count292
-\everyMPshowfont=\toks28
-\MPscratchCnt=\count293
-\MPscratchDim=\dimen183
-\MPnumerator=\count294
-\makeMPintoPDFobject=\count295
-\everyMPtoPDFconversion=\toks29
+\scratchcounter=\count296
+\scratchdimen=\dimen196
+\scratchbox=\box53
+\nofMPsegments=\count297
+\nofMParguments=\count298
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count299
+\MPscratchDim=\dimen197
+\MPnumerator=\count300
+\makeMPintoPDFobject=\count301
+\everyMPtoPDFconversion=\toks31
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 
@@ -548,7 +583,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box52
+\AtBeginShipoutBox=\box54
 Package hyperref Info: Link coloring OFF on input line 12.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -560,7 +595,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count296
+\c@section@level=\count302
 )
 LaTeX Info: Redefining \ref on input line 12.
 LaTeX Info: Redefining \pageref on input line 12.
@@ -572,8 +607,9 @@ LaTeX Info: Redefining \nameref on input line 12.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-<tesi_images/logo.jpg, id=120, 398.4486pt x 156.585pt>
+<tesi_images/logo.jpg, id=152, 398.4486pt x 156.585pt>
 File: tesi_images/logo.jpg Graphic file (type jpg)
 <use tesi_images/logo.jpg>
 Package pdftex.def Info: tesi_images/logo.jpg  used on input line 16.
@@ -622,175 +658,288 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./tesi_images/logo.jpg>] (
-./tesi.toc)
+./tesi.tocpdfTeX warning (ext4): destination with the same identifier (name{pag
+e.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.39 ...erparameter optimization}{28}{section.4.2}
+                                                  % [1
+
+])
 \tf@toc=\write4
 \openout4 = `tesi.toc'.
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.57 	\chapter
-              {LHC and ATLAS} [1
-
-]
+ [2]
 Chapter 1.
-<tesi_images/LHC_structure.jpg, id=167, 180.35522pt x 170.1223pt>
+<tesi_images/LHC_structure.jpg, id=214, 180.35522pt x 170.1223pt>
 File: tesi_images/LHC_structure.jpg Graphic file (type jpg)
 <use tesi_images/LHC_structure.jpg>
-Package pdftex.def Info: tesi_images/LHC_structure.jpg  used on input line 64.
+Package pdftex.def Info: tesi_images/LHC_structure.jpg  used on input line 65.
 (pdftex.def)             Requested size: 177.46086pt x 167.40141pt.
-<tesi_images/m_dipole.jpeg, id=169, 690.9012pt x 540.5796pt>
-File: tesi_images/m_dipole.jpeg Graphic file (type jpg)
-<use tesi_images/m_dipole.jpeg>
-Package pdftex.def Info: tesi_images/m_dipole.jpeg  used on input line 80.
-(pdftex.def)             Requested size: 188.21288pt x 147.2617pt.
-<tesi_images/m_quad.png, id=170, 469.755pt x 432.61626pt>
-File: tesi_images/m_quad.png Graphic file (type png)
-<use tesi_images/m_quad.png>
-Package pdftex.def Info: tesi_images/m_quad.png  used on input line 81.
-(pdftex.def)             Requested size: 125.47737pt x 115.55373pt.
-<tesi_images/CERN.png, id=172, 760.8425pt x 614.295pt>
-File: tesi_images/CERN.png Graphic file (type png)
-<use tesi_images/CERN.png>
-Package pdftex.def Info: tesi_images/CERN.png  used on input line 90.
-(pdftex.def)             Requested size: 177.46086pt x 143.2814pt.
-[2
+[3
 
-] [3 <./tesi_images/LHC_structure.jpg> <./tesi_images/m_dipole.jpeg> <./tesi_im
-ages/m_quad.png (PNG copy)>] [4 <./tesi_images/CERN.png>]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-11.
-
-(/usr/share/texmf/tex/latex/lm/ts1lmr.fd
+ <./tesi_images/LHC_structure.jpg>]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 8
+1.
+ (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<tesi_images/atlas_structure.jpg, id=208, 810.52812pt x 520.94624pt>
+<tesi_images/m_dipole.jpeg, id=225, 690.9012pt x 540.5796pt>
+File: tesi_images/m_dipole.jpeg Graphic file (type jpg)
+<use tesi_images/m_dipole.jpeg>
+Package pdftex.def Info: tesi_images/m_dipole.jpeg  used on input line 86.
+(pdftex.def)             Requested size: 188.21288pt x 147.2617pt.
+<tesi_images/m_quad.png, id=226, 469.755pt x 432.61626pt>
+File: tesi_images/m_quad.png Graphic file (type png)
+<use tesi_images/m_quad.png>
+Package pdftex.def Info: tesi_images/m_quad.png  used on input line 87.
+(pdftex.def)             Requested size: 125.47737pt x 115.55373pt.
+<tesi_images/CERN.png, id=228, 760.8425pt x 614.295pt>
+File: tesi_images/CERN.png Graphic file (type png)
+<use tesi_images/CERN.png>
+Package pdftex.def Info: tesi_images/CERN.png  used on input line 96.
+(pdftex.def)             Requested size: 177.46086pt x 143.2814pt.
+[4 <./tesi_images/m_dipole.jpeg> <./tesi_images/m_quad.png (PNG copy)>]
+[5 <./tesi_images/CERN.png>]
+<tesi_images/atlas_structure.jpg, id=255, 810.52812pt x 520.94624pt>
 File: tesi_images/atlas_structure.jpg Graphic file (type jpg)
 <use tesi_images/atlas_structure.jpg>
-Package pdftex.def Info: tesi_images/atlas_structure.jpg  used on input line 13
-5.
+Package pdftex.def Info: tesi_images/atlas_structure.jpg  used on input line 14
+2.
 (pdftex.def)             Requested size: 266.18678pt x 171.08609pt.
-<tesi_images/atlas_coord.jpeg, id=209, 504.88625pt x 241.90375pt>
+ [6 <./tesi_images/atlas_structure.jpg>]
+<tesi_images/atlas_coord.jpeg, id=264, 504.88625pt x 241.90375pt>
 File: tesi_images/atlas_coord.jpeg Graphic file (type jpg)
 <use tesi_images/atlas_coord.jpeg>
-Package pdftex.def Info: tesi_images/atlas_coord.jpeg  used on input line 145.
+Package pdftex.def Info: tesi_images/atlas_coord.jpeg  used on input line 158.
 (pdftex.def)             Requested size: 177.46086pt x 85.02562pt.
- [5]
-<tesi_images/magnet_system_atlas.png, id=218, 356.33125pt x 142.5325pt>
+<tesi_images/magnet_system_atlas.png, id=266, 356.33125pt x 142.5325pt>
 File: tesi_images/magnet_system_atlas.png Graphic file (type png)
 <use tesi_images/magnet_system_atlas.png>
 Package pdftex.def Info: tesi_images/magnet_system_atlas.png  used on input lin
-e 158.
+e 165.
 (pdftex.def)             Requested size: 295.76509pt x 118.31062pt.
- [6 <./tesi_images/atlas_structure.jpg> <./tesi_images/atlas_coord.jpeg>]
-<tesi_images/ID_structure.jpg, id=229, 161.60374pt x 161.60374pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--167
+
+ []
+
+[7 <./tesi_images/atlas_coord.jpeg> <./tesi_images/magnet_system_atlas.png>]
+<tesi_images/ID_structure.jpg, id=277, 161.60374pt x 161.60374pt>
 File: tesi_images/ID_structure.jpg Graphic file (type jpg)
 <use tesi_images/ID_structure.jpg>
-Package pdftex.def Info: tesi_images/ID_structure.jpg  used on input line 170.
+Package pdftex.def Info: tesi_images/ID_structure.jpg  used on input line 177.
 (pdftex.def)             Requested size: 177.46086pt x 177.47122pt.
- [7 <./tesi_images/magnet_system_atlas.png> <./tesi_images/ID_structure.jpg>] [
-8] [9]
-Chapter 2.
-[10
 
-] [11]
-<tesi_images/super_cluster.png, id=270, 853.1875pt x 546.04pt>
+[8 <./tesi_images/ID_structure.jpg>]
+<tesi_images/calorimeters.png, id=289, 853.1875pt x 557.08125pt>
+File: tesi_images/calorimeters.png Graphic file (type png)
+<use tesi_images/calorimeters.png>
+Package pdftex.def Info: tesi_images/calorimeters.png  used on input line 196.
+(pdftex.def)             Requested size: 188.21288pt x 122.88977pt.
+ [9 <./tesi_images/calorimeters.png>]
+<tesi_images/muon_spectrometer.png, id=301, 314.17375pt x 334.24875pt>
+File: tesi_images/muon_spectrometer.png Graphic file (type png)
+<use tesi_images/muon_spectrometer.png>
+Package pdftex.def Info: tesi_images/muon_spectrometer.png  used on input line 
+222.
+(pdftex.def)             Requested size: 125.47737pt x 133.49312pt.
+<tesi_images/3D-muon.jpg, id=303, 587.26967pt x 408.11295pt>
+File: tesi_images/3D-muon.jpg Graphic file (type jpg)
+<use tesi_images/3D-muon.jpg>
+Package pdftex.def Info: tesi_images/3D-muon.jpg  used on input line 223.
+(pdftex.def)             Requested size: 188.21288pt x 130.79185pt.
+
+[10]
+<tesi_images/L1.png, id=312, 606.265pt x 409.53pt>
+File: tesi_images/L1.png Graphic file (type png)
+<use tesi_images/L1.png>
+Package pdftex.def Info: tesi_images/L1.png  used on input line 240.
+(pdftex.def)             Requested size: 175.66577pt x 118.66068pt.
+<tesi_images/HLT.png, id=313, 569.12625pt x 385.44pt>
+File: tesi_images/HLT.png Graphic file (type png)
+<use tesi_images/HLT.png>
+Package pdftex.def Info: tesi_images/HLT.png  used on input line 241.
+(pdftex.def)             Requested size: 188.21288pt x 127.46613pt.
+ [11 <./tesi_images/muon_spectrometer.png> <./tesi_images/3D-muon.jpg>]
+[12 <./tesi_images/L1.png> <./tesi_images/HLT.png>]
+Chapter 2.
+[13
+
+] [14]
+<tesi_images/super_cluster.png, id=353, 853.1875pt x 546.04pt>
 File: tesi_images/super_cluster.png Graphic file (type png)
 <use tesi_images/super_cluster.png>
-Package pdftex.def Info: tesi_images/super_cluster.png  used on input line 273.
+Package pdftex.def Info: tesi_images/super_cluster.png  used on input line 313.
 
 (pdftex.def)             Requested size: 266.18678pt x 170.36212pt.
- [12]
-<tesi_images/el_ph_analisi.png, id=284, 1027.84pt x 770.88pt>
+ [15]
+<tesi_images/el_ph_analisi.png, id=365, 1027.84pt x 770.88pt>
 File: tesi_images/el_ph_analisi.png Graphic file (type png)
 <use tesi_images/el_ph_analisi.png>
-Package pdftex.def Info: tesi_images/el_ph_analisi.png  used on input line 290.
+Package pdftex.def Info: tesi_images/el_ph_analisi.png  used on input line 330.
 
 (pdftex.def)             Requested size: 266.18678pt x 199.63597pt.
- [13 <./tesi_images/super_cluster.png>]
-<tesi_images/el_discr.png, id=294, 530.98375pt x 525.965pt>
-File: tesi_images/el_discr.png Graphic file (type png)
-<use tesi_images/el_discr.png>
-Package pdftex.def Info: tesi_images/el_discr.png  used on input line 311.
-(pdftex.def)             Requested size: 266.18678pt x 263.67204pt.
- [14 <./tesi_images/el_ph_analisi.png>] [15 <./tesi_images/el_discr.png>] [16] 
-[17]
-Chapter 3.
-[18
+ [16 <./tesi_images/super_cluster.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 362--363
+[]\T1/lmr/m/n/10 - Lat-eral shower width
+ []
 
-] [19] [20]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
-41.
+
+Underfull \hbox (badness 10000) in paragraph at lines 362--363
+[]$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 369--369
+[]\T1/lmr/m/n/10 - Shower width, $[]$
+ []
+
+
+Underfull \hbox (badness 2376) in paragraph at lines 369--369
+\T1/lmr/m/n/10 where i runs over all strips in a win-dow of
+ []
+
+
+Overfull \hbox (46.45212pt too wide) in paragraph at lines 351--390
+[][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 97.83609pt on input line 392.
+
+[17 <./tesi_images/el_ph_analisi.png>] [18]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[19] [20] [21]
+Chapter 3.
+[22
+
+] [23] [24] [25]
+<tesi_images/LGBM.png, id=467, 578.91281pt x 201.00093pt>
+File: tesi_images/LGBM.png Graphic file (type png)
+<use tesi_images/LGBM.png>
+Package pdftex.def Info: tesi_images/LGBM.png  used on input line 634.
+(pdftex.def)             Requested size: 207.03917pt x 71.88489pt.
+ [26 <./tesi_images/LGBM.png>]
+Chapter 4.
+<tesi_images/el_hit.png, id=477, 883.3pt x 279.0425pt>
+File: tesi_images/el_hit.png Graphic file (type png)
+<use tesi_images/el_hit.png>
+Package pdftex.def Info: tesi_images/el_hit.png  used on input line 660.
+(pdftex.def)             Requested size: 414.06932pt x 130.80936pt.
+[27
+
+]
+<tesi_images/el_track_ep.png, id=485, 379.4175pt x 279.0425pt>
+File: tesi_images/el_track_ep.png Graphic file (type png)
+<use tesi_images/el_track_ep.png>
+Package pdftex.def Info: tesi_images/el_track_ep.png  used on input line 675.
+(pdftex.def)             Requested size: 184.03264pt x 135.34822pt.
+<tesi_images/el_trackz0.png, id=486, 385.44pt x 279.0425pt>
+File: tesi_images/el_trackz0.png Graphic file (type png)
+<use tesi_images/el_trackz0.png>
+Package pdftex.def Info: tesi_images/el_trackz0.png  used on input line 676.
+(pdftex.def)             Requested size: 188.21288pt x 136.25513pt.
+<tesi_images/el_cl_pt.png, id=487, 389.455pt x 280.04625pt>
+File: tesi_images/el_cl_pt.png Graphic file (type png)
+<use tesi_images/el_cl_pt.png>
+Package pdftex.def Info: tesi_images/el_cl_pt.png  used on input line 678.
+(pdftex.def)             Requested size: 184.03264pt x 132.33109pt.
+<tesi_images/el_tracketa.png, id=488, 379.4175pt x 281.05pt>
+File: tesi_images/el_tracketa.png Graphic file (type png)
+<use tesi_images/el_tracketa.png>
+Package pdftex.def Info: tesi_images/el_tracketa.png  used on input line 679.
+(pdftex.def)             Requested size: 184.03264pt x 136.32195pt.
+ [28 <./tesi_images/el_hit.png>] [29 <./tesi_images/el_track_ep.png> <./tesi_im
+ages/el_trackz0.png> <./tesi_images/el_cl_pt.png> <./tesi_images/el_tracketa.pn
+g>] [30]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 7
+47.
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Underfull \hbox (badness 5893) in paragraph at lines 452--454
+Underfull \hbox (badness 10000) in paragraph at lines 752--755
+[]\T1/lmr/m/it/10 The Large Hadron Col-lider (LHC) []$\T1/lmtt/m/n/10 https : /
+ / home . cern / science / accelerators /
+ []
+
+
+Underfull \hbox (badness 5893) in paragraph at lines 762--764
 []\T1/lmr/m/n/10 H. Perneg-ger, \T1/lmr/m/it/10 The Pixel De-tec-tor of the AT-
 LAS Ex-per-i-ment for LHC Run-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--454
+Underfull \hbox (badness 10000) in paragraph at lines 762--764
 \T1/lmr/m/it/10 2\T1/lmr/m/n/10 , ATL-INDET-PROC-2015-001. []$\T1/lmtt/m/n/10 h
 ttps : / / cds . cern . ch / record / 1985432 / files /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 460--461
+Underfull \hbox (badness 10000) in paragraph at lines 770--772
 
  []
 
-[21
+
+Underfull \hbox (badness 10000) in paragraph at lines 780--783
+[]\T1/lmr/m/it/10 Trigger and Data Ac-qui-si-tion Sys-tem []$\T1/lmtt/m/n/10 ht
+tps : / / atlas . cern / discover / detector /
+ []
+
+[31
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 483--484
+Underfull \hbox (badness 10000) in paragraph at lines 809--810
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 491--493
+Underfull \hbox (badness 10000) in paragraph at lines 817--819
 \T1/lmtt/m/n/10 scholar . google . it / scholar ? q = K . P . +Murphy ,[] +Mach
 ine + Learning . +A + Probabilistic +
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 497.
-[22]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 497.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 826.
+[32]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 826.
  (./tesi.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 497.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 497.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 826.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 826.
 Package rerunfilecheck Info: File `tesi.out' has not changed.
-(rerunfilecheck)             Checksum: E4E6291CBC1D5867A5643B8B7AC50059;2032.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 497.
+(rerunfilecheck)             Checksum: E07C165830FFD158449251BB182D83E8;2622.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 826.
  ) 
 Here is how much of TeX's memory you used:
- 10869 strings out of 481239
- 176484 string characters out of 5920377
- 459020 words of memory out of 5000000
- 25797 multiletter control sequences out of 15000+600000
- 610366 words of font info for 63 fonts, out of 8000000 for 9000
+ 11190 strings out of 481239
+ 181686 string characters out of 5920377
+ 469568 words of memory out of 5000000
+ 26038 multiletter control sequences out of 15000+600000
+ 614637 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 50i,11n,49p,1161b,453s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 50i,13n,49p,1184b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
-ips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share
-/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
--ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/f
+ips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/s
+hare/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
+-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf/f
 onts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.
-pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts
-/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb>
-</usr/share/texmf/fonts/type1/public/lm/lmmi5.pfb></usr/share/texmf/fonts/type1
-/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/sh
-are/texmf/fonts/type1/public/lm/lmr5.pfb></usr/share/texmf/fonts/type1/public/l
-m/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/f
-onts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri8.p
-fb></usr/share/texmf/fonts/type1/public/lm/lmro10.pfb></usr/share/texmf/fonts/t
-ype1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></u
-sr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on tesi.pdf (23 pages, 1637020 bytes).
+pfb></usr/share/texmf/fonts/type1/public/lm/lmbx7.pfb></usr/share/texmf/fonts/t
+ype1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb>
+</usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type
+1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi5.pfb></usr/
+share/texmf/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/publi
+c/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr5.pfb></usr/share/tex
+mf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.
+pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/
+type1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/public/lm/lmro10.pfb></
+usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/
+public/lm/lmsy5.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/sha
+re/texmf/fonts/type1/public/lm/lmtt10.pfb>
+Output written on tesi.pdf (33 pages, 2513128 bytes).
 PDF statistics:
- 473 PDF objects out of 1000 (max. 8388607)
- 409 compressed objects within 5 object streams
- 94 named destinations out of 1000 (max. 500000)
- 293 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 671 PDF objects out of 1000 (max. 8388607)
+ 574 compressed objects within 6 object streams
+ 151 named destinations out of 1000 (max. 500000)
+ 407 words of extra memory for PDF output out of 10000 (max. 10000000)
 

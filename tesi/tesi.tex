@@ -1,8 +1,8 @@
 \documentclass[a4paper, oneside]{book}
 
-\usepackage{geometry,url,graphicx, hyperref,subfig,enumitem}
+\usepackage{geometry,url,graphicx, hyperref,subfig,enumitem, amsmath,float}
 \usepackage{amsmath, amssymb, amsthm, mathtools, color, setspace}
-\usepackage{fancyhdr, braket, etoolbox}
+\usepackage{fancyhdr, braket, etoolbox,booktabs,multirow}
 \usepackage{xfrac, lmodern} % xfrac gives font errors, add lmodern to remove them. Check whether this remains a problem!
 %\usepackage{hyperref}
 %\usepackage[utf8]{inputenc}
@@ -56,157 +56,197 @@
 
 	\chapter{LHC and ATLAS}
 		\section{The LHC}
-		The CERN Large Hadron Collider is a two-ring, superconducting accelerator and collider installed in the long LEP tunnel (27 km)\cite{LHC design} and it provides pp collisions and heavy-ion (e.g. Pb-Pb) collision.\\
-		Inside the accelerator, two high-energy particle beams travel at close to the speed of light before they are made to collide. The beams travel in opposite directions in separate beam pipes (two tubes kept at ultrahigh vacuum). They are guided around the accelerator ring by a strong magnetic field maintained by superconducting electromagnets\cite{LHC introduction}
-			\subsection{Lattice Layout}
-			\begin{figure}
-				\centering
-				\includegraphics[width=0.3\textheight]{tesi_images/LHC_structure.jpg}
-				\caption{LHC structure}
-			\end{figure}
-			The basic layout of the LHC follows the LEP tunnel geometry. The LHC has eight arcs and straight sections. Each straight section is approximately 528 m long and can serve as an experimental or utility insertion. The two high luminosity experimental insertions are located at diametrically opposite straight sections: the ATLAS experiment is located at point I and the CMS experiment at point 5.\\
-			Two more experimental insertions are located at point 2 and point 8 which also contain the injection systems for Beam
-			J and Beam 2, respectively. The injection kick occurs in the vertical plane with the two beams arriving at the LHC from below the LHC reference plane. The beams only cross from one magnet bore to the other at
-			these four locations.\\
-			The remaining four straight sections do not have beam crossings. Insertion 3 and 7 each contain two collimation systems. Insertion 4 contains two RF systems: one independent system for each LHC
-			beam. The straight section at point 6 contains the beam dump insertion where the two beams are vertically
-			extracted from the machine using a combination of horizontally deflecting fast-pulsed ('kicker') magnets and
-			vertically-deflecting double steel septum magnets. Each beam features an independent abort system. \cite{LHC design} \\
-			The protons travel inside along th LHC ring in opposite direction. The LHC beams are controlled by superconducting magnets, which have a working temperature of 1.9 K. There are two kinds of superconducting magnets: \\
-			- the superconducting dipole magnets, which thanks to a 8.33 T magnetic field drive protons along the ring (circular orbit); \\
-			- superconducting quadrupole magnets, which keep the beams focused. 
-			\begin{figure}
-				\centering
-				\subfloat[][\emph{LHC dipole}]{\includegraphics[width=.45\textwidth]{tesi_images/m_dipole.jpeg}} \quad
-				\subfloat[][\emph{LHC quadpole}]{\includegraphics[width=.3\textwidth]{tesi_images/m_quad.png}} 
-				\caption{LHC's superconducting magnets}
-				\label{fig:subfig}
-			\end{figure}
-			\subsection{The CERN accelerator complex}
-			Before being insert into LHC ring, particle beam is accelereted by the CERN accelerator complex. It is a succession of machins with increasingly higher energies. Each machine injects the beam into the next one, which takes over to bring the beam to an even higher energy, and so on. In  the  LHC—the  last  element  of  this  chain—each particle beam is accelerated up to the record energy of 6.5 TeV. Specifically, in LHC protons are obtained by stripping electrons from hydrogen atoms, which are taken from a bottle containing hydrogen. Then protons are injected into the PS Booster (PSB) at an  energy of 50 MeV from Linac2. The  booster  accelerates  them  to  1.4  GeV.  The  beam  is  then  fed  to  the  Proton  Synchrotron  (PS)  where  it  is  accelerated  to  25 GeV. Protons are then sent to the Super Proton Synchrotron (SPS) where they are accelerated to 450 GeV. They  are  finally  transferred  to  the  LHC  (both  in  a  clockwise  and an anticlockwise direction) where they are accelerated for 20 minutes to 6.5 TeV. Beams circulate for many hours inside the LHC beam pipes under normal operating conditions. \\
-			In addition to accelerating protons, the accelerator complex can also accelerate lead ions. \cite{Acc. complex} \\
-			\begin{figure}
-				\centering
-				\includegraphics[width=0.3\textheight]{tesi_images/CERN.png}
-				\caption{LHC and CERN's complex accelerator}
-			\end{figure}
-			\subsection{Proton-proton collisions}
-			The numer of events per second generated in the LHC collisions is given by:
-			$$
-			N_{event} = L\sigma_{event}
-			$$
-			where $\sigma_{event}$ is the cross section for the event under study and $L$ the machine luminosity. $L$ depends only on the beam parameters and can be written for a Gaussian beam distribution as: 
-			$$
-			L = \frac{N_b^2n_bf_{rev}\gamma_r}{4\pi\epsilon_n\beta^*}F
-			$$
-			\cite{LHC design} where $N_b$ is the number of particles per bunch, $n_b$ the number of bunches per beam, $f_{rev}$ the revolution frequency, $\gamma_r$ the relativistic gamma factor, $\epsilon_n$ the normalized transverse beam emittance, $\beta^*$ the beta function at the collision point and $F$ the geometric luminosity reduction factor due to the crossing angle at the IP.
-			%\footnote{ $F = \frac{1}{\sqrt{1+(\frac{\eta_c\sigma_z}{2\sigma^*})^2}}$ where $\eta_c$ is the full crossing angle at the IP, $\sigma_z$ the RMS bunch length and $\sigma_^*$ the transverse RMS beam size at the IP.}%
+			The CERN Large Hadron Collider is a two-ring, superconducting accelerator and collider installed in the long LEP tunnel (27 km)\cite{LHC design} and it provides pp collisions and heavy-ion (e.g. Pb-Pb) collision.
 			
-			The total inelastic proton-proton cross-section is about 80 mb at $\sqrt{s} = 14$ TeV. \cite{LHC introduction} Therefore, the event rate $R$, defined as the number of events produced per second by the pp interactions, is expected to be:
-			$$
-			R = \sigma L = 80 mb\times10^{34}cm^{-2}s^{-1} \simeq 10^{9}s^{-1}
-			$$
-			There are towo types of pp collisions:
-			\begin{itemize}
-				\item Soft collisions: 
-				they are the most of the collisions and they are large-distance collisions between the two incoming protons. They are called "soft" because the momentum transfer of the interaction is small. Due to this feature, particle scattering at large angle is suppressed and so, after collisions, particles have a large longitudinal momentum, but small transverse momentum ($<p_T>\simeq500 Mev$) relative to the beam line. The final states
-				arising from such interactions are called minimum bias events. They are not interesting.
-				\item Hard collisions:
-				monochromatic proton beams can be seen as beams of partons (quarks and gluons) with a wide band
-				of energy. Occasionally, head-on collisions occur between two partons of the incoming protons. These are interactions at small distances, and therefore are characterised by large
-				momentum transfers ("hard scattering"). In this case, particles in the final state can be produced at large angles with respect to the beam line (high $p_T$) and massive particles can be created.
-				These are the interesting physics events. They are, however, rare compared to the soft interactions. \\
-				In the hard-scattering interactions of quarks and gluons at a hadron collider, the effective centre-of-
-				mass energy of the interaction ($\sqrt{\hat{s}}$) is, u, smaller than the centre-of-mass energy of the machine ($\sqrt{s}$) and is given by: 
-				$$ 
-				\sqrt{\hat{s}} = \sqrt{x_ax_bs}
-				$$
-				where $x_a$ and $x_b$ are the fractions of the proton momentum carried by the two colliding partons. If $x_a \simeq x_b$, then the above relation becomes
-				$$ 
-				\sqrt{\hat{s}} \simeq x\sqrt{s}
-				$$.
-				Therefore, in order to produce a particle of mass 100 GeV, two quarks (or gluons) which carry only 1\% of the proton momentum are needed ($x \sim 0.01$), whereas a particle of mass 5 TeV can only be produced if two partons with $x \sim 0.35$ interact. The momentum distributions of quarks and gluons inside the proton are called parton distribution functions. \cite{LHC introduction}
+			Inside the accelerator, two high-energy particle beams travel at close to the speed of light before they are made to collide. The beams travel in opposite directions in separate beam pipes (two tubes kept at ultrahigh vacuum). They are guided around the accelerator ring by a strong magnetic field maintained by superconducting electromagnets\cite{LHC introduction},\cite{LHC site}.
+				\subsection{Lattice Layout}
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.3\textheight]{tesi_images/LHC_structure.jpg}
+						\caption{LHC structure}
+						\label{fig:LHC structure}
+					\end{figure}
+					The basic layout of the LHC follows the LEP tunnel geometry. The LHC has eight arcs and straight sections. Each straight section is approximately 528 m long and can serve as an experimental or utility insertion. The two high luminosity experimental insertions are located at diametrically opposite straight sections: the ATLAS experiment is located at point 1 (IR1) and the CMS experiment at point 5 (IR5).
+					
+					Two more experimental insertions are located at point 2 and point 8 which also contain the injection systems for Beam
+					1 and Beam 2, respectively. The injection kick occurs in the vertical plane with the two beams arriving at the LHC from below the LHC reference plane. The beams only cross from one magnet bore to the other at
+					these four locations.
+					
+					The remaining four straight sections do not have beam crossings. Insertion 3 and 7 each contain two collimation systems. Insertion 4 contains two RF systems: one independent system for each LHC
+					beam. The straight section at point 6 contains the beam dump insertion where the two beams are vertically
+					extracted from the machine using a combination of horizontally deflecting fast-pulsed ('kicker') magnets and
+					vertically-deflecting double steel septum magnets. Each beam features an independent abort system. \cite{LHC design} \\
+					The protons travel inside along th LHC ring in opposite direction. The LHC beams are controlled by superconducting magnets, which have a working temperature of 1.9 K. There are two kinds of superconducting magnets (Figure \ref{fig:magnets}):
+					\begin{itemize}
+						\item the superconducting dipole magnets, which thanks to a 8.33 T magnetic field drive protons along the ring (circular orbit);
+						\item superconducting quadrupole magnets, which keep the beams focused.
+					\end{itemize} 
+					\begin{figure}
+						\centering
+						\subfloat[][\emph{LHC dipole}]{\includegraphics[width=.45\textwidth]{tesi_images/m_dipole.jpeg}} \quad
+						\subfloat[][\emph{LHC quadpole}]{\includegraphics[width=.3\textwidth]{tesi_images/m_quad.png}} 
+						\caption{LHC's superconducting magnets}
+						\label{fig:magnets}
+					\end{figure}
+				\subsection{The CERN accelerator complex}
+					\cite{Acc. complex} Before being insert into LHC ring, particle beam is accelereted by the CERN accelerator complex. It is a succession of machines with increasingly higher energies. Each machine injects the beam into the next one, which takes over to bring the beam to an even higher energy, and so on. In  the  LHC, the  last  element  of  this  chain, each particle beam is accelerated up to the record energy of 6.5 TeV. Specifically, in LHC protons are obtained by stripping electrons from hydrogen atoms, which are taken from a bottle containing hydrogen. Then protons are injected into the PS Booster (PSB) at an  energy of 50 MeV from Linac2. The  booster  accelerates  them  to  1.4  GeV.  The  beam  is  then  fed  to  the  Proton  Synchrotron  (PS)  where  it  is  accelerated  to  25 GeV. Protons are then sent to the Super Proton Synchrotron (SPS) where they are accelerated to 450 GeV. They  are  finally  transferred  to  the  LHC  (both  in  a  clockwise  and an anticlockwise direction) where they are accelerated for 20 minutes to 6.5 TeV. Beams circulate for many hours inside the LHC beam pipes under normal operating conditions.
+					In addition to accelerating protons, the accelerator complex can also accelerate lead ions. 
+					\begin{figure}
+						\centering
+						\includegraphics[width=0.3\textheight]{tesi_images/CERN.png}
+						\caption{LHC and CERN's complex accelerator}
+						\label{fig:CERN structure}
+					\end{figure}
+				\subsection{Proton-proton collisions}
+					\cite{LHC design}The number of events per second generated in the LHC collisions is given by:
+					$$
+					N_{event} = L\sigma_{event}
+					$$
+					where $\sigma_{event}$ is the cross section for the event under study and $L$ the machine luminosity. $L$ depends only on the beam parameters and can be written for a Gaussian beam distribution as: 
+					$$
+					L = \frac{N_b^2n_bf_{rev}\gamma_r}{4\pi\epsilon_n\beta^*}F
+					$$
+					where $N_b$ is the number of particles per bunch, $n_b$ the number of bunches per beam, $f_{rev}$ the revolution frequency, $\gamma_r$ the relativistic gamma factor, $\epsilon_n$ the normalized transverse beam emittance, $\beta^*$ the beta function at the collision point and $F$ the geometric luminosity reduction factor due to the crossing angle at the IP.
+					%\footnote{ $F = \frac{1}{\sqrt{1+(\frac{\eta_c\sigma_z}{2\sigma^*})^2}}$ where $\eta_c$ is the full crossing angle at the IP, $\sigma_z$ the RMS bunch length and $\sigma_^*$ the transverse RMS beam size at the IP.}%
+					
+					The total inelastic proton-proton cross-section is about 80 mb at $\sqrt{s} = 14$ TeV. \cite{LHC introduction} Therefore, the event rate $R$, defined as the number of events produced per second by the pp interactions, is expected to be:
+					$$
+					R = \sigma L = 80 mb\times10^{34}cm^{-2}s^{-1} \simeq 10^{9}s^{-1}
+					$$
+					There are two types of pp collisions:
+					\begin{itemize}
+						\item \textbf{Soft collisions}: 
+						they are the most of the collisions and they are large-distance collisions between the two incoming protons. They are called "soft" because the momentum transfer of the interaction is small. Due to this feature, particle scattering at large angle is suppressed and so, after collisions, particles have a large longitudinal momentum, but small transverse momentum ($<p_T>\simeq500 Mev$) relative to the beam line. The final states
+						arising from such interactions are called minimum bias events. They are not interesting.
+						\item \textbf{Hard collisions}:
+						monochromatic proton beams can be seen as beams of partons (quarks and gluons) with a wide band
+						of energy. Occasionally, head-on collisions occur between two partons of the incoming protons. These are interactions at small distances, and therefore are characterised by large
+						momentum transfers ("hard scattering"). In this case, particles in the final state can be produced at large angles with respect to the beam line (high $p_T$) and massive particles can be created.
+						These are the interesting physics events. They are, however, rare compared to the soft interactions.
+						
+						In the hard-scattering interactions of quarks and gluons at a hadron collider, the effective centre-of-
+						mass energy of the interaction ($\sqrt{\hat{s}}$) is smaller than the centre-of-mass energy of the machine ($\sqrt{s}$) and is given by: 
+						$$ 
+						\sqrt{\hat{s}} = \sqrt{x_ax_bs}
+						$$
+						where $x_a$ and $x_b$ are the fractions of the proton momentum carried by the two colliding partons. If $x_a \simeq x_b$, then the above relation becomes
+						$$ 
+						\sqrt{\hat{s}} \simeq x\sqrt{s}
+						$$
+						Therefore, in order to produce a particle of mass 100 GeV, two quarks (or gluons) which carry only 1\% of the proton momentum are needed ($x \sim 0.01$), whereas a particle of mass 5 TeV can only be produced if two partons with $x \sim 0.35$ interact. The momentum distributions of quarks and gluons inside the proton are called parton distribution functions. % da fuonte p219
 			\end{itemize}
 		\section{ATLAS}	
-		\cite{ATLAS intro}ATLAS is one of two general-purpose detectors at the Large Hadron Collider (LHC). It investigates a wide range of physics, from the search for the Higgs boson to extra dimensions and particles that could make up dark matter. Although it has the same scientific goals as the CMS experiment, it uses different technical solutions and a different magnet-system design.
-		
-		\begin{figure}
-			\centering
-			\includegraphics[width=0.45\textheight]{tesi_images/atlas_structure.jpg}
-			\caption{ATLAS structure}
-		\end{figure}
-		
-		Beams of particles from the LHC collide at the centre of the ATLAS detector making collision debris in the form of new particles, which fly out from the collision point in all directions. Six different detecting subsystems arranged in layers around the collision point record the paths, momentum, and energy of the particles, allowing them to be individually identified. A huge magnet system bends the paths of charged particles so that their momenta can be measured.
-		
-		The interactions in the ATLAS detectors create an enormous flow of data. To digest the data, ATLAS uses an advanced “trigger” system to tell the detector which events to record and which to ignore. Complex data-acquisition and computing systems are then used to analyse the collision events recorded. At 46 m long, 25 m high and 25 m wide, the 7000-tonne ATLAS detector is the largest volume particle detector ever constructed. 
-			\subsection{Coordinate system}
-			\begin{figure}
+			\cite{ATLAS intro}ATLAS is one of two general-purpose detectors at the Large Hadron Collider (LHC). It investigates a wide range of physics, from the search for the Higgs boson to extra dimensions and particles that could make up dark matter. Although it has the same scientific goals as the CMS experiment, it uses different technical solutions and a different magnet-system design.
+			\begin{figure}[H]
 				\centering
-				\includegraphics[width=0.3\textheight]{tesi_images/atlas_coord.jpeg}
-				\caption{ATLAS coordinate system}
+				\includegraphics[width=0.45\textheight]{tesi_images/atlas_structure.jpg}
+				\caption{ATLAS structure}
+				\label{fig:ATLAS structure}
 			\end{figure}
-			\cite{ATLAS config}The origin of the coordinate system is set in the nominal point of interation. The beam direction defines the z-axis and the x-y plane is transverse to the beam direction. X-axis points from the interaction point to the centre of the LHC ring and Y-axis points upwards. The side-A of the detector is defined as that with positive z and side-C is that with negative z.
-			
-			Polar coordinate are also used: azimuthal angle $\phi$ is measured as usual around the beam axis, and the polar angle $\theta$ is the angle from the beam axis. Using $\theta$, pseudo rapidity is defined as $\eta= -\ln{\tan{\frac{\theta}{2}}}$. \\
-			%(in the case of massive objects such as jets, the rapidity $y=\frac{1}{2}\ln{\frac{E+p_{z}}{E−p_{z}}}$ is used).%
-			The transverse momentum $p_T$, the transverse energy $E_T$, and the missing transverse energy $E_T^{miss}$ are defined in the x-y plane unless stated otherwise.  The distance $\Delta R$ in the pseudo rapidity-azimuthal angle space is defined as $\Delta R = \sqrt{\Delta \eta^2 + \Delta \phi^2 }$.
-			\subsection{Magnet system}
-			\cite{ATLAS config}ATLAS features a unique hybrid system of four large superconducting magnets.  This magneticsystem is 22 m in diameter and 26 m in length, with a stored energy of 1.6 GJ. \\
-			The  ATLAS  magnet  system consists of:
-			\begin{figure}
-				\centering
-				\includegraphics[width=0.5\textheight]{tesi_images/magnet_system_atlas.png}
-				\caption{ATLAS magnet system}
-			\end{figure}
-			\begin{itemize}
-				\item a solenoid, which is aligned on the beam axis and provides a $2$ T axial magnetic field for the inner detector,  while minimising the radiative thickness in front of thebarrel electromagnetic calorimeter;
-				\item a  barrel  toroid and  two  end-cap  toroids, which  produce  atoroidal magnetic field of approximately $0.5$ T and $1$ T for the muon detectors in the centraland end-cap regions, respectively.
-			\end{itemize}
-			\subsection{Inner detector}
-			The ATLAS Inner Detector (ID) is the inner-most ATLAS layer and it is immersed in a 2 T solenoidal field. It is designed to provide hermetic and robust pattern recognition, excellent momentum resolution and both primary and secondary vertex measurements forcharged tracks, with a lower limit in $p_t$  (nominally 0.5 GeV, but as low as 0.1 GeV) and within the pseudorapidity range $|\eta|<2.5$. It also provides electron identification over $|\eta|<2.0$ and a wide range of en-ergies (between 0.5 GeV and 150 GeV). \cite{ATLAS config}
-			
-			\begin{figure}
-				\centering
-				\includegraphics[width=0.3\textheight]{tesi_images/ID_structure.jpg}
-				\caption{ATLAS Inner Detector structure}
-			\end{figure}
-			
-			ID is composed by three independent but complementary sub-detectors: 
-			\begin{itemize}
-				\item  Pixel Detector:  \cite{Inner Detector}
-				it is  the  inner-most  part  of  the  ATLAS  tracking  system. It consists of 4 layers of barrel pixel detector and two end caps of three pixel disks each. The innermost pixel layer is a high-resolution pixel detector,  called Insertable B-Layer (IBL). The Pixel Detector sits inside the 2T solenoidal magnetic field and contributes to the charged particle tracking of the ATLAS Inner Detector in the pseudo rapidity range of $|\eta|<2.5$. Due to its high spatial resolution and 3-dimensional space-point measurement the Pixel Detector has a key-role in reconstruction of charged particle tracks.  The 4-Layer Pixel Detector will be crucial in the reconstruction of primary and secondary vertices which is essential for the detection of long-lived particles.
-				\item Semiconductor Tracker (SCT): \cite{SCT}
-				it consists of 61 $m^2$ of active silicon-strip detector modules and it is immersed in a 2 T solenoidal magnetic field. The  SCT  covers  the  radial  region  from  30  to  52  cm,  with  hermetic  azimuthal  coverage  out  to $|\eta|=2.5$. Four cylindrical layers in the central region form the “barrel” detector, and nine annulardisks on each end of the barrel form the “endcaps”. The layout has been designed so that energetic charged particles will pass through at least four layers everywhere in the acceptance region.
-				\item Transition Radiation Tracker (TRT): \cite{TRT}
-				it is the outmost f the three tracking subsystems of the ATLAS Inner Detector. TRT s  a  straw-tube  tracker and it  consists  of  drift  tubes with a diameter of 4 mm that are made from wound Kapton and reinforced with thin carbon fibres. \\
-				When a charged particle traverses the TRT, it ionises the gasinside the straws. The resulting free electrons drift towards thewire, where they are amplified and read out. \\
-				The spaces between the straws are filled with polymer fibres(barrel) and foils (endcaps) to create transition radiation, whichmay be emitted by highly relativistic charged particles as theytraverse a material boundary.   This effect depends on the rel-ativistic factor $\gamma=E/m$ and is strongest for electrons.
-				This design  makes the TRT complementary to  the silicon-based tracking devices:  the intrinsic single-point resolution of 120 $\mu$m is larger than that of the silicon trackers, but this is compensated by the large number of hits per track (typically morethan 30) and the long lever arm.  Furthermore, the high sam-pling frequency of the wire signals enables the TRT to providetiming information on the nanosecond level.
-				RIFAI MEGLIOOOOOOOO OOOOOOOOOOOO OOOOOOOOOOOO OOOOOOOOOOOO  OOOO\\OO OOOOOOOOOOOOOOOOO\\OOO OOOOOOOOOOO O  OOOOOOOOOOOOOOOOO\\OOOOOOOO
-			\end{itemize}
-			\subsection{Calorimetry system}
-			Calorimeters measure the energy a particle loses as it passes through the detector, so the energy of all charged and neu-
-			tral particles. It is usually designed to stop entire or “absorb” most of the particles coming from a collision, forcing them to deposit all of their energy within the detector. Calorimeters typically consist of layers of “passive” or “absorbing” high-density material interleaved with layers of an “active” medium such as solid lead-glass or liquid argon. Calorimeters can stop most known particles except muons and neutrinos.
-			
-			The components of the ATLAS calorimetry system are: \cite{Calorimetry}
-			\begin{itemize}
-				\item electromagnetic calorimetry:
-				The main part of ATLAS EM calorimeter is alead–liquid argon (LAr) sampling detector with accordion-shaped electrodes and lead absorber plates over its full coverage. The calorimeter isdivided into a Barrel part and two End-Caps (seeTable 1). Each End-Cap is divided into two coaxial wheels: an outer wheel and an inner wheelcovering, respectively, 1:375ojZjo2:5 and 2:5o. The absorber lead thickness is constantover large areas. The argon gap thickness isconstant in the Barrel but changing with theradius in the End-Cap.There are three longitudinal samplings forjZjo2:5 and two for 2:5ojZjo3:2:. n the rangejZjo1:8;the calorimeter is precededby a presampler (see Table 1) to recover the energylost in the upstream material (cryostat, super-conducting coil, inner detector, etc.). The activedepth of the presampler is 11 mm of liquid argonin the Barrel and 4 mm in the End-Cap.
-				\item hadronic calorimeters:
-				In the rangejZjo1:6;the ATLAS hadroniccalorimeter is an iron-scintillating tiles calorimeter.For rapidity larger than 1.6, the hadronic calori-meter is an LAr calorimeter. The Hadronic Tile calorimeter is located behindthe solenoid coil and the EM calorimeter. It is asampling calorimeter using iron as absorbermaterial and scintillating tiles as active material. The Hadronic End-Cap calorimeter (HEC) is anLAr sampling calorimeter which provides hadro-nic coverage for 1:5ojZjo3:2
-				\item forward calorimeters (FCal):
-				In the forward region (3:1ojZjo4:9), the EMcalorimetry is done by another type of LArcalorimeter. The Forward Calorimeter (FCAL)consists of copper rods parallel to the beam axisinside an outer tube with 250mm liquid argon gapin between
-			\end{itemize}
+		
+			Beams of particles from the LHC collide at the centre of the ATLAS detector making collision debris in the form of new particles, which fly out from the collision point in all directions. Six different detecting subsystems arranged in layers around the collision point record the paths, momentum, and energy of the particles, allowing them to be individually identified. A huge magnet system bends the paths of charged particles so that their momenta can be measured.
+		
+			The interactions in the ATLAS detectors create an enormous flow of data. To digest the data, ATLAS uses an advanced “trigger” system to tell the detector which events to record and which to ignore. Complex data-acquisition and computing systems are then used to analyse the collision events recorded. At 46 m long, 25 m high and 25 m wide, the 7000-tonne ATLAS detector is the largest volume particle detector ever constructed. 
+				\subsection{Coordinate system}
+					\cite{ATLAS config}The origin of the coordinate system is set in the nominal point of interation. The beam direction defines the z-axis and the x-y plane is transverse to the beam direction. X-axis points from the interaction point to the centre of the LHC ring and Y-axis points upwards. The side-A of the detector is defined as that with positive z and side-C is that with negative z.
+					
+					Polar coordinate are also used: azimuthal angle $\phi$ is measured as usual around the beam axis, and the polar angle $\theta$ is the angle from the beam axis. Using $\theta$, pseudo rapidity is defined as $\eta= -\ln{\tan{\frac{\theta}{2}}}$. \\
+					%(in the case of massive objects such as jets, the rapidity $y=\frac{1}{2}\ln{\frac{E+p_{z}}{E−p_{z}}}$ is used).%
+					The transverse momentum $p_T$, the transverse energy $E_T$, and the missing transverse energy $E_T^{miss}$ are defined in the x-y plane unless stated otherwise.  The distance $\Delta R$ in the pseudo rapidity-azimuthal angle space is defined as $\Delta R = \sqrt{\Delta \eta^2 + \Delta \phi^2 }$.
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.3\textheight]{tesi_images/atlas_coord.jpeg}
+						\caption{ATLAS coordinate system}
+					\end{figure}
+				\subsection{Magnet system}
+					\cite{ATLAS config}ATLAS features a unique hybrid system of four large superconducting magnets.  This magnetic system is 22 m in diameter and 26 m in length, with a stored energy of 1.6 GJ. \\
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.5\textheight]{tesi_images/magnet_system_atlas.png}
+						\caption{ATLAS magnet system}
+					\end{figure}
+					The  ATLAS  magnet  system consists of:
+					\begin{itemize}
+						\item a solenoid, which is aligned on the beam axis and provides a $2$ T axial magnetic field for the inner detector,  while minimising the radiative thickness in front of the barrel electromagnetic calorimeter;
+						\item a  barrel  toroid and  two  end-cap  toroids, which  produce  a toroidal magnetic field of approximately $0.5$ T and $1$ T for the muon detectors in the centraland end-cap regions, respectively.
+					\end{itemize}
+				\subsection{Inner detector}
+					\cite{ATLAS config} The ATLAS Inner Detector (ID) is the inner-most ATLAS layer and it is immersed in a 2 T solenoidal field. It is designed to provide hermetic and robust pattern recognition, excellent momentum resolution and both primary and secondary vertex measurements for charged tracks, with a lower limit in $p_t$  (nominally 0.5 GeV, but as low as 0.1 GeV) and within the pseudorapidity range $|\eta|<2.5$. It also provides electron identification over $|\eta|<2.0$ and a wide range of energies (between 0.5 GeV and 150 GeV). 
+					\begin{figure}[H]
+						\centering
+						\includegraphics[width=0.3\textheight]{tesi_images/ID_structure.jpg}
+						\caption{ATLAS Inner Detector structure}
+					\end{figure}
+					
+					ID is composed by three independent but complementary sub-detectors: 
+					\begin{itemize}
+						\item  \textbf{Pixel Detector}:  \cite{Inner Detector}
+						it is  the  inner-most  part  of  the  ATLAS  tracking  system. It consists of 4 layers of barrel pixel detector and two end caps of three pixel disks each. The innermost pixel layer is a high-resolution pixel detector,  called Insertable B-Layer (IBL). The Pixel Detector sits inside the 2T solenoidal magnetic field and contributes to the charged particle tracking of the ATLAS Inner Detector in the pseudo rapidity range of $|\eta|<2.5$. Due to its high spatial resolution and 3-dimensional space-point measurement the Pixel Detector has a key-role in reconstruction of charged particle tracks.  The 4-Layer Pixel Detector will be crucial in the reconstruction of primary and secondary vertices which is essential for the detection of long-lived particles.	
+						\item \textbf{Semiconductor Tracker (SCT)}: \cite{SCT}
+						it consists of 61 $m^2$ of active silicon-strip detector modules and it is immersed in a 2 T solenoidal magnetic field. The  SCT  covers  the  radial  region  from  30  to  52  cm,  with  hermetic  azimuthal  coverage  out  to $|\eta|=2.5$. Four cylindrical layers in the central region form the “barrel” detector, and nine annular disks on each end of the barrel form the “endcaps”. The layout has been designed so that energetic charged particles will pass through at least four layers everywhere in the acceptance region.
+						\item \textbf{Transition Radiation Tracker (TRT)}: \cite{TRT}
+						it is the outmost of the three tracking subsystems of the ATLAS Inner Detector. TRT is a straw-tube tracker. When a charged particle traverses the TRT, it ionises the gas inside the straws. The resulting free electrons drift towards the wire, where they are amplified and read out.\\
+						The spaces between the straws are filled with polymer fibres (barrel) and foils (endcaps) to create transition radiation, which may be emitted by highly relativistic charged particles as they traverse a material boundary.   This effect depends on the relativistic factor $\gamma=E/m$ and is strongest for electrons, so it could be a discriminating factor.
+						This design  makes the TRT complementary to  the silicon-based tracking devices:  the intrinsic single-point resolution of 120 $\mu$m is larger than that of the silicon trackers, but this is compensated by the large number of hits per track (typically more than 30).  Furthermore, the high sampling frequency of the wire signals enables the TRT to provide timing information on the nanosecond level.
+					\end{itemize}
+				\subsection{Calorimetry system}
+					\cite{Calo intro}Calorimeters measure the energy a particle loses as it passes through the detector, so the energy of all charged and neutral particles. It is usually designed to stop entire or “absorb” most of the particles coming from a collision, forcing them to deposit all of their energy within the detector. Calorimeters typically consist of layers of “passive” or “absorbing” high-density material interleaved with layers of an “active” medium such as solid lead-glass or liquid argon. Calorimeters can stop most known particles except muons and neutrinos.
+					\begin{figure} [H]
+						\centering
+						\includegraphics[width=.45\textwidth]{tesi_images/calorimeters.png} 
+						\caption{ATLAS calorimetry system}
+						\label{fig:Calorimetry}
+					\end{figure}
+					The components of the ATLAS calorimetry system are: \cite{Calorimetry}
+					\begin{itemize}
+						\item \textbf{electromagnetic calorimetry}:
+						the main part of ATLAS EM calorimeter is a lead–liquid argon (LAr) sampling detector with accordion-shaped electrodes and lead absorber plates over its full coverage. The calorimeter is divided into a Barrel part and two End-Caps. Each End-Cap is divided into two coaxial wheels: an outer wheel and an inner wheelcovering, respectively, $1.375<|\eta|<2.5$ and $2.5<|\eta|<3.2$. The absorber lead thickness is constant over large areas. The argon gap thickness is constant in the Barrel but changing with the radius in the End-Cap.
+						In the range $|\eta|<1.8$, the calorimeter is preceded by a presampler to recover the energy lost in the upstream material (cryostat, super-conducting coil, inner detector, etc.).
+						\item \textbf{hadronic calorimeters}:
+						in the range $|\eta|<1.6$, the ATLAS hadronic calorimeter is an iron-scintillating tiles calorimeter. For rapidity larger than 1.6, the hadronic calori-meter is an LAr calorimeter. The Hadronic Tile calorimeter is located behind the solenoid coil and the EM calorimeter. It is a sampling calorimeter using iron as absorber material and scintillating tiles as active material. The Hadronic End-Cap calorimeter (HEC) is an LAr sampling calorimeter which provides hadronic coverage for $1.5<|\eta|<3.2$.
+						\item \textbf{forward calorimeters} (FCal):
+						in the forward region ($3.1<|\eta|<4.9$), the EM calorimetry is done by another type of LAr calorimeter. The Forward Calorimeter (FCAL) consists of copper rods parallel to the beam axis inside an outer tube with 250 mm liquid argon gap in between.
+					\end{itemize}
 		
 		
-			\subsection{Muon spectrometer}
-			The  muon  spectrometer  forms  the  outer  part  of  the  ATLAS  detector  and  is  designed  to  detectcharged particles exiting the barrel and end-cap calorimeters and to measure their momentum inthe pseudorapidity range$|\eta|<2.7$.  It is also designed to trigger on these particles in the region$|\eta|<2.4$.
-			
-	
-\newpage
-
+				\subsection{Muon spectrometer}
+					\cite{Muon system}The  muon  spectrometer  forms  the  outer  part  of  the  ATLAS  detector  and occupies by far the largest volume. It was designed to serve two purposes: an independent muon trigger and high quality stand-alone muon reconstruction over a wide range in transverse momentum, pseudo-rapidity ($|\eta|<2.4$ trigger, $|\eta|<2.7$ momentum) and azimuthal angle. This is achieved by the use of a large toroidal magnet system together with trigger and high precision tracking chambers.
+					
+					The magnet system of the muon spectrometer consists of three air-core toroids. Each toroid is build up of eight super conducting coils assembled in a radial configuration. Accurate knowledge of the field is required in order not to degrade the momentum resolution. During ATLAS running a large number of magnetic field sensors will measure the localfield ensuring a knowledge of the bending power with a precision better than 0.3\%. 
+					
+					Figure \ref{fig:ATLAS muon detector}a shows the transverse view of the barrel part of the muon spectrometer. In the barrel a particle typically traverses three measurement planes. The inner most stations are situated directly after the hadronic calorimeter, just outside the toroidal magnetic field. They are equipped with MDT chambers which allow a high precision measurement of the muon trajectory. The second layer of stations is situated in the magnet. The stations in this layer consist of a combination of one MDT chamber and two Resistive Plate Chambers (RPC). A third layer of stations is located just outside the magnetic field. The outer stations are formed by a combination of a MDT chamberand a RPC.
+					
+					The design of the muon system in the end-caps is different as it is not possible to install stations inside the end-cap magnets and the background rate is much higher. In the end-cap, the first layer of stations sits in front of the magnet. The region closest to the beam pipe, where the background counting rates are highest, is equipped with Cathode Strip Chambers (CSC) instead of MDT chambers because of their higher rate capability. MDT chambers provide the remaining coverage. Thin Gap Chambers(TGC) are installed providing the trigger signal. The second station layer is installed behind the end-cap magnet and is equipped with one layer of MDT chambers and two layers of TGCs. The outer station layer is equipped with MDT chambers.
+					\begin{figure} [H]
+						\centering
+						\subfloat[][\emph{Transverse xy-view of the ATLAS muon detector}]{\includegraphics[width=.3\textwidth]{tesi_images/muon_spectrometer.png}} \quad
+						\subfloat[][\emph{3D view of the ATLAS detector}]{\includegraphics[width=.45\textwidth]{tesi_images/3D-muon.jpg}} 
+						\caption{ATLAS muon detector}
+						\label{fig:ATLAS muon detector}
+					\end{figure}
+				
+				\subsection{Trigger system}
+					\cite{Trigger intro}ATLAS is designed to observe up to 1.7 billion proton-proton collisions per second, with a combined data volume of more than 60 million megabytes per second. However, only some of these events will contain interesting characteristics that might lead to new discoveries. To reduce the flow of data to manageable levels, ATLAS uses a specialised two-level online event selection system - the Trigger System - which selects events with distinguishing characteristics that make them interesting for physics analyses.
+				
+					The two independent levels are, a hardware-based first level (L1) and a software-based high level trigger (HLT) \cite{Trigger system}. 
+					\begin{itemize}
+						\item The L1 trigger is implemented in fast custom-made electronics and runs with a fixed latency of 2.5$\mu$s. L1 reduces the event rate from the LHC interaction rate of 40 MHz to $\approx$ 100 kHz. Up to 512 decision items are built, based on Regions of Interest (RoI) in $\eta/\varphi$ retrieved from the muon (L1Muon) and calorimeter (L1Calo) systems. The L1 trigger decision is formed by the Central Trigger Processor (CTP). The L1Topo trigger, which is a system introduced for Run-2, performs selections based on geometric or kinematic association between trigger objects received from L1Calo or L1Muon. Another system introduced for Run-2 is the Fast Tracker (FTK), which provides hardware-based tracking information at the rate of the events accepted by L1 for later usage in the HLT.
+						
+						\item In the HLT, offline-like reconstruction algorithms run in a large farm of $\approx$ 40.000 processor cores and a decision is formed typically within 300 ms. The HLT is a software trigger providing typically 2500 independent trigger chains. These are sequences of offline-like algorithms executed within the L1 RoIs. Furthermore, full-event reconstruction is possible at the HLT. Events accepted by the HLT are written into different data streams to be used for physics analysis, trigger level analysis, monitoring or detector calibration. Depending on the datastream, the full event or only partial event information is written out, allowing for higher rates without consuming a significant amount of the available bandwidth.
+					\end{itemize}
+					
+					\begin{figure} [H]
+						\centering
+						\subfloat[]{\includegraphics[width=.42\textwidth]{tesi_images/L1.png}} \quad
+						\subfloat[]{\includegraphics[width=.45\textwidth]{tesi_images/HLT.png}} 
+						\caption{L1 (a) and HLT (b) physics trigger rates grouped by trigger signatures as a function of theluminosity block number, in a fill taken in July 2016 with a peak instantaneous luminosity of $1.2 \times 10^{34}cm^{-2}s^{-1}$ and an average (peak) pile-up }
+						\label{fig:Trigger system}
+					\end{figure}
+					
+				
+				
 	\chapter{Electron and photon reconstruction}
-		Events with electrons and photons in the final state are important signatures for many physics analyses envisagedat the LHC. Their reconstruction mainly  exploits data coming from the electromagnetic calorimeter (clusters) and the Inner Detector (ID) systems (tracks) \cite{El ph intro}: 
+		Events with electrons and photons in the final state are important signatures for many physics analyses envisaged at the LHC. Their reconstruction mainly  exploits data coming from the electromagnetic calorimeter (clusters) and the Inner Detector (ID) systems (tracks) \cite{El ph intro}\cite{El ph reco}: 
 		\begin{itemize}
 			\item an electron is defined as an object consisting of a cluster built from energy deposits in the
 			calorimeter (supercluster) and a matched track (or tracks);
@@ -266,7 +306,7 @@
 				than 1.5 GeV with no requirement made on any track or conversion
 				vertex matching.
 			\end{enumerate}
-		A cluster cannot be used as a seed cluster if it has already been added as a satellitecluster to another seed cluster.
+		A cluster cannot be used as a seed cluster if it has already been added as a satellite cluster to another seed cluster.
 		\item if a cluster meets the characteristics of the previous point, the algorithm attempts to find satellite clusters, using the process summarized in figure \ref{fig:super_cl}.
 		\begin{figure}
 			\centering
@@ -284,7 +324,7 @@
 		\section{Creation of electrons and photons for analysis}
 		\cite{El ph reco}After the electron and photon superclusters are built, tracks are matched to electron superclusters and conversion vertices to photon superclusters. Then the analysis-level
 		electrons and photons are created. Because electron and photon superclusters are built independently, a given seed cluster can produce both an electron and a photon. In such cases, the procedure
-		presented in figure \ref{fig:el_ph_analisi} is applied. The purpose is that if a particular object can be easily identified only as a photon (a cluster with no good track attached) or only as an electron (a cluster with a good track attached and no good photon conversion vertex), then only a photon or an electron object is created for analysis; otherwise, both an electron and a photon object are created. Furthermore,these cases are marked explicitly as ambiguous, allowing the final classification of these objects to be determined based upon the specific requirements of each analysis.
+		presented in figure \ref{fig:el_ph_analisi} is applied. The purpose is that if a particular object can be easily identified only as a photon (a cluster with no good track attached) or only as an electron (a cluster with a good track attached and no good photon conversion vertex), then only a photon or an electron object is created for analysis; otherwise, both an electron and a photon object are created. Furthermore, these cases are marked explicitly as ambiguous, allowing the final classification of these objects to be determined based upon the specific requirements of each analysis.
 		\begin{figure}
 			\centering
 			\includegraphics[width=0.45\textheight]{tesi_images/el_ph_analisi.png}
@@ -296,7 +336,7 @@
 		\cite{Identification}Excellent electron and photon identification capabilities are crucial for many aspects of the ATLAS physics program, from standard model measurements (including Higgs boson) to new physics searches. The identification of prompt photons and the rejection of backgrounds, mostly coming from photons from hadron decays, relies on the high granularity of the ATLAS calorimeter. Electron identification is based on a likelihood (LH) discrimination to separate isolated electron candidates from candidates originating from photon conversions, hadron misidentification and heavy flavor decays. 
 			\subsection{Elettron identification}
 			\cite{El ph reco}The quantities used in the electron identification are chosen according to their ability to discriminate prompt isolated electrons from energy deposits from hadronic jets, from converted photons and from genuine electrons produced in the decays of heavy-flavour hadrons. The variables can be
-			grouped into properties of:
+			grouped into properties of (Table \ref{tab:el parameters}):
 			\begin{itemize}
 				\item the primary electron track, which is required to fulfil a set of quality requirements, namely hits in the two inner tracking layers closest to the beam line, as well as a number of hits in the silicon-strip detectors. The transverse impact parameter of the track and its significance are used to construct
 				the likelihood discriminant.
@@ -306,12 +346,50 @@
 				identification uses $f_1$ and $f_3$.
 				\item the spatial compatibility of the primary electron track with the reconstructed cluster, which are matched using $\Delta\eta_1$ and $\Delta\phi_{res}$. 
 			\end{itemize}
-			\begin{figure}
-				\centering
-				\includegraphics[width=0.45\textheight]{tesi_images/el_discr.png}
-				\caption{Electron discriminating variables}
-				\label{fig:el_discr}
-			\end{figure}
+			\begin{table}
+				
+				\begin{tabular}{lp{8cm}c}
+					\toprule[1.5pt]
+					\textbf{Type} & \textbf{Description} & \textbf{Simbol}\\
+					\midrule
+					\multirow[t]{5}{*}{Hadronic leakage} 
+					& {- Ratio of $E_T$ in the first layer of the hadronic calorimeter to $E_T$ of the EM calorimeter (in the pseudorapidity range $|\eta| < 0.8$ or $|\eta| > 1.37$)} & $R_{had1}$   \\ 
+					& - Ratio of $E_T$ in the first layer of the hadronic calorimeter to $E_T$ of the EM calorimeter (in the pseudorapidity range $0.8 < |\eta| < 1.37$) & $R_{had}$  \\
+					\midrule
+					Layer 3 of the EM calorimeter & Ratio of the energy in the back layer to the total energy in the EM calorimeter. This variable is only used below 100 GeV because it is known to be inefficient at high energies. & $f_3$ \\
+					\midrule
+					\multirow[t]{5}{*}{Layer 2 of the EM calorimeter}
+					& - Lateral shower width $\sqrt{(\sum_{i}E_i\eta_i^2)/(\sum_{i}E_i) - ((\sum_{i}E_i\eta_i)/(\sum_{i}E_i))^2}$ ,where
+					$E_i$ is the EM calorimeter energy and $\eta_i$ is the pseudorapidity of cell i and the sum is calculated within a window of 3 × 5 cells & $w_n^2$ \\
+					& - Ratio of the energy in 3 × 3 cells over the energy in 3 × 7 cells
+					centered at the electron cluster position & $R_\phi$ \\
+					& - Ratio of the energy in 3 × 7 cells over the energy in 7 × 7 cells centered at the electron cluster position & $R_\eta$ \\
+					\midrule
+					\multirow[t]{3}{*}{Layer 1 of the EM calorimeter}
+					& - Shower width, $\sqrt{(\sum_{i}E_i(i-i_{max})^2)/(\sum_{i}E_i)}$ where i runs over all strips in a window of $\Delta\eta \times \Delta\varphi \sim 0.0625 \times 0.2$ , corresponding typically to 20 strips in $\eta$, and $i_{max}$ is the index of the highest-energy strip & $w_{stot}$ \\
+					& - Ratio of the energy difference between the largest and second largest energy E ratio deposits in the cluster over the sum of these energies & $E_{ratio}$ \\
+					& - Ratio of the energy in the strip layer to the total energy in the EM accordion calorimeter & $f_1$ \\
+					\midrule
+					\multirow[t]{6}{*}{Track conditions}
+					& - Number of hits in the innermost pixel layer; discriminates against photon conversions & $n_{Blayer}$ \\
+					& - Number of hits in the Pixel Detector & $n_{Pixel}$ \\
+					& - Number of total hits in the pixel and SCT detectors & $n_{Si}$ \\
+					& - Transverse impact parameter with respect to the beam-line & $d_0$ \\
+					& - Significance of transverse impact parameter defined as the ratio of d 0 and its uncertainty & $d_0/\sigma_{d_0}$ \\
+					& - Momentum lost by the track between the perigee and the last measurement point divided by the original momentum & $\Delta p/p$ \\
+					\midrule 
+					TRT & Likelihood probability based on transition radiation in the TRT & eProbabilityHT \\
+					\midrule 
+					\multirow[t]{4}{*}{Track-cluster matching}
+					& - $\Delta \eta$ between the cluster position in Layer 1 and the extrapolated track & $\Delta \eta_1$ \\
+					& - $\Delta \Phi$ between the cluster position in the Layer 2 and the track extrapolated from the perigee & $\Delta \Phi_2$ \\
+					& - Defined as $\Delta \Phi_2$ , but the track momentum is rescaled to the cluster energy before extrapolating the track from the perigee to the Layer 2 of the calorimeter. & $\Delta \phi_{res}$ \\
+					& - Ratio of the cluster energy to the track momentum & E/p \\
+					\bottomrule[1.5pt]
+				\end{tabular}
+				\caption{Discriminating variables used for electron identification \cite{Identification}}
+				\label{tab:el parameters}
+			\end{table}
 			Then the combination of information from the tracker and the matching, information from the electromagnetic calorimeter, and hadronic leakage  are put together in likelihoods for a reconstructed electron to originate from signal,
 			$L_S$, or background, $L_B$. They are calculated from probability density functions (pdfs), $P$:
 			$$
@@ -325,8 +403,38 @@
 			Using the same variables but different values of $d_L$, three different operating points: Loose, Medium and Tight. They are sorted with increasing threshold values, and are chosen in order to have efficiency for electrons with $E_T > 40$ GeV of 93\%, 88\%, and 80\% respectively. This means that they are inclusive, and one the subset of the other.
 			
 			\subsection{Photon identification}
-			\cite{El ph reco}The photon identification criteria are designed to efficiently select prompt, isolated photons and reject backgrounds from hadronic jets. The photon identification is constructed from one-dimensional
-			selection criteria, or a cut-based selection, using the shower shape variables. AGGIUNGERE TABELLA VARIABILI
+			\cite{El ph reco}The photon identification criteria are designed to efficiently select prompt, isolated photons and reject backgrounds from hadronic jets. The photon identification is constructed from one-dimensional selection criteria, or a cut-based selection, using the shower shape variables (Table\ref{tab:ph parameters}).
+
+			\begin{table}[h!]
+				\centering
+				\begin{tabular}{lp{6cm}ccc}
+					\toprule[1.5pt]
+					\textbf{Category} & \textbf{Description} & \textbf{Name} & \textbf{\textit{loose}} & \textbf{\textit{tight}}\\
+					\midrule
+					Acceptance & $\eta<2.37$, with $1.37<|\eta|<1.52$ excluded & - & $\ast$ & $\ast$ \\
+					\midrule
+					\multirow[t]{2}{*}{Hadronic leakage} 
+					& {- Ratio of $E_T$ in the first layer of the hadronic calorimeter to $E_T$ of the EM calorimeter (used over range $|\eta| < 0.8$ or $|\eta| > 1.37$)} & $R_{had1}$ & $\ast$ & $\ast$  \\ 
+					& - Ratio of $E_T$ in the first layer of the hadronic calorimeter to $E_T$ of the EM calorimeter (in the pseudorapidity range $0.8 < |\eta| < 1.37$) & $R_{had}$  & $\ast$ & $\ast$ \\
+					\midrule
+					\multirow[t]{3}{*}{EM Middle layer}
+					& - Ratio of 3$\times$7 $\eta\times\phi$ to 7$\times$7 cell energies & $R_{\eta}$ & $\ast$ & $\ast$ \\
+					& - Lateral width of the shower & $w_{\eta2}$ & $\ast$ & $\ast$ \\
+					& - Ratio of 3$\times$3 $\eta\times\phi$ to 7$\times$7 cell energies & $R_{\phi}$ &  & $\ast$ \\
+					\midrule
+					\multirow[t]{5}{*}{EM Strip layer}
+					& - Shower width calculated from three strips around the strip with maximum energy deposit & $w_{s3}$ &  & $\ast$ \\
+					& - Total lateral shower width & $w_{stot}$ &  & $\ast$ \\
+					& - Energy outside the core of the three central strips but within seven strips divided by energy within the three central strips & $F_{side}$ &  & $\ast$ \\
+					& - Difference between the energy associated with the second maximum in strip layer(L1) and the energy reconstructed in the strip with the minimum value found between the first and second maxima & $\Delta E$ &  & $\ast$ \\
+					& - Ratio of the energy difference associated with the largest and second largest energy deposits to sum of these energies & $E_{ratio}$ &  & $\ast$ \\
+					
+					\bottomrule[1.5pt]
+				\end{tabular}
+				\caption{Discriminating variables used for \textit{loose} and \textit{tight} photon identification \cite{Identification}}
+				\label{tab:ph parameters}
+			\end{table}
+		
 			The variables using the EM first layer play a particularly important role in rejecting $\pi^0$ decays into
 			two highly collimated photons. The primary identification selection is labelled as Tight, with less restrictive selections called
 			Medium and Loose, which are used fo the $R_{had}$, $R_{had_1}$, $R_{\eta}$, and $w_{\eta_2}$ shower shape variables. The Medium selection adds a loose cut on $E_{ratio}$. Because the reconstruction of photons in the ATLAS trigger system does not differentiate between converted and unconverted photons, the Loose and Medium identification criteria are the same for converted
@@ -338,7 +446,7 @@
 			
 		\section{Electron and photon isolation}
 		The isolation progress, or isolation cut, is applied in order to reduce the backgrounds. Different criteria are defined, with different levels
-		of efficiency in rejecting the background. The isolation working points uses variables from the tracking and from the calorimeter.
+		of efficiency in rejecting the background. The isolation working points uses variables from the tracking and from the calorimeter. \cite{El ph isol}
 		
 		\cite{El ph reco}The activity near leptons and photons can be quantified from the tracks of nearby charged particles, or from energy deposits in the calorimeters, leading to two classes of isolation variables:
 		\begin{itemize}
@@ -365,13 +473,13 @@
 		
 		
 	\chapter{Machine Learning}
-		Machine Learning (ML) as been instrumental for the advances of both data analysis and artificial intelligence (AI) \cite{Lifelong ML}. ML is an application of AI with the aim of generating systems with the ability to automatically learn and improve from experience without being explicitly programmed. The ML algorithm is exposed to a training dataset in order to generate a mathematical model,which is then applied in real-life performance tasks. %(it is used for making predictions).
+		Machine Learning (ML) has been a useful tool for the advances of both data analysis and artificial intelligence (AI) \cite{Lifelong ML}. ML is an application of AI with the aim of generating systems with the ability to automatically learn and improve from experience without being explicitly programmed. The ML algorithm is exposed to a training dataset in order to generate a mathematical model,which is then applied in real-life performance tasks. %(it is used for making predictions).
 		
 		ML can be divided into three main categories \cite{ML categories}:
 		\begin{enumerate}
 			\item \textbf{Supervised Learning}: the goal is to learn a mapping from inputs \textbf{x} to outputs $y$, given a labeled set of input-output pairs $D = \{(x_i, y_i)\}_{i=1}^{N}$. Here $D$ is called the training set, and $N$ is the number of training examples. In the simplest setting, each training input $\textbf{x}_i$ is a $D$-dimensional vector of numbers, which are called features, attributes or covariates. In general, however, $\textbf{x}_i$ could be a complex structured object.
 			
-			The form of the output or response variable can in principle be anything, but most methods assume that $y_i$ is a categorical or nominal variable from some finite set, $y_i \epsilon  \{1, . . . , C\}$ or that $y_i$ is a real-valued scalar. When $y_i$ is categorical, the problem is known as classification or pattern recognition, and when $y_i$ is real-valued, the problem is known as regression.
+			The form of the output, or response variable, can in principle be anything, but most methods assume that $y_i$ is a categorical or nominal variable from some finite set, $y_i \epsilon  \{1, . . . , C\}$ or that $y_i$ is a real-valued scalar. When $y_i$ is categorical, the problem is known as classification or pattern recognition, and when $y_i$ is real-valued, the problem is known as regression.
 			
 			\item \textbf{Unsupervised learning}: here to the algorithm is only given inputs, $D = \{(x_i)\}_{i=1}^{N}$, and the goal is to find “interesting patterns” in the data. This is sometimes called knowledge discovery. %This is a much less well-defined problem, since we are not told what kinds of patterns to look for, and there is nocobvious error metric to use (unlike supervised learning, where we can compare our prediction of y for a given x to the observed value).%
 			
@@ -418,20 +526,218 @@
 			\cite{GBT}The tree ensemble model consists of a set of classification and regression trees (CART). A CART is a bit different from decision trees, in which the leaf only contains decision values. In CART, a real score is associated with each of the leaves. This also allows for a principled, unified approach to optimization.
 			
 			Usually, a single tree is not strong enough to be used in practice. So the ensemble model is used. In this model the prediction scores of each individual tree are summed up to get the final score:
-			$$
-			y_{i_{pred}} = \sum_{k=1}^{K} f_k(x_i), f_k \epsilon \mathcal{F}
-			$$
+			\begin{equation}
+				y_{i_{pred}} = \sum_{k=1}^{K} f_k(x_i), f_k \epsilon \mathcal{F}
+				\label{trees' sum}
+			\end{equation}
 			where $K$ is the number of trees, $f$ is a function in the functional space $\mathcal{F}$, and $\mathcal{F}$ is the set of all possible CARTs. The objective function to be optimized is given by:
-			$$
-			obj(\theta)
-			$$
+			\begin{equation}
+				obj(\theta) = \sum_{i}^{n}l(y_i,y_{i_{pred}}) + \sum_{k=1}^{K}\Omega(f_k)
+				\label{obj ens}
+			\end{equation}
+			so the functions $f_k$ are the parameters.
+			
+			\subsection{Tree Boosting}
+			After introducing the model, let's focus on trees' training. An essential element of tree training, as is always for all supervised learning models, is an objective function, which will be optimize:
+			\begin{equation}
+				obj = \sum_{i}^{n}l(y_i,y_{i_{pred}}^{(t)}) + \sum_{i=1}^{t}\Omega(f_i)
+				\label{obj training}
+			\end{equation}
+			
+			There are many training methods and one of them is \textit{Addittive Training}. In this case, as mentioned above, the parameters of trees are the function $f_i$, each containing the structure of the tree and the leaf scores. Due to the difficulty of training many trees at the same time, it is used an additive approach:
+			\begin{multline}
+				\\y_{i_{pred}}^{(0)} = 0 \\
+				y_{i_{pred}}^{(1)} = f_1(\textbf{x}_i) = y_{i_{pred}}^{(0)} + f_1(\textbf{x}_i) \\
+				y_{i_{pred}}^{(2)} = f_1(\textbf{x}_i) + f_2(\textbf{x}_i)= y_{i_{pred}}^{(1)} + f_2(\textbf{x}_i) \\	
+				...\\
+				y_{i_{pred}}^{(t)} = \sum_{k=1}^{t}f_k(\textbf{x}_i) = y_{i_{pred}}^{(t-1)} + f_t(\textbf{x}_i)\\		
+				\label{y additive}	
+			\end{multline}
+			In each step, the tree used is the one that optimizes objective function, which \eqref{obj training} in addittive approach becomes:
+			\begin{multline}
+				\\obj^{(t)} = \sum_{i}^{n}l(y_i,y_{i_{pred}}^{(t)}) + \sum_{i=1}^{t}\Omega(f_i)\\
+				= \sum_{i}^{n}l(y_i,y_{i_{pred}}^{(t-1)}+f_t(\textbf{x}_i)) + \Omega(f_t) +costant \\
+				\label{obj additive}	
+			\end{multline}
+			Then using a taylor expansion of the loss function up to the second order in \eqref{obj additive}: 
+			\begin{equation}
+			obj^{(t)} = \sum_{i}^{n}l(y_i,y_{i_{pred}}^{(t-1)}+g_if_t(\textbf{x}_i)) +\frac{1}{2}h_if_t^2(\textbf{x}_i) + \Omega(f_t) +costant
+			\label{obj taylor}	
+			\end{equation}
+			where $g_i$ and $h_i$ are:
+			\begin{multline}
+				\\g_i = \partial_{y_{i_{pred}}^{(t-1)}} l(y_i,y_{i_{pred}}^{(t-1)})\\
+				h_i = \partial_{y_{i_{pred}}^{(t-1)}}^2 l(y_i,y_{i_{pred}}^{(t-1)})\\
+				\label{g and h}	
+			\end{multline}
+			So the specific objective at step t, without all the constants, becomes:
+			\begin{equation}
+				\sum_{i}^{n}[g_if_t(\textbf{x}_i) + \frac{1}{2}h_i f_t^2(\textbf{x}_i)] + \Omega(f_t)
+				\label{spec obj}
+			\end{equation}
+			The other part of objective is the regulation term, which represents the complexity of the tree $f_t$. $f_t$ can be defined as:
+			\begin{equation}
+				f_t(\textbf{x}) = w_{q(x)}, w \epsilon R^T, q:R^d \rightarrow \{1,2,...,T\}
+				\label{tree in math}
+			\end{equation}
+			where $w$ is the vector of scores in leaves, $q$ is a function assigning each data point to the corresponding leaf, and T is the number of leaves. So the complexity $\Omega$ becomes:
+			\begin{equation}
+				\Omega(f) = \gamma T + \frac{1}{2} \lambda \sum_{j=1}^{T} w_j^2
+				\label{Omega math}
+			\end{equation}
+			So, using eq. \eqref{obj taylor}, \eqref{tree in math}, \eqref{Omega math}, the objective value with the $t$-th tree is:
+			\begin{multline}
+				\\obj^{(t)} \simeq \sum_{i=1}^{n}[g_i w_{q(\textbf{x}_i)} +\frac{1}{2}h_iw_{q(\textbf{x}_i)}^2] +\gamma T + \frac{1}{2}\lambda\sum_{j=1}^{T} w_j^2\\
+				=\sum_{j=1}^{T}[(\sum_{i\epsilon I_J}g_i)w_j + \frac{1}{2}(\sum_{i\epsilon I_J}h_i + \lambda)w_j^2] + \gamma T\\
+				\label{obj double exp}
+			\end{multline}
+			where $I_j=\{i|q(x_i)=j\}$ is the set of indices of data points assigned to the $j$-th leaf. 
+			The equation \eqref{obj double exp} can be simplified by defining $G_j = \sum_{i\epsilon I_j}g_i$ and $H_j = \sum_{i\epsilon I_j}h_i$:
+			\begin{equation}
+				obj^{(t)} =\sum_{j=1}^{T}[G_j w_j + \frac{1}{2}(H_j + \lambda)w_j^2] + \gamma T
+				\label{obj simple}
+			\end{equation}
+			Due to $w_j$ are independent with respect to each other, the form $G_jw_j+\frac{1}{2}(H_j+\lambda)w^2_j$ is quadratic, the best $w_j$ for a given structure $q(x)$ is:
+			\begin{equation}
+				w_j^{best} = -\dfrac{G_j}{H_j + \lambda}
+				\label{best w_j}
+			\end{equation}
+			Then using the best $w_j$, the objective reduction becomes the best objective reduction, which measures how good a tree structure $q(x)$ is:
+			\begin{equation}
+				obj^{(t)_{best}} = -\frac{1}{2}\sum_{j=1}^{T}\dfrac{G_j}{H_j + \lambda} + \gamma T
+				\label{best obj}
+			\end{equation}
+			
+			\subsection{Learn the tree structure}
+			Now thanks to the equation \eqref{best obj} it is possible to measure to measure how good a tree is, ideally it is possible to enumerate all possible trees and pick the best one. In practice this is intractable (there are infitite possibile trees), so it will be optimized one level of the tree at a time, the \textit{additive approch}: an additional split is added to the tree if it brings a gain to its object function.
+			
+			When trying to split a leaf into two leaves, and the score it gains is:
+			\begin{equation}
+				Gain = \frac{1}{2}\Bigl[\dfrac{G_L^2}{H_L+\lambda} + \dfrac{G_R^2}{H_R+\lambda} - \dfrac{(G_L+G_R)^2}{H_L+H_R+\lambda}\Bigr] - \gamma
+			\end{equation}
+			This formula can be decomposed as:
+			\begin{itemize}
+				\item the score on the new left leaf
+				\item the score on the new right leaf
+				\item the score on the original leaf
+				\item regularization on the additional leaf
+			\end{itemize} 
+			All possible splits are explored and the best one is added. If the Gain is negative this means that the split have the increase in the complexity score bigger than the reduction in training loss. It would be better not to add that branch. This is exactly the pruning techniques, which reduces the complexity by removing sections of the tree.
 			
 		\section{LightGBM}
+		\cite{LGBM}LightGBM is a gradient boosting framework, released  by Microsoft, that uses tree based learning algorithms. It is based on GDBT.
+		LightGBM grows trees leaf-wise (best-first)\ref{fig:LGBM tree}. It will choose the leaf with max delta loss to grow. Holding "leaf" fixed, leaf-wise algorithms tend to achieve lower loss than level-wise algorithms.
 		
+		Leaf-wise may cause over-fitting when "data" is small, so LightGBM includes the $max_{depth}$ parameter to limit tree depth. However, trees still grow leaf-wise even when $max_{depth}$ is specified. So LGBM has the possibility to control the model and the training through specific parameters.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.35\textheight]{tesi_images/LGBM.png}
+			\caption{LGBM: Leaf-wise tree growth}
+			\label{fig:LGBM tree}
+		\end{figure}
+	
+	\chapter{BDT: Electron and photon classification}	
+		The concepts illustrated in the previous chapters are now applied to a specific case: a dataframe of MC simulated single particles, which will be analysed in more detail in the next section.
 		
+		The reconstructed particles can be of two types:
+		\begin{itemize}
+			\item \textbf{single reconstruction}: when a particleis only reconstructed as electron or as photon;
+			\item \textbf{double reconstruction}: when a particle cannot be classified in a single mode (el or ph) is reconstructed in both modes and is called \textit{ambiguous}. The final classification is
+		\end{itemize}
 		
+		In this second case the ML applies. A supervised machine learning (Gradient BDT) is used to create and train a model. Then this model is applied to the double reconstruction to classify electrons and photons and increase the reconstruction efficiency.
+		%Let's see how this BDT is created
 		
-		
+		\section{Dataframe and BDT training}
+			\subsection{Dataframe}
+			
+			\subsection{Discriminating features}
+				In order to create a good model, the choice of the features it will have to work on is crucial. The most useful characteristics are those that present the greatest differences between photons and electrons, which are therefore more discriminating. It is also important to use features that guarantee the generality of the model.The features can be divided into two categories: electron and photon features.
+				\subsubsection{Electron features}
+				Electron features are those that characterize the particles reconstructed as electrons. Electrons have many hits in the first layers of detectors, as opposed to photons. This is because the most part of photons is still unconverted. So electron reconstructed as electrons (tur\_el/reco\_el) should have more hits than photons reconstructed as electrons (true\_ph/reco\_el). This can be seen in the characteristics 'el\_track\_hasInnermostHits' (a boolean, which says if the particle has hit the first expected layer or not), 'el\_trkPixelHits' (a pixel hit counter), 'el\_trkSiHits'(a silicon hit counter) shown in the figure \ref{fig:el_hit}.
+				\begin{figure}
+					\centering
+					\includegraphics[width=0.7\textheight]{tesi_images/el_hit.png}
+					\caption{}
+					\label{fig:el_hit}
+				\end{figure}
+				
+				The track quality, as it is determinated from the pixel and SCT hits, is different in the two cases therefore the physics quantities reconstructed from the track. This quantities (plots in Figure \ref{fig:el_physics_quantities}) are:
+				\begin{itemize}
+					\item 'el\_track\_ep',
+					\item 'el\_trackz0',
+					\item 'el\_cl\_pt, 
+					\item 'el\_cl\_eta'
+				\end{itemize}
+			
+				\begin{figure}
+					\centering
+					\subfloat[]{\includegraphics[width=.44\textwidth]{tesi_images/el_track_ep.png}} \quad
+					\subfloat[]{\includegraphics[width=.45\textwidth]{tesi_images/el_trackz0.png}}
+					\newline
+					\subfloat[]{\includegraphics[width=.44\textwidth]{tesi_images/el_cl_pt.png}} \quad
+					\subfloat[]{\includegraphics[width=.44\textwidth]{tesi_images/el_tracketa.png}}
+					\caption{Electron physics quantities reconstructed from the track}
+					\label{fig:el_physics_quantities}
+				\end{figure}
+				
+				
+				
+				\subsubsection{Photon features}
+				As electron, the photon quality track (of the pair $e^{+}e^{-}$) is discriminating and therefore also the Pixel/SCT hits and $p_t$.
+				
+				Other useful photon features for classification are those related to conversion:
+				\begin{itemize}
+					\item \textbf{'ph\_zconv'} and \textbf{'ph\_Rconv'}:these characteristics contain information of the conversion point in the coordinates R and z. True\_el/reco\_ph have a conversion point close to the point of interaction as their track starts from the beginning.
+					\item \textbf{'ph\_pt1conv'}, \textbf{'ph\_pt2conv'} and \textbf{'ph\_ptconv'}. All these three features have been scaled with 'ph\_cl\_pt' to eliminate all kinematics information 
+					\item \textbf{'pt1conv/ptconv'} contains information on conversion symmetry. This characteristic for true\_el/reco\_ph tends to 1, since most of them have a single track.
+				\end{itemize}
+				
+			\section{Parameters and Hyperparameter optimization}	
+			In order to create a good predictive model, the choice of parameters is crucial, therefore the hyperparameter optimization is used. Hyperparameters are LGMB adjustable parameters chosen for the training of a model, which regulate the training process. 
+			
+			The objective of the hyperparameter optimization is to search the various configurations of the hyperparameters, contained in the hyperparameter space, to find a configuration with the best performance. The hyperparameter space consists of two types of hyperparameters: discrete or continuous. Let's focus on the continuous ones.
+			Continuous hyperparameters are specified as a uniform distribution   over a continuous range. 
+			
+			So after defining the space of the hyperparameters, we move on to the search for the best configuration. This search can be of various types:
+			\begin{itemize}
+				\item \textbf{random search}: in random search the hyperparameter values are randomly selected from the defined search space. It allows the  hyperparameter space to include both discrete and continuous hyperparameters;
+				\item \textbf{grind search}: grid sampling performs a simple grid search on all possible values in the defined search space;
+				\item \textbf{bayesian search}: bayesian sampling uses the knowledge of the previous samplings when choosing hyperparameter values, effectively attempting to improve the reported primary metric. The sample is selected based on the performance of the previous sample, so that the new sample improves the primary metric reported. 
+			\end{itemize}
+			The bayesian search is used by the Python library \textit{Hyperopt}, which is implemented in the code in order to perform the optimization.
+			
+			The training parameters are listed in the Table \ref{tab:parameters} and the ones that have been optimized are:
+			\begin{itemize}
+				\item \textbf{bagging}: in bagging, several models of the same type are trained on different datasets (aggregation, typical of ensemble learning), each obtained from the initial dataset by random sampling with replacement (bootstrap).
+				\item \textbf{number of leaves}: it is the maximum number of leaves,that a tree could have. It is useful to avoid overfitting.
+				\item \textbf{feature fraction}: it is used when boosting is random forest. 0.82 feature fraction means LightGBM will used 82\% of parameters randomly in each iteration for building trees.
+				\item \textbf{learning rate}: it determines the effect of each tree on the final outcome.
+			\end{itemize}
+			Durante hyperparam sono state utilizzate 200 ricerche
+			
+			\begin{table}
+				\centering
+				\begin{tabular}{cc}
+					\toprule[1.5pt]
+					Parameter & Value\\
+					\midrule
+					Metric & xentropy \\
+					Objective & xentropy \\
+					Bagging seed & 42 \\
+					Feature fraction seed & 42 \\
+					Is unbalance & True \\
+					Number of leaves & 70 \\
+					Feature fraction & 0.8279495901643081 \\
+					Bagging & 0.8039490145162762 \\
+					Learning rate & 0.06057403872801198 \\
+					\bottomrule[1.5pt]
+				\end{tabular}
+				\caption{Parameters used in the model's training}
+				\label{tab:parameters}
+			\end{table}
+			
+			
 	\begin{thebibliography}{17}
 			
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -441,6 +747,10 @@
 			\bibitem{LHC design} European organization for nuclear research, \textit{LHC design report}, CERN libraries, Geneva (2004). \url{http://cds.cern.ch/record/782076/files/}
 			% 2 %
 			\bibitem{LHC introduction} F. Gianotti, \textit{Collider physics: LHC}, EP Division, CERN, Geneva, Switzerland. \url{https://cds.cern.ch/record/458489/files/p219.pdf}
+			% 3 %
+			\bibitem{LHC site}
+			\textit{The Large Hadron Collider (LHC)}
+			\url{https://home.cern/science/accelerators/large-hadron-collider}
 			% 3 % 
 			\bibitem{Acc. complex} \url{https://cds.cern.ch/record/2255762/files/CERN-Brochure-2017-002-Eng.pdf}
 			% 4 %
@@ -455,9 +765,25 @@
 			% 8 % 
 			\bibitem{TRT} Adrian Vogel \textit{ATLAS Transition Radiation Tracker (TRT): Straw Tube Gaseous Detectors at High Rates}, CERN,
 			Geneva, ATL-INDET-PROC-2013-005, Apr 2013, ATL-INDET-PROC-2013-005. \url{https://cds.cern.ch/record/1537991}
-			% 9 %v
+			% 9 %
 			\bibitem{Calorimetry}
 			\url{http://ific.uv.es/~cabrera/teaching/atlas_i.pdf}\\
+			% 10 %
+			\bibitem{Calo intro}
+			\url{https://atlas.cern/discover/detector/calorimeter}
+			% 11 %
+			\bibitem{Muon system}
+			\textit{The ATLAS muon spectrometer: calibration and pattern recognition}, N. Van Eldik, CERN-THESIS-2007-045, 2007,
+			\url{http://cds.cern.ch/record/1044839}
+			% 12 %
+			\bibitem{Trigger intro}
+			\textit{Trigger and Data Acquisition System}
+			\url{https://atlas.cern/discover/detector/trigger-daq}	
+			% 13 $ 
+			\bibitem{Trigger system}
+			\textit{The Run-2 ATLAS Trigger System: Design, Performance and
+			Plan}, Martin zur Nedden, CERN, ATLAS Collaboration, Geneva, Dec 2016, ATL-DAQ-PROC-2016-039,
+			\url{https://cds.cern.ch/record/2238679}
 			
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		 	\textbf{\Large Chapter 2} 
@@ -493,5 +819,8 @@
 			\bibitem{GBT} \url{https://xgboost.readthedocs.io/en/latest/tutorials/model.html}
 			% 20 %
 			\bibitem{Decision Tree} \textit{4Classification:Basic Concepts,Decision Trees, andModel Evaluation}, \url{https://www-users.cs.umn.edu/~kumar001/dmbook/ch4.pdf}
+			% 20 % 
+			\bibitem{LGBM} \textit{LightGBM’s documentation} 
+			\url{https://lightgbm.readthedocs.io/en/latest/}
 	\end{thebibliography}
 \end{document}
