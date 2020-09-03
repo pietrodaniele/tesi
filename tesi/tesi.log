@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.7.28)  28 AUG 2020 19:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.7.28)  2 SEP 2020 18:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -662,7 +662,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 e.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.37 ...riminating features}{29}{subsection.4.1.2}
+l.39 ...ameter optimization}{31}{subsection.4.1.2}
                                                   % [1
 
 ])
@@ -828,66 +828,45 @@ Package pdftex.def Info: tesi_images/LGBM.png  used on input line 656.
 (pdftex.def)             Requested size: 207.03917pt x 71.88489pt.
  [27] [28 <./tesi_images/LGBM.png>]
 Chapter 4.
-<tesi_images/el_hit.png, id=497, 883.3pt x 279.0425pt>
-File: tesi_images/el_hit.png Graphic file (type png)
-<use tesi_images/el_hit.png>
-Package pdftex.def Info: tesi_images/el_hit.png  used on input line 682.
-(pdftex.def)             Requested size: 414.06932pt x 130.80936pt.
 [29
 
 ]
-<tesi_images/el_track_ep.png, id=505, 379.4175pt x 279.0425pt>
-File: tesi_images/el_track_ep.png Graphic file (type png)
-<use tesi_images/el_track_ep.png>
-Package pdftex.def Info: tesi_images/el_track_ep.png  used on input line 697.
-(pdftex.def)             Requested size: 184.03264pt x 135.34822pt.
-<tesi_images/el_trackz0.png, id=506, 385.44pt x 279.0425pt>
-File: tesi_images/el_trackz0.png Graphic file (type png)
-<use tesi_images/el_trackz0.png>
-Package pdftex.def Info: tesi_images/el_trackz0.png  used on input line 698.
-(pdftex.def)             Requested size: 188.21288pt x 136.25513pt.
-<tesi_images/el_cl_pt.png, id=507, 389.455pt x 280.04625pt>
-File: tesi_images/el_cl_pt.png Graphic file (type png)
-<use tesi_images/el_cl_pt.png>
-Package pdftex.def Info: tesi_images/el_cl_pt.png  used on input line 700.
-(pdftex.def)             Requested size: 184.03264pt x 132.33109pt.
-<tesi_images/el_tracketa.png, id=508, 379.4175pt x 281.05pt>
-File: tesi_images/el_tracketa.png Graphic file (type png)
-<use tesi_images/el_tracketa.png>
-Package pdftex.def Info: tesi_images/el_tracketa.png  used on input line 701.
-(pdftex.def)             Requested size: 184.03264pt x 136.32195pt.
- [30 <./tesi_images/el_hit.png>] [31 <./tesi_images/el_track_ep.png> <./tesi_im
-ages/el_trackz0.png> <./tesi_images/el_cl_pt.png> <./tesi_images/el_tracketa.pn
-g>] [32]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 7
-69.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 6
+83.
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Underfull \hbox (badness 10000) in paragraph at lines 774--777
+<tesi_images/el_hit.png, id=504, 883.3pt x 279.0425pt>
+File: tesi_images/el_hit.png Graphic file (type png)
+<use tesi_images/el_hit.png>
+Package pdftex.def Info: tesi_images/el_hit.png  used on input line 686.
+(pdftex.def)             Requested size: 414.06932pt x 130.80936pt.
+ [30 <./tesi_images/el_hit.png>]
+[31] [32]
+Underfull \hbox (badness 10000) in paragraph at lines 797--800
 []\T1/lmr/m/it/10 The Large Hadron Col-lider (LHC) []$\T1/lmtt/m/n/10 https : /
  / home . cern / science / accelerators /
  []
 
 
-Underfull \hbox (badness 5893) in paragraph at lines 784--786
+Underfull \hbox (badness 5893) in paragraph at lines 807--809
 []\T1/lmr/m/n/10 H. Perneg-ger, \T1/lmr/m/it/10 The Pixel De-tec-tor of the AT-
 LAS Ex-per-i-ment for LHC Run-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 784--786
+Underfull \hbox (badness 10000) in paragraph at lines 807--809
 \T1/lmr/m/it/10 2\T1/lmr/m/n/10 , ATL-INDET-PROC-2015-001. []$\T1/lmtt/m/n/10 h
 ttps : / / cds . cern . ch / record / 1985432 / files /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 792--794
+Underfull \hbox (badness 10000) in paragraph at lines 815--817
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 802--805
+Underfull \hbox (badness 10000) in paragraph at lines 825--828
 []\T1/lmr/m/it/10 Trigger and Data Ac-qui-si-tion Sys-tem []$\T1/lmtt/m/n/10 ht
 tps : / / atlas . cern / discover / detector /
  []
@@ -895,31 +874,31 @@ tps : / / atlas . cern / discover / detector /
 [33
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 835--836
+Underfull \hbox (badness 10000) in paragraph at lines 858--859
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 843--845
+Underfull \hbox (badness 10000) in paragraph at lines 866--868
 \T1/lmtt/m/n/10 scholar . google . it / scholar ? q = K . P . +Murphy ,[] +Mach
 ine + Learning . +A + Probabilistic +
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 852.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 875.
 [34]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 852.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 875.
  (./tesi.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 852.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 852.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 875.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 875.
 Package rerunfilecheck Info: File `tesi.out' has not changed.
-(rerunfilecheck)             Checksum: 695CE7C4A9A21122DC03C7E0AC6C7EF3;2709.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 852.
+(rerunfilecheck)             Checksum: C42CA3B433025B6F91CA28AB65B31258;2711.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 875.
  ) 
 Here is how much of TeX's memory you used:
- 11204 strings out of 481239
- 181941 string characters out of 5920377
- 479667 words of memory out of 5000000
- 26046 multiletter control sequences out of 15000+600000
+ 11177 strings out of 481239
+ 181214 string characters out of 5920377
+ 479596 words of memory out of 5000000
+ 26025 multiletter control sequences out of 15000+600000
  614637 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  50i,13n,49p,1184b,538s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -940,10 +919,10 @@ type1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/public/lm/lmro10.pfb></
 usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/
 public/lm/lmsy5.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/sha
 re/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on tesi.pdf (35 pages, 3248667 bytes).
+Output written on tesi.pdf (35 pages, 3224990 bytes).
 PDF statistics:
- 692 PDF objects out of 1000 (max. 8388607)
- 591 compressed objects within 6 object streams
- 156 named destinations out of 1000 (max. 500000)
- 420 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 682 PDF objects out of 1000 (max. 8388607)
+ 589 compressed objects within 6 object streams
+ 154 named destinations out of 1000 (max. 500000)
+ 400 words of extra memory for PDF output out of 10000 (max. 10000000)
 

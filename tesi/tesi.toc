@@ -32,9 +32,9 @@
 \contentsline {subsection}{\numberline {3.2.4}Learn the tree structure}{27}{subsection.3.2.4}%
 \contentsline {section}{\numberline {3.3}LightGBM}{27}{section.3.3}%
 \contentsline {chapter}{\numberline {4}BDT: Electron and photon classification}{29}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Dataframe and BDT training}{29}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Dataframe}{29}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Discriminating features}{29}{subsection.4.1.2}%
-\contentsline {subsubsection}{Electron features}{29}{section*.19}%
-\contentsline {subsubsection}{Photon features}{30}{section*.22}%
-\contentsline {section}{\numberline {4.2}Parameters and Hyperparameter optimization}{30}{section.4.2}%
+\contentsline {section}{\numberline {4.1}BDT training}{30}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Discriminating features}{30}{subsection.4.1.1}%
+\contentsline {subsubsection}{Electron features}{30}{section*.19}%
+\contentsline {subsubsection}{Photon features}{30}{section*.21}%
+\contentsline {subsection}{\numberline {4.1.2}Parameters and Hyperparameter optimization}{31}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Training and Model}{32}{subsection.4.1.3}%
