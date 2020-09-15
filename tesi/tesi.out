@@ -36,5 +36,6 @@
 \BOOKMARK [2][-]{subsection.4.1.1}{Discriminating features}{section.4.1}% 36
 \BOOKMARK [2][-]{subsection.4.1.2}{Parameters and Hyperparameter optimization}{section.4.1}% 37
 \BOOKMARK [2][-]{subsection.4.1.3}{Training and Model}{section.4.1}% 38
-\BOOKMARK [1][-]{section.4.2}{BDT results}{chapter.4}% 39
-\BOOKMARK [0][-]{appendix.A}{Conversion symmetry}{}% 40
+\BOOKMARK [1][-]{section.4.2}{BDT applied on test set}{chapter.4}% 39
+\BOOKMARK [1][-]{section.4.3}{BDT results}{chapter.4}% 40
+\BOOKMARK [0][-]{appendix.A}{Conversion symmetry}{}% 41

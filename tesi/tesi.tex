@@ -106,19 +106,28 @@
 					$$
 					L = \frac{N_b^2n_bf_{rev}\gamma_r}{4\pi\epsilon_n\beta^*}F
 					$$
-					where $N_b$ is the number of particles per bunch, $n_b$ the number of bunches per beam, $f_{rev}$ the revolution frequency, $\gamma_r$ the relativistic gamma factor, $\epsilon_n$ the normalized transverse beam emittance, $\beta^*$ the beta function at the collision point and $F$ the geometric luminosity reduction factor due to the crossing angle at the IP. The luminosity had various values during atlas activity as shown in the Figure \ref{fig:Luminosity}
+					where $N_b$ is the number of particles per bunch, $n_b$ the number of bunches per beam, $f_{rev}$ the revolution frequency, $\gamma_r$ the relativistic gamma factor, $\epsilon_n$ the normalized transverse beam emittance, $\beta^*$ the beta function at the collision point and $F$ the geometric luminosity reduction factor due to the crossing angle at the IP. The luminosity had various values during ATLAS activity as shown in the Figure \ref{fig:lum}.
 					
 					\begin{figure}
 						\centering
-						\includegraphics[width=0.45\textheight]{tesi_images/luminosity.pdf}
-						\caption{Luminosity measured in inverse femtobarn versus time for 2011-2018 (p-p data only)}
-						\label{fig:Luminosity}
+						\includegraphics[width=0.5\textheight]{tesi_images/insta_lum_2018.pdf}
+						\caption{The peak instantaneous luminosity delivered to ATLAS during stable beams for pp collisions at 13 TeV centre-of-mass energy per fill 2018}
+						\label{fig:lum}
 					\end{figure}
 					
-					For the nominal value of the luminosity $10^{34}cm^{-2}s^{-1}$ the total inelastic proton-proton cross-section is about 80 mb \cite{LHC introduction}  at $\sqrt{s} = 14$ TeV. Therefore, the event rate $R$, defined as the number of events produced per second by the pp interactions, is expected to be:
+					For the nominal value of the luminosity $10^{34}$cm$^{-2}$s$^{-1}$ the total inelastic proton-proton cross-section is about 80 mb \cite{LHC introduction}  at $\sqrt{s} = 14$ TeV. Therefore, the event rate $R$, defined as the number of events produced per second by the pp interactions, is expected to be:
 					$$
 					R = \sigma L = 80 mb\times10^{34}cm^{-2}s^{-1} \simeq 10^{9}s^{-1}
-					$$
+					$$e 
+					The number of events for each process is related to luminosity, it is proportional to the integrated luminosity shown in Figure \ref{fig:Integreted Luminosity}.
+					
+					\begin{figure}
+						\centering
+						\includegraphics[width=0.5\textheight]{tesi_images/luminosity.pdf}
+						\caption{Luminosity measured in inverse femtobarn versus time for 2011-2018 (p-p data only)}
+						\label{fig:Integreted Luminosity}
+					\end{figure}
+					
 					There are two types of pp collisions:
 					\begin{itemize}
 						\item \textbf{Soft collisions}: 
@@ -291,8 +300,8 @@
 						\label{fig:Trigger system}
 					\end{figure}
 		\section{ATLAS Physics Programme}
-			\cite{STD Model}ATLAS explores a range of physics topics, with the primary focus of improving our understanding of the fundamental constituents of matter and their interactions. Currently this is well described by the so called Standard Model (SM), a quantum field theory based on ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||.
-			ATLAS is studying the processes predicted by the SM such as \textit{w,z} and \textit{top} production and compare the measured |||||||||||||||| with the model predictions.
+			\cite{STD Model}ATLAS explores a range of physics topics, with the primary focus of improving our understanding of the fundamental constituents of matter and their interactions. Currently this is well described by the so called Standard Model (SM), a quantum field theory based on SU2$\otimes$U1$\otimes$SU3.
+			ATLAS is studying the processes predicted by the SM such as \textit{w,z} and \textit{top} production and compare the measured cross section with the model predictions.
 			\begin{figure}[h!]
 				\centering
 				\includegraphics[width=.3\textwidth]{tesi_images/STD_model.png}
@@ -303,7 +312,7 @@
 			
 			Due to the Proton-proton and heavy-ion collisions, LHC  recreate the conditions immediately following the Big Bang when the Universe was governed by high-energy particle physics and later by a primordial soup of quarks and gluons, and allow ATLAS to study fundamental questions such as the Brout-Englert-Higgs field or Dark Matter.
 			
-			One of the most important ATLAS discoveries is the proof of the existence of the Higgs boson. On 4 July 2012, the ATLAS and CMS \cite{CMS} experiments at CERN announced that they had independently observed a new particle in the mass region of around 126 GeV: a boson consistent with the Higgs boson.
+			One of the most important ATLAS discoveries is the proof of the existence of the Higgs boson. On 4 July 2012, the ATLAS and CMS \cite{CMS} experiments at CERN announced that they had independently observed a new particle in the mass region of around 126 GeV: a boson consistent with the Higgs boson \cite{Higgs}.
 				
 	\chapter{Electron and photon reconstruction}
 		Events with electrons and photons in the final state are important signatures for many physics analyses envisaged at the LHC. Their reconstruction mainly  exploits data coming from the electromagnetic calorimeter (clusters) and the Inner Detector (ID) systems (tracks) \cite{El ph intro}\cite{El ph reco}: 
@@ -710,9 +719,9 @@
 	\chapter{BDT: Electron and photon classification}	
 		As said before, during the reconstruction not all the particles are easily reconstructed and therefore they are reconstructed both as electrons and photons. These particles are the 10\% of true electron and 30\% of true photon. 
 		
-		The analisys of these "ambigous" particles is the last step in the discrimination process between electrons and photons. This analysis can be done in several ways. One of them is a classification algorithm with a gradient boosted decision tree (\textit{classification Supervised Learning}). In order to create a predictive model the GBDT is trained on single-particle samples of electrons and photons, with pile-up. For each true particle type there are two Pandas dataframes, one for reconstruction as an electron the other for reconstruction as a photon. Then the dataframes referring to the same type of true particle are merged, resulting in two dataframes: one for \textit{True Electron} and the other for \textit{True Photon}. After that these two dataframes are concatenated by tagging the double reconstructions from true electron with $truth=0$ and those from true photon with $truth=1$. So the input particles are represented by $y_i$, which is 0 for true electron and 1 for true photon, and the score (model output) is $y_i^{pred} \epsilon [0,1]$.
+		The analisys of these "ambiguous" particles is the last step in the discrimination process between electrons and photons. This analysis can be done in several ways. One of them is a classification algorithm with a gradient boosted decision tree (\textit{classification Supervised Learning}). In order to create a predictive model the GBDT is trained on single-particle samples of electrons and photons, with pile-up. For each true particle type there are two Pandas dataframes, one for reconstruction as an electron and the other for reconstruction as a photon. After the dataframes referring to the same type of true particle are merged, resulting in two dataframes: one for \textit{True Electron} and the other for \textit{True Photon}. After that these two dataframes are concatenated by tagging the double reconstructions from true electron with $truth=0$ and those from true photon with $truth=1$. Therefore the input particles are represented by $y_i$, which is 0 for true electron and 1 for true photon, and the score (model output) is $y_i^{pred} \epsilon [0,1]$.
 		
-		After removing pile-up, the dataframe is splitted in the train (80\%) and the test (20\%) sets, using a Scikit Learn \cite{SKlearn} function. The train dataset is used to train the algorithm, while the test dataset is used as model input. If we did not do this split, we would introduce a bias.
+		After removing the pile-up, the dataframe is splitted in the train (80\%) and the test (20\%) sets, using a Scikit Learn \cite{SKlearn} function. The train dataset is used to train the algorithm, whereas the test dataset is used as model input. If we did not do this split, we would introduce a bias.
 		
 		In order to explore as many cases as possible, three models have been created: all use the same discriminating variables, but they are trained on different portions of the training dataset.
 		\begin{enumerate}
@@ -721,7 +730,7 @@
 			\item a model generated by a GBDT trained on reconstruction flagged as “ambiguous” by the new ambiguity tool.
 		\end{enumerate}
 		
-		Since at reconstruction level it is not possible to use a BDT and it is not possible to save the double reconstructions for each particle, for the enormous memory cost it would involve, pre-classifiers (ambiguity tools) are used. To see the performance of these pre-classifiers, compare the models above. The first is the ideal model, which has been trained as if there were infinite memory, and therefore is the theoretical limit. Therefore, the more models based on ambiguity tools approach the performance of the double reconstructions model, the more good the applied preclassification is.
+		Since at reconstruction level it is not possible to use a BDT and it is not possible to save the double reconstructions for each particle, due to the enormous memory cost it would involve, pre-classifiers (ambiguity tools) are used. To see the performance of these pre-classifiers, the models above are compared. The first is the ideal model, which has been trained as if there were infinite memory, and therefore is the theoretical limit. Therefore, the more models based on ambiguity tools approach the performance of the double reconstructions model, the better the applied preclassification is.
 		
 		\section{BDT training}
 			Let's now focus on the BDT training
@@ -736,9 +745,9 @@
 						\label{fig:el_hit}
 					\end{figure}
 					
-					The track quality, as it is determinated from the pixel and SCT hits, is different in the two cases therefore the physics quantities reconstructed from the track . This quantities are:
+					The track quality, as it is determinated from the pixel and SCT hits, is different in the two cases as the physics quantities reconstructed from the track . This quantities are:
 					\begin{itemize}
-						\item \texttt{el\_track\_ep} is the ratio between the energy measured in the calorimeter and the moment $p_T$ measured in the ID. Photons tracks are worse than those of electrons and therefore they are not always coupled with the right energy. So the Ep ratio could be far from 1 (Figure \ref{fig: ep}).
+						\item \texttt{el\_track\_ep} is the ratio between the energy measured in the calorimeter and the moment $p_T$ measured in the ID. Photons tracks are worse than those of electrons and therefore they are not always matched with the right energy. So the Ep ratio could be far from 1 (Figure \ref{fig: ep}).
 						\item \texttt{el\_trackz0} is the z coordinate, which runs along the detector, where the measurement of the reconstructed electron takes place (Figure \ref{fig: z0}).
 						\item \texttt{el\_cl\_pt} is the cluster momentum $p_T$ of the reconstructed electron (Figure \ref{fig: pt}).
 						\item \texttt{el\_cl\_eta} is the cluster $\eta$ of the reconstructed electron. Since photons convert more into the material we can see an increase of electrons reconstructed from real photons for $|\eta|>1.52$ (Figure \ref{fig: eta}).
@@ -800,7 +809,7 @@
 							\end{minipage} 
 						\end{figure}
 						
-						\item \texttt{ph\_pt1conv}, \texttt{ph\_pt2conv} and \texttt{ph\_ptconv} (Fig. \ref{fig: ph_pts}). All these three features have been scaled with \texttt{ph\_cl\_pt} to eliminate all kinematics information 
+						\item \texttt{ph\_pt1conv}, \texttt{ph\_pt2conv} and \texttt{ph\_ptconv} (Fig. \ref{fig: ph_pts}). All these three features have been scaled with \texttt{ph\_cl\_pt} to eliminate all kinematics information. 
 						
 						\begin{figure}[h!]	
 							\centering
@@ -809,7 +818,7 @@
 							\label{fig: ph_pts}
 						\end{figure}
 						
-						\item \texttt{pt1conv/ptconv} contains information on conversion symmetry (Fig. \ref{fig: pt1_pt}). This characteristic for \texttt{true\_el/reco\_ph} tends to 1, since most of them have a single track. More information is presented in the Appendix \ref{Appex: sym}
+						\item \texttt{pt1conv/ptconv} contains information about conversion symmetry (Fig. \ref{fig: pt1_pt}). This characteristic for \texttt{true\_el/reco\_ph} tends to 1, since most of them have a single track. More information is presented in the Appendix \ref{Appex: sym}
 						
 						\begin{figure}[h!]	
 							\centering
@@ -830,18 +839,18 @@
 					\item \textbf{grind search}: grid sampling performs a simple grid search on all possible values in the defined search space;
 					\item \textbf{bayesian search}: bayesian sampling uses the knowledge of the previous samplings when choosing hyperparameter values, effectively attempting to improve the reported primary metric. The sample is selected based on the performance of the previous sample, so that the new sample improves the primary metric reported. 
 				\end{itemize}
-				The bayesian search is used by the Python library \textit{Hyperopt}, which is implemented in the code in order to perform the optimization.
+				The bayesian search is used by the Python library \textit{Hyperopt} \cite{Hyperopt}, which is implemented in the code in order to perform the optimization.
 				
 				The training parameters are listed in the Table \ref{tab:parameters} and the ones that have been optimized are:
 				\begin{itemize}
 					\item \textbf{bagging}: in bagging, several models of the same type are trained on different datasets (aggregation, typical of ensemble learning), each obtained from the initial dataset by random sampling with replacement (bootstrap).
-					\item \textbf{number of leaves}: it is the maximum number of leaves,that a tree could have. It is useful to avoid overfitting.
+					\item \textbf{number of leaves}: it is the maximum number of leaves, which a tree could have. It is useful to avoid overfitting.
 					\item \textbf{feature fraction}: it is used when boosting is random forest. 0.82 feature fraction means LightGBM will used 82\% of parameters randomly in each iteration for building trees.
 					\item \textbf{learning rate}: it determines the effect of each tree on the final outcome.
 				\end{itemize}
-				Before starting with the hyperparameter optimization the train dataset is splitted: 75\% remains the train set while the 25\% becomes the validation set, which is used during the hyperparameter optimization training instead of the test set as validation. This is done with the aim of avoiding the introduction of a bias.
+				Before starting with the hyperparameter optimization the train dataset is splitted: 75\% stays as the train set whereas the 25\% becomes the validation set, which is used during the hyperparameter optimization training instead of the test set as validation. This is done with the aim of avoiding the introduction of a bias.
 				
-				After 200 searches the best hyperparameters are selected and used for the creation of the models, which have three different hyperparameters sets. They showed in Table \ref{tab:parameters}
+				After 200 searches the best hyperparameters are selected and used for the creation of the models, which have three different hyperparameters sets (shown in Table \ref{tab:parameters}).
 				
 				\begin{table}
 					\centering
@@ -854,10 +863,10 @@
 						Bagging seed & 42  & 42 & 42 \\
 						Feature fraction seed & 42 & 42 & 42 \\
 						Is unbalance & True & True & True \\
-						Number of leaves & 88 & 37 & \\
-						Feature fraction & 0.8453901916354223 & 0.9390278745070121 &  \\
-						Bagging & 0.9109607538731919 & 0.8372073097956191 & \\
-						Learning rate & 0.01716542753906349 & 0.03427214855508835 & \\
+						Number of leaves & 71 & 60 & 72 \\
+						Feature fraction & 0.793 & 0.774 & 0.883 \\
+						Bagging & 0.941 & 0.839 & 0.693 \\
+						Learning rate & 0.026 & 0.032 & 0.025 \\
 						\bottomrule[1.5pt]
 					\end{tabular}
 					\caption{Parameters and hyperparameters used in the models' training}
@@ -865,80 +874,151 @@
 				\end{table}
 			
 			\subsection{Training and Model}
-				Once the hyperparameter optimisation is completed, algorithm training can begin. It is based on a LGBM function \texttt{lgb.train}, which has as input: parameters set, lgb train dataset, the maximum number of training steps, validation sets,  early stopping rounds. The validation sets are the sets on which the loss function is calculated during training. For training to create the model they are \texttt{lgb\_train} and \texttt{lgb\_test}, while for the hyperparameters optimization training they are \texttt{lgb\_train} and \texttt{lgb\_valid}, as said before. \\
-				To prevent overfitting, the model will train until the validation score stops improving. Validation score needs to improve at least every \texttt{early\_stopping\_rounds} round(s) to continue training. [riferimento alla documentazione LGBM]
+				Once the hyperparameter optimisation is completed, algorithm training can begin. It is based on a LGBM function \texttt{lgb.train}, which has as input: parameter set, lgb train dataset, the maximum number of training steps, validation sets,  early stopping rounds. The validation sets are those on which the loss function is calculated during training. For training to create the model they must be \texttt{lgb\_train} and \texttt{lgb\_test}, whereas for the hyperparameters optimization training they are \texttt{lgb\_train} and \texttt{lgb\_valid}, as said before. \\
+				To prevent overfitting, the model will train until the validation score stops improving. Validation score needs to improve at least every \texttt{early\_stopping\_rounds} round(s) to continue training \cite{LGBM}.
 				
-				Once the training is over, it is possible to analyse the model and how it uses the discriminatory variables. This is usually done through three plots (shown in the Appendix REF):
+				Once the training is over, it is possible to analyse the model and how it uses the discriminatory variables. This is usually done through three plots:
 				\begin{itemize}
-					\item the Objective function plot. Its value is plotted after each iteration for both the training and test set. This plot is uselful because a large difference between the
-					train and test datasets may indicate overfitting [REF].
-					\item the feature importance plots. One shows the number of times that a feature was used in the splitting of a branch [REF], the other the average training loss reduction gained when using a feature for splitting [REF].
+					\item the Objective function plot. Its value is plotted after each iteraction for both the training and test set. This plot is uselful because a large difference between the train and test datasets may indicate overfitting (Fig \ref{fig:loss}).
+					
+					\begin{figure}[h!]
+						\centering
+						\includegraphics[width=.6\linewidth]{tesi_images/model_hyper_loss.pdf} 
+						\caption{Loss value after each iteration, Model double reco}
+						\label{fig:loss} 
+					\end{figure}
+					
+					\item the feature importance plots. One shows the number of times that a feature was used in the splitting of a branch \ref{fig:importance}, the other the average training loss reduction gained when using a feature for splitting \ref{fig:gain}.
+					
+					\begin{figure}[h!]
+						\centering
+						\includegraphics[width=.8\linewidth]{tesi_images/model_hyper_importance.pdf} 
+						\caption{Feature importance, Model double reco}
+						\label{fig:importance} 
+					\end{figure}
+				
+					\begin{figure}[h!]
+						\centering
+						\includegraphics[width=.8\linewidth]{tesi_images/model_hyper_gain.pdf} 
+						\caption{Feature importance Gain, Model double reco}
+						\label{fig:gain} 
+					\end{figure}
 				\end{itemize}
 			
+		\section{BDT applied on test set}
+			Once the models are created, these trained BDTs are applied to the test dataset. Each model gives to each particle a score between 0 and 1 according to its features. If the score is close to 0 the particle is classified mainly as electron, whereas if it tends to 1 as photon. 
+			
+			In order to evalute the models' efficiencies the scores, ROC and AUC are plotted and calculeted. The scores are plotted as two histograms, one for \textit{True Electrons} and the other for \textit{True Photons}, and compared,a shown in Figure \ref{fig:scores}.
+		    \begin{figure}[h!]
+		    	\centering
+		    	\includegraphics[width=.6\linewidth]{tesi_images/scores.png} 
+		    	\caption{Scores histogram} 
+		    	\label{fig:scores}
+		    \end{figure}
+		    
+		    From these histograms is possible to extract the \textit{True Photons} efficiency, called True Positive Rate (TPR) 
+			%$\epsilon_{ph}=$TPR$=\frac{\text{reco ph from trueph}}{\text{All ph}}$, 
+			and the \textit{True Electron} efficiency, called False Positive Rate (FPR) 
+			%$\epsilon_{el}=\frac{\text{reco el from true ph}}{\text{All el}}$ 
+			by making cuts (thresholds) on the scoring range [0,1]. TPR, FPR and thresholds can also be obtained using a scikit-learn function \texttt{roc\_curve}, which has as input the $y^{true}$ and the model's predictions $y^{pred}$. 
+			
+			The ROC curve is a graph showing the performance of the  classification model at all thresholds. This curve plots two parameters: FPR versus TPR at different classification thresholds connecting the point (1,1) to (0,0). The perfomance estimator is the entire two-dimensional area underneath the entire ROC curve, called AUC, which is calculated using the scikit-learn function \texttt{auc(FPT,TPR)}. The closer the AUC is to 1, the more predictive the model is. 
+			
+		    Therefore, in order to calculate the performance of the various models they were applied to various portions of the test set by calculating the ROC curves and AUCs:
+			\begin{itemize}
+				\item double reconstructions model applied to double reconstructions (Fig \ref{fig:dr_dr}), old ambiguity tool ambiguous (Fig \ref{fig:dr_dr}) and new ambiguity tool ambiguous (Fig \ref{fig:dr_dr}) test sets.
+				\item old ambiguous model applied to old ambiguity tool ambiguous (Fig \ref{fig:old_old}) test set.
+				\item new ambiguous model applied to new ambiguity tool ambiguous (Fig \ref{fig:new_new}) test set.
+				\item the previous examples with the single reco added to the test sets (Fig \ref{fig:all_roc}). To due they are applied on the same test set, they can be compared in one plot.
+			\end{itemize}
+			
+			\begin{figure}[ht]  
+				\begin{minipage}[b]{0.5\linewidth}
+					\centering
+					\includegraphics[width=1.\linewidth]{tesi_images/dr_dr.pdf}
+					\caption{} 
+					\label{fig:dr_dr}
+					\vspace{4ex}
+				\end{minipage}%%
+				\begin{minipage}[b]{0.5\linewidth}
+					\centering
+					\includegraphics[width=1.\linewidth]{tesi_images/dr_old.pdf} 
+					\caption{}
+					\label{fig:dr_old} 
+					\vspace{4ex}
+				\end{minipage} 
+				\begin{minipage}[b]{0.5\linewidth}
+					\centering
+					\includegraphics[width=1.\linewidth]{tesi_images/dr_new.pdf} 
+					\caption{} 
+					\label{fig:dr_new}
+					\vspace{4ex}
+				\end{minipage}%%
+				\begin{minipage}[b]{0.5\linewidth}
+					\centering
+					\includegraphics[width=1.\linewidth]{tesi_images/old_old.pdf} 
+					\caption{} 
+					\label{fig:old_old}
+					\vspace{4ex}
+				\end{minipage}
+			\end{figure}
+			\begin{figure}[ht]
+				\begin{minipage}[b]{0.5\linewidth}
+					\centering
+					\includegraphics[width=1.\linewidth]{tesi_images/dr_new.pdf}
+					\caption{} 
+					\label{fig:new_new}
+					\vspace{4ex}
+				\end{minipage}%% 
+				\begin{minipage}[b]{0.5\linewidth}
+					\centering
+					\includegraphics[width=1.\linewidth]{tesi_images/all_roc.pdf} 
+					\caption{} 
+					\label{fig:all_roc}
+					\vspace{4ex}
+				\end{minipage} 
+			\end{figure}
 		\section{BDT results}
-			Once the models are created, these trained BDTs are applied to the test dataset. Each model gives each particle a score between 0 and 1 according to its features. If the score is close to 0 the particle is classified mainly as electron, while if it tends to 1 as photon. 
-			
-			In order to evalute the models' efficiencies the scores, ROC and AUC are plotted and calculeted. The scores are plotted as two histograms, one for \textit{True Electrons} and the other for \textit{True Photons}, and compared,a shown in Figure \ref{fig:scores}. From these histograms is possible to extract the \textit{True Photons} efficiency, called True Positive
-			Rate (TPR) $\epsilon_{ph}=$TPR$=\frac{\text{reco ph from trueph}}{\text{All ph}}$, and the \textit{True Electron} efficiency, called False Positive Rate (FPR) $\epsilon_{el}=\frac{\text{reco el from true ph}}{\text{All el}}$ by making cuts (thresholds) on the scoring range [0,1]. TPR, FPR and thresholds can also obtained using a scikit-learn function \texttt{roc\_curve}, which has as input the $y^{true}$ and the model's predictions $y^{pred}$. 
-			
-			The ROC curve is a graph showing the performance of the  classification model at all thresholds. This curve plots two parameters: FPR versus TPR at different classification thresholds connecting the point (1,1) with (0,0). The perfomance estimator is the entire two-dimensional area underneath the entire ROC curve, called AUC, which is calculated using the scikit-learn function \texttt{auc(FPT,TPR)}. The closer the AUC is to 1, the more predictive the model is. 
-			
-			
-			
-			
+			Questa sezione aspetto a scriverla per capire se devo aggiungere o meno i sample di fisica
+		
+	\chapter*{Conclusion}
+		La conclusione aspetto a scriverla per capire se devo aggiungere o meno i sample di fisica
 	\appendix
 	\chapter{Conversion symmetry} \label{Appex: sym}
-		Conversion symmetry plots of the reconstructed and converted photons. We can in Fig \ref{fig: pt1/2 el} and \ref{fig:pt12_ph}. that \texttt{pt1/pt} and \texttt{pt2/pt} are anticorrelated.
-		\begin{figure}[ht]  
+		Conversion symmetry plots of the reconstructed and converted photons. %We can see in Fig \ref{fig: pt1/2 el} and \ref{fig:pt12_ph}. that %\texttt{pt1/pt} and \texttt{pt2/pt} are anticorrelated.
+		\begin{figure}[H]  
 			\begin{minipage}[b]{0.5\linewidth}
 				\centering
 				\includegraphics[width=.9\linewidth]{tesi_images/pt1_pt.png} 
-				\caption{The \texttt{el\_track\_ep} distribution} 
+				\caption{The \texttt{ph\_pt1conv/ph\_ptconv} distribution} 
 				\label{fig: pt1/pt}
 				\vspace{4ex}
 			\end{minipage}%%
 			\begin{minipage}[b]{0.5\linewidth}
 				\centering
 				\includegraphics[width=.9\linewidth]{tesi_images/pt2_pt.png} 
-				\caption{The \texttt{el\_trackz0} distribution}
+				\caption{The \texttt{ph\_pt2conv/ph\_ptconv} distribution}
 				\label{fig: pt2/pt} 
 				\vspace{4ex}
 			\end{minipage} 
 			\begin{minipage}[b]{0.5\linewidth}
 				\centering
 				\includegraphics[width=.9\linewidth]{tesi_images/pt1_pt2_el_2D.png} 
-				\caption{The \texttt{el\_cl\_pt} distribution} 
+				\caption{2D histogram of \texttt{pt1/pt} and \texttt{pt2/pt} distributions for \textit{True Electron}} 
 				\label{fig: pt1/2 el}
 				\vspace{4ex}
 			\end{minipage}%% 
 			\begin{minipage}[b]{0.5\linewidth}
 				\centering
 				\includegraphics[width=.9\linewidth]{tesi_images/pt1_pt2_ph_2D.png} 
-				\caption{The \texttt{el\_cl\_eta} distribution} 
+				\caption{2D histogram of \texttt{pt1/pt} and \texttt{pt2/pt} distributions for \textit{True Photon}} 
 				\label{fig:pt12_ph}
 				\vspace{4ex}
 			\end{minipage} 
 		\end{figure}
 		
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-	\begin{thebibliography}{27}
+	\clearpage		
+	\begin{thebibliography}{32}
 			
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 			%\textbf{\Large Chapter 2} 
@@ -996,9 +1076,12 @@
 			\bibitem{CMS} 
 			\textit{The CMS experiment at the CERN LHC}, The CMS Collaboration
 			\url{https://doi.org/10.1088%2F1748-0221%2F3%2F08%2Fs08004}
-				
+			% 18 %
+			\bibitem{Higgs}
+			\textit{Observation of a new particle in the search for the Standard Model Higgs boson with the ATLAS detector at the LHC},
+			The ATLAS Collaboration, In: \textit{Phys. Lett. B} 716.arXiv:1207.7214.CERN-PH-EP-2012-218 (Aug. 2012) DOI:\url{https://doi.org/10.1016/j.physletb.2012.08.020}, URL:\url{http://www.sciencedirect.com/science/article/pii/S037026931200857X}
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		 	\textbf{\Large Chapter 2} 
+		 	%\textbf{\Large Chapter 2} 
 		 	
 			% 10 %
 			\bibitem{El ph intro} Wu Xin, Clark Allan and Campanelli Mario \textit{Electron and photon identification in ATLAS}, Springer Berlin Heidelberg, Berlin, Heidelberg, 2006
@@ -1018,11 +1101,9 @@
 			% 15 % 
 			\bibitem{Identification} \textit{Electron and photon identification with the ATLAS detector}, Proklova Nadezda, ATLAS Collaboration, Aug 2018, ATL-PHYS-SLIDE-2018-606, \url{http://cds.cern.ch/record/2634679}
 			% 16 %
-			\bibitem{El ph isol} \textit{SEARCH FOR SUPERSYMMETRY WITH A COMPRESSED MASS SPECTRUM USING THE ATLAS DETECTOR}, Rossini Lorenzo, \url{http://hdl.handle.net/2434/683343 }\\
-			
+			\bibitem{El ph isol} \textit{Search for supersymmetry with a compressed mass spectrum using the ATLAS detector}, Rossini Lorenzo, \url{http://hdl.handle.net/2434/683343 }\\
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-			\textbf{\Large Chapter 3}
-			
+			%\textbf{\Large Chapter 3}
 			% 17 %
 			\bibitem{Lifelong ML} \textit{Lifelong Machine Learning}, Zhiyuan Chen and Bing Liu, Morgan \& Claypool Publishers, Nov 2016, \url{https://www.cs.uic.edu/~liub/lifelong-machine-learning-draft.pdf}
 			% 18 %
@@ -1036,9 +1117,14 @@
 			\url{https://lightgbm.readthedocs.io/en/latest/}
 			
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-			\textbf{\Large Chapter 4}
+			%\textbf{\Large Chapter 4}
+			
 			% 33 %
 			\bibitem{SKlearn}
 			\textit{Scikit-learn: Machine Learning in Python}, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011.
+			% 34 %
+			\bibitem{Hyperopt}
+			\textit{Making a Science of Model Search: Hyperparameter Optimization in Hundreds of Dimensions for Vision Architectures. To appear in Proc. of the 30th International Conference on Machine Learning}, J. Bergstra, D. Yamins, D. D. Cox, ICML, 2013
+			
 	\end{thebibliography}
 \end{document}

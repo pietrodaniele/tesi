@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.7.28)  10 SEP 2020 23:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.7.28)  13 SEP 2020 12:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -609,7 +609,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-<tesi_images/logo.jpg, id=164, 398.4486pt x 156.585pt>
+<tesi_images/logo.jpg, id=168, 398.4486pt x 156.585pt>
 File: tesi_images/logo.jpg Graphic file (type jpg)
 <use tesi_images/logo.jpg>
 Package pdftex.def Info: tesi_images/logo.jpg  used on input line 16.
@@ -662,7 +662,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 e.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.39 ...ameter optimization}{34}{subsection.4.1.2}
+l.39 ...ameter optimization}{35}{subsection.4.1.2}
                                                   % [1
 
 ])
@@ -671,7 +671,7 @@ l.39 ...ameter optimization}{34}{subsection.4.1.2}
 
  [2]
 Chapter 1.
-<tesi_images/LHC_structure.jpg, id=229, 180.35522pt x 170.1223pt>
+<tesi_images/LHC_structure.jpg, id=234, 180.35522pt x 170.1223pt>
 File: tesi_images/LHC_structure.jpg Graphic file (type jpg)
 <use tesi_images/LHC_structure.jpg>
 Package pdftex.def Info: tesi_images/LHC_structure.jpg  used on input line 65.
@@ -684,69 +684,77 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 8
  (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<tesi_images/m_dipole.jpeg, id=244, 690.9012pt x 540.5796pt>
+<tesi_images/m_dipole.jpeg, id=249, 690.9012pt x 540.5796pt>
 File: tesi_images/m_dipole.jpeg Graphic file (type jpg)
 <use tesi_images/m_dipole.jpeg>
 Package pdftex.def Info: tesi_images/m_dipole.jpeg  used on input line 86.
 (pdftex.def)             Requested size: 188.21288pt x 147.2617pt.
-<tesi_images/m_quad.png, id=245, 469.755pt x 432.61626pt>
+<tesi_images/m_quad.png, id=250, 469.755pt x 432.61626pt>
 File: tesi_images/m_quad.png Graphic file (type png)
 <use tesi_images/m_quad.png>
 Package pdftex.def Info: tesi_images/m_quad.png  used on input line 87.
 (pdftex.def)             Requested size: 125.47737pt x 115.55373pt.
-<tesi_images/CERN.png, id=247, 760.8425pt x 614.295pt>
+<tesi_images/CERN.png, id=252, 760.8425pt x 614.295pt>
 File: tesi_images/CERN.png Graphic file (type png)
 <use tesi_images/CERN.png>
 Package pdftex.def Info: tesi_images/CERN.png  used on input line 96.
 (pdftex.def)             Requested size: 266.18678pt x 214.9221pt.
 [4 <./tesi_images/m_dipole.jpeg> <./tesi_images/m_quad.png (PNG copy)>]
-<tesi_images/luminosity.pdf, id=260, 569.12625pt x 408.52625pt>
+<tesi_images/insta_lum_2018.pdf, id=265, 569.12625pt x 408.52625pt>
+File: tesi_images/insta_lum_2018.pdf Graphic file (type pdf)
+<use tesi_images/insta_lum_2018.pdf>
+Package pdftex.def Info: tesi_images/insta_lum_2018.pdf  used on input line 113
+.
+(pdftex.def)             Requested size: 295.76509pt x 212.3102pt.
+<tesi_images/luminosity.pdf, id=268, 569.12625pt x 408.52625pt>
 File: tesi_images/luminosity.pdf Graphic file (type pdf)
 <use tesi_images/luminosity.pdf>
-Package pdftex.def Info: tesi_images/luminosity.pdf  used on input line 113.
-(pdftex.def)             Requested size: 266.18678pt x 191.07855pt.
+Package pdftex.def Info: tesi_images/luminosity.pdf  used on input line 126.
+(pdftex.def)             Requested size: 295.76509pt x 212.3102pt.
 
-[5 <./tesi_images/CERN.png>]
-<tesi_images/atlas_structure.jpg, id=273, 810.52812pt x 520.94624pt>
+[5 <./tesi_images/CERN.png>] [6 <./tesi_images/insta_lum_2018.pdf, page is rota
+ted 90 degrees> <./tesi_images/luminosity.pdf, page is rotated 90 degrees>]
+<tesi_images/atlas_structure.jpg, id=373, 810.52812pt x 520.94624pt>
 File: tesi_images/atlas_structure.jpg Graphic file (type jpg)
 <use tesi_images/atlas_structure.jpg>
-Package pdftex.def Info: tesi_images/atlas_structure.jpg  used on input line 14
-8.
+Package pdftex.def Info: tesi_images/atlas_structure.jpg  used on input line 15
+7.
 (pdftex.def)             Requested size: 354.92172pt x 228.12009pt.
- [6 <./tesi_images/luminosity.pdf, page is rotated 90 degrees>]
-<tesi_images/atlas_coord.jpeg, id=323, 504.88625pt x 241.90375pt>
+
+[7]
+<tesi_images/atlas_coord.jpeg, id=379, 504.88625pt x 241.90375pt>
 File: tesi_images/atlas_coord.jpeg Graphic file (type jpg)
 <use tesi_images/atlas_coord.jpeg>
-Package pdftex.def Info: tesi_images/atlas_coord.jpeg  used on input line 164.
+Package pdftex.def Info: tesi_images/atlas_coord.jpeg  used on input line 173.
 (pdftex.def)             Requested size: 177.46086pt x 85.02562pt.
- [7 <./tesi_images/atlas_structure.jpg>]
-<tesi_images/magnet_system_atlas.png, id=330, 356.33125pt x 142.5325pt>
+ [8 <./tesi_images/atlas_structure.jpg>]
+<tesi_images/magnet_system_atlas.png, id=386, 356.33125pt x 142.5325pt>
 File: tesi_images/magnet_system_atlas.png Graphic file (type png)
 <use tesi_images/magnet_system_atlas.png>
 Package pdftex.def Info: tesi_images/magnet_system_atlas.png  used on input lin
-e 171.
+e 180.
 (pdftex.def)             Requested size: 295.76509pt x 118.31062pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 168--173
+Underfull \hbox (badness 10000) in paragraph at lines 177--182
 
  []
 
-<tesi_images/ID_structure.jpg, id=331, 481.8pt x 390.45876pt>
+<tesi_images/ID_structure.jpg, id=387, 481.8pt x 390.45876pt>
 File: tesi_images/ID_structure.jpg Graphic file (type jpg)
 <use tesi_images/ID_structure.jpg>
-Package pdftex.def Info: tesi_images/ID_structure.jpg  used on input line 183.
+Package pdftex.def Info: tesi_images/ID_structure.jpg  used on input line 192.
 (pdftex.def)             Requested size: 266.18678pt x 215.7241pt.
-[8 <./tesi_images/atlas_coord.jpeg> <./tesi_images/magnet_system_atlas.png>]
-[9 <./tesi_images/ID_structure.jpg>]
-<tesi_images/calorimeters.png, id=356, 853.1875pt x 557.08125pt>
+[9 <./tesi_images/atlas_coord.jpeg> <./tesi_images/magnet_system_atlas.png>]
+[10 <./tesi_images/ID_structure.jpg>]
+<tesi_images/calorimeters.png, id=411, 853.1875pt x 557.08125pt>
 File: tesi_images/calorimeters.png Graphic file (type png)
 <use tesi_images/calorimeters.png>
-Package pdftex.def Info: tesi_images/calorimeters.png  used on input line 210.
+Package pdftex.def Info: tesi_images/calorimeters.png  used on input line 219.
 (pdftex.def)             Requested size: 250.95476pt x 163.85303pt.
-<tesi_images/calo_struct.jpg, id=359, 282.04486pt x 260.29991pt>
+<tesi_images/calo_struct.jpg, id=414, 282.04486pt x 260.29991pt>
 File: tesi_images/calo_struct.jpg Graphic file (type jpg)
 <use tesi_images/calo_struct.jpg>
-Package pdftex.def Info: tesi_images/calo_struct.jpg  used on input line 225.
+Package pdftex.def Info: tesi_images/calo_struct.jpg  used on input line 234.
 (pdftex.def)             Requested size: 250.95476pt x 231.61455pt.
 
 
@@ -755,268 +763,377 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[10 <./tesi_images/calorimeters.png>] [11 <./tesi_images/calo_struct.jpg>]
-<tesi_images/muon_spectrometer.png, id=376, 314.17375pt x 334.24875pt>
+[11 <./tesi_images/calorimeters.png>] [12 <./tesi_images/calo_struct.jpg>]
+<tesi_images/muon_spectrometer.png, id=432, 314.17375pt x 334.24875pt>
 File: tesi_images/muon_spectrometer.png Graphic file (type png)
 <use tesi_images/muon_spectrometer.png>
 Package pdftex.def Info: tesi_images/muon_spectrometer.png  used on input line 
-270.
+279.
 (pdftex.def)             Requested size: 125.47737pt x 133.49312pt.
-<tesi_images/3D-muon.jpg, id=378, 587.26967pt x 408.11295pt>
+<tesi_images/3D-muon.jpg, id=434, 587.26967pt x 408.11295pt>
 File: tesi_images/3D-muon.jpg Graphic file (type jpg)
 <use tesi_images/3D-muon.jpg>
-Package pdftex.def Info: tesi_images/3D-muon.jpg  used on input line 271.
+Package pdftex.def Info: tesi_images/3D-muon.jpg  used on input line 280.
 (pdftex.def)             Requested size: 188.21288pt x 130.79185pt.
 
-[12 <./tesi_images/muon_spectrometer.png> <./tesi_images/3D-muon.jpg>]
-<tesi_images/L1.png, id=392, 606.265pt x 409.53pt>
+[13 <./tesi_images/muon_spectrometer.png> <./tesi_images/3D-muon.jpg>]
+<tesi_images/L1.png, id=447, 606.265pt x 409.53pt>
 File: tesi_images/L1.png Graphic file (type png)
 <use tesi_images/L1.png>
-Package pdftex.def Info: tesi_images/L1.png  used on input line 288.
+Package pdftex.def Info: tesi_images/L1.png  used on input line 297.
 (pdftex.def)             Requested size: 250.95476pt x 169.5206pt.
-<tesi_images/HLT.png, id=393, 569.12625pt x 385.44pt>
+<tesi_images/HLT.png, id=448, 569.12625pt x 385.44pt>
 File: tesi_images/HLT.png Graphic file (type png)
 <use tesi_images/HLT.png>
-Package pdftex.def Info: tesi_images/HLT.png  used on input line 289.
+Package pdftex.def Info: tesi_images/HLT.png  used on input line 298.
 (pdftex.def)             Requested size: 250.95476pt x 169.95876pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<tesi_images/STD_model.png, id=395, 1204.5pt x 1204.5pt>
+<tesi_images/STD_model.png, id=450, 1204.5pt x 1204.5pt>
 File: tesi_images/STD_model.png Graphic file (type png)
 <use tesi_images/STD_model.png>
-Package pdftex.def Info: tesi_images/STD_model.png  used on input line 298.
+Package pdftex.def Info: tesi_images/STD_model.png  used on input line 307.
 (pdftex.def)             Requested size: 125.47737pt x 125.47456pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[13] [14 <./tesi_images/L1.png> <./tesi_images/HLT.png> <./tesi_images/STD_mode
+[14] [15 <./tesi_images/L1.png> <./tesi_images/HLT.png> <./tesi_images/STD_mode
 l.png>]
 Chapter 2.
-[15
+[16
 
-] [16] [17]
-<tesi_images/super_cluster.png, id=444, 853.1875pt x 546.04pt>
+] [17] [18]
+<tesi_images/super_cluster.png, id=502, 853.1875pt x 546.04pt>
 File: tesi_images/super_cluster.png Graphic file (type png)
 <use tesi_images/super_cluster.png>
-Package pdftex.def Info: tesi_images/super_cluster.png  used on input line 384.
+Package pdftex.def Info: tesi_images/super_cluster.png  used on input line 393.
 
 (pdftex.def)             Requested size: 266.18678pt x 170.36212pt.
-<tesi_images/el_ph_analisi.png, id=447, 1027.84pt x 770.88pt>
+<tesi_images/el_ph_analisi.png, id=505, 1027.84pt x 770.88pt>
 File: tesi_images/el_ph_analisi.png Graphic file (type png)
 <use tesi_images/el_ph_analisi.png>
-Package pdftex.def Info: tesi_images/el_ph_analisi.png  used on input line 401.
+Package pdftex.def Info: tesi_images/el_ph_analisi.png  used on input line 410.
 
 (pdftex.def)             Requested size: 266.18678pt x 199.63597pt.
- [18 <./tesi_images/super_cluster.png>] [19 <./tesi_images/el_ph_analisi.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 433--434
+ [19 <./tesi_images/super_cluster.png>] [20 <./tesi_images/el_ph_analisi.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 442--443
 []\T1/lmr/m/n/10 - Lat-eral shower width
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 433--434
+Underfull \hbox (badness 10000) in paragraph at lines 442--443
 []$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 440--440
+Underfull \hbox (badness 10000) in paragraph at lines 449--449
 []\T1/lmr/m/n/10 - Shower width, $[]$
  []
 
 
-Underfull \hbox (badness 2376) in paragraph at lines 440--440
+Underfull \hbox (badness 2376) in paragraph at lines 449--449
 \T1/lmr/m/n/10 where i runs over all strips in a win-dow of
  []
 
 
-Overfull \hbox (46.45212pt too wide) in paragraph at lines 422--461
+Overfull \hbox (46.45212pt too wide) in paragraph at lines 431--470
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 97.83609pt on input line 463.
+LaTeX Warning: Float too large for page by 97.83609pt on input line 472.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[20] [21] [22] [23]
+[21] [22] [23] [24]
 Chapter 3.
-[24
+[25
 
-] [25] [26] [27]
-<tesi_images/LGBM.png, id=548, 578.91281pt x 201.00093pt>
+] [26] [27] [28]
+<tesi_images/LGBM.png, id=605, 578.91281pt x 201.00093pt>
 File: tesi_images/LGBM.png Graphic file (type png)
 <use tesi_images/LGBM.png>
-Package pdftex.def Info: tesi_images/LGBM.png  used on input line 705.
+Package pdftex.def Info: tesi_images/LGBM.png  used on input line 714.
 (pdftex.def)             Requested size: 207.03917pt x 71.88489pt.
- [28] [29 <./tesi_images/LGBM.png>]
+ [29] [30 <./tesi_images/LGBM.png>]
 Chapter 4.
-[30
+[31
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 7
-31.
+40.
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<tesi_images/el_hit.png, id=574, 883.3pt x 279.0425pt>
+<tesi_images/el_hit.png, id=632, 883.3pt x 279.0425pt>
 File: tesi_images/el_hit.png Graphic file (type png)
 <use tesi_images/el_hit.png>
-Package pdftex.def Info: tesi_images/el_hit.png  used on input line 734.
+Package pdftex.def Info: tesi_images/el_hit.png  used on input line 743.
 (pdftex.def)             Requested size: 414.06932pt x 130.80936pt.
- [31 <./tesi_images/el_hit.png>]
-<tesi_images/el_track_ep.png, id=588, 379.4175pt x 279.0425pt>
+ [32 <./tesi_images/el_hit.png>]
+<tesi_images/el_track_ep.png, id=646, 379.4175pt x 279.0425pt>
 File: tesi_images/el_track_ep.png Graphic file (type png)
 <use tesi_images/el_track_ep.png>
-Package pdftex.def Info: tesi_images/el_track_ep.png  used on input line 750.
+Package pdftex.def Info: tesi_images/el_track_ep.png  used on input line 759.
 (pdftex.def)             Requested size: 188.21286pt x 138.42238pt.
-<tesi_images/el_trackz0.png, id=589, 385.44pt x 279.0425pt>
+<tesi_images/el_trackz0.png, id=647, 385.44pt x 279.0425pt>
 File: tesi_images/el_trackz0.png Graphic file (type png)
 <use tesi_images/el_trackz0.png>
-Package pdftex.def Info: tesi_images/el_trackz0.png  used on input line 757.
+Package pdftex.def Info: tesi_images/el_trackz0.png  used on input line 766.
 (pdftex.def)             Requested size: 188.21286pt x 136.25513pt.
-<tesi_images/el_cl_pt.png, id=590, 389.455pt x 280.04625pt>
+<tesi_images/el_cl_pt.png, id=648, 389.455pt x 280.04625pt>
 File: tesi_images/el_cl_pt.png Graphic file (type png)
 <use tesi_images/el_cl_pt.png>
-Package pdftex.def Info: tesi_images/el_cl_pt.png  used on input line 764.
+Package pdftex.def Info: tesi_images/el_cl_pt.png  used on input line 773.
 (pdftex.def)             Requested size: 188.21286pt x 135.33511pt.
-<tesi_images/el_cl_eta.png, id=591, 379.4175pt x 281.05pt>
+<tesi_images/el_cl_eta.png, id=649, 379.4175pt x 281.05pt>
 File: tesi_images/el_cl_eta.png Graphic file (type png)
 <use tesi_images/el_cl_eta.png>
-Package pdftex.def Info: tesi_images/el_cl_eta.png  used on input line 771.
+Package pdftex.def Info: tesi_images/el_cl_eta.png  used on input line 780.
 (pdftex.def)             Requested size: 188.21286pt x 139.41821pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 748--776
+Underfull \hbox (badness 10000) in paragraph at lines 757--785
 [][][]
  []
 
-<tesi_images/ph_zconv.png, id=594, 385.44pt x 279.0425pt>
+<tesi_images/ph_zconv.png, id=652, 385.44pt x 279.0425pt>
 File: tesi_images/ph_zconv.png Graphic file (type png)
 <use tesi_images/ph_zconv.png>
-Package pdftex.def Info: tesi_images/ph_zconv.png  used on input line 789.
+Package pdftex.def Info: tesi_images/ph_zconv.png  used on input line 798.
 (pdftex.def)             Requested size: 188.21286pt x 136.25513pt.
-<tesi_images/ph_Rconv.png, id=595, 379.4175pt x 279.0425pt>
+<tesi_images/ph_Rconv.png, id=653, 379.4175pt x 279.0425pt>
 File: tesi_images/ph_Rconv.png Graphic file (type png)
 <use tesi_images/ph_Rconv.png>
-Package pdftex.def Info: tesi_images/ph_Rconv.png  used on input line 796.
+Package pdftex.def Info: tesi_images/ph_Rconv.png  used on input line 805.
 (pdftex.def)             Requested size: 188.21286pt x 138.42238pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<tesi_images/ph_pts.png, id=597, 911.405pt x 264.99pt>
+<tesi_images/ph_pts.png, id=655, 911.405pt x 264.99pt>
 File: tesi_images/ph_pts.png Graphic file (type png)
 <use tesi_images/ph_pts.png>
-Package pdftex.def Info: tesi_images/ph_pts.png  used on input line 807.
+Package pdftex.def Info: tesi_images/ph_pts.png  used on input line 816.
 (pdftex.def)             Requested size: 418.25368pt x 121.60979pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<tesi_images/pt1_pt.png, id=600, 373.395pt x 280.04625pt>
+<tesi_images/pt1_pt.png, id=658, 373.395pt x 280.04625pt>
 File: tesi_images/pt1_pt.png Graphic file (type png)
 <use tesi_images/pt1_pt.png>
-Package pdftex.def Info: tesi_images/pt1_pt.png  used on input line 816.
+Package pdftex.def Info: tesi_images/pt1_pt.png  used on input line 825.
 (pdftex.def)             Requested size: 209.12683pt x 156.84618pt.
-[32 <./tesi_images/el_track_ep.png> <./tesi_images/el_trackz0.png> <./tesi_imag
-es/el_cl_pt.png> <./tesi_images/el_cl_eta.png>] [33 <./tesi_images/ph_zconv.png
+[33 <./tesi_images/el_track_ep.png> <./tesi_images/el_trackz0.png> <./tesi_imag
+es/el_cl_pt.png> <./tesi_images/el_cl_eta.png>] [34 <./tesi_images/ph_zconv.png
 > <./tesi_images/ph_Rconv.png> <./tesi_images/ph_pts.png> <./tesi_images/pt1_pt
-.png>] [34]
+.png>] [35]
+<tesi_images/model_hyper_loss.pdf, id=691, 433.62pt x 289.08pt>
+File: tesi_images/model_hyper_loss.pdf Graphic file (type pdf)
+<use tesi_images/model_hyper_loss.pdf>
+Package pdftex.def Info: tesi_images/model_hyper_loss.pdf  used on input line 8
+86.
+(pdftex.def)             Requested size: 250.95476pt x 167.30481pt.
+<tesi_images/model_hyper_importance.pdf, id=694, 519.3081pt x 278.34865pt>
+File: tesi_images/model_hyper_importance.pdf Graphic file (type pdf)
+<use tesi_images/model_hyper_importance.pdf>
+Package pdftex.def Info: tesi_images/model_hyper_importance.pdf  used on input 
+line 895.
+(pdftex.def)             Requested size: 334.60422pt x 179.35298pt.
 
-LaTeX Warning: Reference `fig:scores' on page 35 undefined on input line 881.
 
-[35]
-Appendix A.
-File: tesi_images/pt1_pt.png Graphic file (type png)
-<use tesi_images/pt1_pt.png>
-Package pdftex.def Info: tesi_images/pt1_pt.png  used on input line 895.
-(pdftex.def)             Requested size: 188.21286pt x 141.15942pt.
-<tesi_images/pt2_pt.png, id=637, 373.395pt x 280.04625pt>
-File: tesi_images/pt2_pt.png Graphic file (type png)
-<use tesi_images/pt2_pt.png>
-Package pdftex.def Info: tesi_images/pt2_pt.png  used on input line 902.
-(pdftex.def)             Requested size: 188.21286pt x 141.15942pt.
-<tesi_images/pt1_pt2_el_2D.png, id=638, 387.4475pt x 279.0425pt>
-File: tesi_images/pt1_pt2_el_2D.png Graphic file (type png)
-<use tesi_images/pt1_pt2_el_2D.png>
-Package pdftex.def Info: tesi_images/pt1_pt2_el_2D.png  used on input line 909.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-(pdftex.def)             Requested size: 188.21286pt x 135.5526pt.
-<tesi_images/pt1_pt2_ph_2D.png, id=639, 387.4475pt x 279.0425pt>
-File: tesi_images/pt1_pt2_ph_2D.png Graphic file (type png)
-<use tesi_images/pt1_pt2_ph_2D.png>
-Package pdftex.def Info: tesi_images/pt1_pt2_ph_2D.png  used on input line 916.
+<tesi_images/model_hyper_gain.pdf, id=695, 544.31364pt x 278.34865pt>
+File: tesi_images/model_hyper_gain.pdf Graphic file (type pdf)
+<use tesi_images/model_hyper_gain.pdf>
+Package pdftex.def Info: tesi_images/model_hyper_gain.pdf  used on input line 9
+02.
+(pdftex.def)             Requested size: 334.60422pt x 171.11757pt.
 
-(pdftex.def)             Requested size: 188.21286pt x 135.5526pt.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-Underfull \hbox (badness 10000) in paragraph at lines 893--921
+[36 <./tesi_images/model_hyper_loss.pdf>]
+<tesi_images/scores.png, id=739, 369.38pt x 279.0425pt>
+File: tesi_images/scores.png Graphic file (type png)
+<use tesi_images/scores.png>
+Package pdftex.def Info: tesi_images/scores.png  used on input line 914.
+(pdftex.def)             Requested size: 250.95476pt x 189.58032pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[37 <./tesi_images/model_hyper_importance.pdf> <./tesi_images/model_hyper_gain.
+pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./tesi_images/model_hyper_gain.pdf): PD
+F inclusion: multiple pdfs with page group included in a single page
+>]
+<tesi_images/dr_dr.pdf, id=841, 361.35pt x 361.35pt>
+File: tesi_images/dr_dr.pdf Graphic file (type pdf)
+<use tesi_images/dr_dr.pdf>
+Package pdftex.def Info: tesi_images/dr_dr.pdf  used on input line 938.
+(pdftex.def)             Requested size: 209.12683pt x 209.1255pt.
+<tesi_images/dr_old.pdf, id=842, 361.35pt x 361.35pt>
+File: tesi_images/dr_old.pdf Graphic file (type pdf)
+<use tesi_images/dr_old.pdf>
+Package pdftex.def Info: tesi_images/dr_old.pdf  used on input line 945.
+(pdftex.def)             Requested size: 209.12683pt x 209.1255pt.
+<tesi_images/dr_new.pdf, id=843, 361.35pt x 361.35pt>
+File: tesi_images/dr_new.pdf Graphic file (type pdf)
+<use tesi_images/dr_new.pdf>
+Package pdftex.def Info: tesi_images/dr_new.pdf  used on input line 952.
+(pdftex.def)             Requested size: 209.12683pt x 209.1255pt.
+<tesi_images/old_old.pdf, id=844, 361.35pt x 361.35pt>
+File: tesi_images/old_old.pdf Graphic file (type pdf)
+<use tesi_images/old_old.pdf>
+Package pdftex.def Info: tesi_images/old_old.pdf  used on input line 959.
+(pdftex.def)             Requested size: 209.12683pt x 209.1255pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 936--964
 [][][]
  []
 
-[36
+File: tesi_images/dr_new.pdf Graphic file (type pdf)
+<use tesi_images/dr_new.pdf>
+Package pdftex.def Info: tesi_images/dr_new.pdf  used on input line 968.
+(pdftex.def)             Requested size: 209.12683pt x 209.1255pt.
+<tesi_images/all_roc.pdf, id=845, 361.35pt x 361.35pt>
+File: tesi_images/all_roc.pdf Graphic file (type pdf)
+<use tesi_images/all_roc.pdf>
+Package pdftex.def Info: tesi_images/all_roc.pdf  used on input line 975.
+(pdftex.def)             Requested size: 209.12683pt x 209.1255pt.
+[38 <./tesi_images/scores.png>] [39 <./tesi_images/dr_dr.pdf> <./tesi_images/dr
+_old.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./tesi_images/dr_old.pdf): PDF inclusio
+n: multiple pdfs with page group included in a single page
+> <./tesi_images/dr_new.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./tesi_images/dr_new.pdf): PDF inclusio
+n: multiple pdfs with page group included in a single page
+> <./tesi_images/old_old.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./tesi_images/old_old.pdf): PDF inclusi
+on: multiple pdfs with page group included in a single page
+>] [40 <./tesi_images/all_roc.pdf>] [41
+
+]
+Appendix A.
+File: tesi_images/pt1_pt.png Graphic file (type png)
+<use tesi_images/pt1_pt.png>
+Package pdftex.def Info: tesi_images/pt1_pt.png  used on input line 992.
+(pdftex.def)             Requested size: 188.21286pt x 141.15942pt.
+<tesi_images/pt2_pt.png, id=1095, 373.395pt x 280.04625pt>
+File: tesi_images/pt2_pt.png Graphic file (type png)
+<use tesi_images/pt2_pt.png>
+Package pdftex.def Info: tesi_images/pt2_pt.png  used on input line 999.
+(pdftex.def)             Requested size: 188.21286pt x 141.15942pt.
+<tesi_images/pt1_pt2_el_2D.png, id=1096, 387.4475pt x 279.0425pt>
+File: tesi_images/pt1_pt2_el_2D.png Graphic file (type png)
+<use tesi_images/pt1_pt2_el_2D.png>
+Package pdftex.def Info: tesi_images/pt1_pt2_el_2D.png  used on input line 1006
+.
+(pdftex.def)             Requested size: 188.21286pt x 135.5526pt.
+<tesi_images/pt1_pt2_ph_2D.png, id=1097, 387.4475pt x 279.0425pt>
+File: tesi_images/pt1_pt2_ph_2D.png Graphic file (type png)
+<use tesi_images/pt1_pt2_ph_2D.png>
+Package pdftex.def Info: tesi_images/pt1_pt2_ph_2D.png  used on input line 1013
+.
+(pdftex.def)             Requested size: 188.21286pt x 135.5526pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 990--1018
+[][][]
+ []
+
+[42
 
  <./tesi_images/pt2_pt.png> <./tesi_images/pt1_pt2_el_2D.png> <./tesi_images/pt
 1_pt2_ph_2D.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 952--955
+Underfull \hbox (badness 10000) in paragraph at lines 1032--1035
 []\T1/lmr/m/it/10 The Large Hadron Col-lider (LHC) []$\T1/lmtt/m/n/10 https : /
  / home . cern / science / accelerators /
  []
 
 
-Underfull \hbox (badness 5893) in paragraph at lines 966--968
+Underfull \hbox (badness 5893) in paragraph at lines 1046--1048
 []\T1/lmr/m/n/10 H. Perneg-ger, \T1/lmr/m/it/10 The Pixel De-tec-tor of the AT-
 LAS Ex-per-i-ment for LHC Run-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 966--968
+Underfull \hbox (badness 10000) in paragraph at lines 1046--1048
 \T1/lmr/m/it/10 2\T1/lmr/m/n/10 , ATL-INDET-PROC-2015-001. []$\T1/lmtt/m/n/10 h
 ttps : / / cds . cern . ch / record / 1985432 / files /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 974--976
+Underfull \hbox (badness 10000) in paragraph at lines 1054--1056
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 984--987
+Underfull \hbox (badness 10000) in paragraph at lines 1064--1067
 []\T1/lmr/m/it/10 Trigger and Data Ac-qui-si-tion Sys-tem []$\T1/lmtt/m/n/10 ht
 tps : / / atlas . cern / discover / detector /
  []
 
-[37
+[43
+
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1021--1022
+Underfull \hbox (badness 3000) in paragraph at lines 1081--1085
+[]\T1/lmr/m/it/10 Observation of a new par-ti-cle in the search for the Stan-da
+rd Model Higgs bo-
+ []
+
+
+Underfull \hbox (badness 7685) in paragraph at lines 1081--1085
+\T1/lmr/m/it/10 son with the AT-LAS de-tec-tor at the LHC\T1/lmr/m/n/10 , The A
+T-LAS Col-lab-o-ra-tion, In:
+ []
+
+
+Underfull \hbox (badness 2443) in paragraph at lines 1081--1085
+\T1/lmr/m/it/10 Phys. Lett. B \T1/lmr/m/n/10 716.arXiv:1207.7214.CERN-PH-EP-201
+2-218 (Aug. 2012) DOI:[]$\T1/lmtt/m/n/10 https :
+ []
+
+
+Underfull \hbox (badness 1783) in paragraph at lines 1081--1085
+\T1/lmtt/m/n/10 / / doi . org / 10 . 1016 / j . physletb . 2012 . 08 . 020$[]\T
+1/lmr/m/n/10 , URL:[]$\T1/lmtt/m/n/10 http : / / www . sciencedirect . com /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1104--1108
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1029--1031
+Underfull \hbox (badness 10000) in paragraph at lines 1110--1112
 \T1/lmtt/m/n/10 scholar . google . it / scholar ? q = K . P . +Murphy ,[] +Mach
 ine + Learning . +A + Probabilistic +
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1044.
-[38]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1044.
+[44]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1130.
+ [45]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1130.
  (./tesi.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1044.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1044.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1130.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1130.
 
 Package rerunfilecheck Info: File `tesi.out' has not changed.
-(rerunfilecheck)             Checksum: 2F174430FE848F093DD3A943137E112D;2844.
-
-
-LaTeX Warning: There were undefined references.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1044.
+(rerunfilecheck)             Checksum: 40CD94B2FAB21FD5D1BCDB93DDBFD90C;2914.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1130.
  ) 
 Here is how much of TeX's memory you used:
- 11294 strings out of 481239
- 183780 string characters out of 5920377
- 480802 words of memory out of 5000000
- 26112 multiletter control sequences out of 15000+600000
+ 11385 strings out of 481239
+ 186029 string characters out of 5920377
+ 481644 words of memory out of 5000000
+ 26175 multiletter control sequences out of 15000+600000
  614637 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  50i,13n,49p,1209b,538s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1037,10 +1154,10 @@ type1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/public/lm/lmro10.pfb></
 usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/
 public/lm/lmsy5.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/sha
 re/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on tesi.pdf (39 pages, 3392795 bytes).
+Output written on tesi.pdf (46 pages, 3544816 bytes).
 PDF statistics:
- 815 PDF objects out of 1000 (max. 8388607)
- 668 compressed objects within 7 object streams
- 171 named destinations out of 1000 (max. 500000)
- 481 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1284 PDF objects out of 1440 (max. 8388607)
+ 785 compressed objects within 8 object streams
+ 189 named destinations out of 1000 (max. 500000)
+ 539 words of extra memory for PDF output out of 10000 (max. 10000000)
 
