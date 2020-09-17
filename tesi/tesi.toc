@@ -13,31 +13,32 @@
 \contentsline {section}{\numberline {1.3}ATLAS Physics Programme}{14}{section.1.3}%
 \contentsline {chapter}{\numberline {2}Electron and photon reconstruction}{16}{chapter.2}%
 \contentsline {section}{\numberline {2.1}The topo-cluster reconstruction}{16}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Track reconstruction}{17}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Track-cluster matching and photon conversion reconstruction}{18}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Supercluster reconstruction}{18}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Creation of electrons and photons for analysis}{20}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Identification}{20}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Elettron identification}{20}{subsection.2.6.1}%
-\contentsline {subsection}{\numberline {2.6.2}Photon identification}{21}{subsection.2.6.2}%
-\contentsline {section}{\numberline {2.7}Electron and photon isolation}{24}{section.2.7}%
-\contentsline {chapter}{\numberline {3}Machine Learning and Gradient Boosted Trees}{25}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Supervised Learning}{25}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Model and Parameters}{26}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Objective Function}{26}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Gradient boosted trees}{26}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Decision Tree}{26}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Decision Tree Ensembles}{27}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Tree Boosting}{27}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Learn the tree structure}{29}{subsection.3.2.4}%
-\contentsline {section}{\numberline {3.3}LightGBM}{29}{section.3.3}%
-\contentsline {chapter}{\numberline {4}BDT: Electron and photon classification}{31}{chapter.4}%
-\contentsline {section}{\numberline {4.1}BDT training}{32}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Discriminating features}{32}{subsection.4.1.1}%
-\contentsline {subsubsection}{Electron features}{32}{section*.23}%
-\contentsline {subsubsection}{Photon features}{33}{section*.26}%
-\contentsline {subsection}{\numberline {4.1.2}Parameters and Hyperparameter optimization}{35}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Training and Model}{35}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}BDT applied on test set}{37}{section.4.2}%
-\contentsline {section}{\numberline {4.3}BDT results}{38}{section.4.3}%
+\contentsline {section}{\numberline {2.2}Track reconstruction}{18}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Track-cluster matching and photon conversion reconstruction}{19}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Supercluster reconstruction}{19}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Creation of electrons and photons for analysis}{21}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Calibration}{21}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Identification}{21}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}Elettron identification}{22}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}Photon identification}{22}{subsection.2.7.2}%
+\contentsline {section}{\numberline {2.8}Electron and photon isolation}{25}{section.2.8}%
+\contentsline {chapter}{\numberline {3}Machine Learning and Gradient Boosted Trees}{26}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Supervised Learning}{26}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Model and Parameters}{27}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Objective Function}{27}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Gradient boosted trees}{27}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Decision Tree}{27}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Decision Tree Ensembles}{28}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Tree Boosting}{28}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Learn the tree structure}{30}{subsection.3.2.4}%
+\contentsline {section}{\numberline {3.3}LightGBM}{30}{section.3.3}%
+\contentsline {chapter}{\numberline {4}BDT: Electron and photon classification}{32}{chapter.4}%
+\contentsline {section}{\numberline {4.1}BDT training}{33}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Discriminating features}{33}{subsection.4.1.1}%
+\contentsline {subsubsection}{Electron features}{33}{section*.24}%
+\contentsline {subsubsection}{Photon features}{34}{section*.27}%
+\contentsline {subsection}{\numberline {4.1.2}Parameters and Hyperparameter optimization}{36}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Training and Model}{36}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}BDT applied on test set}{38}{section.4.2}%
+\contentsline {section}{\numberline {4.3}BDT results}{40}{section.4.3}%
 \contentsline {chapter}{\numberline {A}Conversion symmetry}{42}{appendix.A}%

@@ -3,7 +3,7 @@
 \usepackage{geometry,url,graphicx, hyperref,subfig,enumitem, amsmath,float}
 \usepackage{amsmath, amssymb, amsthm, mathtools, color, setspace}
 \usepackage{fancyhdr, braket, etoolbox,booktabs,multirow}
-\usepackage{xfrac, lmodern} % xfrac gives font errors, add lmodern to remove them. Check whether this remains a problem!
+\usepackage{xfrac, lmodern, ifsym} % xfrac gives font errors, add lmodern to remove them. Check whether this remains a problem!
 %\usepackage{hyperref}
 %\usepackage[utf8]{inputenc}
 %\usepackage{colorprofiles}
@@ -315,38 +315,43 @@
 			One of the most important ATLAS discoveries is the proof of the existence of the Higgs boson. On 4 July 2012, the ATLAS and CMS \cite{CMS} experiments at CERN announced that they had independently observed a new particle in the mass region of around 126 GeV: a boson consistent with the Higgs boson \cite{Higgs}.
 				
 	\chapter{Electron and photon reconstruction}
-		Events with electrons and photons in the final state are important signatures for many physics analyses envisaged at the LHC. Their reconstruction mainly  exploits data coming from the electromagnetic calorimeter (clusters) and the Inner Detector (ID) systems (tracks) \cite{El ph intro}\cite{El ph reco}: 
+		Events with electrons and photons in the final state are important signatures for many physics analyses envisaged at the LHC. Their reconstruction mainly  exploits data coming from the electromagnetic calorimeter (clusters) and the Inner Detector (ID) systems (tracks) \cite{El ph reco}: 
 		\begin{itemize}
 			\item an electron is defined as an object consisting of a cluster built from energy deposits in the
 			calorimeter (supercluster) and a matched track (or tracks);
 			\item a  converted photon is a cluster matched to a conversion vertex (or vertices), and an unconverted photon is a cluster matched to neither an
 			electron track nor a conversion vertex. About 20\% of photons at low $|\eta|$ convert in the ID, and up to about 65\% convert at $|\eta| \simeq 2.3$.
 		\end{itemize}
-		The reconstruction  with $|\eta| < 2.5$ is based on an algorithm. It first prepares the tracks and clusters it will use. It selects clusters of energy deposits measured in topologically connected EM and hadronic calorimeter cells, denoted topo-clusters. These clusters are matched to ID tracks, which are re-fitted accounting for bremsstrahlung. The algorithm also builds conversion vertices and matches them to the selected topo-clusters. The electron and photon supercluster-building steps then run separately using the matched clusters as input. After applying initial position corrections and energy
-		calibrations to the resulting superclusters, the supercluster-building algorithm matches tracks to the electron superclusters and conversion vertices to the photon superclusters. The electron and photon
-		objects to be used for analyses are then built, their energies are calibrated, and discriminating
-		variables used to separate electrons or photons from background are added.
+		The reconstruction of electrons and photons is based on the following algorithm (Figure \ref{fig:alg_flow}). It first prepares the tracks and clusters it will use. It selects clusters of energy deposits measured in topologically connected EM and hadronic calorimeter cells, denoted as topo-clusters (Section \ref{section:Topo}). These clusters are matched to ID tracks, which are re-fitted accounting for bremsstrahlung (Section \ref{section:Track reco}). The algorithm also builds conversion vertices and matches them to the selected topo-clusters (Section \ref{section:match}). The electron and photon supercluster-building steps then run separately using the matched clusters as input (Section \ref{section:super cl}). After applying initial position corrections and energy calibrations to the resulting superclusters, the supercluster-building algorithm matches tracks to the electron superclusters and conversion vertices to the photon superclusters. The electron and photon objects to be used for analyses are then built (Section \ref{section:creation}), their energies are calibrated (Section \ref{section:Calib}), and discriminating variables used to separate electrons or photons from background are added (Sections \ref{section:Ident} and \ref{section:Iso}).
 		
-		\section{The topo-cluster reconstruction}
-			The topo-cluster reconstruction algorithm begins by forming proto-clusters in the EM and hadronic calorimeters using a set of noise thresholds in which the cell initiating the cluster is EM required to have significance $|\zeta_{cell}^{EM}| \geq 4$ where 
+		\begin{figure}
+			\centering
+			\includegraphics[width=.9\linewidth]{tesi_images/alg_flow.png} 
+			\caption{Algorithm flow diagram for the electron and photon reconstruction.} 
+			\label{fig:alg_flow}
+		\end{figure}
+		
+		\section{The topo-cluster reconstruction}\label{section:Topo}
+			The topo-cluster reconstruction algorithm begins by forming proto-clusters in the EM and hadronic calorimeters using a set of noise thresholds in which the cell initiating the cluster is required to have significance $|\zeta_{cell}^{EM}| \geq 4$ where 
 			$$
 			\zeta_{cell}^{EM} = \frac{E_{cell}^{EM}}{\sigma_{cell}^{EM}}
 			$$		
 			$E_{cell}^{EM}$ is the energy cell at the EM scale and $\sigma_{cell}^{EM}$ is the expected cell noise, which includes the known electronic noise and an estimate of the pile-up noise corresponding
 			to the average instantaneous luminosity expected for Run 2. In order to suppres the formation of noise cluster, in this initial stage, cells from the presampler and the first LAr EM calorimeter layer are excluded from initiating proto-clusters.
-			An important role is played by the neighbouring cells. If they have a significance $|\zeta_{cell}^{EM}| \geq 2$, these cells are collected by proto-cluster. Each neighbour cell passing the threshold of $|\zeta_{cell}^{EM}| \geq 2$ becomes a seed cell in the next iteration, collecting each of its neighbours in the proto-cluster. If two proto-clusters EM contain the same cell with $|\zeta_{cell}^{EM}| \geq 2$ above the noise threshold, these proto-clusters are merged. A crown of nearest-neighbour cells is added to the cluster independently on their energy ($|\zeta_{cell}^{EM}| \geq 0$). This set of thresholds is commonly known as ‘4-2-0’ topo-cluster reconstruction.\\
-			Energy becomes an important feature when a cell has $|E_{cell}^{EM}| > 500$ MeV. A cell with this energy, at least four neighbours, and when none of the neighbours has a larger signal, is a local maximum. Proto-clusters with two or more local maxima are split into separate clusters.
+			An important role is played by the neighbouring cells. If they have a significance $|\zeta_{cell}^{EM}| \geq 2$, these cells are collected by the proto-cluster. Each neighbour cell passing the threshold of $|\zeta_{cell}^{EM}| \geq 2$ becomes a seed cell in the next iteration, collecting each of its neighbours in the proto-cluster. If two proto-clusters contain the same cell with $|\zeta_{cell}^{EM}| \geq 2$ above the noise threshold, these proto-clusters are merged. A crown of nearest-neighbour cells is added to the cluster independently on their energy ($|\zeta_{cell}^{EM}| \geq 0$). This set of thresholds is commonly known as ‘4-2-0’ topo-cluster reconstruction.
+			
+			In order to avoid a topo-cluster to collect energies from different physical objects a dedicated splitting procedure is defined. A cell with $|E_{cell}^{EM}| > 500$ MeV, at least four neighbours, and when none of the neighbours has a larger signal, is defined as a local maximum. Proto-clusters with two or more local maxima are split into separate clusters.
 			
 			%Electron and photon reconstruction starts from the topo-clusters but only uses the energy from cells in the EM calorimeter, except in the transition region of $1.37<|\eta|<1.63$, where the energy measured in the presampler and the scintillator between the calorimeter cryostats is also added.%
 		
-		\section{Track reconstruction}
-		Track finding is one of the most challenging tasks in reconstructing events from proton-proton  collisions  recorded  by  the  ATLAS  detector. The process consists in finding a track in the ID which can be matched to the energy clusters. The ID track reconstruction consists of several sequences with different strategies and the main sequence is referred to as inside-out track finding: \cite{ID reco alg}
+		\section{Track reconstruction}\label{section:Track reco}
+		Track finding is one of the most challenging tasks in reconstructing events from proton-proton  collisions  recorded  by  the  ATLAS  detector. The process consists in finding a track from hits recorded in the ID. The ID track reconstruction consists of several sequences with different strategies and the main sequence is referred to as inside-out track finding: \cite{ID reco alg}
 		\begin{itemize}
 			\item \textbf{Space point formation}: the initial step of the ID reconstruction consists of the cluster and drift circle creation and the transformation of clusters in the silicon detectors into 3D space points. Clusters are formed by finding connected cells in
-			the pixel and strip detectors. \cite{Track reco}From these clusters, three-dimensional measurements referred to as space-points are created. In the pixel detector, each cluster equates to one space-point, while in the SCT, clusters from both stereo views of a strip layer must be combined to obtain a three-dimensional measurement. 
+			the pixel and strip detectors. From these clusters, three-dimensional measurements referred to as space-points are created \cite{Track reco}. In the pixel detector, each cluster corresponds to one space-point, while in the SCT, clusters from both stereo views of a strip layer must be combined to obtain a three-dimensional measurement. 
 			
-			\item \textbf{Space point seeded track finding}: track seeds are formed from sets of three space-points in the silicon-detector layers. \cite{ID reco alg} Seeds can be built from space points in the pixel detector only (referred to as PPP seeds), the strip detector only (SSS) or any mixed setup (PSS,PPS). To reduce the number of potential seeds, initial cuts are applied and dedicated care is taken not to
-			extensively use space points in multiple seeds. Seeds that pass the initial requirements are then input to a track finding algorithm that uses a combinatorial Kalman filter technique and aims to complete the track candidates within the silicon detector.
+			\item \textbf{Space point seeded track finding}: track seeds are formed from sets of three space-points in the silicon-detector layers. Seeds can be built from space points in the pixel detector only (referred to as PPP seeds), the strip detector only (SSS) or any mixed setup (PSS,PPS) \cite{ID reco alg}. To reduce the number of potential seeds, initial selections are applied and dedicated care is taken not to
+			extensively use space points in multiple seeds. Seeds that pass the initial requirements are then input to a track finding algorithm that uses a combinatorial Kalman filter technique \cite{Kalman} and aims to complete the track candidates within the silicon detector.
 			
 			\item \textbf{Ambiguity solving}: track candidates are then further processed in an ambiguity solving
 			module that aims to eliminate track candidates from random hit combinations (often
@@ -356,7 +361,7 @@
 			momentum resolution significantly by exploiting the longer lever arm for field integration.
 		\end{itemize}
 		
-		\section{Track-cluster matching and photon conversion reconstruction}
+		\section{Track-cluster matching and photon conversion reconstruction}\label{section:match}
 			\cite{El ph reco} After cluster and track reconstruction, the next step is the track-cluster matching. Fixed-size clusters in the calorimeter are used to create regions-of-interest (ROIs) and tracks intersecting
 			these regions are considered loosely matched to the cluster. Track candidates are then fitted with the global $\chi^2$ fitter. The loosely matched, re-fitted tracks are then matched to the EM topo-clusters (with requirements, see \cite{El ph reco}).
 			If multiple tracks are matched to a cluster, they are ranked in order to choose the best one. To assign the rank, tracks are compared on the number of hits in the Pixel and SCT detectors. Another rank characteristic is $\Delta R$: tracks with a better $\Delta R$ match between the track and cluster coordinates are preferred. So the highest-ranked track is used to define the reconstructed electron properties.
@@ -369,7 +374,7 @@
 			conversion radius is preferred.
 			
 			
-		\section{Supercluster reconstruction}
+		\section{Supercluster reconstruction}\label{section:super cl}
 		The reconstruction of electron and photon superclusters proceeds independently, each in two stages \cite{El ph reco}:
 		\begin{enumerate}
 		\item in the first stage, EM topo-clusters are tested for use as seed cluster candidates, which form the basis of superclusters; 
@@ -401,7 +406,7 @@
 		
 		\item The final step in the supercluster-building algorithm is to assign calorimeter cells to a given supercluster. Only cells from the presampler and the first three LAr calorimeter layers are considered, except in the transition region of $1.4 < |\eta| < 1.6$, where the energy measured in the scintillator between the calorimeter cryostats is also added. To limit the superclusters’ sensitivity to pile-up noise, the size of each constituent topo-cluster is restricted to a maximal width of 0.075 or 0.125 in the $\eta$ direction in the barrel or endcap region, respectively. Because the magnetic field in the ID is parallel to the beam-line, interactions between the electron or photon and detector material generally cause the EM shower to spread in the $\varphi$ direction, so the restriction in $\eta$ still generally allows the electron or photon energy to be captured. No restriction is applied in the $\varphi$-direction.	
 		\end{itemize}
-		\section{Creation of electrons and photons for analysis}
+		\section{Creation of electrons and photons for analysis}\label{section:creation}
 		\cite{El ph reco}After the electron and photon superclusters are built, tracks are matched to electron superclusters and conversion vertices to photon superclusters. Then the analysis-level
 		electrons and photons are created. Because electron and photon superclusters are built independently, a given seed cluster can produce both an electron and a photon. In such cases, the procedure
 		presented in figure \ref{fig:el_ph_analisi} is applied. The purpose is that if a particular object can be easily identified only as a photon (a cluster with no good track attached) or only as an electron (a cluster with a good track attached and no good photon conversion vertex), then only a photon or an electron object is created for analysis; otherwise, both an electron and a photon object are created. Furthermore, these cases are marked explicitly as ambiguous, allowing the final classification of these objects to be determined based upon the specific requirements of each analysis.
@@ -411,8 +416,8 @@
 			\caption{Flowchart showing the logic of the ambiguity resolution for particles initially reconstructed both as electrons and photons.}
 			\label{fig:el_ph_analisi}
 		\end{figure}
-	
-		\section{Identification}
+		\section{Calibration}\label{section:Calib}
+		\section{Identification}\label{section:Ident}
 		\cite{Identification}Excellent electron and photon identification capabilities are crucial for many aspects of the ATLAS physics program, from standard model measurements (including Higgs boson) to new physics searches. The identification of prompt photons and the rejection of backgrounds, mostly coming from photons from hadron decays, relies on the high granularity of the ATLAS calorimeter. Electron identification is based on a likelihood (LH) discrimination to separate isolated electron candidates from candidates originating from photon conversions, hadron misidentification and heavy flavor decays. 
 			\subsection{Elettron identification}
 			\cite{El ph reco}The quantities used in the electron identification are chosen according to their ability to discriminate prompt isolated electrons from energy deposits from hadronic jets, from converted photons and from genuine electrons produced in the decays of heavy-flavour hadrons. The variables can be
@@ -523,8 +528,8 @@
 			are optimized separately in bins of $|\eta|$. The Tight identification is also optimized in separate bins of $E_T$. The Tight identification is performed separately for converted and
 			unconverted photons. The shower shapes of converted photons differ from unconverted photons due to the opening angle of the $e^{+}e^{-}$ conversion pair, which is amplified by the magnetic field, and from the additional interaction of the conversion pair with the material upstream of the calorimeters. \\
 			The tight selections are separately optimised for unconverted and converted photons, to account for the generally broader lateral shower profile of the latter. The thresholds of the selection criteria are different in seven intervals of the reconstructed photon $|\eta|$ to account for the calorimeter geometry, and for different effects on the shower shapes from the material upstream of the calorimeter.
-			
-		\section{Electron and photon isolation}
+	
+		\section{Electron and photon isolation}\label{section:Iso}
 		The isolation progress, or isolation cut, is applied in order to reduce the backgrounds. Different criteria are defined, with different levels
 		of efficiency in rejecting the background. The isolation working points uses variables from the tracking and from the calorimeter. \cite{El ph isol}
 		
@@ -922,64 +927,44 @@
 			%$\epsilon_{el}=\frac{\text{reco el from true ph}}{\text{All el}}$ 
 			by making cuts (thresholds) on the scoring range [0,1]. TPR, FPR and thresholds can also be obtained using a scikit-learn function \texttt{roc\_curve}, which has as input the $y^{true}$ and the model's predictions $y^{pred}$. 
 			
-			The ROC curve is a graph showing the performance of the  classification model at all thresholds. This curve plots two parameters: FPR versus TPR at different classification thresholds connecting the point (1,1) to (0,0). The perfomance estimator is the entire two-dimensional area underneath the entire ROC curve, called AUC, which is calculated using the scikit-learn function \texttt{auc(FPT,TPR)}. The closer the AUC is to 1, the more predictive the model is. 
+			The ROC curve is a graph showing the performance of the  classification model at all thresholds. This curve plots two parameters: FPR versus TPR at different classification thresholds connecting the point (1,1) to (0,0). The perfomance estimator is the entire two-dimensional area underneath the entire ROC curve, called AUC, which is calculated using the scikit-learn function \texttt{auc(FPT,TPR)}. The closer the AUC is to 1, the more predictive the model is. A ROC curve example is shown in Figure \ref{fig:ex_roc}. It represents the ROC curve of the model trained on double reconstruction set, which applied on old ambiguous particles test set.
 			
-		    Therefore, in order to calculate the performance of the various models they were applied to various portions of the test set by calculating the ROC curves and AUCs:
-			\begin{itemize}
-				\item double reconstructions model applied to double reconstructions (Fig \ref{fig:dr_dr}), old ambiguity tool ambiguous (Fig \ref{fig:dr_dr}) and new ambiguity tool ambiguous (Fig \ref{fig:dr_dr}) test sets.
-				\item old ambiguous model applied to old ambiguity tool ambiguous (Fig \ref{fig:old_old}) test set.
-				\item new ambiguous model applied to new ambiguity tool ambiguous (Fig \ref{fig:new_new}) test set.
-				\item the previous examples with the single reco added to the test sets (Fig \ref{fig:all_roc}). To due they are applied on the same test set, they can be compared in one plot.
-			\end{itemize}
 			
-			\begin{figure}[ht]  
-				\begin{minipage}[b]{0.5\linewidth}
-					\centering
-					\includegraphics[width=1.\linewidth]{tesi_images/dr_dr.pdf}
-					\caption{} 
-					\label{fig:dr_dr}
-					\vspace{4ex}
-				\end{minipage}%%
-				\begin{minipage}[b]{0.5\linewidth}
-					\centering
-					\includegraphics[width=1.\linewidth]{tesi_images/dr_old.pdf} 
-					\caption{}
-					\label{fig:dr_old} 
-					\vspace{4ex}
-				\end{minipage} 
-				\begin{minipage}[b]{0.5\linewidth}
-					\centering
-					\includegraphics[width=1.\linewidth]{tesi_images/dr_new.pdf} 
-					\caption{} 
-					\label{fig:dr_new}
-					\vspace{4ex}
-				\end{minipage}%%
-				\begin{minipage}[b]{0.5\linewidth}
-					\centering
-					\includegraphics[width=1.\linewidth]{tesi_images/old_old.pdf} 
-					\caption{} 
-					\label{fig:old_old}
-					\vspace{4ex}
-				\end{minipage}
-			\end{figure}
-			\begin{figure}[ht]
-				\begin{minipage}[b]{0.5\linewidth}
-					\centering
-					\includegraphics[width=1.\linewidth]{tesi_images/dr_new.pdf}
-					\caption{} 
-					\label{fig:new_new}
-					\vspace{4ex}
-				\end{minipage}%% 
-				\begin{minipage}[b]{0.5\linewidth}
-					\centering
-					\includegraphics[width=1.\linewidth]{tesi_images/all_roc.pdf} 
-					\caption{} 
-					\label{fig:all_roc}
-					\vspace{4ex}
-				\end{minipage} 
+			
+		    %Therefore, in order to calculate the performance of the various models they were applied to various portions of the test %set by calculating the ROC curves and AUCs:
+			%\begin{itemize}
+			%	\item double reconstructions model applied to double reconstructions (Fig \ref{fig:dr_dr}), old ambiguity tool ambiguous (Fig \ref{fig:dr_dr}) and new ambiguity tool ambiguous (Fig \ref{fig:dr_dr}) test sets.
+			%	\item old ambiguous model applied to old ambiguity tool ambiguous (Fig \ref{fig:old_old}) test set.
+			%	\item new ambiguous model applied to new ambiguity tool ambiguous (Fig \ref{fig:new_new}) test set.
+			%	\item the previous examples with the single reco added to the test sets (Fig \ref{fig:all_roc}). To due they are applied on the same test set, they can be compared in one plot.
+			%\end{itemize}%%%
+			
+			\begin{figure}[H] 
+				\centering
+				\includegraphics[width=.6\linewidth]{tesi_images/dr_old.pdf} 
+				\caption{ROC curve of model double reco, which is applied on the old ambiguous test set} 
+				\label{fig:ex_roc}
 			\end{figure}
 		\section{BDT results}
-			Questa sezione aspetto a scriverla per capire se devo aggiungere o meno i sample di fisica
+			Finally, after the choice of the discriminating features, the optimisation of the hyperparameters, the training the models are created and their performance can be compared on various test sets, which must be the same for the three models and consistent: for example it is not possible to apply the model trained on the old ambiguous particles on a test set composed of particles classified as ambiguous by the new ambiguity tool. The test set which provides more information is the \textit{outer} set. It consists of single reconstructions and all double reconstructions.
+			
+			Once the models are applied on the outer test set, their outputs must be corrected:
+			\begin{itemize}
+				\item the single reconstruction must be respected. If the particle is reconstructed as a photon the $y^{pred}$ is fixed at 1, whereas if it is reconstructed as an electron the $y^{pred}$ is fixed at 0.
+				\item when \texttt{el\_amb\_type} and \texttt{ph\_amb\_type} are equal to 0 or 6, the outputs of the models trained on ambiguous particles are fixed with $y^{pred}$=0 or 1. This is because these models can only work on ambiguous particles and for the others they must adapt to the decisions of the ambiguity tools.
+			\end{itemize}
+			
+			Figure \ref{fig:last_roc} shows the ROC curves of the three models with \textit{outer} as test set. In this figure there are three curves, one for each model, and two pairs of points. Each point (x,y) represents the photon and electron efficiencies if we consider all the ambiguous particles as photons ($\bullet$) or electrons ($\triangle$). They obviously represent the limits of the roc curves of the two models trained on ambiguous particles.
+			
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=.7\linewidth]{tesi_images/all_amb_roc.pdf} 
+				\caption{Roc curves of the three models on the \textit{outer} set as test set} 
+				\label{fig:last_roc}
+			\end{figure}
+		
+		
+		
 		
 	\chapter*{Conclusion}
 		La conclusione aspetto a scriverla per capire se devo aggiungere o meno i sample di fisica
@@ -1019,7 +1004,6 @@
 		
 	\clearpage		
 	\begin{thebibliography}{32}
-			
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 			%\textbf{\Large Chapter 2} 
 			
@@ -1102,6 +1086,9 @@
 			\bibitem{Identification} \textit{Electron and photon identification with the ATLAS detector}, Proklova Nadezda, ATLAS Collaboration, Aug 2018, ATL-PHYS-SLIDE-2018-606, \url{http://cds.cern.ch/record/2634679}
 			% 16 %
 			\bibitem{El ph isol} \textit{Search for supersymmetry with a compressed mass spectrum using the ATLAS detector}, Rossini Lorenzo, \url{http://hdl.handle.net/2434/683343 }\\
+			% 17 %
+			\bibitem{Kalman} \textit{A New Approach to Linear Filtering and Prediction Problems}, R. E. Kalman,Transaction of the ASME—Journal of Basic Engineering,
+			pp. 35-45 (March 1960)
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 			%\textbf{\Large Chapter 3}
 			% 17 %
