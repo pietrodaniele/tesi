@@ -362,16 +362,14 @@
 		\end{itemize}
 		
 		\section{Track-cluster matching and photon conversion reconstruction}\label{section:match}
-			\cite{El ph reco} After cluster and track reconstruction, the next step is the track-cluster matching. Fixed-size clusters in the calorimeter are used to create regions-of-interest (ROIs) and tracks intersecting
-			these regions are considered loosely matched to the cluster. Track candidates are then fitted with the global $\chi^2$ fitter. The loosely matched, re-fitted tracks are then matched to the EM topo-clusters (with requirements, see \cite{El ph reco}).
-			If multiple tracks are matched to a cluster, they are ranked in order to choose the best one. To assign the rank, tracks are compared on the number of hits in the Pixel and SCT detectors. Another rank characteristic is $\Delta R$: tracks with a better $\Delta R$ match between the track and cluster coordinates are preferred. So the highest-ranked track is used to define the reconstructed electron properties.
+			After cluster and track reconstruction, the next step is the track-cluster matching \cite{El ph reco}. Fixed-size clusters in the calorimeter are used to create regions-of-interest (ROIs) and tracks intersecting
+			these regions are considered loosely matched to the cluster. Track candidates are then fitted with the global $\chi^2$ fitter \cite{Chiquadro}. The loosely matched, re-fitted tracks are then matched to the EM topo-clusters (with requirements, see \cite{El ph reco}).
+			If multiple tracks are matched to a cluster, they are ranked in order to choose the best one. To assign the rank, tracks are compared on the number of hits in the Pixel and SCT detectors. Another rank characteristic is $\Delta R$: tracks with a better $\Delta R$ match between the track and cluster barycenter in the second layer coordinates are preferred. So the highest-ranked track is used to define the reconstructed electron properties.
 			
-			Tracks loosely matched to fixed-size clusters serve as input to the reconstruction of the conversion vertex. Both tracks with silicon hits and tracks reconstructed only in the TRT are used for the conversion reconstruction. Two-track conversion vertices are reconstructed from two opposite-charge tracks forming a vertex consistent with that of a massless particle, while single-track vertices are essentially tracks without hits in the innermost sensitive layers. To increase the converted-photon purity, the tracks used to build conversion vertices must have a high probability to be electron tracks as determined by the TRT. The requirement is loose for Si tracks but tight for TRT tracks used to build double-track conversions, and even tighter for tracks used to build single-track conversions. 
+			Tracks loosely matched to fixed-size clusters serve as input to the reconstruction of the conversion vertex. Both tracks with silicon hits and tracks reconstructed only in the TRT are used for the conversion reconstruction. Two-track conversion vertices are reconstructed from two opposite-charge tracks forming a vertex consistent with that of a massless particle, while single-track vertices are essentially tracks without hits in the innermost sensitive layers. To increase the converted-photon purity, the tracks used to build conversion vertices must have a high probability to be electron tracks as determined by the TRT. %The requirement is loose for Si tracks but tight for TRT tracks used to build double-track conversions, and even tighter for tracks used to build single-track conversions. 
 			
 			The conversion vertices are then matched to the EM topo-clusters. Using tracks with silicon hits, a conversion vertex is considered matched if extrapolated tracks
-			match the cluster to within $|\Delta \eta|$ and $|\Delta \phi|$ < 0.05. With TRT only tracks these requirements are looser.
-			If there are multiple conversion vertices matched to a cluster, double-track conversions with two silicon tracks are preferred over other double-track conversions, followed by single-track conversions. Within each category, the vertex with the smallest
-			conversion radius is preferred.
+			match the cluster to within $|\Delta \eta|$ and $|\Delta \phi|$ < 0.05. With TRT only tracks these requirements are looser \cite{TRT loose}. If there are multiple conversion vertices matched to a cluster, double-track conversions with two silicon tracks are preferred over other double-track conversions, followed by single-track conversions. Within each category, the vertex with the smallest conversion radius is preferred.
 			
 			
 		\section{Supercluster reconstruction}\label{section:super cl}
@@ -380,7 +378,7 @@
 		\item in the first stage, EM topo-clusters are tested for use as seed cluster candidates, which form the basis of superclusters; 
 		\item in the second stage, EM topo-clusters near the seed candidates are identified as satellite cluster candidates, which may emerge from bremsstrahlung radiation or topo-cluster splitting.
 		\end{enumerate}
-		Superclusters are built through various steps:
+		Superclusters are built through the following steps:
 		\begin{itemize}
 		\item the initial list of EM topo-clusters is
 		sorted according to descending $E_T$ , calculated using the EM energy.
@@ -392,7 +390,7 @@
 				vertex matching.
 			\end{enumerate}
 		A cluster cannot be used as a seed cluster if it has already been added as a satellite cluster to another seed cluster.
-		\item if a cluster meets the characteristics of the previous point, the algorithm attempts to find satellite clusters, using the process summarized in figure \ref{fig:super_cl}.
+		\item if a cluster meets the characteristics of the previous point, the algorithm attempts to find satellite clusters, through the process summarized in figure \ref{fig:super_cl}.
 		\begin{figure}
 			\centering
 			\includegraphics[width=0.45\textheight]{tesi_images/super_cluster.png}
@@ -407,28 +405,29 @@
 		\item The final step in the supercluster-building algorithm is to assign calorimeter cells to a given supercluster. Only cells from the presampler and the first three LAr calorimeter layers are considered, except in the transition region of $1.4 < |\eta| < 1.6$, where the energy measured in the scintillator between the calorimeter cryostats is also added. To limit the superclusters’ sensitivity to pile-up noise, the size of each constituent topo-cluster is restricted to a maximal width of 0.075 or 0.125 in the $\eta$ direction in the barrel or endcap region, respectively. Because the magnetic field in the ID is parallel to the beam-line, interactions between the electron or photon and detector material generally cause the EM shower to spread in the $\varphi$ direction, so the restriction in $\eta$ still generally allows the electron or photon energy to be captured. No restriction is applied in the $\varphi$-direction.	
 		\end{itemize}
 		\section{Creation of electrons and photons for analysis}\label{section:creation}
-		\cite{El ph reco}After the electron and photon superclusters are built, tracks are matched to electron superclusters and conversion vertices to photon superclusters. Then the analysis-level
-		electrons and photons are created. Because electron and photon superclusters are built independently, a given seed cluster can produce both an electron and a photon. In such cases, the procedure
-		presented in figure \ref{fig:el_ph_analisi} is applied. The purpose is that if a particular object can be easily identified only as a photon (a cluster with no good track attached) or only as an electron (a cluster with a good track attached and no good photon conversion vertex), then only a photon or an electron object is created for analysis; otherwise, both an electron and a photon object are created. Furthermore, these cases are marked explicitly as ambiguous, allowing the final classification of these objects to be determined based upon the specific requirements of each analysis.
+		After the electron and photon superclusters are built, tracks are matched to electron superclusters and conversion vertices to photon superclusters \cite{El ph reco}. Then the analysis-level electrons and photons are created. Because electron and photon superclusters are built independently, a given seed cluster can produce both an electron and a photon. In such cases, the procedure presented in figure \ref{fig:el_ph_analisi} is applied. The purpose is that if a particular object can be easily identified only as a photon (a cluster with no good track attached) or only as an electron (a cluster with a good track attached and no good photon conversion vertex), then only a photon or an electron object is created for analysis; otherwise, both an electron and a photon object are created. Furthermore, these cases are marked explicitly as ambiguous, allowing the final classification of these objects to be determined based upon the specific requirements of each analysis.
 		\begin{figure}
 			\centering
-			\includegraphics[width=0.45\textheight]{tesi_images/el_ph_analisi.png}
+			\includegraphics[width=.7\textheight]{tesi_images/el_ph_analisi.png}
 			\caption{Flowchart showing the logic of the ambiguity resolution for particles initially reconstructed both as electrons and photons.}
 			\label{fig:el_ph_analisi}
 		\end{figure}
 		\section{Calibration}\label{section:Calib}
+		
+		
+		
+		
+		
 		\section{Identification}\label{section:Ident}
-		\cite{Identification}Excellent electron and photon identification capabilities are crucial for many aspects of the ATLAS physics program, from standard model measurements (including Higgs boson) to new physics searches. The identification of prompt photons and the rejection of backgrounds, mostly coming from photons from hadron decays, relies on the high granularity of the ATLAS calorimeter. Electron identification is based on a likelihood (LH) discrimination to separate isolated electron candidates from candidates originating from photon conversions, hadron misidentification and heavy flavor decays. 
+		Excellent electron and photon identification capabilities \cite{Identification}\cite{Ident 2} are crucial for many aspects of the ATLAS physics program, from standard model measurements (including Higgs boson) to new physics searches. The identification of prompt photons and the rejection of backgrounds, mostly coming from photons from hadron decays, relies on the high granularity of the ATLAS calorimeter. Electron identification is based on a likelihood (LH) discrimination to separate isolated electron candidates from candidates originating from photon conversions, hadron misidentification and heavy flavor decays. 
 			\subsection{Elettron identification}
-			\cite{El ph reco}The quantities used in the electron identification are chosen according to their ability to discriminate prompt isolated electrons from energy deposits from hadronic jets, from converted photons and from genuine electrons produced in the decays of heavy-flavour hadrons. The variables can be
+			The quantities used in the electron identification \cite{El ph reco} are chosen according to their ability to discriminate prompt isolated electrons from energy deposits from hadronic jets, from converted photons and from genuine electrons produced in the decays of heavy-flavour hadrons. The variables can be
 			grouped into properties of (Table \ref{tab:el parameters}):
 			\begin{itemize}
 				\item the primary electron track, which is required to fulfil a set of quality requirements, namely hits in the two inner tracking layers closest to the beam line, as well as a number of hits in the silicon-strip detectors. The transverse impact parameter of the track and its significance are used to construct
 				the likelihood discriminant.
 				\item the lateral development of the electromagnetic shower, which is characterized with variables calculated separately in the first and second layer of the electromagnetic calorimeter. To reject clusters from multiple incident particles, $w_{s tot}$ is used. The lateral shower development is measured with $R_{\varphi}$ and $R_{\eta}$.
-				\item the longitudinal development of the electromagnetic shower, for them the numbers of cells contributing to the energy
-				measurement in each layer are chosen dynamically in the supercluster approach, compared with fixed numbers of cells in fixed-size clusters. The supercluster approach inherently suppresses noise in the calorimeter cells, resulting in lower values and narrower distributions. The electron
-				identification uses $f_1$ and $f_3$.
+				\item the longitudinal development of the electromagnetic shower. The electron identification uses $f_1$ and $f_3$, which represent the ratio of the energy in the strip or back layer to the total energy in the EM calorimeter.
 				\item the spatial compatibility of the primary electron track with the reconstructed cluster, which are matched using $\Delta\eta_1$ and $\Delta\phi_{res}$. 
 			\end{itemize}
 			\begin{table}
@@ -485,10 +484,10 @@
 			d_L = \ln{\frac{L_S}{L_B}}
 			$$
 			and each electron is assigned a specific value.\\
-			Using the same variables but different values of $d_L$, three different operating points: Loose, Medium and Tight. They are sorted with increasing threshold values, and are chosen in order to have efficiency for electrons with $E_T > 40$ GeV of 93\%, 88\%, and 80\% respectively. This means that they are inclusive, and one the subset of the other.
+			Using the same variables but different selections on the $d_L$ value, three different operating points: Loose, Medium and Tight. They are sorted with increasing threshold values, and are chosen in order to have efficiency for electrons with $E_T > 40$ GeV of 93\%, 88\%, and 80\% respectively.
 			
 			\subsection{Photon identification}
-			\cite{El ph reco}The photon identification criteria are designed to efficiently select prompt, isolated photons and reject backgrounds from hadronic jets. The photon identification is constructed from one-dimensional selection criteria, or a cut-based selection, using the shower shape variables (Table\ref{tab:ph parameters}).
+			The photon identification criteria \cite{El ph reco} are designed to efficiently select prompt, isolated photons and reject backgrounds from hadronic jets. The photon identification is constructed from one-dimensional selection criteria, or a cut-based selection, using the shower shape variables (Table\ref{tab:ph parameters}).
 
 			\begin{table}[h!]
 				\centering
@@ -522,28 +521,27 @@
 		
 			The variables using the EM first layer play a particularly important role in rejecting $\pi^0$ decays into
 			two highly collimated photons. The primary identification selection is labelled as Tight, with less restrictive selections called
-			Medium and Loose, which are used fo the $R_{had}$, $R_{had_1}$, $R_{\eta}$, and $w_{\eta_2}$ shower shape variables. The Medium selection adds a loose cut on $E_{ratio}$. Because the reconstruction of photons in the ATLAS trigger system does not differentiate between converted and unconverted photons, the Loose and Medium identification criteria are the same for converted
-			and unconverted photons. The Tight identification criteria are designed to select a subset of the photon candidates passing the Medium criteria.\\
+			Medium and Loose, which use the $R_{had}$, $R_{had_1}$, $R_{\eta}$, and $w_{\eta_2}$ shower shape variables. The Medium selection adds a loose cut on $E_{ratio}$. Because the reconstruction of photons in the ATLAS trigger system does not differentiate between converted and unconverted photons, the Loose and Medium identification criteria, which are common between trigger and offline, are the same for converted and unconverted photons. The Tight identification criteria are designed to select a subset of the photon candidates passing the Medium criteria.\\
 			Because the shower shapes vary due to the geometry of the calorimeter, the cut-based selection of Loose, Medium and Tight
 			are optimized separately in bins of $|\eta|$. The Tight identification is also optimized in separate bins of $E_T$. The Tight identification is performed separately for converted and
-			unconverted photons. The shower shapes of converted photons differ from unconverted photons due to the opening angle of the $e^{+}e^{-}$ conversion pair, which is amplified by the magnetic field, and from the additional interaction of the conversion pair with the material upstream of the calorimeters. \\
-			The tight selections are separately optimised for unconverted and converted photons, to account for the generally broader lateral shower profile of the latter. The thresholds of the selection criteria are different in seven intervals of the reconstructed photon $|\eta|$ to account for the calorimeter geometry, and for different effects on the shower shapes from the material upstream of the calorimeter.
+			unconverted photons. In fact, the shower shapes of converted photons differ from unconverted photons due to the opening angle of the $e^{+}e^{-}$ conversion pair, which is amplified by the magnetic field, and from the additional interaction of the conversion pair with the material upstream of the calorimeters.
+			The tight selection is separately optimised for unconverted and converted photons, to account for the generally broader lateral shower profile of the latter. The thresholds of the selection criteria are different in seven intervals of the reconstructed photon $|\eta|$ to account for the calorimeter geometry, and for different effects on the shower shapes from the material upstream of the calorimeter.
 	
 		\section{Electron and photon isolation}\label{section:Iso}
-		The isolation progress, or isolation cut, is applied in order to reduce the backgrounds. Different criteria are defined, with different levels
-		of efficiency in rejecting the background. The isolation working points uses variables from the tracking and from the calorimeter. \cite{El ph isol}
+		The isolation selection, or isolation cut, is applied in order to reduce the backgrounds. Different criteria are defined, with different levels
+		of efficiency in rejecting the background. The isolation criterium uses variables from the tracking and from the calorimeter. \cite{El ph isol}
 		
 		\cite{El ph reco}The activity near leptons and photons can be quantified from the tracks of nearby charged particles, or from energy deposits in the calorimeters, leading to two classes of isolation variables:
 		\begin{itemize}
-			\item The raw calorimeter isolation($E_{T,raw}^{isol}$) is built by summing the transverse energy of positive-energy topological clusters (in EM scale) whose barycentre falls within a cone centred around the electron or photon cluster barycentre. The raw calorimeter isolation includes the EM particle energy ($E_{T,core}$), which is subtracted by removing the energy of the EM calorimeter cells contained in a $\Delta\eta \times \Delta\varphi = 5 \times 7$ (in EM-middle-layer units) rectangular
-			cluster around the barycentre of the EM particle cluster. Other correction are done to account for the pile-up. %(using MC samples)%
+			\item The raw calorimeter isolation($E_{T,raw}^{isol}$) is built by summing the transverse energy of positive-energy topological clusters (at EM scale) whose barycentre falls within a cone centred around the electron or photon cluster barycentre. The raw calorimeter isolation includes the EM particle energy ($E_{T,core}$), which is subtracted by removing the energy of the EM calorimeter cells contained in a $\Delta\eta \times \Delta\varphi = 5 \times 7$ (in EM-middle-layer units) rectangular
+			cluster around the barycentre of the EM particle cluster. Other corrections are done to account for the pile-up contribution. %(using MC samples)%
 			
-			The fully corrected calorimeter isolation variable is computed as:
+			The fully corrected calorimeter isolation variable is finally computed as:
 			$$ 
 			E_{T}^{coneXX} = E_{T,raw}^{isolXX} - E_{T}^{core} - E_{T,leakage}(E_T,\eta,\Delta R) -E_{T,pile-up}(\eta,\Delta R)
 			$$
-			where XX refers to the size of the employed cone.
-			\item The track isolation variable ($p_T^{coneXX}$) is computed by summing the transverse momentum of selected tracks within a cone centred around the electron track or the photon cluster direction (excluding tracks matched to the electron or converted photon). \cite{El ph isol}In order to compensate for very busy environment at high $p_T$ the cone is of variable size:
+			where XX refers to the size of the employed cone and the $E_{T,leakage}$ term refers to a correction for the $e/\gamma$ candidate energy leaking in the isolation cone.
+			\item The track isolation variable ($p_T^{coneXX}$) is computed by summing the transverse momentum of selected tracks within a cone centred around the electron track or the photon cluster direction (excluding tracks matched to the electron or converted photon). \cite{El ph isol} Since for electrons produced in the decay of high-momentum heavy particles can be very close to the electron the direction, the track isolation for electrons is defined with a variable cone size:
 			$$
 			\Delta R = min\Bigl({\frac{10}{p_T[GeV]},\Delta R_{max}}\Bigr)
 			$$
@@ -868,10 +866,10 @@
 						Bagging seed & 42  & 42 & 42 \\
 						Feature fraction seed & 42 & 42 & 42 \\
 						Is unbalance & True & True & True \\
-						Number of leaves & 71 & 60 & 72 \\
-						Feature fraction & 0.793 & 0.774 & 0.883 \\
-						Bagging & 0.941 & 0.839 & 0.693 \\
-						Learning rate & 0.026 & 0.032 & 0.025 \\
+						Number of leaves & 57 & 62 & 73 \\
+						Feature fraction & 0.946 & 0.801 & 0.966 \\
+						Bagging & 0.743 & 0.705 & 0.750 \\
+						Learning rate & 0.056 & 0.054 & 0.074 \\
 						\bottomrule[1.5pt]
 					\end{tabular}
 					\caption{Parameters and hyperparameters used in the models' training}
@@ -946,28 +944,48 @@
 				\label{fig:ex_roc}
 			\end{figure}
 		\section{BDT results}
-			Finally, after the choice of the discriminating features, the optimisation of the hyperparameters, the training the models are created and their performance can be compared on various test sets, which must be the same for the three models and consistent: for example it is not possible to apply the model trained on the old ambiguous particles on a test set composed of particles classified as ambiguous by the new ambiguity tool. The test set which provides more information is the \textit{outer} set. It consists of single reconstructions and all double reconstructions.
+			Finally, after the choice of the discriminating features, the optimisation of the hyperparameters and the training, the models are created and their performance can be compared on various test sets, which must be the same for the three models and consistent: for example it is not possible to apply the model trained on the old ambiguous particles on a test set composed of particles classified as ambiguous by the new ambiguity tool. The test set which provides more information is the \textit{outer} set. It consists of single reconstructions and all double reconstructions.
 			
-			Once the models are applied on the outer test set, their outputs must be corrected:
+			Once the models are applied on the \textit{outer} test set, their outputs must be corrected:
 			\begin{itemize}
-				\item the single reconstruction must be respected. If the particle is reconstructed as a photon the $y^{pred}$ is fixed at 1, whereas if it is reconstructed as an electron the $y^{pred}$ is fixed at 0.
+				\item the single reconstruction must be respected. If the object is reconstructed as a photon $y^{pred}$ is fixed at 1, whereas if it is reconstructed as an electron $y^{pred}$ is fixed at 0.
 				\item when \texttt{el\_amb\_type} and \texttt{ph\_amb\_type} are equal to 0 or 6, the outputs of the models trained on ambiguous particles are fixed with $y^{pred}$=0 or 1. This is because these models can only work on ambiguous particles and for the others they must adapt to the decisions of the ambiguity tools.
 			\end{itemize}
 			
-			Figure \ref{fig:last_roc} shows the ROC curves of the three models with \textit{outer} as test set. In this figure there are three curves, one for each model, and two pairs of points. Each point (x,y) represents the photon and electron efficiencies if we consider all the ambiguous particles as photons ($\bullet$) or electrons ($\triangle$). They obviously represent the limits of the roc curves of the two models trained on ambiguous particles.
+			Figure \ref{fig:last_roc} shows the ROC curves of the three models with \textit{outer} as test set. In this figure there are three curves, one for each model, and two pairs of points. Each point (x,y) represents the photon and electron efficiencies if we consider all the ambiguous objects as photons ($\bullet$) or electrons ($\triangle$). They obviously represent the limits of the ROC curves of the two models trained on ambiguous objects.
 			
-			\begin{figure}[h!]
+			\begin{figure}
 				\centering
-				\includegraphics[width=.7\linewidth]{tesi_images/all_amb_roc.pdf} 
+				\includegraphics[width=.65\linewidth]{tesi_images/all_amb_roc.pdf} 
 				\caption{Roc curves of the three models on the \textit{outer} set as test set} 
 				\label{fig:last_roc}
 			\end{figure}
 		
-		
-		
+			Following the results shown in Figure \ref{fig:last_roc}, the Gradient Boosted Decision Tree algorithm is an excellent tool for resolving the ambiguity between photons and electrons. When the three models are applied on a single particles dataframe, they achieve excellent performance: 
+			\begin{itemize}
+				\item the theoretical limit (infinite storage memory) is set by the \textit{double reconstruction} model, which reaches an efficiency of $\sim$ 99.58\% in resolving ambiguity.
+				\item the models based on pre-classifiers also achieve excellent performances. The \textit{new amb} model reaches an efficiency of $\sim$ 99.07\% in resolving ambiguity, where the \textit{new amb} model reaches an efficiency of $\sim$ 98.02\%.
+				The \textit{new amb} model performace is very close to that of \textit{double reconstruction} model and this means that even using pre-classifiers in the analysis phase it is possible to achieve very good results.
+			\end{itemize}
 		
 	\chapter*{Conclusion}
-		La conclusione aspetto a scriverla per capire se devo aggiungere o meno i sample di fisica
+		Excellent performance in the electrons and photons reconstruction with the ATLAS detector at the LHC is essential to exploit the full physics potential of ATLAS, both in searches for new physics and in precision measurements. For instance, the good electron and photon reconstruction performance played a critical role in the discovery of a Higgs boson, announced by the ATLAS Collaboration in 2012 \cite{Higgs}, and in the measurement of its properties.
+		
+		At the reconstruction level only simple algorithms are used. They reconstruct only the simplest cases (single reconstructions) whereas the other objects are flagged as ambiguous. The ambiguous objects classification can be approached with machine learning techniques, which provide good results, in particular in this thesis supervided learning algorithms (GBDT) have been used.
+		
+		The GBDTs applied on single particle simulations samples can achieve excellent results. The theoretical limit is constituted by \textit{double reconstructions} model, which explores the possibility to replace the current classification algorithm with a gradient boosted decision tree for all electrons and photons candidates. This model is able to correctly classify up to $\sim$ 99.58\% of particles in the \textit{outer} test set. The other two models, trained on the ambiguos particles, can also achieve excellent particle classification capabilities: on the outer test set the \textit{old amb} model correctly classifies $\sim$ 98.08\% of particles, whereas the \textit{new amb} model $\sim$ 99.07\%. The new ambiguity tool  increases the performance of a GBDT based on ambiguous objects, allowing a better classification than the old one: if the photon efficiency $\epsilon_{ph}$ is fixed the difference between the electron efficiencies $\epsilon_{el}^{new} - \epsilon_{el}^{old}$ is in its maximum value equal to $\sim$ 3\%; on the contrary if the electron efficiency $\epsilon_{el}$ is fixed the difference between the photon efficiencies $\epsilon_{ph}^{new} - \epsilon_{ph}^{old}$ is in its maximum value equal to $\sim$ 7\%.
+		
+		As shown by these results, models trained on ambiguous objects of ambiguity tools are able to achieve very good performance in classification approaching very close to the theoretical limit. In particular, with the introduction of the new ambiguity tool, performance has improved and therefore classification efficiency has improved as well.
+		
+		
+		
+	
+	
+	
+	
+	
+	
+	
 	\appendix
 	\chapter{Conversion symmetry} \label{Appex: sym}
 		Conversion symmetry plots of the reconstructed and converted photons. %We can see in Fig \ref{fig: pt1/2 el} and \ref{fig:pt12_ph}. that %\texttt{pt1/pt} and \texttt{pt2/pt} are anticorrelated.
@@ -1002,7 +1020,7 @@
 			\end{minipage} 
 		\end{figure}
 		
-	\clearpage		
+	\clearpage	
 	\begin{thebibliography}{32}
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 			%\textbf{\Large Chapter 2} 
@@ -1082,13 +1100,24 @@
 			\url{https://link.springer.com/content/pdf/10.1140/epjc/s10052-019-7140-6.pdf}in
 			% 14 % 
 			\bibitem{ID reco alg} \textit{Optimisation of the ATLAS Track Reconstruction Software for Run-2}, Andreas Salzburger, CERN, Switzerland, \url{http://iopscience.iop.org/1742-6596/664/7/072042}
+			% UU %
+			\bibitem{TRT loose}
+			\textit{Measurement of the photon identification efficiencies with the ATLAS detector using LHC Run-1 data}, In: \textit{Eur. Phys. J}. C. 76.CERN-EP-2016-110, June 2016, 666. 57 p. 
+			\url{https://cds.cern.ch/record/2158117} 
 			% 15 % 
 			\bibitem{Identification} \textit{Electron and photon identification with the ATLAS detector}, Proklova Nadezda, ATLAS Collaboration, Aug 2018, ATL-PHYS-SLIDE-2018-606, \url{http://cds.cern.ch/record/2634679}
+			% UU %
+			\bibitem{Ident 2}
+			\textit{Electron and photon energy calibration with the ATLAS detector using 2015-2016 LHC proton-proton collision data}, ATLAS Collaboration, JINST 14 (2019) P03017, CERN-EP-2018-296,  DOI:\url{https://arxiv.org/ct?url=https%3A%2F%2Fdx.doi.org%2F10.1088%2F1748-0221%2F14%2F03%2FP03017&v=7010984d}, 
+			\url{https://arxiv.org/abs/1812.03848}
 			% 16 %
 			\bibitem{El ph isol} \textit{Search for supersymmetry with a compressed mass spectrum using the ATLAS detector}, Rossini Lorenzo, \url{http://hdl.handle.net/2434/683343 }\\
 			% 17 %
 			\bibitem{Kalman} \textit{A New Approach to Linear Filtering and Prediction Problems}, R. E. Kalman,Transaction of the ASME—Journal of Basic Engineering,
 			pp. 35-45 (March 1960)
+			% 18 %
+			\bibitem{Chiquadro}
+			\textit{The global $\chi^2$ track fitter in ATLAS}, T. G. Cornelissen et al, \url{https://iopscience.iop.org/article/10.1088/1742-6596/119/3/032013}
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 			%\textbf{\Large Chapter 3}
 			% 17 %
