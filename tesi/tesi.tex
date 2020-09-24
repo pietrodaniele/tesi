@@ -1,13 +1,15 @@
-\documentclass[a4paper, oneside]{book}
+\documentclass[a4paper, oneside, 11pt, openright]{book}
 
 \usepackage{geometry,url,graphicx, hyperref,subfig,enumitem, amsmath,float}
 \usepackage{amsmath, amssymb, amsthm, mathtools, color, setspace}
 \usepackage{fancyhdr, braket, etoolbox,booktabs,multirow}
-\usepackage{xfrac, lmodern, ifsym} % xfrac gives font errors, add lmodern to remove them. Check whether this remains a problem!
+\usepackage{xfrac, lmodern, ifsym, bm, multicol, booktabs, pdflscape} % xfrac gives font errors, add lmodern to remove them. Check whether this re, mains a problem!
 %\usepackage{hyperref}
 %\usepackage[utf8]{inputenc}
 %\usepackage{colorprofiles}
 \usepackage[T1]{fontenc}
+
+
 
 \begin{document}
 	\begin{titlepage}
@@ -72,7 +74,7 @@
 					1 and Beam 2, respectively. The injection kick occurs in the vertical plane with the two beams arriving at the LHC from below the LHC reference plane. The beams only cross from one magnet bore to the other at
 					these four locations.
 					
-					The remaining four straight sections do not have beam crossings. Insertion 3 and 7 each contain two collimation systems. Insertion 4 contains two RF systems: one independent system for each LHC
+					The remaining four straight sections do not have beam crossings. Insertion 3 and 7 each contain two collimation systems. Insertion 4 contains two RF systems, one independent system for each LHC
 					beam. The straight section at point 6 contains the beam dump insertion where the two beams are vertically
 					extracted from the machine using a combination of horizontally deflecting fast-pulsed ('kicker') magnets and
 					vertically-deflecting double steel septum magnets. Each beam features an independent abort system. \cite{LHC design} \\
@@ -83,8 +85,8 @@
 					\end{itemize} 
 					\begin{figure}
 						\centering
-						\subfloat[][\emph{LHC dipole}]{\includegraphics[width=.45\textwidth]{tesi_images/m_dipole.jpeg}} \quad
-						\subfloat[][\emph{LHC quadpole}]{\includegraphics[width=.3\textwidth]{tesi_images/m_quad.png}} 
+						\subfloat[][\emph{LHC dipole}]{\includegraphics[width=.57\textwidth]{tesi_images/m_dipole.jpeg}} \quad
+						\subfloat[][\emph{LHC quadpole}]{\includegraphics[width=.4\textwidth]{tesi_images/m_quad.png}} 
 						\caption{LHC's superconducting magnets}
 						\label{fig:magnets}
 					\end{figure}
@@ -292,7 +294,7 @@
 						\item In the HLT, offline-like reconstruction algorithms run in a large farm of $\approx$ 40.000 processor cores and a decision is formed typically within 300 ms. The HLT is a software trigger providing typically 2500 independent trigger chains. These are sequences of offline-like algorithms executed within the L1 RoIs. Furthermore, full-event reconstruction is possible at the HLT. Events accepted by the HLT are written into different data streams to be used for physics analysis, trigger level analysis, monitoring or detector calibration. Depending on the datastream, the full event or only partial event information is written out, allowing for higher rates without consuming a significant amount of the available bandwidth.
 					\end{itemize}
 					
-					\begin{figure}[h!]
+					\begin{figure}
 						\centering
 						\subfloat[]{\includegraphics[width=.6\textwidth]{tesi_images/L1.png}} \quad
 						\subfloat[]{\includegraphics[width=.6\textwidth]{tesi_images/HLT.png}} 
@@ -301,7 +303,7 @@
 					\end{figure}
 		\section{ATLAS Physics Programme}
 			\cite{STD Model}ATLAS explores a range of physics topics, with the primary focus of improving our understanding of the fundamental constituents of matter and their interactions. Currently this is well described by the so called Standard Model (SM), a quantum field theory based on SU2$\otimes$U1$\otimes$SU3.
-			ATLAS is studying the processes predicted by the SM such as \textit{w,z} and \textit{top} production and compare the measured cross section with the model predictions.
+			ATLAS is studying the processes predicted by the SM such as \textit{w,z} and \textit{top} production and compares the measured cross section with the model predictions.
 			\begin{figure}[h!]
 				\centering
 				\includegraphics[width=.3\textwidth]{tesi_images/STD_model.png}
@@ -393,7 +395,7 @@
 		\item if a cluster meets the characteristics of the previous point, the algorithm attempts to find satellite clusters, through the process summarized in figure \ref{fig:super_cl}.
 		\begin{figure}
 			\centering
-			\includegraphics[width=0.45\textheight]{tesi_images/super_cluster.png}
+			\includegraphics[width=0.6\textheight]{tesi_images/super_cluster.png}
 			\caption{Diagram of the superclustering algorithm for electrons and photons. Seed clusters are shown in
 			red, satellite clusters in blue.}
 			\label{fig:super_cl}
@@ -406,33 +408,49 @@
 		\end{itemize}
 		\section{Creation of electrons and photons for analysis}\label{section:creation}
 		After the electron and photon superclusters are built, tracks are matched to electron superclusters and conversion vertices to photon superclusters \cite{El ph reco}. Then the analysis-level electrons and photons are created. Because electron and photon superclusters are built independently, a given seed cluster can produce both an electron and a photon. In such cases, the procedure presented in figure \ref{fig:el_ph_analisi} is applied. The purpose is that if a particular object can be easily identified only as a photon (a cluster with no good track attached) or only as an electron (a cluster with a good track attached and no good photon conversion vertex), then only a photon or an electron object is created for analysis; otherwise, both an electron and a photon object are created. Furthermore, these cases are marked explicitly as ambiguous, allowing the final classification of these objects to be determined based upon the specific requirements of each analysis.
+	
 		\begin{figure}
 			\centering
-			\includegraphics[width=.7\textheight]{tesi_images/el_ph_analisi.png}
+			\includegraphics[width=.6\textheight]{tesi_images/el_ph_analisi.png}
 			\caption{Flowchart showing the logic of the ambiguity resolution for particles initially reconstructed both as electrons and photons.}
 			\label{fig:el_ph_analisi}
 		\end{figure}
 		\section{Calibration}\label{section:Calib}
-		
+			The energy calibration covers the region $|\eta|$ < 2.47, which corresponds to the acceptance of the ID and the highly segmented EM calorimeter. The procedure to calibrate the energy response of electrons and photons from the energy of a cluster of cells in the EM calorimeter is composed of various steps:
+			\begin{itemize}
+				\item a multivariate regression algorithm, trained on samples of simulated events, is used for the estimation of the energy of the electron or photon from the energy deposits in the calorimeter: the properties of the shower development are used to optimize the energy resolution and to minimize the impact of material in front of the calorimeter;
+				\item in order to have the correct extrapolation of the energy calibration to the full energy range
+				of electrons and photons, the adjustment of the relative energy scales of the different layers of the EM calorimeter  is necessary. It is based on studies of muon energy deposits and electron showers and it is applied as a correction to the data before the estimation of the energy of the electron or photon;
+				\item the next step is the correction for residual local non-uniformities in the calorimeter response affecting the
+				data;
+				\item the adjustment of the overall energy scale in the data: this is done using a large sample of
+				Z boson decays to electron-positron pairs. At the same time, a correction to account for the
+				difference in energy resolution between data and simulation is derived, and applied to the
+				simulation. These correction factors are assumed to be universal for electrons and photons;
+				\item the last step is to check the results comparing data and simulation with independent samples: $J/\psi \rightarrow ee$
+				decays probe the energy response for low-energy electrons. Radiative $Z$ boson decays are used to check the energy response for photons.	
+			\end{itemize}
 		
 		
 		
 		
 		\section{Identification}\label{section:Ident}
-		Excellent electron and photon identification capabilities \cite{Identification}\cite{Ident 2} are crucial for many aspects of the ATLAS physics program, from standard model measurements (including Higgs boson) to new physics searches. The identification of prompt photons and the rejection of backgrounds, mostly coming from photons from hadron decays, relies on the high granularity of the ATLAS calorimeter. Electron identification is based on a likelihood (LH) discrimination to separate isolated electron candidates from candidates originating from photon conversions, hadron misidentification and heavy flavor decays. 
-			\subsection{Elettron identification}
-			The quantities used in the electron identification \cite{El ph reco} are chosen according to their ability to discriminate prompt isolated electrons from energy deposits from hadronic jets, from converted photons and from genuine electrons produced in the decays of heavy-flavour hadrons. The variables can be
-			grouped into properties of (Table \ref{tab:el parameters}):
+		Excellent electron and photon identification capabilities \cite{Identification}\cite{Ident 2} are crucial for many aspects of the ATLAS physics program, from Standard Model measurements (including Higgs boson) to new physics searches. The identification of prompt photons and the rejection of backgrounds, mostly coming from photons from hadron decays, relies on the high granularity of the ATLAS calorimeter. Electron identification is based on a likelihood (LH) discrimination to separate isolated electron candidates from candidates originating from photon conversions, hadron misidentification and heavy flavor decays. 
+			\subsection{Electron identification}
+			The quantities used in the electron identification \cite{El ph reco} are chosen according to their ability to discriminate prompt isolated electrons from energy deposits of hadronic jets, from converted photons and from genuine electrons produced in the decays of heavy-flavour hadrons. The variables can be
+			grouped into properties, reported in Table \ref{tab:el parameters}:
 			\begin{itemize}
 				\item the primary electron track, which is required to fulfil a set of quality requirements, namely hits in the two inner tracking layers closest to the beam line, as well as a number of hits in the silicon-strip detectors. The transverse impact parameter of the track and its significance are used to construct
-				the likelihood discriminant.
-				\item the lateral development of the electromagnetic shower, which is characterized with variables calculated separately in the first and second layer of the electromagnetic calorimeter. To reject clusters from multiple incident particles, $w_{s tot}$ is used. The lateral shower development is measured with $R_{\varphi}$ and $R_{\eta}$.
-				\item the longitudinal development of the electromagnetic shower. The electron identification uses $f_1$ and $f_3$, which represent the ratio of the energy in the strip or back layer to the total energy in the EM calorimeter.
+				the likelihood discriminant;
+				\item the lateral development of the electromagnetic shower, which is characterized by variables calculated separately in the first and second layer of the electromagnetic calorimeter. To reject clusters from multiple incident particles, $w_{s tot}$ is used. The lateral shower development is measured with $R_{\varphi}$ and $R_{\eta}$;
+				\item the longitudinal development of the electromagnetic shower: the electron identification uses $f_1$ and $f_3$, which represent the ratio of the energy in the strip or back layer to the total energy in the EM calorimeter, respectively;
 				\item the spatial compatibility of the primary electron track with the reconstructed cluster, which are matched using $\Delta\eta_1$ and $\Delta\phi_{res}$. 
 			\end{itemize}
-			\begin{table}
-				
-				\begin{tabular}{lp{8cm}c}
+		\begin{center}
+			\small
+			\begin{table}[htbp]
+				\resizebox{\textwidth}{!}{%
+				\begin{tabular}{lp{9cm}c}
 					\toprule[1.5pt]
 					\textbf{Type} & \textbf{Description} & \textbf{Simbol}\\
 					\midrule
@@ -470,68 +488,73 @@
 					& - Defined as $\Delta \Phi_2$ , but the track momentum is rescaled to the cluster energy before extrapolating the track from the perigee to the Layer 2 of the calorimeter. & $\Delta \phi_{res}$ \\
 					& - Ratio of the cluster energy to the track momentum & E/p \\
 					\bottomrule[1.5pt]
-				\end{tabular}
+				\end{tabular}}
 				\caption{Discriminating variables used for electron identification \cite{Identification}}
 				\label{tab:el parameters}
 			\end{table}
-			Then the combination of information from the tracker and the matching, information from the electromagnetic calorimeter, and hadronic leakage  are put together in likelihoods for a reconstructed electron to originate from signal,
+		\end{center}
+			Then, the combination of information from the tracker and the matching, information from the electromagnetic calorimeter and hadronic leakage  are put together in likelihoods for a reconstructed electron to originate from signal,
 			$L_S$, or background, $L_B$. They are calculated from probability density functions (pdfs), $P$:
 			$$
-			L_{S/B}(\textbf{x}) = \prod_{i=1}^{n}P_{S/B,i}(x_i)
+			L_{S/B}(\textbf{x}) = \prod_{i=1}^{n}P_{S/B,i}(x_i).
 			$$
 			For signal and background the pdfs take the values $P_{S,i}(x_i)$ and $P_{B,i}(x_i)$, respectively, for the quantity $i$ at value $x_i$. The likelihood discriminant $d_L$ is defined as the natural logarithm of the ratio of $L_S$ and $L_B$:
 			$$
 			d_L = \ln{\frac{L_S}{L_B}}
 			$$
 			and each electron is assigned a specific value.\\
-			Using the same variables but different selections on the $d_L$ value, three different operating points: Loose, Medium and Tight. They are sorted with increasing threshold values, and are chosen in order to have efficiency for electrons with $E_T > 40$ GeV of 93\%, 88\%, and 80\% respectively.
+			Using the same variables but different selections on the $d_L$ value, three different operating points are defined: Loose, Medium and Tight. They are sorted with increasing threshold values, and are chosen in order to have efficiency for electrons with $E_T > 40$ GeV of 93\%, 88\%, and 80\% respectively.
 			
 			\subsection{Photon identification}
-			The photon identification criteria \cite{El ph reco} are designed to efficiently select prompt, isolated photons and reject backgrounds from hadronic jets. The photon identification is constructed from one-dimensional selection criteria, or a cut-based selection, using the shower shape variables (Table\ref{tab:ph parameters}).
-
-			\begin{table}[h!]
-				\centering
-				\begin{tabular}{lp{6cm}ccc}
-					\toprule[1.5pt]
-					\textbf{Category} & \textbf{Description} & \textbf{Name} & \textbf{\textit{loose}} & \textbf{\textit{tight}}\\
-					\midrule
-					Acceptance & $\eta<2.37$, with $1.37<|\eta|<1.52$ excluded & - & $\ast$ & $\ast$ \\
-					\midrule
-					\multirow[t]{2}{*}{Hadronic leakage} 
-					& {- Ratio of $E_T$ in the first layer of the hadronic calorimeter to $E_T$ of the EM calorimeter (used over range $|\eta| < 0.8$ or $|\eta| > 1.37$)} & $R_{had1}$ & $\ast$ & $\ast$  \\ 
-					& - Ratio of $E_T$ in the first layer of the hadronic calorimeter to $E_T$ of the EM calorimeter (in the pseudorapidity range $0.8 < |\eta| < 1.37$) & $R_{had}$  & $\ast$ & $\ast$ \\
-					\midrule
-					\multirow[t]{3}{*}{EM Middle layer}
-					& - Ratio of 3$\times$7 $\eta\times\phi$ to 7$\times$7 cell energies & $R_{\eta}$ & $\ast$ & $\ast$ \\
-					& - Lateral width of the shower & $w_{\eta2}$ & $\ast$ & $\ast$ \\
-					& - Ratio of 3$\times$3 $\eta\times\phi$ to 7$\times$7 cell energies & $R_{\phi}$ &  & $\ast$ \\
-					\midrule
-					\multirow[t]{5}{*}{EM Strip layer}
-					& - Shower width calculated from three strips around the strip with maximum energy deposit & $w_{s3}$ &  & $\ast$ \\
-					& - Total lateral shower width & $w_{stot}$ &  & $\ast$ \\
-					& - Energy outside the core of the three central strips but within seven strips divided by energy within the three central strips & $F_{side}$ &  & $\ast$ \\
-					& - Difference between the energy associated with the second maximum in strip layer(L1) and the energy reconstructed in the strip with the minimum value found between the first and second maxima & $\Delta E$ &  & $\ast$ \\
-					& - Ratio of the energy difference associated with the largest and second largest energy deposits to sum of these energies & $E_{ratio}$ &  & $\ast$ \\
-					
-					\bottomrule[1.5pt]
-				\end{tabular}
-				\caption{Discriminating variables used for \textit{loose} and \textit{tight} photon identification \cite{Identification}}
-				\label{tab:ph parameters}
-			\end{table}
-		
+			The photon identification criteria \cite{El ph reco} are designed to efficiently select prompt, isolated photons and reject backgrounds from hadronic jets. The photon identification is constructed from one-dimensional selection criteria, or a cut-based selection, using the shower shape variables, listed in Table\ref{tab:ph parameters}.
+			
 			The variables using the EM first layer play a particularly important role in rejecting $\pi^0$ decays into
 			two highly collimated photons. The primary identification selection is labelled as Tight, with less restrictive selections called
 			Medium and Loose, which use the $R_{had}$, $R_{had_1}$, $R_{\eta}$, and $w_{\eta_2}$ shower shape variables. The Medium selection adds a loose cut on $E_{ratio}$. Because the reconstruction of photons in the ATLAS trigger system does not differentiate between converted and unconverted photons, the Loose and Medium identification criteria, which are common between trigger and offline, are the same for converted and unconverted photons. The Tight identification criteria are designed to select a subset of the photon candidates passing the Medium criteria.\\
 			Because the shower shapes vary due to the geometry of the calorimeter, the cut-based selection of Loose, Medium and Tight
 			are optimized separately in bins of $|\eta|$. The Tight identification is also optimized in separate bins of $E_T$. The Tight identification is performed separately for converted and
 			unconverted photons. In fact, the shower shapes of converted photons differ from unconverted photons due to the opening angle of the $e^{+}e^{-}$ conversion pair, which is amplified by the magnetic field, and from the additional interaction of the conversion pair with the material upstream of the calorimeters.
-			The tight selection is separately optimised for unconverted and converted photons, to account for the generally broader lateral shower profile of the latter. The thresholds of the selection criteria are different in seven intervals of the reconstructed photon $|\eta|$ to account for the calorimeter geometry, and for different effects on the shower shapes from the material upstream of the calorimeter.
+			%The tight selection is separately optimised for unconverted and converted photons, to account for the generally broader lateral shower profile of the latter. The thresholds of the selection criteria are different in seven intervals of the reconstructed photon $|\eta|$ to account for the calorimeter geometry, and for different effects on the shower shapes from the material upstream of the calorimeter.
+			
+			\begin{center}
+				\small
+				\begin{table}[h!]
+					\centering
+					\begin{tabular}{lp{6cm}ccc}
+						\toprule[1.5pt]
+						\textbf{Category} & \textbf{Description} & \textbf{Name} & \textbf{\textit{loose}} & \textbf{\textit{tight}}\\
+						\midrule
+						Acceptance & $\eta<2.37$, with $1.37<|\eta|<1.52$ excluded & - & $\ast$ & $\ast$ \\
+						\midrule
+						\multirow[t]{2}{*}{Hadronic leakage} 
+						& {- Ratio of $E_T$ in the first layer of the hadronic calorimeter to $E_T$ of the EM calorimeter (used over range $|\eta| < 0.8$ or $|\eta| > 1.37$)} & $R_{had1}$ & $\ast$ & $\ast$  \\ 
+						& - Ratio of $E_T$ in the first layer of the hadronic calorimeter to $E_T$ of the EM calorimeter (in the pseudorapidity range $0.8 < |\eta| < 1.37$) & $R_{had}$  & $\ast$ & $\ast$ \\
+						\midrule
+						\multirow[t]{3}{*}{EM Middle layer}
+						& - Ratio of 3$\times$7 $\eta\times\phi$ to 7$\times$7 cell energies & $R_{\eta}$ & $\ast$ & $\ast$ \\
+						& - Lateral width of the shower & $w_{\eta2}$ & $\ast$ & $\ast$ \\
+						& - Ratio of 3$\times$3 $\eta\times\phi$ to 7$\times$7 cell energies & $R_{\phi}$ &  & $\ast$ \\
+						\midrule
+						\multirow[t]{5}{*}{EM Strip layer}
+						& - Shower width calculated from three strips around the strip with maximum energy deposit & $w_{s3}$ &  & $\ast$ \\
+						& - Total lateral shower width & $w_{stot}$ &  & $\ast$ \\
+						& - Energy outside the core of the three central strips but within seven strips divided by energy within the three central strips & $F_{side}$ &  & $\ast$ \\
+						& - Difference between the energy associated with the second maximum in strip layer(L1) and the energy reconstructed in the strip with the minimum value found between the first and second maxima & $\Delta E$ &  & $\ast$ \\
+						& - Ratio of the energy difference associated with the largest and second largest energy deposits to sum of these energies & $E_{ratio}$ &  & $\ast$ \\
+						\bottomrule
+					\end{tabular}
+					\caption{Discriminating variables used for \textit{loose} and \textit{tight} photon identification \cite{Identification}}
+					\label{tab:ph parameters}
+				\end{table}
+			\end{center}
+		
+		
 	
 		\section{Electron and photon isolation}\label{section:Iso}
 		The isolation selection, or isolation cut, is applied in order to reduce the backgrounds. Different criteria are defined, with different levels
 		of efficiency in rejecting the background. The isolation criterium uses variables from the tracking and from the calorimeter. \cite{El ph isol}
 		
-		\cite{El ph reco}The activity near leptons and photons can be quantified from the tracks of nearby charged particles, or from energy deposits in the calorimeters, leading to two classes of isolation variables:
+		The activity near leptons and photons can be quantified from the tracks of nearby charged particles, or from energy deposits in the calorimeters, leading to two classes of isolation variables \cite{El ph reco}:
 		\begin{itemize}
 			\item The raw calorimeter isolation($E_{T,raw}^{isol}$) is built by summing the transverse energy of positive-energy topological clusters (at EM scale) whose barycentre falls within a cone centred around the electron or photon cluster barycentre. The raw calorimeter isolation includes the EM particle energy ($E_{T,core}$), which is subtracted by removing the energy of the EM calorimeter cells contained in a $\Delta\eta \times \Delta\varphi = 5 \times 7$ (in EM-middle-layer units) rectangular
 			cluster around the barycentre of the EM particle cluster. Other corrections are done to account for the pile-up contribution. %(using MC samples)%
@@ -540,8 +563,9 @@
 			$$ 
 			E_{T}^{coneXX} = E_{T,raw}^{isolXX} - E_{T}^{core} - E_{T,leakage}(E_T,\eta,\Delta R) -E_{T,pile-up}(\eta,\Delta R)
 			$$
-			where XX refers to the size of the employed cone and the $E_{T,leakage}$ term refers to a correction for the $e/\gamma$ candidate energy leaking in the isolation cone.
-			\item The track isolation variable ($p_T^{coneXX}$) is computed by summing the transverse momentum of selected tracks within a cone centred around the electron track or the photon cluster direction (excluding tracks matched to the electron or converted photon). \cite{El ph isol} Since for electrons produced in the decay of high-momentum heavy particles can be very close to the electron the direction, the track isolation for electrons is defined with a variable cone size:
+			where XX refers to the size of the employed cone (a cone size of $\Delta$R = 0.2 is used for the electron or photon working point, whereas
+			cone size of $\Delta$R = 0.4 is only used for photon working points) and the $E_{T,leakage}$ term refers to a correction for the $e/\gamma$ candidate energy leaking in the isolation cone.
+			\item The track isolation variable ($p_T^{coneXX}$) is computed by summing the transverse momentum of selected tracks within a cone centred around the electron track or the photon cluster direction (excluding tracks matched to the electron or converted photon)\cite{El ph isol}. Since for electrons produced in the decay of high-momentum heavy particles can be very close to the electron direction, the track isolation for electrons is defined with a variable cone size:
 			$$
 			\Delta R = min\Bigl({\frac{10}{p_T[GeV]},\Delta R_{max}}\Bigr)
 			$$
@@ -551,83 +575,145 @@
 			isolation, all selected tracks satisfying $|\Delta z_0|sin{\theta} < 3$ mm are used.
 		\end{itemize}
 		
+		\subsection{Electron isolation criteria and efficiency measurements}
+			The implementation of isolation criteria is specific to the physics analysis needs, as it results from a compromise between a highly-efficient identification of prompt electrons, isolated or produced in a busy environment, and a good rejection of electrons from heavy-flavour decays or light hadrons misidentified as electrons. The different electron-isolation working points used in ATLAS are presented in Table \ref{tab:el_crit}.
+			The working points can be defined in two different ways, targeting a fixed value of efficiency
+			or with fixed cuts on the isolation variables. The Gradient working point is designed to give an
+			efficiency of 90\% at $p_T$ = 25 GeV and 99\% at $p_T$ = 60 GeV, uniform in $\eta$.
+			
+			
+			\begin{center}
+				\small
+				\begin{table}[htbp]
+					\resizebox{\textwidth}{!}{%
+					\begin{tabular}{lcc}
+						\toprule[1.5pt]
+						\textbf{Working point} & \textbf{Calorimeter isolation} & \textbf{Track isolation} \\
+						\midrule
+						Gradiet& $\epsilon=0.1143\times p_T+92.14\% (with E_T^{cone20})$ & $\epsilon=0.1143\times p_T+92.14\% (with p_T^{varcone20})$ \\
+						\midrule
+						HighPtCaloOnly & $E_T^{cone20} < max(0.015\times p_T $, 3.5 GeV) &  							 \\
+						Loose		   & $E_T^{cone20}/p_t < 0.20$ 					 	 &  $p_T^{varcone20}/p_t < 0.15$ \\
+						Tight		   & $E_T^{cone20}/p_t < 0.06$ 					 	 &  $p_T^{varcone20}/p_t < 0.06$ \\
+						\bottomrule[1.5pt]
+					\end{tabular}}
+					\caption{Definition of the electron isolation working points and isolation efficiency $\epsilon$.}
+					\label{tab:el_crit} 
+				\end{table}
+			\end{center}
+		\subsection{Photon isolation criteria and efficiency measurements}
+			Three photon isolation operating points are defined using requirements on the calorimeter and track isolation variables, as summarized in Table \ref{tab:ph_crit}. The photon isolation efficiency is studied in two main signatures: radiative $Z$ decays (valid for 10 < $E_T$ < 100 GeV) and inclusive photons (used in the 25 GeV < $E_T$ < $\sim$1.5 TeV range).
+			
 		
+			\begin{center}
+				\small
+				\begin{table}[htbp]
+					\resizebox{\textwidth}{!}{%
+						\begin{tabular}{lcc}
+							\toprule[1.5pt]
+							\textbf{Working point} & \textbf{Calorimeter isolation} & \textbf{Track isolation} \\
+							\midrule
+							Loose		   & $E_T^{cone20} < 0.065 \times E_T$ 			  &  $p_T^{cone20}/E_t < 0.05$ \\
+							Tight		   & $E_T^{cone40} < 0.022 \times E_T + 2.45\,GeV$ &  $p_T^{cone20}/p_t < 0.06$ \\
+							TightCaloOnly  & $E_T^{cone40} < 0.022 \times E_T + 2.45\,GeV$ &  						   \\
+							\bottomrule[1.5pt]
+					\end{tabular}}
+					\caption{Definition of the photon isolation working points.}
+					\label{tab:ph_crit} 
+				\end{table}
+			\end{center}
 		
 		
 		
 	\chapter{Machine Learning and Gradient Boosted Trees}
-		Machine Learning (ML) has been a useful tool for the advances of both data analysis and artificial intelligence (AI) \cite{Lifelong ML}. ML is an application of AI with the aim of generating systems with the ability to automatically learn and improve from experience without being explicitly programmed. The ML algorithm is exposed to a training dataset in order to generate a mathematical model,which is then applied in real-life performance tasks. %(it is used for making predictions).
+		Machine Learning (ML) is an application of artificial intelligence (AI) \cite{Lifelong ML} with the aim of generating systems with the ability to automatically learn and improve from experience without being explicitly programmed. The ML algorithm is exposed to a training dataset in order to generate a mathematical model, which is then applied in real-life performance tasks. %(it is used for making predictions).
 		
 		ML can be divided into three main categories \cite{ML categories}:
 		\begin{enumerate}
-			\item \textbf{Supervised Learning}: the goal is to learn a mapping from inputs \textbf{x} to outputs $y$, given a labeled set of input-output pairs $D = \{(x_i, y_i)\}_{i=1}^{N}$. Here $D$ is called the training set, and $N$ is the number of training examples. In the simplest setting, each training input $\textbf{x}_i$ is a $D$-dimensional vector of numbers, which are called features, attributes or covariates. In general, however, $\textbf{x}_i$ could be a complex structured object.
+			\item \textbf{Supervised Learning}: the goal is to learn a mapping from inputs \textbf{x} to outputs $y$, given a labeled set of input-output pairs $D = \{(x_i, y_i)\}_{i=1}^{N}$. Here $D$ is called the training set, and $N$ is the number of training examples. In the simplest setting, each training input $\textbf{x}_i$ is a $K$-dimensional vector of numbers, which are called features, attributes or covariates. In general, however, $\textbf{x}_i$ could be a complex structured object.
 			
-			The form of the output, or response variable, can in principle be anything, but most methods assume that $y_i$ is a categorical or nominal variable from some finite set, $y_i \epsilon  \{1, . . . , C\}$ or that $y_i$ is a real-valued scalar. When $y_i$ is categorical, the problem is known as classification or pattern recognition, and when $y_i$ is real-valued, the problem is known as regression.
+			The form of the output, or response variable, can in principle be anything, but most methods assume that $y_i$ is a categorical or nominal variable from some finite set, $y_i \epsilon  \{1, . . . , C\}$ or that $y_i$ is a real-valued scalar. When $y_i$ is categorical, the problem is known as \textit{classification} or pattern recognition, and when $y_i$ is real-valued, the problem is known as \textit{regression}.
 			
-			\item \textbf{Unsupervised learning}: here to the algorithm is only given inputs, $D = \{(x_i)\}_{i=1}^{N}$, and the goal is to find “interesting patterns” in the data. This is sometimes called knowledge discovery. %This is a much less well-defined problem, since we are not told what kinds of patterns to look for, and there is nocobvious error metric to use (unlike supervised learning, where we can compare our prediction of y for a given x to the observed value).%
+			\item \textbf{Unsupervised learning}: only an input dataset $D = \{(x_i)\}_{i=1}^{N}$ is given to the algorithm and the goal is to find “interesting patterns” in the data. This is sometimes called knowledge discovery. %This is a much less well-defined problem, since we are not told what kinds of patterns to look for, and there is nocobvious error metric to use (unlike supervised learning, where we can compare our prediction of y for a given x to the observed value).%
 			
-			\item \textbf{Reinforcement learning}: this is useful for learning how to act or behave when given occasional reward or punishment signals. A reinforcement learning algorithm, or agent, learns by interacting with its environment. The agent receives rewards by performing correctly and penalties for performing incorrectly. The agent learns without intervention from a human by maximizing its reward and minimizing its penalty.
+			\item \textbf{Reinforcement learning}: this is useful for learning how to act or behave by given occasional reward or punishment signals. A reinforcement learning algorithm, or agent, learns by interacting with its environment. The agent receives rewards by performing correctly and penalties for performing incorrectly. The agent learns without intervention from a human by maximizing its reward and minimizing its penalty.
 			
 		\end{enumerate}
 		\section{Supervised Learning}
-		Let's focus on the supervised learning. \cite{GBT}
+		Since in this thesis a supervised learning algorithm \cite{GBT} is used, the main features of these class of models will be briefly analysed in this section.
 			\subsection{Model and Parameters}
-			As written above, the model in supervised learning usually refers to the mathematical structure of by which the prediction $y_i$ is made from the input $\textbf{x}_i$.
+			As written above, the model in supervised learning usually refers to the mathematical structure by which the prediction $y_i$ is made from the input $\textbf{x}_i$.
 		
-			The parameters are the undetermined part that we need to learn from data. In linear regression problems, the parameters are the coefficients $\theta$. Usually $\theta$ is used to denote the parameters (there are many parameters in a model).
+			The parameters of the model are the undetermined part that the algorithm has to learn from training dataset. Usually \bm{$\theta$} is used to denote the set of parameters of a model.
 		
 			\subsection{Objective Function}
-			In order to train the model, we need to define the a function of the parameters to measure how well the model fit the training data. This function is called: \textit{Objective function}.
+			In order to train the model, we need to define a function of the parameters to measure how well the model describe the training data. This function is called \textit{Objective function}.
 			
-			A characteristic of objective functions is that they are composed of two parts (also dependent on parameters): training loss $L$ and regularization term $\Omega$:
+			A characteristic of objective functions is that they are composed of two parts (also dependent on parameters), training loss $L$ and regularization term $\Omega$:
 			$$
-			obj(\theta) = L(\theta) + \Omega(\theta)
+			obj(\bm{\theta}) = L(\bm{\theta}) + \Omega(\bm{\theta}).
 			$$
 			The training loss measures how predictive our model is with respect to the training data. Common choices of $L$ are the mean squared error, which is given by:
 			$$
-			L(\theta) = \sum_{i}(y_i - y_{i_{pred}})^2
+			L(\bm{\theta}) = \sum_{i}(y_i - y_{i_{pred}})^2
 			$$
 			or logistic loss, to be used for logistic regression:
 			$$
-			L(\theta) = \sum_{i}  [{ y_i\ln(1+e^{-y_{i_{pred}}}) + (1-y_i) \ln(1+e^{-y_{i_{pred}}})    }]
+			L(\bm{\theta}) = \sum_{i}  [{ y_i\ln(1+e^{-y_{i_{pred}}}) + (1-y_i) \ln(1+e^{-y_{i_{pred}}})    }].
 			$$
 			
-			The regularization term controls the complexity of the model, which helps to avoid overfitting. The general principle is a simple and predictive model. The tradeoff between the two is also referred as bias-variance tradeoff in machine learning.
+			The regularization term controls the complexity of the model. A commonly used regularization term is:
+			$$
+			\Omega(\bm{\theta}) = \lambda||\bm{\theta}||_1
+			$$
+			where $\lambda$ is a hyperparameter, which will be analysed in the Section \ref{section:Hyper_param} and $||\cdot||_1$ is the $\mathcal{L}_1$ norm. The regularization term helps to avoid overfitting, which happens when a model learns the detail and noise in the training dataset to the extent that it negatively impacts the performance of the model on new data. This means that the noise or random fluctuations in the training data is picked up and learned as concepts by the model. The problem is that these concepts do not apply to new data and negatively impact the models ability to generalize. Figure \ref{fig:Overfitting} shows a visual example of overfitting. The general goal is to create a simple and predictive model. The tradeoff between the two is also referred as bias-variance tradeoff in machine learning.
+			
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=.7\linewidth]{tesi_images/overfitting.png} 
+				\caption{Underfit, optimal and overfit regression models} 
+				\label{fig:Overfitting}
+			\end{figure}
+			
+			
+		
 		\section{Gradient boosted trees}
 		There are many model, which ML algorithms can use, and one of them is a
 		Decision Tree ensemble. If it is trained, it becomes a Gradient Boosted Tree. The basic unit is decision tree.
 			\subsection{Decision Tree}
-			Decision Trees (DTs) are a supervised learning method used for classification and regression.
-			\cite{Decision Tree}A decision tree is a hierarchical structure consisting of nodes and directed edges. The tree has three types of nodes:
+			Decision Trees (DTs) \cite{Decision Tree} are supervised learning methods used for classification and regression. A decision tree is a hierarchical structure consisting of nodes and directed edges. The tree has three types of nodes:
 			\begin{itemize}
 				\item a root node that has no incoming edges and zero or more outgoing edges.
-				\item internal nodes, each of which has exactly one incoming edge and two or more outgoing edges.
-				\item leaf or terminal nodes, each of which has exactly one incoming edge and no outgoing edges.
+				\item internal nodes, which have exactly one incoming edge and two or more outgoing edges.
+				\item leaf or terminal nodes, which have exactly one incoming edge and no outgoing edges.
 			\end{itemize}
 			
-			\subsection{Decision Tree Ensembles}
-			\cite{GBT}The tree ensemble model consists of a set of classification and regression trees (CART). A CART is a bit different from decision trees, in which the leaf only contains decision values. In CART, a real score is associated with each of the leaves. This also allows for a principled, unified approach to optimization.
+			Each internal node represents a test on a feature of the input variable. In this way the tree progressively classify the input sample into different categories. The terminal node contains a decision value.
 			
-			Usually, a single tree is not strong enough to be used in practice. So the ensemble model is used. In this model the prediction scores of each individual tree are summed up to get the final score:
+			
+			\subsection{Decision Tree Ensembles}
+			The tree ensemble model consists of a set of classification and regression trees (CART) \cite{GBT}. A CART is a bit different from decision trees, in which the leaf only contains decision values. In CART, a real score is associated with each of the leaves. This also allows for a principled, unified approach to optimization.
+			
+			Usually, a single tree is not strong enough to precisely represent a complex model, so the ensemble model is used. In this model the prediction scores of each individual tree are summed up to get the final score:
 			\begin{equation}
-				y_{i_{pred}} = \sum_{k=1}^{K} f_k(x_i), f_k \epsilon \mathcal{F}
+				y_{i_{pred}} = \sum_{k=1}^{K} f_k(x_i), \, f_k \epsilon \mathcal{F}
 				\label{trees' sum}
 			\end{equation}
-			where $K$ is the number of trees, $f$ is a function in the functional space $\mathcal{F}$, and $\mathcal{F}$ is the set of all possible CARTs. The objective function to be optimized is given by:
+			where $K$ is the number of trees, $f$ is a function in the functional space $\mathcal{F}$ of all possible CARTs (considering a tree $f$ as a function which maps the input features into a score). In this way the final decision is taken using the output of different decision trees to improve the prediction capabilities of the algorithm. The objective function to be optimized is given by:
 			\begin{equation}
-				obj(\theta) = \sum_{i}^{n}l(y_i,y_{i_{pred}}) + \sum_{k=1}^{K}\Omega(f_k)
+				obj(\bm{\theta}) = \sum_{i}^{n}l(y_i,y_{i_{pred}}) + \sum_{k=1}^{K}\Omega(f_k)
 				\label{obj ens}
 			\end{equation}
-			so the functions $f_k$ are the parameters.
+			so the functions $f_k$ are the parameters of the optimisation.
 			
-			\subsection{Tree Boosting}
-			After introducing the model, let's focus on trees' training. An essential element of tree training, as is always for all supervised learning models, is an objective function, which will be optimize:
-			\begin{equation}
-				obj = \sum_{i}^{n}l(y_i,y_{i_{pred}}^{(t)}) + \sum_{i=1}^{t}\Omega(f_i)
-				\label{obj training}
-			\end{equation}
+			\subsection{Gradient Bosting Decision Trees}\label{GBDT}
+			After introducing the model, we focus on trees training. In this case, as mentioned above, the parameters of optimisation are the function $f_i$, each containing the structure of the tree and the leaf scores. The training proceeds by optimising the objective function (eq. \eqref{obj ens}), which will be optimize:
+			%\begin{equation}
+			%	obj = \sum_{i}^{n}l(y_i,y_{i_{pred}}^{(t)}) + \sum_{i=1}^{t}\Omega(f_i)
+			%	\label{obj training}
+			%\end{equation}
 			
-			There are many training methods and one of them is \textit{Addittive Training}. In this case, as mentioned above, the parameters of trees are the function $f_i$, each containing the structure of the tree and the leaf scores. Due to the difficulty of training many trees at the same time, it is used an additive approach:
+			There are many training methods and one of them is \textit{Addittive Training}. Due to the difficulty of training many trees at the same time, an additive approach is used:
 			\begin{multline}
 				\\y_{i_{pred}}^{(0)} = 0 \\
 				y_{i_{pred}}^{(1)} = f_1(\textbf{x}_i) = y_{i_{pred}}^{(0)} + f_1(\textbf{x}_i) \\
@@ -636,13 +722,12 @@
 				y_{i_{pred}}^{(t)} = \sum_{k=1}^{t}f_k(\textbf{x}_i) = y_{i_{pred}}^{(t-1)} + f_t(\textbf{x}_i)\\		
 				\label{y additive}	
 			\end{multline}
-			In each step, the tree used is the one that optimizes objective function, which \eqref{obj training} in addittive approach becomes:
-			\begin{multline}
-				\\obj^{(t)} = \sum_{i}^{n}l(y_i,y_{i_{pred}}^{(t)}) + \sum_{i=1}^{t}\Omega(f_i)\\
-				= \sum_{i}^{n}l(y_i,y_{i_{pred}}^{(t-1)}+f_t(\textbf{x}_i)) + \Omega(f_t) +costant \\
+			In each step, the tree used has to be the one that optimizes objective function. In the additive approach eq. \eqref{obj ens} becomes:
+			\begin{equation}
+				obj^{(t)} =  \sum_{i}^{n}l(y_i,y_{i_{pred}}^{(t-1)}+f_t(\textbf{x}_i)) + \Omega(f_t) +costant
 				\label{obj additive}	
-			\end{multline}
-			Then using a taylor expansion of the loss function up to the second order in \eqref{obj additive}: 
+			\end{equation}
+			Then using a Taylor expansion of the loss function up to the second order in \eqref{obj additive}: 
 			\begin{equation}
 			obj^{(t)} = \sum_{i}^{n}l(y_i,y_{i_{pred}}^{(t-1)}+g_if_t(\textbf{x}_i)) +\frac{1}{2}h_if_t^2(\textbf{x}_i) + \Omega(f_t) +costant
 			\label{obj taylor}	
@@ -658,17 +743,17 @@
 				\sum_{i}^{n}[g_if_t(\textbf{x}_i) + \frac{1}{2}h_i f_t^2(\textbf{x}_i)] + \Omega(f_t)
 				\label{spec obj}
 			\end{equation}
-			The other part of objective is the regulation term, which represents the complexity of the tree $f_t$. $f_t$ can be defined as:
+			The other part of objective is the regulation term, which represents the complexity of the tree $f_t$. In a more general formalism $f_t$ can be defined as:
 			\begin{equation}
-				f_t(\textbf{x}) = w_{q(x)}, w \epsilon R^T, q:R^d \rightarrow \{1,2,...,T\}
+				f_t(\textbf{x}) = w_{q(x)}, \, w\,\epsilon\, R^T, \, q:R^d \rightarrow \{1,2,...,T\}
 				\label{tree in math}
 			\end{equation}
-			where $w$ is the vector of scores in leaves, $q$ is a function assigning each data point to the corresponding leaf, and T is the number of leaves. So the complexity $\Omega$ becomes:
+			where $w$ is the vector of scores in leaves, $q$ is a function assigning each data point to the corresponding leaf (so representing the tree structure), and T is the number of leaves. So the complexity $\Omega$ can be written as:
 			\begin{equation}
 				\Omega(f) = \gamma T + \frac{1}{2} \lambda \sum_{j=1}^{T} w_j^2
 				\label{Omega math}
 			\end{equation}
-			So, using eq. \eqref{obj taylor}, \eqref{tree in math}, \eqref{Omega math}, the objective value with the $t$-th tree is:
+			So, using eq. \eqref{obj taylor}, \eqref{tree in math}, \eqref{Omega math}, the objective value with the $t$-th tree becomes:
 			\begin{multline}
 				\\obj^{(t)} \simeq \sum_{i=1}^{n}[g_i w_{q(\textbf{x}_i)} +\frac{1}{2}h_iw_{q(\textbf{x}_i)}^2] +\gamma T + \frac{1}{2}\lambda\sum_{j=1}^{T} w_j^2\\
 				=\sum_{j=1}^{T}[(\sum_{i\epsilon I_J}g_i)w_j + \frac{1}{2}(\sum_{i\epsilon I_J}h_i + \lambda)w_j^2] + \gamma T\\
@@ -680,21 +765,21 @@
 				obj^{(t)} =\sum_{j=1}^{T}[G_j w_j + \frac{1}{2}(H_j + \lambda)w_j^2] + \gamma T
 				\label{obj simple}
 			\end{equation}
-			Due to $w_j$ are independent with respect to each other, the form $G_jw_j+\frac{1}{2}(H_j+\lambda)w^2_j$ is quadratic, the best $w_j$ for a given structure $q(x)$ is:
+			Since $w_j$ are independent with respect to each other and the form $G_jw_j+\frac{1}{2}(H_j+\lambda)w^2_j$ is quadratic, the best $w_j$ for a given structure $q(x)$ is:
 			\begin{equation}
 				w_j^{best} = -\dfrac{G_j}{H_j + \lambda}
 				\label{best w_j}
 			\end{equation}
 			Then using the best $w_j$, the objective reduction becomes the best objective reduction, which measures how good a tree structure $q(x)$ is:
 			\begin{equation}
-				obj^{(t)_{best}} = -\frac{1}{2}\sum_{j=1}^{T}\dfrac{G_j}{H_j + \lambda} + \gamma T
+				obj^{(t)_{best}} = -\frac{1}{2}\sum_{j=1}^{T}\dfrac{G_j^2}{H_j + \lambda} + \gamma T
 				\label{best obj}
 			\end{equation}
 			
 			\subsection{Learn the tree structure}
-			Now thanks to the equation \eqref{best obj} it is possible to measure to measure how good a tree is, ideally it is possible to enumerate all possible trees and pick the best one. In practice this is intractable (there are infitite possibile trees), so it will be optimized one level of the tree at a time, the \textit{additive approch}: an additional split is added to the tree if it brings a gain to its object function.
+			Now thanks to the equation \eqref{best obj} it is possible to measure how good a tree is, ideally it is possible to enumerate all possible trees and pick the best one. In practice this is intractable (there are infitite possibile trees), so the tree to add will be optimized one level at a time: a split is added to the tree if it brings a gain to its object function.
 			
-			When trying to split a leaf into two leaves, and the score it gains is:
+			When trying to split a leaf into two leaves the score it gains is:
 			\begin{equation}
 				Gain = \frac{1}{2}\Bigl[\dfrac{G_L^2}{H_L+\lambda} + \dfrac{G_R^2}{H_R+\lambda} - \dfrac{(G_L+G_R)^2}{H_L+H_R+\lambda}\Bigr] - \gamma
 			\end{equation}
@@ -705,58 +790,75 @@
 				\item the score on the original leaf
 				\item regularization on the additional leaf
 			\end{itemize} 
-			All possible splits are explored and the best one is added. If the Gain is negative this means that the split have the increase in the complexity score bigger than the reduction in training loss. It would be better not to add that branch. This is exactly the pruning techniques, which reduces the complexity by removing sections of the tree.
-			
+			The best split for each node is obtained by scanning separately each feature (sorted by feature value) and taking the best split option along all the features. If the Gain is negative this means that the split has incread the complexity score more than the reduction in training loss. In this case it would be better not to add that branch. This is exactly the pruning techniques, which reduces the complexity by removing sections of the tree.
 		\section{LightGBM}
-		\cite{LGBM}LightGBM is a gradient boosting framework, released  by Microsoft, that uses tree based learning algorithms. It is based on GDBT.
-		LightGBM grows trees leaf-wise (best-first)\ref{fig:LGBM tree}. It will choose the leaf with max delta loss to grow. Holding "leaf" fixed, leaf-wise algorithms tend to achieve lower loss than level-wise algorithms.
+		LightGBM \cite{LGBM} is a gradient boosting framework, released  by Microsoft, that uses tree based learning algorithms. It is based on GDBT (Section \ref{GBDT}). LightGBM grows trees leaf-wise (best-first), as shown in Fig.\ref{fig:LGBM tree}. It will choose the leaf with max delta loss to grow. Holding "leaf" fixed, leaf-wise algorithms tend to achieve better performance (lower loss) than level-wise algorithms.
 		
-		Leaf-wise may cause over-fitting when "data" is small, so LightGBM includes the $max_{depth}$ parameter to limit tree depth. However, trees still grow leaf-wise even when $max_{depth}$ is specified. So LGBM has the possibility to control the model and the training through specific parameters.
-		\begin{figure}[H]
+		Leaf-wise may cause over-fitting when training dataset is small, so LightGBM includes the $max_{depth}$ parameter to limit tree depth. However, trees still grow leaf-wise even when $max_{depth}$ is specified. LGBM has the possibility to control the model and the training through specific parameters such as learning rate, feature fraction, number of leaves.
+		\begin{figure}
 			\centering
-			\includegraphics[width=0.35\textheight]{tesi_images/LGBM.png}
-			\caption{LGBM: Leaf-wise tree growth}
+			\includegraphics[width=0.5\textheight]{tesi_images/LGBM.png}
+			\caption{The LGBM leaf-wise tree growth}
 			\label{fig:LGBM tree}
 		\end{figure}
 	
 	\chapter{BDT: Electron and photon classification}	
-		As said before, during the reconstruction not all the particles are easily reconstructed and therefore they are reconstructed both as electrons and photons. These particles are the 10\% of true electron and 30\% of true photon. 
+		As said before, during the reconstruction not all the particles are easily reconstructed and therefore they are classified both as electrons and photons. These particles are the 10\% of true electron and 30\% of true photon. 
 		
-		The analisys of these "ambiguous" particles is the last step in the discrimination process between electrons and photons. This analysis can be done in several ways. One of them is a classification algorithm with a gradient boosted decision tree (\textit{classification Supervised Learning}). In order to create a predictive model the GBDT is trained on single-particle samples of electrons and photons, with pile-up. For each true particle type there are two Pandas dataframes, one for reconstruction as an electron and the other for reconstruction as a photon. After the dataframes referring to the same type of true particle are merged, resulting in two dataframes: one for \textit{True Electron} and the other for \textit{True Photon}. After that these two dataframes are concatenated by tagging the double reconstructions from true electron with $truth=0$ and those from true photon with $truth=1$. Therefore the input particles are represented by $y_i$, which is 0 for true electron and 1 for true photon, and the score (model output) is $y_i^{pred} \epsilon [0,1]$.
+		The analisys of these "ambiguous" particles is the last step in the discrimination process between electrons and photons. This analysis can be done in several ways. One of them is a classification algorithm with a gradient boosted decision tree (\textit{classification Supervised Learning}). In order to create a predictive model the GBDT is trained on single-particle samples of electrons and photons, with simulated pile-up. The general set is composed of single MC particle events, which have been reconstructed both as electron and photon (double reconstructions). each reconstructed event is assigned $truth=$0 (or 1) in case the initial event was an electron (or a photon). Therefore the input particles are represented by $y_i$, which is 0 for true electron and 1 for true photon, and the score (model output) is $y_i^{pred} \epsilon [0,1]$.
 		
-		After removing the pile-up, the dataframe is splitted in the train (80\%) and the test (20\%) sets, using a Scikit Learn \cite{SKlearn} function. The train dataset is used to train the algorithm, whereas the test dataset is used as model input. If we did not do this split, we would introduce a bias.
+		After removing the pile-up using the Pandas \cite{Pandas} function \textit{query} with the feature \texttt{ph(or el)\_is\_pileup==False}, the dataframe is splitted in the train (80\%) and the test (20\%) sets, using a Scikit Learn \cite{SKlearn} function. The train dataset is used to train the algorithm, whereas the test dataset is used as model input. If we did not do this split, we would introduce a bias.
 		
 		In order to explore as many cases as possible, three models have been created: all use the same discriminating variables, but they are trained on different portions of the training dataset.
 		\begin{enumerate}
-			\item a model generated by a GBDT trained on double reconstruction;
-			\item a model generated by a GBDT trained on reconstruction flagged as “ambiguous” by the old ambiguity tool;
+			\item a model generated by a GBDT trained on double reconstruction, which are the input objects of ambiguity tools;
+			\item a model generated by a GBDT trained on reconstruction flagged as “ambiguous” by the old ambiguity tool (Fig \ref{fig:el_ph_analisi});
 			\item a model generated by a GBDT trained on reconstruction flagged as “ambiguous” by the new ambiguity tool.
 		\end{enumerate}
 		
-		Since at reconstruction level it is not possible to use a BDT and it is not possible to save the double reconstructions for each particle, due to the enormous memory cost it would involve, pre-classifiers (ambiguity tools) are used. To see the performance of these pre-classifiers, the models above are compared. The first is the ideal model, which has been trained as if there were infinite memory, and therefore is the theoretical limit. Therefore, the more models based on ambiguity tools approach the performance of the double reconstructions model, the better the applied preclassification is.
-		
+		Since at reconstruction level it is not possible to use a BDT and it is not possible to save the double reconstructions for each particle, due to the enormous memory cost it would involve, pre-classifiers (ambiguity tools Appendix \ref{Appex:amb}) are used (Fig \ref{fig:el_ph_analisi}). To see the performance of these pre-classifiers, the models above are compared. The first is the ideal model, which has been trained as if there were infinite memory, and therefore is the theoretical limit. Therefore, the more the models based on ambiguity tools approach the performance of the double reconstructions model, the better the applied preclassification is.
+			 	
 		\section{BDT training}
-			Let's now focus on the BDT training
 			\subsection{Discriminating features}
-				In order to create a good model, the choice of the features it will have to work on is crucial. The most useful characteristics are those that present the greatest differences between photons and electrons, which are therefore more discriminating. It is also important to use features that guarantee the generality of the model. The features can be divided into two categories: electron and photon features.
+				In order to create a good model, the choice of the features it will have to work on is crucial. The most useful characteristics are those that present the greatest differences between photons and electrons, which are therefore more discriminating. It is also important to use features that guarantee the generality of the model. The features can be divided into two categories: features that come from the particle being reconstructed as an electron or as a photon.
+				Some features, as they are not specific to either of the two reconstructions, cannot be included in these two categories and they are:
+				\begin{itemize}
+					\item \texttt{el\_cl\_pt} is the cluster momentum $p_T$ of the reconstructed electron (Figure \ref{fig: pt}).
+					\item \texttt{el\_cl\_eta} is the cluster $\eta$ of the reconstructed electron. Since photons convert more into the material we can see an increase of electrons reconstructed from real photons for $|\eta|>1.52$ (Figure \ref{fig: eta}). 
+				\end{itemize}
+				\begin{figure}[H]
+						\begin{minipage}[b]{0.5\linewidth}
+						\centering
+						\includegraphics[width=.9\linewidth]{tesi_images/el_cl_pt.png} 
+						\caption{The \texttt{el\_cl\_pt} distribution} 
+						\label{fig: pt}
+						\vspace{4ex}
+					\end{minipage}%% 
+					\begin{minipage}[b]{0.5\linewidth}
+						\centering
+						\includegraphics[width=.9\linewidth]{tesi_images/el_cl_eta.png} 
+						\caption{The \texttt{el\_cl\_eta} distribution} 
+						\label{fig: eta}
+						\vspace{4ex}
+					\end{minipage} 
+				\end{figure}
+			
 				\subsubsection{Electron features}
-					Electron features are those that characterize the particles reconstructed as electrons. Electrons have many hits in the first layers of detectors, as opposed to photons, because the most part of photons is still unconverted in the ID. So electron reconstructed as electrons (\texttt{true\_el/reco\_el}) should have more hits than photons reconstructed as electrons (\texttt{true\_ph/reco\_el}). This can be seen in the characteristics \texttt{el\_track\_hasInnermostHits} (a boolean, which says if the particle has hit the first expected layer or not), \texttt{el\_trkPixelHits} (a pixel hit counter), \texttt{el\_trkSiHits} (a silicon hit counter) shown in the figure \ref{fig:el_hit}.
+					Electron features are those that characterize the particles reconstructed as electrons. Electrons have many hits in the first layers of detectors, as opposed to photons, because the most part of photons is still unconverted in the ID. So electron reconstructed as electrons (\texttt{true\_el/reco\_el}) should have more hits than photons reconstructed as electrons (\texttt{true\_ph/reco\_el}). This can be seen in the characteristics \texttt{el\_track\_hasInnermostHits} (a boolean, which says if the particle has hit the first expected layer or not), \texttt{el\_trkPixelHits} (a pixel hit counter), \texttt{el\_trkSiHits} (a silicon hit counter) shown in the Figure \ref{fig:el_hit}.
 					\begin{figure}[h!]
 						\centering
 						\includegraphics[width=0.7\textheight]{tesi_images/el_hit.png}
-						\caption{}
+						\caption{Three of the most discriminating features from electron reconstruction}
 						\label{fig:el_hit}
 					\end{figure}
 					
-					The track quality, as it is determinated from the pixel and SCT hits, is different in the two cases as the physics quantities reconstructed from the track . This quantities are:
+					The track quality, as it is determinated from the pixel and SCT hits, is different in the two cases as the physics quantities reconstructed from the track. These quantities are:
 					\begin{itemize}
-						\item \texttt{el\_track\_ep} is the ratio between the energy measured in the calorimeter and the moment $p_T$ measured in the ID. Photons tracks are worse than those of electrons and therefore they are not always matched with the right energy. So the Ep ratio could be far from 1 (Figure \ref{fig: ep}).
-						\item \texttt{el\_trackz0} is the z coordinate, which runs along the detector, where the measurement of the reconstructed electron takes place (Figure \ref{fig: z0}).
-						\item \texttt{el\_cl\_pt} is the cluster momentum $p_T$ of the reconstructed electron (Figure \ref{fig: pt}).
-						\item \texttt{el\_cl\_eta} is the cluster $\eta$ of the reconstructed electron. Since photons convert more into the material we can see an increase of electrons reconstructed from real photons for $|\eta|>1.52$ (Figure \ref{fig: eta}).
+						\item \texttt{el\_track\_ep} is the ratio between the energy measured in the calorimeter and the moment $p_T$ measured in the ID. Photons tracks are worse than those of electrons and therefore they are not always matched with the right energy. So the $E/p_T$ ratio could be far from unity (Figure \ref{fig: ep}).
+						\item \texttt{el\_trackz0} is the z coordinate, which runs along the beam axis, where the measurement of the reconstructed electron takes place (Figure \ref{fig: z0}).
 					\end{itemize}
 				
-					\begin{figure}[ht]  
+					\begin{figure}[h!]  
 						\begin{minipage}[b]{0.5\linewidth}
 							\centering
 							\includegraphics[width=.9\linewidth]{tesi_images/el_track_ep.png} 
@@ -771,29 +873,15 @@
 							\label{fig: z0} 
 							\vspace{4ex}
 						\end{minipage} 
-						\begin{minipage}[b]{0.5\linewidth}
-							\centering
-							\includegraphics[width=.9\linewidth]{tesi_images/el_cl_pt.png} 
-							\caption{The \texttt{el\_cl\_pt} distribution} 
-							\label{fig: pt}
-							\vspace{4ex}
-						\end{minipage}%% 
-						\begin{minipage}[b]{0.5\linewidth}
-							\centering
-							\includegraphics[width=.9\linewidth]{tesi_images/el_cl_eta.png} 
-							\caption{The \texttt{el\_cl\_eta} distribution} 
-							\label{fig: eta}
-							\vspace{4ex}
-						\end{minipage} 
 					\end{figure}
 				
 				
 				\subsubsection{Photon features}
-					As electron, the photon quality track (of the pair $e^{+}e^{-}$) is discriminating and therefore also the Pixel/SCT hits and $p_t$.
+					As for electron, the converted photon quality track is discriminating and therefore also the Pixel/SCT hits and the $p_t$ of the associated tracks.
 					
 					Other useful photon features for classification are those related to conversion:
 					\begin{itemize}
-						\item \texttt{ph\_zconv} (Fig. \ref{fig: zconv}) and \texttt{ph\_Rconv} (Fig. \ref{fig: Rconv}): these characteristics contain information of the conversion point in the coordinates R and z. \texttt{True\_el/reco\_ph} have a conversion point close to the point of interaction as their track starts from the beginning.
+						\item \texttt{ph\_zconv} (Fig. \ref{fig: zconv}) and \texttt{ph\_Rconv} (Fig. \ref{fig: Rconv}): these characteristics contain information of the conversion point in the R and z coordinates. \texttt{True\_el/reco\_ph} have a conversion point close to the point of interaction as their track starts from the beginning.
 						
 						\begin{figure}[h!]
 							\begin{minipage}[b]{0.5\linewidth}
@@ -821,7 +909,7 @@
 							\label{fig: ph_pts}
 						\end{figure}
 						
-						\item \texttt{pt1conv/ptconv} contains information about conversion symmetry (Fig. \ref{fig: pt1_pt}). This characteristic for \texttt{true\_el/reco\_ph} tends to 1, since most of them have a single track. More information is presented in the Appendix \ref{Appex: sym}
+						\item \texttt{pt1conv/ptconv} contains information about conversion symmetry (Fig. \ref{fig: pt1_pt}). This characteristic for \texttt{true\_el/reco\_ph} tends to be close to 1, since most of them have a single track. More information is presented in the Appendix \ref{Appex: sym}
 						
 						\begin{figure}[h!]	
 							\centering
@@ -830,28 +918,59 @@
 							\label{fig: pt1_pt}
 						\end{figure}
 					\end{itemize}
+			\subsection{Training and Model}
+			The algorithm training is based on a LGBM function \texttt{lgb.train}, which has as inputs: parameter set, train dataset, the maximum number of training steps, validation sets,  early stopping rounds. The validation sets are those on which the loss function is calculated during training. For training to create the model they must be \texttt{lgb\_train} and \texttt{lgb\_test}, whereas for the hyperparameters optimization training they are \texttt{lgb\_train} and \texttt{lgb\_valid}, as said before. \\
+			To prevent overfitting, the model will train until the validation score stops improving. Validation score needs to improve at least every \texttt{early\_stopping\_rounds} round(s) to continue training \cite{LGBM}.
+			
+			Once the training is over, it is possible to analyse the model and how it uses the discriminatory variables:
+			\begin{itemize}
+				\item the Objective function behaviour. Its value is plotted after each iteraction for both the training and test set. This plot is uselful because a large difference between the train and test datasets may indicate overfitting (In Fig \ref{fig:loss} one can see that no overfit is present).
 				
-			\subsection{Parameters and Hyperparameter optimization}
+				\begin{figure}[h!]
+					\centering
+					\includegraphics[width=.6\linewidth]{tesi_images/model_hyper_loss.pdf} 
+					\caption{Loss value after each iteration, Model trained on double reconstruction}
+					\label{fig:loss} 
+				\end{figure}
+				
+				\item feature importance plots show the number of times that a feature was used in the splitting of a branch (Figure \ref{fig:importance}) and the average training loss reduction gained when using a feature for splitting (Figure \ref{fig:gain}).
+				
+				\begin{figure}[h!]
+					\centering
+					\includegraphics[width=.8\linewidth]{tesi_images/model_hyper_importance.pdf} 
+					\caption{Feature importance, Model trained on double reconstruction}
+					\label{fig:importance} 
+				\end{figure}
+				
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=.8\linewidth]{tesi_images/model_hyper_gain.pdf} 
+					\caption{Feature importance Gain, Model trained on double reconstruction}
+					\label{fig:gain} 
+				\end{figure}
+			\end{itemize}
+			
+			\subsection{Parameters and Hyperparameter optimization}\label{section:Hyper_param}
 				Parameters and hyperparameters regulate training and determine the performance of the model created. Hyperparameters are LGMB \cite{LGBM} adjustable parameters chosen for the training of a model, which regulate the training process. 
 				
-				The objective of the hyperparameter optimization is to search the various configurations of the hyperparameters, contained in the hyperparameter space, to find a configuration with the best performance. The hyperparameter space consists of two types of hyperparameters: discrete or continuous. Let's focus on the continuous ones, which are specified as a uniform distribution over a continuous range. 
+				The objective of the hyperparameter optimization is to search the various configurations of the hyperparameters, contained in the hyperparameter space, to find a configuration with the best performance. The hyperparameter space consists of two types of hyperparameters: discrete or continuous.% Let's focus on the continuous ones, which are specified as a uniform distribution over a continuous range. 
 				
 				So after defining the space of the hyperparameters, we move on to the search for the best configuration. This search can be of various types:
 				\begin{itemize}
 					\item \textbf{random search}: in random search the hyperparameter values are randomly selected from the defined search space. It allows the  hyperparameter space to include both discrete and continuous hyperparameters;
-					\item \textbf{grind search}: grid sampling performs a simple grid search on all possible values in the defined search space;
-					\item \textbf{bayesian search}: bayesian sampling uses the knowledge of the previous samplings when choosing hyperparameter values, effectively attempting to improve the reported primary metric. The sample is selected based on the performance of the previous sample, so that the new sample improves the primary metric reported. 
+					\item \textbf{grid search}: grid sampling performs a simple grid search on all possible values in the defined search space;
+					\item \textbf{Bayesian search}: bayesian sampling uses the knowledge of the previous samplings when choosing hyperparameter values, effectively attempting to improve the reported primary metric. %The sample is selected based on the performance of the previous sample, so that the new sample improves the primary metric reported. 
 				\end{itemize}
-				The bayesian search is used by the Python library \textit{Hyperopt} \cite{Hyperopt}, which is implemented in the code in order to perform the optimization.
+				The bayesian search is used by the Python library \textit{Hyperopt} \cite{Hyperopt}, which is the one used in this work in order to perform the optimization.
 				
 				The training parameters are listed in the Table \ref{tab:parameters} and the ones that have been optimized are:
 				\begin{itemize}
 					\item \textbf{bagging}: in bagging, several models of the same type are trained on different datasets (aggregation, typical of ensemble learning), each obtained from the initial dataset by random sampling with replacement (bootstrap).
 					\item \textbf{number of leaves}: it is the maximum number of leaves, which a tree could have. It is useful to avoid overfitting.
-					\item \textbf{feature fraction}: it is used when boosting is random forest. 0.82 feature fraction means LightGBM will used 82\% of parameters randomly in each iteration for building trees.
+					\item \textbf{feature fraction}: 0.82 feature fraction means LightGBM will used only 82\% of features randomly in each iteration for building trees.
 					\item \textbf{learning rate}: it determines the effect of each tree on the final outcome.
 				\end{itemize}
-				Before starting with the hyperparameter optimization the train dataset is splitted: 75\% stays as the train set whereas the 25\% becomes the validation set, which is used during the hyperparameter optimization training instead of the test set as validation. This is done with the aim of avoiding the introduction of a bias.
+				Before starting with the hyperparameter optimization the train dataset has been splitted: 75\% stays as the train set whereas the 25\% becomes the validation set, which is used during the hyperparameter optimization instead of the test set as validation. This is done with the aim of avoiding the introduction of a bias.
 				
 				After 200 searches the best hyperparameters are selected and used for the creation of the models, which have three different hyperparameters sets (shown in Table \ref{tab:parameters}).
 				
@@ -872,46 +991,15 @@
 						Learning rate & 0.056 & 0.054 & 0.074 \\
 						\bottomrule[1.5pt]
 					\end{tabular}
-					\caption{Parameters and hyperparameters used in the models' training}
+					\caption{Parameters and hyperparameters used in the models' training. The description of parameters and hyperparameters can be found in Appendix \ref{Appex:para}.}
 					\label{tab:parameters} 
 				\end{table}
+		
 			
-			\subsection{Training and Model}
-				Once the hyperparameter optimisation is completed, algorithm training can begin. It is based on a LGBM function \texttt{lgb.train}, which has as input: parameter set, lgb train dataset, the maximum number of training steps, validation sets,  early stopping rounds. The validation sets are those on which the loss function is calculated during training. For training to create the model they must be \texttt{lgb\_train} and \texttt{lgb\_test}, whereas for the hyperparameters optimization training they are \texttt{lgb\_train} and \texttt{lgb\_valid}, as said before. \\
-				To prevent overfitting, the model will train until the validation score stops improving. Validation score needs to improve at least every \texttt{early\_stopping\_rounds} round(s) to continue training \cite{LGBM}.
-				
-				Once the training is over, it is possible to analyse the model and how it uses the discriminatory variables. This is usually done through three plots:
-				\begin{itemize}
-					\item the Objective function plot. Its value is plotted after each iteraction for both the training and test set. This plot is uselful because a large difference between the train and test datasets may indicate overfitting (Fig \ref{fig:loss}).
-					
-					\begin{figure}[h!]
-						\centering
-						\includegraphics[width=.6\linewidth]{tesi_images/model_hyper_loss.pdf} 
-						\caption{Loss value after each iteration, Model double reco}
-						\label{fig:loss} 
-					\end{figure}
-					
-					\item the feature importance plots. One shows the number of times that a feature was used in the splitting of a branch \ref{fig:importance}, the other the average training loss reduction gained when using a feature for splitting \ref{fig:gain}.
-					
-					\begin{figure}[h!]
-						\centering
-						\includegraphics[width=.8\linewidth]{tesi_images/model_hyper_importance.pdf} 
-						\caption{Feature importance, Model double reco}
-						\label{fig:importance} 
-					\end{figure}
-				
-					\begin{figure}[h!]
-						\centering
-						\includegraphics[width=.8\linewidth]{tesi_images/model_hyper_gain.pdf} 
-						\caption{Feature importance Gain, Model double reco}
-						\label{fig:gain} 
-					\end{figure}
-				\end{itemize}
 			
 		\section{BDT applied on test set}
-			Once the models are created, these trained BDTs are applied to the test dataset. Each model gives to each particle a score between 0 and 1 according to its features. If the score is close to 0 the particle is classified mainly as electron, whereas if it tends to 1 as photon. 
-			
-			In order to evalute the models' efficiencies the scores, ROC and AUC are plotted and calculeted. The scores are plotted as two histograms, one for \textit{True Electrons} and the other for \textit{True Photons}, and compared,a shown in Figure \ref{fig:scores}.
+			Once the models are created, these trained BDTs are applied to the test dataset. Each model gives to each particle a score between 0 and 1 according to its features. %If the score is close to 0 the particle is classified mainly as electron, whereas if it tends to 1 as photon. 
+			The scores are plotted as two histograms, one for \textit{True Electrons} and the other for \textit{True Photons}, and compared, as shown in Figure \ref{fig:scores}.
 		    \begin{figure}[h!]
 		    	\centering
 		    	\includegraphics[width=.6\linewidth]{tesi_images/scores.png} 
@@ -919,13 +1007,14 @@
 		    	\label{fig:scores}
 		    \end{figure}
 		    
-		    From these histograms is possible to extract the \textit{True Photons} efficiency, called True Positive Rate (TPR) 
+		    From these histograms is possible to extract the \textit{True Photons} efficiency ($P(reco_{el}|true_{el})$)
 			%$\epsilon_{ph}=$TPR$=\frac{\text{reco ph from trueph}}{\text{All ph}}$, 
-			and the \textit{True Electron} efficiency, called False Positive Rate (FPR) 
+			and the \textit{True Electron} efficiency ($P(reco_{ph}|true_{ph})$)
 			%$\epsilon_{el}=\frac{\text{reco el from true ph}}{\text{All el}}$ 
-			by making cuts (thresholds) on the scoring range [0,1]. TPR, FPR and thresholds can also be obtained using a scikit-learn function \texttt{roc\_curve}, which has as input the $y^{true}$ and the model's predictions $y^{pred}$. 
+			by making cuts (thresholds) on the scoring range [0,1].
 			
-			The ROC curve is a graph showing the performance of the  classification model at all thresholds. This curve plots two parameters: FPR versus TPR at different classification thresholds connecting the point (1,1) to (0,0). The perfomance estimator is the entire two-dimensional area underneath the entire ROC curve, called AUC, which is calculated using the scikit-learn function \texttt{auc(FPT,TPR)}. The closer the AUC is to 1, the more predictive the model is. A ROC curve example is shown in Figure \ref{fig:ex_roc}. It represents the ROC curve of the model trained on double reconstruction set, which applied on old ambiguous particles test set.
+			In order to evalute the models efficiencies the scores, ROC and AUC are plotted and calculeted.
+			The Receiver Operating Characteristic (ROC) curve is a graph showing the performance of the  classification model with all possible thresholds. This curve plots two parameters: $P_{e|e}$ versus $P_{\gamma|\gamma}$ at different classification thresholds connecting the point (1,0) to (0,1). The perfomance estimator is the entire two-dimensional area underneath the entire ROC curve, called AUC: the closer the AUC is to 1, the more predictive the model is. A ROC curve example is shown in Figure \ref{fig:ex_roc}: it represents the ROC curve of the model trained on double reconstruction set (train=dr), which is applied on old ambiguous particles test set.
 			
 			
 			
@@ -940,51 +1029,43 @@
 			\begin{figure}[H] 
 				\centering
 				\includegraphics[width=.6\linewidth]{tesi_images/dr_old.pdf} 
-				\caption{ROC curve of model double reco, which is applied on the old ambiguous test set} 
+				\caption{ROC curve of the model trained on double reconstructions, which is applied on the old ambiguous test set} 
 				\label{fig:ex_roc}
 			\end{figure}
 		\section{BDT results}
-			Finally, after the choice of the discriminating features, the optimisation of the hyperparameters and the training, the models are created and their performance can be compared on various test sets, which must be the same for the three models and consistent: for example it is not possible to apply the model trained on the old ambiguous particles on a test set composed of particles classified as ambiguous by the new ambiguity tool. The test set which provides more information is the \textit{outer} set. It consists of single reconstructions and all double reconstructions.
+			Finally, after the choice of the discriminating features, the optimisation of the hyperparameters and the training, the models are created and their performance can be compared on various test sets, which must be the same for the three models and consistent: for example it is not useful to apply the model trained on the old ambiguous particles on a test set composed of particles classified as ambiguous by the new ambiguity tool. The test set which provides more information is the \textit{outer} set. It consists of single reconstructions and all double reconstructions.
 			
 			Once the models are applied on the \textit{outer} test set, their outputs must be corrected:
 			\begin{itemize}
 				\item the single reconstruction must be respected. If the object is reconstructed as a photon $y^{pred}$ is fixed at 1, whereas if it is reconstructed as an electron $y^{pred}$ is fixed at 0.
-				\item when \texttt{el\_amb\_type} and \texttt{ph\_amb\_type} are equal to 0 or 6, the outputs of the models trained on ambiguous particles are fixed with $y^{pred}$=0 or 1. This is because these models can only work on ambiguous particles and for the others they must adapt to the decisions of the ambiguity tools.
+				\item when \texttt{el\_amb\_type} and \texttt{ph\_amb\_type} are equal to 0 or 6, the outputs of the models trained on ambiguous particles are set with $y^{pred}$=0 or 1. This is because these models can only work on ambiguous objects and for the others they must adapt to the decisions of the ambiguity tools.
 			\end{itemize}
 			
-			Figure \ref{fig:last_roc} shows the ROC curves of the three models with \textit{outer} as test set. In this figure there are three curves, one for each model, and two pairs of points. Each point (x,y) represents the photon and electron efficiencies if we consider all the ambiguous objects as photons ($\bullet$) or electrons ($\triangle$). They obviously represent the limits of the ROC curves of the two models trained on ambiguous objects.
+			Figure \ref{fig:last_roc} shows the ROC curves of the three models with \textit{outer} as test set. In this figure there are three curves, one for each model, and two pairs of points. Each curve represents the performance of one of the three classification models. Instead each point (x,y)=($\epsilon_{ph}$,$\epsilon_{el}$) represents the photon and electron efficiencies if we consider all the ambiguous objects as photons ($\bullet$) or electrons ($\triangle$). They obviously represent the limits of the ROC curves of the two models trained on ambiguous objects.
 			
 			\begin{figure}
 				\centering
 				\includegraphics[width=.65\linewidth]{tesi_images/all_amb_roc.pdf} 
-				\caption{Roc curves of the three models on the \textit{outer} set as test set} 
+				\caption{ROC curves of the three models on the \textit{outer} set as test set} 
 				\label{fig:last_roc}
 			\end{figure}
 		
 			Following the results shown in Figure \ref{fig:last_roc}, the Gradient Boosted Decision Tree algorithm is an excellent tool for resolving the ambiguity between photons and electrons. When the three models are applied on a single particles dataframe, they achieve excellent performance: 
 			\begin{itemize}
 				\item the theoretical limit (infinite storage memory) is set by the \textit{double reconstruction} model, which reaches an efficiency of $\sim$ 99.58\% in resolving ambiguity.
-				\item the models based on pre-classifiers also achieve excellent performances. The \textit{new amb} model reaches an efficiency of $\sim$ 99.07\% in resolving ambiguity, where the \textit{new amb} model reaches an efficiency of $\sim$ 98.02\%.
-				The \textit{new amb} model performace is very close to that of \textit{double reconstruction} model and this means that even using pre-classifiers in the analysis phase it is possible to achieve very good results.
+				\item the models based on pre-classifiers also achieve excellent performances. The \textit{new amb} model reaches an efficiency of $\sim$ 99.07\% in resolving ambiguity, whereas the \textit{old amb} model reaches an efficiency of $\sim$ 98.02\%. If the photon efficiency $\epsilon_{ph}$ is fixed the difference between the electron efficiencies $\epsilon_{el}^{new} - \epsilon_{el}^{old}$ is in its maximum value equal to $\sim$ 3\%; on the contrary if the electron efficiency $\epsilon_{el}$ is fixed the difference between the photon efficiencies $\epsilon_{ph}^{new} - \epsilon_{ph}^{old}$ is in its maximum value equal to $\sim$ 7\%.
 			\end{itemize}
+		  
+		The \textit{new amb} model performace is very close to that of \textit{double reconstruction} model and this means that even using pre-classifiers in the analysis phase it is possible to achieve very good results.
 		
-	\chapter*{Conclusion}
+	\chapter{Conclusion}
 		Excellent performance in the electrons and photons reconstruction with the ATLAS detector at the LHC is essential to exploit the full physics potential of ATLAS, both in searches for new physics and in precision measurements. For instance, the good electron and photon reconstruction performance played a critical role in the discovery of a Higgs boson, announced by the ATLAS Collaboration in 2012 \cite{Higgs}, and in the measurement of its properties.
 		
-		At the reconstruction level only simple algorithms are used. They reconstruct only the simplest cases (single reconstructions) whereas the other objects are flagged as ambiguous. The ambiguous objects classification can be approached with machine learning techniques, which provide good results, in particular in this thesis supervided learning algorithms (GBDT) have been used.
+		At the reconstruction level only simple algorithms are used. They reconstruct only the simplest cases (single reconstructions) whereas the other objects are flagged as ambiguous. The ambiguous objects classification can be approached with machine learning techniques, which provide better results with respect to simple cut-based selections. In particular in this thesis the usage of supervided learning algorithms (GBDT) have been studied.
 		
-		The GBDTs applied on single particle simulations samples can achieve excellent results. The theoretical limit is constituted by \textit{double reconstructions} model, which explores the possibility to replace the current classification algorithm with a gradient boosted decision tree for all electrons and photons candidates. This model is able to correctly classify up to $\sim$ 99.58\% of particles in the \textit{outer} test set. The other two models, trained on the ambiguos particles, can also achieve excellent particle classification capabilities: on the outer test set the \textit{old amb} model correctly classifies $\sim$ 98.08\% of particles, whereas the \textit{new amb} model $\sim$ 99.07\%. The new ambiguity tool  increases the performance of a GBDT based on ambiguous objects, allowing a better classification than the old one: if the photon efficiency $\epsilon_{ph}$ is fixed the difference between the electron efficiencies $\epsilon_{el}^{new} - \epsilon_{el}^{old}$ is in its maximum value equal to $\sim$ 3\%; on the contrary if the electron efficiency $\epsilon_{el}$ is fixed the difference between the photon efficiencies $\epsilon_{ph}^{new} - \epsilon_{ph}^{old}$ is in its maximum value equal to $\sim$ 7\%.
+		The GBDTs applied on single particle simulations samples can achieve excellent results. The theoretical limit is constituted by \textit{double reconstructions} model, which has been trained on the input objects of ambiguity tools. It explores the possibility to replace the current classification algorithm with a gradient boosted decision tree for all electrons and photons candidates. This model is able to correctly classify up to $\sim$ 99.58\% of particles in the \textit{outer} test set. The other two models can also achieve excellent particle classification capabilities: on the outer test set the \textit{old amb} model, which has been trained on objects flagged as “ambiguous” by the old ambiguity tool, correctly classifies $\sim$ 98.08\% of particles, whereas the \textit{new amb} model,  which is based on the new ambiguity tool, $\sim$ 99.07\%. The new ambiguity tool  increases the performance of a GBDT based on ambiguous objects, allowing a better classification than the old one: if the photon efficiency $\epsilon_{ph}$ is fixed the difference between the electron efficiencies $\epsilon_{el}^{new} - \epsilon_{el}^{old}$ is in its maximum value equal to $\sim$ 3\%; on the contrary if the electron efficiency $\epsilon_{el}$ is fixed the difference between the photon efficiencies $\epsilon_{ph}^{new} - \epsilon_{ph}^{old}$ is in its maximum value equal to $\sim$ 7\%.
 		
 		As shown by these results, models trained on ambiguous objects of ambiguity tools are able to achieve very good performance in classification approaching very close to the theoretical limit. In particular, with the introduction of the new ambiguity tool, performance has improved and therefore classification efficiency has improved as well.
-		
-		
-		
-	
-	
-	
-	
-	
-	
 	
 	\appendix
 	\chapter{Conversion symmetry} \label{Appex: sym}
@@ -1003,7 +1084,9 @@
 				\caption{The \texttt{ph\_pt2conv/ph\_ptconv} distribution}
 				\label{fig: pt2/pt} 
 				\vspace{4ex}
-			\end{minipage} 
+			\end{minipage}
+		\end{figure} 
+		\begin{figure}
 			\begin{minipage}[b]{0.5\linewidth}
 				\centering
 				\includegraphics[width=.9\linewidth]{tesi_images/pt1_pt2_el_2D.png} 
@@ -1020,6 +1103,27 @@
 			\end{minipage} 
 		\end{figure}
 		
+	\chapter{Parameters and Hyperparameters description} \label{Appex:para}
+		The choice of which parameters and hyperparameters to use and their values is fundamental to create a model suitable for the dataframe to analyse. In this thesis the parameters and hyperparameters used by LGBM are:
+		\begin{itemize}
+			\item \textbf{metric}: it specifies loss for model building. Since we are dealing with a binary classification problem the \textit{cross\_entropy} metric is used;
+			\item \textbf{objective}: it specifies the type of ML model. Since we are dealing with a binary classification problem the \textit{cross\_entropy} objective is used;
+			\item \textbf{bagging seed}: it is the seed for \textit{bagging};
+			\item \textbf{feature fraction seed}: it is the seed for \textit{feature fraction};
+			\item \textbf{is unbalance}: it says whether the dataset is balanced or not. If it is not balanced (\texttt{is\_unbalance==True}) the algorithm will try to automatically balance the weight of the dominated label. In this thesis this parameter is set to False (\texttt{is\_unbalance==False});
+			\item \textbf{number of leaves}: number of leaves in full tree. It is a hyperparameter \ref{section:Hyper_param}.
+			\item \textbf{feature fraction}: 0.82 feature fraction means LightGBM will used only 82\% of features randomly in each iteration for building trees. It is a hyperparameter.
+			\item \textbf{bagging}: in bagging, several models of the same type are trained on different datasets (aggregation, typical of ensemble learning), each obtained from the initial dataset by random sampling with replacement (bootstrap). It is a hyperparameter.
+			\item \textbf{learning rate}: it determines the effect of each tree on the final outcome. It is a hyperparameter.
+		\end{itemize}
+	
+	\chapter{Ambiguity Tools} \label{Appex:amb}	
+		The ambiguity tool, as already mentioned in the Section \ref{section:creation}, is a tool used at the reconstruction level with the purpose that if a particular object can be easily identified only as a photon (a cluster with no good track attached) or only as an electron (a cluster with a good track attached and no good photon conversion vertex), then only a photon or an electron object is created for analysis; otherwise, both an electron and a photon object are created, ambiguous objects. 
+		
+		In this thesis two tools were used, the old ambiguity tool and the new one. Using the old one, which follows the flowchart shown in Figure \ref{fig:alg_flow}, the ambiguous objects are tagged with \texttt{el\_amb\_type} and \texttt{ph\_amb\_type} between 1 and 5, whereas unambiguous objects with \texttt{el\_amb\_type} and \texttt{ph\_amb\_type} other than 0 (electron) or 6 (photon). The unambiguous objects are usually reconstructed in only one way, but in this thesis, in order to create the double reco model they present both reconstructions. The new ambiguity tool has an additional ambiguous tag, \texttt{el\_amb\_type} and \texttt{ph\_amb\_type} equal to 8.
+		
+		
+	
 	\clearpage	
 	\begin{thebibliography}{32}
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1034,9 +1138,13 @@
 			\textit{The Large Hadron Collider (LHC)}
 			\url{https://home.cern/science/accelerators/large-hadron-collider}
 			% 4 % 
-			\bibitem{Acc. complex} \url{https://cds.cern.ch/record/2255762/files/CERN-Brochure-2017-002-Eng.pdf}
+			\bibitem{Acc. complex}
+			\textit{The Large Hadron Collider (LHC): the guide}
+			\url{https://cds.cern.ch/record/2255762/files/CERN-Brochure-2017-002-Eng.pdf}
 			% 5 %
-			\bibitem{ATLAS intro} \url{https://home.cern/science/experiments/atlas}
+			\bibitem{ATLAS intro} 
+			\textit{The ATLAS experiment}
+			\url{https://home.cern/science/experiments/atlas}
 			% 6 % 
 			\bibitem{ATLAS config}  The ATLAS Collaboration et al 2008 JINST3 S08003
 			\url{https://iopscience.iop.org/article/10.1088/1748-0221/3/08/S08003/pdf}
@@ -1053,9 +1161,11 @@
 			Geneva, ATL-INDET-PROC-2013-005, Apr 2013, ATL-INDET-PROC-2013-005. \url{https://cds.cern.ch/record/1537991}
 			% 11 %
 			\bibitem{Calorimetry}
+			\textit{ATLAS calorimetry}, P. Puzo, Laboratoire de l’Accélérateur Linéaire, IN2P3-CNRS et Université Paris-Sud, BP 34, 91898 Orsay Cedex, France, Elsevier Science B.V., 2002,
 			\url{http://ific.uv.es/~cabrera/teaching/atlas_i.pdf}\\
 			% 12 %
 			\bibitem{Calo intro}
+			\textit{The ATLAS Calorimetry}
 			\url{https://atlas.cern/discover/detector/calorimeter}
 			% 13 %
 			\bibitem{Muon system}
@@ -1141,6 +1251,11 @@
 			% 34 %
 			\bibitem{Hyperopt}
 			\textit{Making a Science of Model Search: Hyperparameter Optimization in Hundreds of Dimensions for Vision Architectures. To appear in Proc. of the 30th International Conference on Machine Learning}, J. Bergstra, D. Yamins, D. D. Cox, ICML, 2013
+			% 35 %
+			\bibitem{Pandas}
+			\textit{Data structures for statistical computing in python},
+			McKinney, W., \& others. (2010), In Proceedings of the 9th Python in Science Conference (Vol. 445, pp. 51–56)
+			
 			
 	\end{thebibliography}
 \end{document}
