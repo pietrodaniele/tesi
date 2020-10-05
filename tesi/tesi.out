@@ -1,47 +1,47 @@
-\BOOKMARK [0][-]{chapter.1}{LHC and the ATLAS detector}{}% 1
-\BOOKMARK [1][-]{section.1.1}{The LHC}{chapter.1}% 2
-\BOOKMARK [2][-]{subsection.1.1.1}{LHC Layout}{section.1.1}% 3
-\BOOKMARK [2][-]{subsection.1.1.2}{The CERN accelerator complex}{section.1.1}% 4
-\BOOKMARK [2][-]{subsection.1.1.3}{Proton-proton collisions}{section.1.1}% 5
+\BOOKMARK [0][-]{chapter.1}{LHC\040and\040the\040ATLAS\040detector}{}% 1
+\BOOKMARK [1][-]{section.1.1}{The\040LHC}{chapter.1}% 2
+\BOOKMARK [2][-]{subsection.1.1.1}{LHC\040Layout}{section.1.1}% 3
+\BOOKMARK [2][-]{subsection.1.1.2}{The\040CERN\040accelerator\040complex}{section.1.1}% 4
+\BOOKMARK [2][-]{subsection.1.1.3}{Proton-proton\040collisions}{section.1.1}% 5
 \BOOKMARK [1][-]{section.1.2}{ATLAS}{chapter.1}% 6
-\BOOKMARK [2][-]{subsection.1.2.1}{Coordinate system}{section.1.2}% 7
-\BOOKMARK [2][-]{subsection.1.2.2}{Magnet system}{section.1.2}% 8
-\BOOKMARK [2][-]{subsection.1.2.3}{Inner detector}{section.1.2}% 9
-\BOOKMARK [2][-]{subsection.1.2.4}{Calorimetry system}{section.1.2}% 10
-\BOOKMARK [2][-]{subsection.1.2.5}{Muon spectrometer}{section.1.2}% 11
-\BOOKMARK [2][-]{subsection.1.2.6}{Trigger system}{section.1.2}% 12
-\BOOKMARK [1][-]{section.1.3}{ATLAS Physics Programme}{chapter.1}% 13
-\BOOKMARK [0][-]{chapter.2}{Electron and photon reconstruction}{}% 14
-\BOOKMARK [1][-]{section.2.1}{The topo-cluster reconstruction}{chapter.2}% 15
-\BOOKMARK [1][-]{section.2.2}{Track reconstruction}{chapter.2}% 16
-\BOOKMARK [1][-]{section.2.3}{Track-cluster matching and photon conversion reconstruction}{chapter.2}% 17
-\BOOKMARK [1][-]{section.2.4}{Supercluster reconstruction}{chapter.2}% 18
-\BOOKMARK [1][-]{section.2.5}{Creation of electrons and photons for analysis}{chapter.2}% 19
+\BOOKMARK [2][-]{subsection.1.2.1}{Coordinate\040system}{section.1.2}% 7
+\BOOKMARK [2][-]{subsection.1.2.2}{Magnet\040system}{section.1.2}% 8
+\BOOKMARK [2][-]{subsection.1.2.3}{Inner\040detector}{section.1.2}% 9
+\BOOKMARK [2][-]{subsection.1.2.4}{Calorimetry\040system}{section.1.2}% 10
+\BOOKMARK [2][-]{subsection.1.2.5}{Muon\040spectrometer}{section.1.2}% 11
+\BOOKMARK [2][-]{subsection.1.2.6}{Trigger\040system}{section.1.2}% 12
+\BOOKMARK [1][-]{section.1.3}{ATLAS\040Physics\040Programme}{chapter.1}% 13
+\BOOKMARK [0][-]{chapter.2}{Electron\040and\040photon\040reconstruction}{}% 14
+\BOOKMARK [1][-]{section.2.1}{The\040topo-cluster\040reconstruction}{chapter.2}% 15
+\BOOKMARK [1][-]{section.2.2}{Track\040reconstruction}{chapter.2}% 16
+\BOOKMARK [1][-]{section.2.3}{Track-cluster\040matching\040and\040photon\040conversion\040reconstruction}{chapter.2}% 17
+\BOOKMARK [1][-]{section.2.4}{Supercluster\040reconstruction}{chapter.2}% 18
+\BOOKMARK [1][-]{section.2.5}{Electron\040and\040photon\040ambiguity\040resolution}{chapter.2}% 19
 \BOOKMARK [1][-]{section.2.6}{Calibration}{chapter.2}% 20
 \BOOKMARK [1][-]{section.2.7}{Identification}{chapter.2}% 21
-\BOOKMARK [2][-]{subsection.2.7.1}{Electron identification}{section.2.7}% 22
-\BOOKMARK [2][-]{subsection.2.7.2}{Photon identification}{section.2.7}% 23
-\BOOKMARK [1][-]{section.2.8}{Electron and photon isolation}{chapter.2}% 24
-\BOOKMARK [2][-]{subsection.2.8.1}{Electron isolation criteria and efficiency measurements}{section.2.8}% 25
-\BOOKMARK [2][-]{subsection.2.8.2}{Photon isolation criteria and efficiency measurements}{section.2.8}% 26
-\BOOKMARK [0][-]{chapter.3}{Machine Learning and Gradient Boosted Trees}{}% 27
-\BOOKMARK [1][-]{section.3.1}{Supervised Learning}{chapter.3}% 28
-\BOOKMARK [2][-]{subsection.3.1.1}{Model and Parameters}{section.3.1}% 29
-\BOOKMARK [2][-]{subsection.3.1.2}{Objective Function}{section.3.1}% 30
-\BOOKMARK [1][-]{section.3.2}{Gradient boosted trees}{chapter.3}% 31
-\BOOKMARK [2][-]{subsection.3.2.1}{Decision Tree}{section.3.2}% 32
-\BOOKMARK [2][-]{subsection.3.2.2}{Decision Tree Ensembles}{section.3.2}% 33
-\BOOKMARK [2][-]{subsection.3.2.3}{Gradient Bosting Decision Trees}{section.3.2}% 34
-\BOOKMARK [2][-]{subsection.3.2.4}{Learn the tree structure}{section.3.2}% 35
+\BOOKMARK [2][-]{subsection.2.7.1}{Electron\040identification}{section.2.7}% 22
+\BOOKMARK [2][-]{subsection.2.7.2}{Photon\040identification}{section.2.7}% 23
+\BOOKMARK [1][-]{section.2.8}{Electron\040and\040photon\040isolation}{chapter.2}% 24
+\BOOKMARK [2][-]{subsection.2.8.1}{Electron\040isolation\040criteria\040and\040efficiency\040measurements}{section.2.8}% 25
+\BOOKMARK [2][-]{subsection.2.8.2}{Photon\040isolation\040criteria\040and\040efficiency\040measurements}{section.2.8}% 26
+\BOOKMARK [0][-]{chapter.3}{Machine\040Learning\040and\040Gradient\040Boosted\040Trees}{}% 27
+\BOOKMARK [1][-]{section.3.1}{Supervised\040Learning}{chapter.3}% 28
+\BOOKMARK [2][-]{subsection.3.1.1}{Model\040and\040Parameters}{section.3.1}% 29
+\BOOKMARK [2][-]{subsection.3.1.2}{Objective\040Function}{section.3.1}% 30
+\BOOKMARK [1][-]{section.3.2}{Gradient\040boosted\040trees}{chapter.3}% 31
+\BOOKMARK [2][-]{subsection.3.2.1}{Decision\040Tree}{section.3.2}% 32
+\BOOKMARK [2][-]{subsection.3.2.2}{Decision\040Tree\040Ensembles}{section.3.2}% 33
+\BOOKMARK [2][-]{subsection.3.2.3}{Gradient\040Bosting\040Decision\040Trees}{section.3.2}% 34
+\BOOKMARK [2][-]{subsection.3.2.4}{Learn\040the\040tree\040structure}{section.3.2}% 35
 \BOOKMARK [1][-]{section.3.3}{LightGBM}{chapter.3}% 36
-\BOOKMARK [0][-]{chapter.4}{BDT: Electron and photon classification}{}% 37
-\BOOKMARK [1][-]{section.4.1}{BDT training}{chapter.4}% 38
-\BOOKMARK [2][-]{subsection.4.1.1}{Discriminating features}{section.4.1}% 39
-\BOOKMARK [2][-]{subsection.4.1.2}{Training and Model}{section.4.1}% 40
-\BOOKMARK [2][-]{subsection.4.1.3}{Parameters and Hyperparameter optimization}{section.4.1}% 41
-\BOOKMARK [1][-]{section.4.2}{BDT applied on test set}{chapter.4}% 42
-\BOOKMARK [1][-]{section.4.3}{BDT results}{chapter.4}% 43
+\BOOKMARK [0][-]{chapter.4}{Electron\040and\040photon\040classification}{}% 37
+\BOOKMARK [1][-]{section.4.1}{BDT\040training}{chapter.4}% 38
+\BOOKMARK [2][-]{subsection.4.1.1}{Discriminating\040features}{section.4.1}% 39
+\BOOKMARK [2][-]{subsection.4.1.2}{Training\040and\040Model}{section.4.1}% 40
+\BOOKMARK [2][-]{subsection.4.1.3}{Hyperparameter\040optimization}{section.4.1}% 41
+\BOOKMARK [1][-]{section.4.2}{BDT\040applied\040on\040test\040set}{chapter.4}% 42
+\BOOKMARK [1][-]{section.4.3}{BDT\040results}{chapter.4}% 43
 \BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 44
-\BOOKMARK [0][-]{appendix.A}{Conversion symmetry}{}% 45
-\BOOKMARK [0][-]{appendix.B}{Parameters and Hyperparameters description}{}% 46
-\BOOKMARK [0][-]{appendix.C}{Ambiguity Tools}{}% 47
+\BOOKMARK [0][-]{appendix.A}{Conversion\040symmetry}{}% 45
+\BOOKMARK [0][-]{appendix.B}{Parameters\040and\040Hyperparameters\040description}{}% 46
+\BOOKMARK [0][-]{appendix.C}{Ambiguity\040Tools}{}% 47

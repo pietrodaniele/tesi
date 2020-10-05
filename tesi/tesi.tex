@@ -1,5 +1,7 @@
 \documentclass[a4paper, oneside, 11pt, openright]{book}
 
+
+\usepackage[a-1b]{pdfx}
 \usepackage{geometry,url,graphicx, hyperref,subfig,enumitem, amsmath,float}
 \usepackage{amsmath, amssymb, amsthm, mathtools, color, setspace}
 \usepackage{fancyhdr, braket, etoolbox,booktabs,multirow}
@@ -54,9 +56,23 @@
 		
 	\end{titlepage}
 
+\clearpage\null\thispagestyle{empty}\newpage
+
 \tableofcontents
 
-	\chapter{LHC and the ATLAS detector}
+	\chapter*{Introduction}
+		The Large Hadron Collider (LHC) is a superconducting two-ring, protons and heavy ions collider installed in the 27 km-long LEP tunnel at CERN in Geneve. It provides pp collisions at an unprecedent center of mass energy $\sqrt{s}$ = 13 TeV. Four experiments are installed in the LHC interaction points to analyse the particles produced by the collisions in the accelerator. Each experiment is characterized by a peculiar design optimized on its specific physics program.
+		
+		This thesis is performed within the ATLAS experiment, which is designed to explore a wide range of physics topics, with the primary focus of improving our understanding of the fundamental constituents of matter and their interactions. Currently particle physics phenomenology is well described by the so called Standard Model (SM), a quantum field theory based on SU2$\otimes$U1$\otimes$SU3 gauge symmetry. ATLAS is studying the processes predicted by the SM such as W,Z and top production and compares the measured cross sections with the model predictions. Events with electrons and photons in the final state are important signatures for many
+		physics analyses envisaged at ATLAS: excellent performance in the electrons and photons reconstruction is essential to exploit the full physics potential of the detector, both in searches for new physics and in precision measurements. For instance, the good electron and photon reconstruction performance played a critical role in the discovery of the Higgs boson, announced by the ATLAS and CMS Collaboration in 2012 and in the measurement of its properties.
+		
+		Electrons and photons in ATLAS are reconstructed starting from energy deposits in the electromagnetic calorimeter and tracks from inner detector hits. An electron is defined as an object consisting of a cluster built from energy deposits in the calorimeter with a track pointing to it. A converted photon is a cluster matched to a conversion vertex, and an unconverted photon is a cluster matched to neither an track or a conversion vertex. The $e$ and $\gamma$ are reconstructed independently, so it is possible to reconstruct $e$ or $\gamma$ from the same clusters and tracks. After the $e/\gamma$ are reconstructed, an ambiguity resolver algorithm is applied on them: if a particular object can be easily identified only as a photon (a cluster with no good track attached) or only as an electron (a cluster with a good track attached and no good photon conversion vertex), then only a photon or an electron object is stored for analysis; otherwise, both an electron and a photon object are created. At the reconstruction level only simple algorithms are used. They resolve only the simplest cases whereas many objects are flagged as ambiguous, leaving the final arbitration at the analysis level. The ambiguous objects classification can be approached with machine learning techniques, which provide better results with respect to simple cut-based selections. In particular in this thesis the usage of a supervided learning algorithm, called Gradient Boosted  Decision Tree (GBDT) has been studied.
+		
+		This thesis is organized as follows. Chapter \ref{cap:1} provides a description of the Large Hadron Collider and the ATLAS experiment. The electron and photon reconstruction algorithm is described in Chapter \ref{cap:2}. Chapter \ref{cap:Cap} provides an overview of Machine Learning and Gradient Boosted Trees. Chapter \ref{cap:4} presents the electron and photon classification and and its results. 
+	
+	
+	
+	\chapter{LHC and the ATLAS detector} \label{cap:1}
 		\section{The LHC}
 			The CERN Large Hadron Collider (LHC) \cite{LHC design} is a two-ring, superconducting protons and heavy ions accelerator and collider installed in the 27 km-long LEP tunnel. It provides pp collisions at an unprecedent center of mass energy $\sqrt{s} = 13$ TeV.
 			
@@ -119,8 +135,8 @@
 					
 					For the nominal value of the luminosity $10^{34}$cm$^{-2}$s$^{-1}$ the total inelastic proton-proton cross-section is about 80 mb \cite{LHC introduction}  at $\sqrt{s} = 14$ TeV. Therefore, the event rate $R$, defined as the number of events produced per second by the pp interactions, is expected to be:
 					$$
-					R = \sigma L = 80 mb\times10^{34}cm^{-2}s^{-1} \simeq 10^{9}s^{-1}
-					$$e 
+					R = \sigma L = 80 mb\times10^{34}cm^{-2}s^{-1} \simeq 10^{9}s^{-1}.
+					$$ 
 					The number of events for each process is related to luminosity, it is proportional to the integrated luminosity shown in Figure \ref{fig:Integreted Luminosity}.
 					
 					\begin{figure}
@@ -195,17 +211,17 @@
 						\caption{ATLAS Inner Detector structure}
 					\end{figure}
 					
-					The ID is composed by three independent but complementary sub-detectors: 
+					The ID is composed by three independent but complementary sub-detectors \cite{ID TDR}: 
 					\begin{itemize}
-						\item  \textbf{Pixel Detector}: \cite{ATLAS TDR} \cite{Inner Detector}
+						\item  \textbf{Pixel Detector}: 
 						it is  the  inner-most  part  of  the  ATLAS  tracking  system. It consists of 4 layers of barrel pixel detector and two end caps of three pixel disks each. The innermost pixel layer is a high-resolution pixel detector,  called Insertable B-Layer (IBL). The Pixel Detector sits inside the 2T solenoidal magnetic field and contributes to the charged particle tracking of the ATLAS Inner Detector in the pseudo rapidity range of $|\eta|<2.5$. Due to its high spatial resolution and 3-dimensional space-point measurement the Pixel Detector has a key-role in reconstruction of charged particle tracks.  The 4-Layer Pixel Detector is crucial in the reconstruction of primary and secondary vertices which is essential for example in the photon conversions reconstruction. 
 						
 						The single point resolution is 12 $\mu$m in the $R\cdot\phi$ and 75-112 $\mu$m in $z$ direction.
-						\item \textbf{Semiconductor Tracker (SCT)}: \cite{ATLAS TDR} \cite{SCT}
+						\item \textbf{Semiconductor Tracker (SCT)}: 
 						it consists of 61 $m^2$ of active silicon-strip detector modules and it is immersed in a 2 T solenoidal magnetic field. The  SCT  covers  the  radial  region  from  30  to  52  cm,  with  hermetic  azimuthal  coverage  out  to $|\eta|=2.5$. Four cylindrical layers in the central region form the “barrel” detector, and nine annular disks on each end of the barrel form the “endcaps”. The barrel layers are organized in 4 cylinders made of two layers of sensors glued back-to-back with a stereo angle of 40 $mrad$. The layout has been designed so that 4 space points can be provided for energetic charged particles will pass through at least four layers everywhere in the acceptance region. 
 						
 						The single point resolution is 16 $\mu$m in the $R\cdot\phi$ and 580 $\mu$m in $z$ direction.
-						\item \textbf{Transition Radiation Tracker (TRT)}: \cite{ATLAS TDR} \cite{TRT}
+						\item \textbf{Transition Radiation Tracker (TRT)}: 
 						it is the outmost of the three tracking subsystems of the ATLAS Inner Detector. The TRT is a straw-tube tracker. When a charged particle traverses the TRT, it ionises the gas inside the straws. The resulting free electrons drift towards the wire, where they are amplified and read out.\\
 						The spaces between the straws are filled with polymer fibres (barrel) and foils (endcaps) to create transition radiation, which may be emitted by highly relativistic charged particles as they traverse a material boundary.   This effect depends on the relativistic factor $\gamma=E/m$ and is strongest for electrons, so it could be a discriminating factor.
 						This design  makes the TRT complementary to  the silicon-based tracking devices:  the intrinsic single-point resolution of 130 $\mu$m is larger than that of the silicon trackers, but this is compensated by the large number of hits per track (typically more than 30). 
@@ -216,13 +232,13 @@
 					$$
 				\subsection{Calorimetry system}
 					\cite{Calo intro}Calorimeters measure the energy a particle loses as it passes through the detector, so the energy of all charged and neutral particles. It is usually designed to stop  or “absorb” the particles coming from a collision, forcing them to deposit all of their energy within the detector. Calorimeters typically consist of layers of “passive” or “absorbing” high-density material interleaved with layers of an “active” medium such as solid lead-glass or liquid argon. Calorimeters are designed to stop most known particles except muons and neutrinos.
-					\begin{figure} [H]
+					\begin{figure} [h!]
 						\centering
 						\includegraphics[width=.6\textwidth]{tesi_images/calorimeters.png} 
 						\caption{ATLAS calorimetry system}
 						\label{fig:Calorimetry}
 					\end{figure}
-					The components of the ATLAS calorimetry system are: \cite{ATLAS TDR} \cite{Calorimetry}
+					The components of the ATLAS calorimetry system are: \cite{LAr TDR} \cite{Tile TDR}
 					\begin{itemize}
 						\item \textbf{electromagnetic calorimetry}:
 						the ATLAS EM calorimeter is a lead–liquid argon (LAr) sampling detector with accordion-shaped electrodes and lead absorber plates over its full coverage. The calorimeter is divided into a Barrel part and two End-Caps. Each End-Cap is divided into two coaxial wheels: an outer wheel and an inner wheel covering, respectively, $1.375<|\eta|<2.5$ and $2.5<|\eta|<3.2$. The absorber lead thickness is constant over large areas. The argon gap thickness is constant in the Barrel but changing with the radius in the End-Cap.
@@ -267,7 +283,7 @@
 		
 		
 				\subsection{Muon spectrometer}
-					\cite{Muon system}The  muon  spectrometer  forms  the  outer  part  of  the  ATLAS  detector  and occupies by far the largest volume. It was designed to serve two purposes: an independent muon trigger and high quality stand-alone muon reconstruction over a wide range in transverse momentum, pseudo-rapidity ($|\eta|<2.4$ trigger, $|\eta|<2.7$ momentum) and azimuthal angle. This is achieved by the use of a large toroidal magnet system together with trigger and high precision tracking chambers.
+					The  muon  spectrometer \cite{Muon system} \cite{Muon TDR} forms  the  outer  part  of  the  ATLAS  detector  and occupies by far the largest volume. It was designed to serve two purposes: an independent muon trigger and high quality stand-alone muon reconstruction over a wide range in transverse momentum, pseudo-rapidity ($|\eta|<2.4$ trigger, $|\eta|<2.7$ momentum) and azimuthal angle. This is achieved by the use of a large toroidal magnet system together with trigger and high precision tracking chambers.
 					
 					The magnet system of the muon spectrometer consists of three air-core toroids. Each toroid is build up of eight super conducting coils assembled in a radial configuration. Accurate knowledge of the field is required in order not to degrade the momentum resolution. During ATLAS running a large number of magnetic field sensors will measure the local field ensuring a knowledge of the bending power with a precision better than 0.3\%. 
 					
@@ -316,7 +332,7 @@
 			
 			One of the most important ATLAS discoveries is the proof of the existence of the Higgs boson. On 4 July 2012, the ATLAS and CMS \cite{CMS} experiments at CERN announced that they had independently observed a new particle in the mass region of around 126 GeV: a boson consistent with the Higgs boson \cite{Higgs}.
 				
-	\chapter{Electron and photon reconstruction}
+	\chapter{Electron and photon reconstruction} \label{cap:2}
 		Events with electrons and photons in the final state are important signatures for many physics analyses envisaged at the LHC. Their reconstruction mainly  exploits data coming from the electromagnetic calorimeter (clusters) and the Inner Detector (ID) systems (tracks) \cite{El ph reco}: 
 		\begin{itemize}
 			\item an electron is defined as an object consisting of a cluster built from energy deposits in the
@@ -406,8 +422,8 @@
 		
 		\item The final step in the supercluster-building algorithm is to assign calorimeter cells to a given supercluster. Only cells from the presampler and the first three LAr calorimeter layers are considered, except in the transition region of $1.4 < |\eta| < 1.6$, where the energy measured in the scintillator between the calorimeter cryostats is also added. To limit the superclusters’ sensitivity to pile-up noise, the size of each constituent topo-cluster is restricted to a maximal width of 0.075 or 0.125 in the $\eta$ direction in the barrel or endcap region, respectively. Because the magnetic field in the ID is parallel to the beam-line, interactions between the electron or photon and detector material generally cause the EM shower to spread in the $\varphi$ direction, so the restriction in $\eta$ still generally allows the electron or photon energy to be captured. No restriction is applied in the $\varphi$-direction.	
 		\end{itemize}
-		\section{Creation of electrons and photons for analysis}\label{section:creation}
-		After the electron and photon superclusters are built, tracks are matched to electron superclusters and conversion vertices to photon superclusters \cite{El ph reco}. Then the analysis-level electrons and photons are created. Because electron and photon superclusters are built independently, a given seed cluster can produce both an electron and a photon. In such cases, the procedure presented in figure \ref{fig:el_ph_analisi} is applied. The purpose is that if a particular object can be easily identified only as a photon (a cluster with no good track attached) or only as an electron (a cluster with a good track attached and no good photon conversion vertex), then only a photon or an electron object is created for analysis; otherwise, both an electron and a photon object are created. Furthermore, these cases are marked explicitly as ambiguous, allowing the final classification of these objects to be determined based upon the specific requirements of each analysis.
+		\section{Electron and photon ambiguity resolution}\label{section:creation}
+		After the electron and photon superclusters are built, tracks are matched to electron superclusters and conversion vertices to photon superclusters \cite{El ph reco}. Then the analysis-level electrons and photons are created. Because electron and photon superclusters are built independently, a given seed cluster can produce both an electron and a photon. In such cases, the procedure presented in figure \ref{fig:el_ph_analisi} is applied. The purpose is that if a particular object can be easily identified only as a photon (a cluster with no good track attached) or only as an electron (a cluster with a good track attached and no good photon conversion vertex), then only a photon or an electron object is created for analysis; otherwise, both an electron and a photon object are created (see Appendix \ref{Appex:amb}). Furthermore, these cases are marked explicitly as ambiguous, allowing the final classification of these objects to be determined based upon the specific requirements of each analysis.
 	
 		\begin{figure}
 			\centering
@@ -625,7 +641,7 @@
 		
 		
 		
-	\chapter{Machine Learning and Gradient Boosted Trees}
+	\chapter{Machine Learning and Gradient Boosted Trees} \label{cap:Cap}
 		Machine Learning (ML) is an application of artificial intelligence (AI) \cite{Lifelong ML} with the aim of generating systems with the ability to automatically learn and improve from experience without being explicitly programmed. The ML algorithm is exposed to a training dataset in order to generate a mathematical model, which is then applied in real-life performance tasks. %(it is used for making predictions).
 		
 		ML can be divided into three main categories \cite{ML categories}:
@@ -802,60 +818,61 @@
 			\label{fig:LGBM tree}
 		\end{figure}
 	
-	\chapter{BDT: Electron and photon classification}	
-		As said before, during the reconstruction not all the particles are easily reconstructed and therefore they are classified both as electrons and photons. These particles are the 10\% of true electron and 30\% of true photon. 
+	\chapter{Electron and photon classification} \label{cap:4}	
+		As discussed in Chapter 2, during the reconstruction not all true electrons and photons are uniquely reconstructed and therefore some are saved as electrons and photons candidates. These particles are the 8\% of true electron and 31\% of true photon. 
 		
-		The analisys of these "ambiguous" particles is the last step in the discrimination process between electrons and photons. This analysis can be done in several ways. One of them is a classification algorithm with a gradient boosted decision tree (\textit{classification Supervised Learning}). In order to create a predictive model the GBDT is trained on single-particle samples of electrons and photons, with simulated pile-up. The general set is composed of single MC particle events, which have been reconstructed both as electron and photon (double reconstructions). each reconstructed event is assigned $truth=$0 (or 1) in case the initial event was an electron (or a photon). Therefore the input particles are represented by $y_i$, which is 0 for true electron and 1 for true photon, and the score (model output) is $y_i^{pred} \epsilon [0,1]$.
+		The classification of these "ambiguous" particles is the last step in the discrimination process between electrons and photons. This analysis can be done in several ways. One of them is a classification algorithm with a gradient boosted decision tree (GBDT), described in Chapter \ref{cap:Cap}. In order to create a predictive model the GBDT is trained on simulated single-particle samples of electrons or photons  with energy from a few GeV up to a few TeV, with pile-up. The general set is composed of single particle MC events, where EM particles are forced to be reconstructed both as $e^-$ and $\gamma$ (double reconstructions). Each reconstructed particle is assigned an index $y_i$, represented the truth information which is 0 or 1 in case the initial particle was an electron or a photon respectively. The model output, or score, $y_i^{pred}$ takes values in $[0,1]$ interval.
+		%$truth=$0 (1) in case the initial particle was an electron (photon). Therefore each input particle is represented by $y_i$, which is 0 for true electron and 1 for true photon, and the score (model output) is $y_i^{pred} \epsilon [0,1]$.
 		
-		After removing the pile-up using the Pandas \cite{Pandas} function \textit{query} with the feature \texttt{ph(or el)\_is\_pileup==False}, the dataframe is splitted in the train (80\%) and the test (20\%) sets, using a Scikit Learn \cite{SKlearn} function. The train dataset is used to train the algorithm, whereas the test dataset is used as model input. If we did not do this split, we would introduce a bias.
+		After removing the reconstructed particles coming from pile-up, the dataset is split in the train (80\%) and the test (20\%) sets. The train data is used to train the algorithm, whereas the test dataset is used to evaluate the model performance. The split between test and train dataset is essential to avoid overtraining. The data are represented as dataframes using Pandas \cite{Pandas} with the help of Scikit-learn \cite{SKlearn}. Data are read from ROOT \cite{Root} files using Uproot \cite{Uproot}. 
 		
-		In order to explore as many cases as possible, three models have been created: all use the same discriminating variables, but they are trained on different portions of the training dataset.
+		Since at reconstruction level it is not safe to use a BDT and it is not possible to save the double reconstructions for each particle, due to the memory cost it would involve, pre-classifiers (ambiguity tools, see Appendix \ref{Appex:amb}) are used during the reconstruction. In particular, one of the aims of this thesis is to check the perfomance of a new ambiguity tool recently developed with respect to the standard one used in Run 2 data taking (called from now as \textit{old ambiguity}, refer to Figure \ref{fig:el_ph_analisi} for the implementation). To see the performance of these pre-classifiers, tree models are compared. The first is the ideal model, which has been trained on all the double reconstructions, and therefore approaches the theoretical limit achivable. The second and the third models are based on the two ambiguity resolvers, namely they are trained on particles flagged as ambiguous by these tools. Therefore, the more the other two models based on ambiguity tools approach the performance of the double reconstructions model, the better the applied preclassification is.
+		
+		In order to explore all possible cases, three models have been created: all use the same discriminating variables, but they are trained on different training datasets.
 		\begin{enumerate}
-			\item a model generated by a GBDT trained on double reconstruction, which are the input objects of ambiguity tools;
-			\item a model generated by a GBDT trained on reconstruction flagged as “ambiguous” by the old ambiguity tool (Fig \ref{fig:el_ph_analisi});
-			\item a model generated by a GBDT trained on reconstruction flagged as “ambiguous” by the new ambiguity tool.
+			\item a model trained on all double reconstructions, before any preclassification from the ambiguity tool (Section \ref{section:Ident});
+			\item a model trained on $e/\gamma$ flagged as “ambiguous” by the old ambiguity tool (Fig \ref{fig:el_ph_analisi});
+			\item a model trained on $e/\gamma$ flagged as “ambiguous” by the new ambiguity tool.
 		\end{enumerate}
-		
-		Since at reconstruction level it is not possible to use a BDT and it is not possible to save the double reconstructions for each particle, due to the enormous memory cost it would involve, pre-classifiers (ambiguity tools Appendix \ref{Appex:amb}) are used (Fig \ref{fig:el_ph_analisi}). To see the performance of these pre-classifiers, the models above are compared. The first is the ideal model, which has been trained as if there were infinite memory, and therefore is the theoretical limit. Therefore, the more the models based on ambiguity tools approach the performance of the double reconstructions model, the better the applied preclassification is.
-			 	
+		Moreover, the last two models can be used at the analysis level to classify ambiguous objects. In fact, the analyses are now flagging all the ambiguous objects as all electrons or all photons, while a GBDT provides a continuous score for them which allows for an optimal choice based on analysis needs.
+			
 		\section{BDT training}
 			\subsection{Discriminating features}
-				In order to create a good model, the choice of the features it will have to work on is crucial. The most useful characteristics are those that present the greatest differences between photons and electrons, which are therefore more discriminating. It is also important to use features that guarantee the generality of the model. The features can be divided into two categories: features that come from the particle being reconstructed as an electron or as a photon.
-				Some features, as they are not specific to either of the two reconstructions, cannot be included in these two categories and they are:
+				In order to create a good model, the choice of the input features is crucial. The most useful characteristics are those that present the largest differences between photons and electrons, which are therefore more discriminating. It is also important to use features that guarantee the generality of the model. The features can be divided into two categories: features that come from the particle being reconstructed as an electron candidate or as a photon candidate. Other features, as they are not specific to either of the two reconstructions, are:
 				\begin{itemize}
-					\item \texttt{el\_cl\_pt} is the cluster momentum $p_T$ of the reconstructed electron (Figure \ref{fig: pt}).
-					\item \texttt{el\_cl\_eta} is the cluster $\eta$ of the reconstructed electron. Since photons convert more into the material we can see an increase of electrons reconstructed from real photons for $|\eta|>1.52$ (Figure \ref{fig: eta}). 
+					\item \texttt{cl\_pt} is the transverse momentum $p_T$ of the reconstructed cluster (Figure \ref{fig: pt}).
+					\item \texttt{cl\_eta} is the $\eta$ of the reconstructed cluster. Since the amount material in front of the calorimeter increases with $\eta$ as the conversion probability, we can observe an increase of electrons reconstructed from real photons for $|\eta|>1.52$ (Figure \ref{fig: eta})\footnote{All histogram plots are normalised}% using the Matplotlib function \texttt{density==True} \cite{MAT}}. 
 				\end{itemize}
-				\begin{figure}[H]
-						\begin{minipage}[b]{0.5\linewidth}
+				\begin{figure}[h!]
+					\begin{minipage}[b]{0.5\linewidth}
 						\centering
 						\includegraphics[width=.9\linewidth]{tesi_images/el_cl_pt.png} 
-						\caption{The \texttt{el\_cl\_pt} distribution} 
+						\caption{The \texttt{cl\_pt} distribution} 
 						\label{fig: pt}
 						\vspace{4ex}
 					\end{minipage}%% 
 					\begin{minipage}[b]{0.5\linewidth}
 						\centering
 						\includegraphics[width=.9\linewidth]{tesi_images/el_cl_eta.png} 
-						\caption{The \texttt{el\_cl\_eta} distribution} 
+						\caption{The \texttt{cl\_eta} distribution, without pile-up.} 
 						\label{fig: eta}
 						\vspace{4ex}
 					\end{minipage} 
 				\end{figure}
 			
 				\subsubsection{Electron features}
-					Electron features are those that characterize the particles reconstructed as electrons. Electrons have many hits in the first layers of detectors, as opposed to photons, because the most part of photons is still unconverted in the ID. So electron reconstructed as electrons (\texttt{true\_el/reco\_el}) should have more hits than photons reconstructed as electrons (\texttt{true\_ph/reco\_el}). This can be seen in the characteristics \texttt{el\_track\_hasInnermostHits} (a boolean, which says if the particle has hit the first expected layer or not), \texttt{el\_trkPixelHits} (a pixel hit counter), \texttt{el\_trkSiHits} (a silicon hit counter) shown in the Figure \ref{fig:el_hit}.
+					Electron features are those that characterize the particles when are reconstructed as electrons. \textit{True electrons} have typically more hits in the first layers of tracker, as opposed to photons, because a large fraction of photons is unconverted in the silicon trackers. So electron reconstructed as electrons should have more hits than photons reconstructed as electrons. This can be observed in three discriminating variables: \texttt{el\_track\_hasInnermostHits} (a boolean, which says if the particle has hit the first expected layer or not), \texttt{el\_trkPixelHits} (a pixel hit counter), \texttt{el\_trkSiHits} (a silicon hit counter) shown in the Figure \ref{fig:el_hit}.
 					\begin{figure}[h!]
 						\centering
 						\includegraphics[width=0.7\textheight]{tesi_images/el_hit.png}
-						\caption{Three of the most discriminating features from electron reconstruction}
+						\caption{Three of the most discriminating features from electron reconstruction.}
 						\label{fig:el_hit}
 					\end{figure}
 					
-					The track quality, as it is determinated from the pixel and SCT hits, is different in the two cases as the physics quantities reconstructed from the track. These quantities are:
+					The quality of the track associated to electron candidates can help in discriminating between electrons and photons too. Two quantities are based on the track quality:
 					\begin{itemize}
-						\item \texttt{el\_track\_ep} is the ratio between the energy measured in the calorimeter and the moment $p_T$ measured in the ID. Photons tracks are worse than those of electrons and therefore they are not always matched with the right energy. So the $E/p_T$ ratio could be far from unity (Figure \ref{fig: ep}).
-						\item \texttt{el\_trackz0} is the z coordinate, which runs along the beam axis, where the measurement of the reconstructed electron takes place (Figure \ref{fig: z0}).
+						\item \texttt{el\_track\_ep} is the ratio between the transverse energy measured in the calorimeter and the transverse momentum of the track in the ID. In case of a \textit{True photon} reconstructed as an electron, the associated track might be one of the two conversion tracks. In this case $p_T^{track}$ is generally lower than E leading to a higher E/p in the case of photons than in the case of electrons. So the \texttt{el\_track\_ep} could be far from unity (Figure \ref{fig: ep}).
+						\item \texttt{el\_trackz0} is the z coordinate, along the beam axis, of the track associated to the electron (Figure \ref{fig: z0}).
 					\end{itemize}
 				
 					\begin{figure}[h!]  
@@ -877,11 +894,11 @@
 				
 				
 				\subsubsection{Photon features}
-					As for electron, the converted photon quality track is discriminating and therefore also the Pixel/SCT hits and the $p_t$ of the associated tracks.
+					As for electron, the features of the tracks coming from a photon conversion are discriminating and therefore also the Pixel/SCT hits and the $p_T$ of the associated tracks.
 					
-					Other useful photon features for classification are those related to conversion:
+					Useful photon features for classification are those related to conversion:
 					\begin{itemize}
-						\item \texttt{ph\_zconv} (Fig. \ref{fig: zconv}) and \texttt{ph\_Rconv} (Fig. \ref{fig: Rconv}): these characteristics contain information of the conversion point in the R and z coordinates. \texttt{True\_el/reco\_ph} have a conversion point close to the point of interaction as their track starts from the beginning.
+						\item \texttt{ph\_zconv} (Fig. \ref{fig: zconv}) and \texttt{ph\_Rconv} (Fig. \ref{fig: Rconv}): these characteristics contain information of the conversion point in the R and z coordinates. True electrons reconstructed as photons have a conversion position closer to the interaction point as their track starts exactly in the primary vertex. 
 						
 						\begin{figure}[h!]
 							\begin{minipage}[b]{0.5\linewidth}
@@ -900,16 +917,16 @@
 							\end{minipage} 
 						\end{figure}
 						
-						\item \texttt{ph\_pt1conv}, \texttt{ph\_pt2conv} and \texttt{ph\_ptconv} (Fig. \ref{fig: ph_pts}). All these three features have been scaled with \texttt{ph\_cl\_pt} to eliminate all kinematics information. 
+						\item \texttt{ph\_pt1conv}, \texttt{ph\_pt2conv} and \texttt{ph\_ptconv} (Fig. \ref{fig: ph_pts}). All these three features have been scaled with \texttt{ph\_cl\_pt} to exclude the possibility for the BDT to learn the momentum distribution of the train sample. 
 						
 						\begin{figure}[h!]	
 							\centering
 							\includegraphics[width=1.\linewidth]{tesi_images/ph_pts.png} 
-							\caption{The reconstructed photons momentum distributions} 
+							\caption{The momentum distribution of the converted reconstructed photons} 
 							\label{fig: ph_pts}
 						\end{figure}
 						
-						\item \texttt{pt1conv/ptconv} contains information about conversion symmetry (Fig. \ref{fig: pt1_pt}). This characteristic for \texttt{true\_el/reco\_ph} tends to be close to 1, since most of them have a single track. More information is presented in the Appendix \ref{Appex: sym}
+						\item \texttt{pt1conv/ptconv} contains information about conversion symmetry (Fig. \ref{fig: pt1_pt}). This characteristic for True electron reconstructed as a photon tends to be close to 1, since most of them have a single track. More information is presented in the Appendix \ref{Appex: sym}
 						
 						\begin{figure}[h!]	
 							\centering
@@ -919,59 +936,60 @@
 						\end{figure}
 					\end{itemize}
 			\subsection{Training and Model}
-			The algorithm training is based on a LGBM function \texttt{lgb.train}, which has as inputs: parameter set, train dataset, the maximum number of training steps, validation sets,  early stopping rounds. The validation sets are those on which the loss function is calculated during training. For training to create the model they must be \texttt{lgb\_train} and \texttt{lgb\_test}, whereas for the hyperparameters optimization training they are \texttt{lgb\_train} and \texttt{lgb\_valid}, as said before. \\
-			To prevent overfitting, the model will train until the validation score stops improving. Validation score needs to improve at least every \texttt{early\_stopping\_rounds} round(s) to continue training \cite{LGBM}.
+			The algorithm training is based on the LGBM package \cite{LGBM}. %function \texttt{lgb.train}, which uses parameter set, train dataset, the maximum number of training steps, validation sets,  early stopping rounds as inputs. 
+			%The validation sets are those on which the loss function is calculated during training.
+			%For training to create the model they must be \texttt{lgb\_train} and \texttt{lgb\_test}, whereas for the hyperparameters optimization training they are \texttt{lgb\_train} and \texttt{lgb\_valid}. 
+			To prevent overfitting, the model will train until the validation score stops improving, in particular validation score needs to improve for at least 5 rounds to continue training.
 			
-			Once the training is over, it is possible to analyse the model and how it uses the discriminatory variables:
+			Once the training is over, it is possible to analyse the quality and the structure of the model by looking at:
 			\begin{itemize}
-				\item the Objective function behaviour. Its value is plotted after each iteraction for both the training and test set. This plot is uselful because a large difference between the train and test datasets may indicate overfitting (In Fig \ref{fig:loss} one can see that no overfit is present).
+				\item the Loss behaviour. Its value is plotted after each iteraction for both the training and test set. This plot shows how the loss effectively decreases with the number of iterations indicating that the algorithm is learning. In addition, it is uselful because a large difference between the train and test datasets or an upraising loss value for the test set may indicate overfitting. In Fig \ref{fig:loss} one can see that no overfit is present, as it was stopped by early stopping.
 				
 				\begin{figure}[h!]
 					\centering
 					\includegraphics[width=.6\linewidth]{tesi_images/model_hyper_loss.pdf} 
-					\caption{Loss value after each iteration, Model trained on double reconstruction}
+					\caption{Loss value after each iteration, for the model trained on double reconstruction. Early stopping was called here since no gain is seen as in 5 iterations}
 					\label{fig:loss} 
 				\end{figure}
 				
-				\item feature importance plots show the number of times that a feature was used in the splitting of a branch (Figure \ref{fig:importance}) and the average training loss reduction gained when using a feature for splitting (Figure \ref{fig:gain}).
+				\item feature importance plots show the number of times that a feature was used in the splitting of a branch (Figure \ref{fig:importance}) and the average training loss reduction gained when using a feature for splitting (Figure \ref{fig:gain}). From the former plot, we can observe that the BDT splits the kinematic phase space, in fact it cuts over $p_T$ and $\eta$ but does not gain much from these two variables. From the latter plot we can observe that the most useful variables are the ones on electron track and the ones related to photon conversion, as already pointed out.
 				
 				\begin{figure}[h!]
 					\centering
 					\includegraphics[width=.8\linewidth]{tesi_images/model_hyper_importance.pdf} 
-					\caption{Feature importance, Model trained on double reconstruction}
+					\caption{Feature importance: number of split on each variable. Model trained on double reconstructions}
 					\label{fig:importance} 
 				\end{figure}
 				
 				\begin{figure}[H]
 					\centering
 					\includegraphics[width=.8\linewidth]{tesi_images/model_hyper_gain.pdf} 
-					\caption{Feature importance Gain, Model trained on double reconstruction}
+					\caption{Feature importance Gain. Model trained on double reconstructions}
 					\label{fig:gain} 
 				\end{figure}
 			\end{itemize}
 			
-			\subsection{Parameters and Hyperparameter optimization}\label{section:Hyper_param}
-				Parameters and hyperparameters regulate training and determine the performance of the model created. Hyperparameters are LGMB \cite{LGBM} adjustable parameters chosen for the training of a model, which regulate the training process. 
+			\subsection{Hyperparameter optimization}\label{section:Hyper_param}
+				Hyperparameters are LGMB \cite{LGBM} adjustable parameters chosen for the training of a model, which regulate the training process and determine the performance of the model created. 
 				
-				The objective of the hyperparameter optimization is to search the various configurations of the hyperparameters, contained in the hyperparameter space, to find a configuration with the best performance. The hyperparameter space consists of two types of hyperparameters: discrete or continuous.% Let's focus on the continuous ones, which are specified as a uniform distribution over a continuous range. 
-				
-				So after defining the space of the hyperparameters, we move on to the search for the best configuration. This search can be of various types:
-				\begin{itemize}
-					\item \textbf{random search}: in random search the hyperparameter values are randomly selected from the defined search space. It allows the  hyperparameter space to include both discrete and continuous hyperparameters;
-					\item \textbf{grid search}: grid sampling performs a simple grid search on all possible values in the defined search space;
-					\item \textbf{Bayesian search}: bayesian sampling uses the knowledge of the previous samplings when choosing hyperparameter values, effectively attempting to improve the reported primary metric. %The sample is selected based on the performance of the previous sample, so that the new sample improves the primary metric reported. 
-				\end{itemize}
-				The bayesian search is used by the Python library \textit{Hyperopt} \cite{Hyperopt}, which is the one used in this work in order to perform the optimization.
-				
-				The training parameters are listed in the Table \ref{tab:parameters} and the ones that have been optimized are:
+				The objective of the hyperparameter optimization is to search the various configurations of the hyperparameters, contained in the hyperparameter space, to find a configuration with the best overall performance. These hyperparameters could be of two types: discrete or continuous. % Let's focus on the continuous ones, which are specified as a uniform distribution over a continuous range. \\
+				The training parameters are listed in the Table \ref{tab:parameters} and the ones that have been optimized here are:
 				\begin{itemize}
 					\item \textbf{bagging}: in bagging, several models of the same type are trained on different datasets (aggregation, typical of ensemble learning), each obtained from the initial dataset by random sampling with replacement (bootstrap).
-					\item \textbf{number of leaves}: it is the maximum number of leaves, which a tree could have. It is useful to avoid overfitting.
+					\item \textbf{number of leaves}: it is the maximum number of leaves which a tree could have. The number of leaves is fundamental to regulate overfitting (too many leaves, complicated model) and underfitting (too few leaves, imprecise model).
 					\item \textbf{feature fraction}: 0.82 feature fraction means LightGBM will used only 82\% of features randomly in each iteration for building trees.
 					\item \textbf{learning rate}: it determines the effect of each tree on the final outcome.
 				\end{itemize}
-				Before starting with the hyperparameter optimization the train dataset has been splitted: 75\% stays as the train set whereas the 25\% becomes the validation set, which is used during the hyperparameter optimization instead of the test set as validation. This is done with the aim of avoiding the introduction of a bias.
 				
+				After defining the space of the hyperparameters, we move on to the search for the best configuration. This search can be of various types:
+				\begin{itemize}
+					\item \textbf{random search}: in random search the hyperparameter values are randomly selected from the defined search space. It allows the  hyperparameter space to include both discrete and continuous hyperparameters;
+					\item \textbf{grid search}: grid sampling performs a simple grid search on all possible values in the defined search space;
+					\item \textbf{Bayesian search}: Bayesian sampling uses the knowledge of the previous samplings when choosing hyperparameter values, effectively attempting to improve the reported primary metric. %The sample is selected based on the performance of the previous sample, so that the new sample improves the primary metric reported. 
+				\end{itemize}
+				The Bayesian search is used by the Python library \textit{Hyperopt} \cite{Hyperopt}, which is the one used in this work in order to perform the optimization.
+				
+				Before starting with the hyperparameter optimization the train dataset has been split: 75\% of it stays as the train set whereas the other 25\% becomes the validation set, which is used during the hyperparameter optimization instead of the test set as validation set. This is done with the aim of avoiding the estimation of the hyperparameters optimisation on the same dataset used as test set.
 				After 200 searches the best hyperparameters are selected and used for the creation of the models, which have three different hyperparameters sets (shown in Table \ref{tab:parameters}).
 				
 				\begin{table}
@@ -991,14 +1009,14 @@
 						Learning rate & 0.056 & 0.054 & 0.074 \\
 						\bottomrule[1.5pt]
 					\end{tabular}
-					\caption{Parameters and hyperparameters used in the models' training. The description of parameters and hyperparameters can be found in Appendix \ref{Appex:para}.}
+					\caption{Parameters and hyperparameters used in the models training coming from the optimization procedure. The description of parameters and hyperparameters can be found in Appendix \ref{Appex:para}.}
 					\label{tab:parameters} 
 				\end{table}
 		
 			
 			
 		\section{BDT applied on test set}
-			Once the models are created, these trained BDTs are applied to the test dataset. Each model gives to each particle a score between 0 and 1 according to its features. %If the score is close to 0 the particle is classified mainly as electron, whereas if it tends to 1 as photon. 
+			Once the models are created, these trained BDTs are applied to the test dataset. Each model assignes to each particle a score between 0 and 1 according to its features. %If the score is close to 0 the particle is classified mainly as electron, whereas if it tends to 1 as photon. 
 			The scores are plotted as two histograms, one for \textit{True Electrons} and the other for \textit{True Photons}, and compared, as shown in Figure \ref{fig:scores}.
 		    \begin{figure}[h!]
 		    	\centering
@@ -1007,14 +1025,14 @@
 		    	\label{fig:scores}
 		    \end{figure}
 		    
-		    From these histograms is possible to extract the \textit{True Photons} efficiency ($P(reco_{el}|true_{el})$)
+		    The decision of the class to which assign an event is performed setting a threshold on the score. So from these histograms is possible to extract the photons efficiency ($P(reco_{\gamma}|true_{\gamma})$)
 			%$\epsilon_{ph}=$TPR$=\frac{\text{reco ph from trueph}}{\text{All ph}}$, 
-			and the \textit{True Electron} efficiency ($P(reco_{ph}|true_{ph})$)
+			and the elettrons efficiency ($P(reco_{e}|true_{e})$)
 			%$\epsilon_{el}=\frac{\text{reco el from true ph}}{\text{All el}}$ 
-			by making cuts (thresholds) on the scoring range [0,1].
+			by integrating the histogram from the threshold to 0 ($P_{e|e}$) or 1 ($P_{\gamma|\gamma}$) \footnote{$P_{e|e}$ and $P_{\gamma|\gamma}$ are the abbreviations of $P(reco_{el}|true_{el})$ and $P(reco_{ph}|true_{ph})$}.
 			
-			In order to evalute the models efficiencies the scores, ROC and AUC are plotted and calculeted.
-			The Receiver Operating Characteristic (ROC) curve is a graph showing the performance of the  classification model with all possible thresholds. This curve plots two parameters: $P_{e|e}$ versus $P_{\gamma|\gamma}$ at different classification thresholds connecting the point (1,0) to (0,1). The perfomance estimator is the entire two-dimensional area underneath the entire ROC curve, called AUC: the closer the AUC is to 1, the more predictive the model is. A ROC curve example is shown in Figure \ref{fig:ex_roc}: it represents the ROC curve of the model trained on double reconstruction set (train=dr), which is applied on old ambiguous particles test set.
+			In order to evalute the models efficiencies the scores, ROC and AUC are plotted and calculated.
+			The Receiver Operating Characteristic (ROC) curve is a graph showing the performance of the classification model while varying the classification threshold. This curve plots  $P_{e|e}$ versus $P_{\gamma|\gamma}$ at different classification thresholds, connecting the point (1,0) to (0,1). The perfomance estimator is the entire area underneath the ROC curve, called AUC: the closer the AUC is to 1, the more predictive the model is. A ROC curve example is shown in Figure \ref{fig:ex_roc}: it represents the ROC curve of the model trained on double reconstruction set (train=dr), which is applied on the dataset composed by particles classified as ambiguous by the old ambiguity tool.
 			
 			
 			
@@ -1026,46 +1044,47 @@
 			%	\item the previous examples with the single reco added to the test sets (Fig \ref{fig:all_roc}). To due they are applied on the same test set, they can be compared in one plot.
 			%\end{itemize}%%%
 			
-			\begin{figure}[H] 
+			\begin{figure}
 				\centering
 				\includegraphics[width=.6\linewidth]{tesi_images/dr_old.pdf} 
 				\caption{ROC curve of the model trained on double reconstructions, which is applied on the old ambiguous test set} 
 				\label{fig:ex_roc}
 			\end{figure}
 		\section{BDT results}
-			Finally, after the choice of the discriminating features, the optimisation of the hyperparameters and the training, the models are created and their performance can be compared on various test sets, which must be the same for the three models and consistent: for example it is not useful to apply the model trained on the old ambiguous particles on a test set composed of particles classified as ambiguous by the new ambiguity tool. The test set which provides more information is the \textit{outer} set. It consists of single reconstructions and all double reconstructions.
+			Finally, after the choice of the discriminating features, the optimisation of the hyperparameters and the training, the models are created and their performance can be compared on various test sets, which must be the same for the three models and consistent: for example it is not useful to apply the model trained on the old ambiguous particles on a test set composed of particles classified as ambiguous by the new ambiguity tool. The test set which provides more information is the \textit{all reco} set. It consists of the union of single reconstructions and all double reconstructions. Single reconstruction is when a $e/\gamma$ particle is reconstructed only as $e$ or $\gamma$. This happens for example if there is only a calorimeter cluster without any track: in this case it is not possible to reconstruct an $e$.
 			
-			Once the models are applied on the \textit{outer} test set, their outputs must be corrected:
+			Once the models are applied on the \textit{all reco} test set, their outputs must be corrected:
 			\begin{itemize}
-				\item the single reconstruction must be respected. If the object is reconstructed as a photon $y^{pred}$ is fixed at 1, whereas if it is reconstructed as an electron $y^{pred}$ is fixed at 0.
-				\item when \texttt{el\_amb\_type} and \texttt{ph\_amb\_type} are equal to 0 or 6, the outputs of the models trained on ambiguous particles are set with $y^{pred}$=0 or 1. This is because these models can only work on ambiguous objects and for the others they must adapt to the decisions of the ambiguity tools.
+				\item the single reconstruction must be respected. If the object is reconstructed as a photon, $y^{pred}$ is set to 1, whereas if it is reconstructed as an electron $y^{pred}$ is set to 0.
+				\item %when \texttt{el\_amb\_type} and \texttt{ph\_amb\_type} are equal to 0 or 6 (Appendix \ref{Appex:amb}),
+				when a particle is simply reconstructed as an $e$ or as a $\gamma$ by the ambiguity resolver (usually only one reconstruction is saved), the outputs of the models trained on ambiguous particles are set with $y^{pred}$=0 or 1 respectively. This is because these models can only work on ambiguous objects and for the others they must adapt to the decisions already taken by the ambiguity tools.
 			\end{itemize}
 			
-			Figure \ref{fig:last_roc} shows the ROC curves of the three models with \textit{outer} as test set. In this figure there are three curves, one for each model, and two pairs of points. Each curve represents the performance of one of the three classification models. Instead each point (x,y)=($\epsilon_{ph}$,$\epsilon_{el}$) represents the photon and electron efficiencies if we consider all the ambiguous objects as photons ($\bullet$) or electrons ($\triangle$). They obviously represent the limits of the ROC curves of the two models trained on ambiguous objects.
+			Figure \ref{fig:last_roc} shows the ROC curves of the three models tested on \textit{all reco} set. In this figure there are three curves, one for each model, and two pairs of points. Each curve represents the performance of one of the three classification models: \text{double reco} model ({\color{blue}{--}}), \textit{old amb} model ({\color{red}{--}}) and \textit{new amb} model ({\color{green}{--}}). Instead each point ($P_{\gamma|\gamma}$,$P_{e|e}$) represents the photon and electron efficiencies if we consider all the ambiguous objects as photons ($\bullet$) or electrons ($\triangle$). They represent the limits of the ROC curves of the two models trained on ambiguous objects because the electron (photon) efficiency is maximum when all ambiguous are considered as electrons (photons).
 			
 			\begin{figure}
 				\centering
 				\includegraphics[width=.65\linewidth]{tesi_images/all_amb_roc.pdf} 
-				\caption{ROC curves of the three models on the \textit{outer} set as test set} 
+				\caption{ROC curves of the three models on the \textit{all reco} set as test set} 
 				\label{fig:last_roc}
 			\end{figure}
 		
-			Following the results shown in Figure \ref{fig:last_roc}, the Gradient Boosted Decision Tree algorithm is an excellent tool for resolving the ambiguity between photons and electrons. When the three models are applied on a single particles dataframe, they achieve excellent performance: 
+			Following the results shown in Figure \ref{fig:last_roc}, the Gradient Boosted Decision Tree algorithm is an excellent tool for resolving the ambiguity between photons and electrons. When the three models are applied on a single particles dataset, they achieve excellent performance: 
 			\begin{itemize}
-				\item the theoretical limit (infinite storage memory) is set by the \textit{double reconstruction} model, which reaches an efficiency of $\sim$ 99.58\% in resolving ambiguity.
-				\item the models based on pre-classifiers also achieve excellent performances. The \textit{new amb} model reaches an efficiency of $\sim$ 99.07\% in resolving ambiguity, whereas the \textit{old amb} model reaches an efficiency of $\sim$ 98.02\%. If the photon efficiency $\epsilon_{ph}$ is fixed the difference between the electron efficiencies $\epsilon_{el}^{new} - \epsilon_{el}^{old}$ is in its maximum value equal to $\sim$ 3\%; on the contrary if the electron efficiency $\epsilon_{el}$ is fixed the difference between the photon efficiencies $\epsilon_{ph}^{new} - \epsilon_{ph}^{old}$ is in its maximum value equal to $\sim$ 7\%.
+				\item the theoretical limit is set by the \textit{double reconstruction} model, which reaches an AUC of $\sim0.9958$.
+				\item the models based on pre-classifiers also achieve excellent performances. The \textit{new amb} model reaches an AUC of $\sim0.9907$ in resolving ambiguity, whereas the \textit{old amb} model reaches an AUC of $\sim0.9802$. If the photon efficiency $P_{\gamma|\gamma}$ is fixed the difference between the electron efficiencies $P_{e|e}^{new} - P_{e|e}^{old}$ is in its maximum value equal to $\sim$ 7\%; on the contrary if the electron efficiency $P_{e|e}$ is fixed the difference between the photon efficiencies $P_{\gamma|\gamma}^{new} - P_{\gamma|\gamma}^{old}$ is in its maximum value equal to $\sim$ 3\%.
 			\end{itemize}
 		  
-		The \textit{new amb} model performace is very close to that of \textit{double reconstruction} model and this means that even using pre-classifiers in the analysis phase it is possible to achieve very good results.
+			The new ambiguity tool allows to increase the number of \textit{True photons} classified as ambiguous objects allowing a BDT optimisation very close to the best theoretical one.
 		
 	\chapter{Conclusion}
-		Excellent performance in the electrons and photons reconstruction with the ATLAS detector at the LHC is essential to exploit the full physics potential of ATLAS, both in searches for new physics and in precision measurements. For instance, the good electron and photon reconstruction performance played a critical role in the discovery of a Higgs boson, announced by the ATLAS Collaboration in 2012 \cite{Higgs}, and in the measurement of its properties.
+		Excellent performance in the electrons and photons reconstruction with the ATLAS detector at the LHC is essential to exploit the full physics potential of ATLAS, both in searches for new physics and in precision measurements. For instance, good electron and photon reconstruction performance played a critical role in the discovery of a Higgs boson, announced by the ATLAS Collaboration in 2012 \cite{Higgs}, and in the measurement of its properties.
 		
-		At the reconstruction level only simple algorithms are used. They reconstruct only the simplest cases (single reconstructions) whereas the other objects are flagged as ambiguous. The ambiguous objects classification can be approached with machine learning techniques, which provide better results with respect to simple cut-based selections. In particular in this thesis the usage of supervided learning algorithms (GBDT) have been studied.
+		At the reconstruction level only simple algorithms can be used to classify particles as $e$ or $\gamma$. They resolve only the simplest cases (single reconstructions) whereas the other objects are flagged as ambiguous. The ambiguous objects classification can be approached with machine learning techniques, which provide better results with respect to simple cut-based selections. In particular in this thesis the usage of supervided learning algorithms (GBDT) have been studied.
 		
-		The GBDTs applied on single particle simulations samples can achieve excellent results. The theoretical limit is constituted by \textit{double reconstructions} model, which has been trained on the input objects of ambiguity tools. It explores the possibility to replace the current classification algorithm with a gradient boosted decision tree for all electrons and photons candidates. This model is able to correctly classify up to $\sim$ 99.58\% of particles in the \textit{outer} test set. The other two models can also achieve excellent particle classification capabilities: on the outer test set the \textit{old amb} model, which has been trained on objects flagged as “ambiguous” by the old ambiguity tool, correctly classifies $\sim$ 98.08\% of particles, whereas the \textit{new amb} model,  which is based on the new ambiguity tool, $\sim$ 99.07\%. The new ambiguity tool  increases the performance of a GBDT based on ambiguous objects, allowing a better classification than the old one: if the photon efficiency $\epsilon_{ph}$ is fixed the difference between the electron efficiencies $\epsilon_{el}^{new} - \epsilon_{el}^{old}$ is in its maximum value equal to $\sim$ 3\%; on the contrary if the electron efficiency $\epsilon_{el}$ is fixed the difference between the photon efficiencies $\epsilon_{ph}^{new} - \epsilon_{ph}^{old}$ is in its maximum value equal to $\sim$ 7\%.
+		Typically the reconstruction algorithm provides candidates both reconstructed as electron and photon in $\sim$8\% of the \textit{True electrons} and $\sim$31\% of the \textit{True photons}. In this thesis tree main scenarios are investigated. The first case is a classification of all doubly reconstructed objects ($e/\gamma$ particles forced to be reconstructed in both ways), creating a model trained on them. It explores the possibility to replace the current cut based classification algorithm with a gradient boosted decision tree for all electrons and photons candidates with no pre-classification from ambiguity resolver. This model achieves an AUC of $\sim0.9958$. The \textit{double reconstruction} model sets the theoretical limit because this approch can not used in standard data reconstruction due to the memory cost of saving all objects as doubly reconstructed. To reduce double reconstructions to be saved, a loose resolution is applied: firstly the standard ambiguity (\textit{old amb}) resolver used in Run 2 data taking was investigated, secondly a more optimized resolver (\textit{new amb}) foreseen for the upcoming Run 3 is studied. Two new BDT models are trained on top of the particles classified as ambiguous by these simple tools and they can also achieve excellent particle classification capabilities. In these cases the \textit{old amb} model, which has been trained on objects flagged as ambiguous by the old ambiguity tool, achieves an AUC of $\sim0.9808$, whereas the AUC of the \textit{new amb} model, which is based on the new ambiguity tool, is equal to $\sim0.9907$. The new ambiguity tool increases the performance of a GBDT based on ambiguous objects, allowing a better classification efficiency and a higher photon efficiency than the old one: if the photon efficiency $\epsilon_{ph}$ is fixed the difference between the electron efficiencies $\epsilon_{el}^{new} - \epsilon_{el}^{old}$ is in its maximum value equal to $\sim$ 7\%; on the contrary if the electron efficiency $\epsilon_{el}$ is fixed the difference between the photon efficiencies $\epsilon_{ph}^{new} - \epsilon_{ph}^{old}$ is in its maximum value equal to $\sim$ 3\%.
 		
-		As shown by these results, models trained on ambiguous objects of ambiguity tools are able to achieve very good performance in classification approaching very close to the theoretical limit. In particular, with the introduction of the new ambiguity tool, performance has improved and therefore classification efficiency has improved as well.
+		As shown by these results, models trained on ambiguous objects flagged by ambiguity tools are able to achieve very good performance in classification. In particular, with the introduction of the new ambiguity tool, performance has improved since the ambiguous photons are increased allowing the BDT algorithm to reach the theoretical limit.
 	
 	\appendix
 	\chapter{Conversion symmetry} \label{Appex: sym}
@@ -1120,8 +1139,9 @@
 	\chapter{Ambiguity Tools} \label{Appex:amb}	
 		The ambiguity tool, as already mentioned in the Section \ref{section:creation}, is a tool used at the reconstruction level with the purpose that if a particular object can be easily identified only as a photon (a cluster with no good track attached) or only as an electron (a cluster with a good track attached and no good photon conversion vertex), then only a photon or an electron object is created for analysis; otherwise, both an electron and a photon object are created, ambiguous objects. 
 		
-		In this thesis two tools were used, the old ambiguity tool and the new one. Using the old one, which follows the flowchart shown in Figure \ref{fig:alg_flow}, the ambiguous objects are tagged with \texttt{el\_amb\_type} and \texttt{ph\_amb\_type} between 1 and 5, whereas unambiguous objects with \texttt{el\_amb\_type} and \texttt{ph\_amb\_type} other than 0 (electron) or 6 (photon). The unambiguous objects are usually reconstructed in only one way, but in this thesis, in order to create the double reco model they present both reconstructions. The new ambiguity tool has an additional ambiguous tag, \texttt{el\_amb\_type} and \texttt{ph\_amb\_type} equal to 8.
+		In this thesis two tools were used, firstly the standard ambiguity (\textit{old amb}) resolver used in Run 2 data taking was investigate, secondly a more optimized resolver (\textit{new amb}) foreseen for the upcoming Run 3 is studied. In the new ambiguity tool more photons are saved as ambiguous. Referring to Figure \ref{fig:el_ph_analisi}, the condition "Matched conversion vertex" is changed to "Matched conversion vertex and has inner hit". This means that few particles are classified as electron (and not photons). This change recovers many true converted photons reconstructed as unconverted photons, since the tracks (which are reconstructed and used in the electron reconstruction) are not correctly associated to the photon conversion. 
 		
+		Using the old ambiguity tool, which follows the flowchart shown in Figure \ref{fig:el_ph_analisi}, the ambiguous objects are tagged with \texttt{el\_amb\_type} and \texttt{ph\_amb\_type} between 1 and 5, whereas unambiguous objects have \texttt{el\_amb\_type} and \texttt{ph\_amb\_type} equal to 0 (electron) or 6 (photon). The unambiguous objects are usually reconstructed in only one way, but in this thesis, in order to create the double reco model they present both reconstructions. The new ambiguity tool has an additional ambiguous tag, \texttt{el\_amb\_type} and \texttt{ph\_amb\_type} equal to 8.
 		
 	
 	\clearpage	
@@ -1148,12 +1168,11 @@
 			% 6 % 
 			\bibitem{ATLAS config}  The ATLAS Collaboration et al 2008 JINST3 S08003
 			\url{https://iopscience.iop.org/article/10.1088/1748-0221/3/08/S08003/pdf}
-			% 7 %
-			\bibitem{ATLAS TDR}
-			\textit{Technical Design Report:  A High-Granularity Timing Detector for the ATLAS Phase-II Upgrade}, ATLAS Collaboration, CERN, CERN-LHCC-2020-007. ATLAS-TDR-031, Geneva, Jun 2020
-			\url{https://cds.cern.ch/record/2719855}
-			% 8 % 
+			% 7 % 
 			\bibitem{Inner Detector} H. Pernegger, \textit{The Pixel Detector of the ATLAS Experiment for LHC Run-2}, ATL-INDET-PROC-2015-001. \url{https://cds.cern.ch/record/1985432/files/ATL-INDET-PROC-2015-001.pdf}
+			% 8 %
+			\bibitem{ID TDR}
+			\textit{Technical Design Report for the ATLAS Inner Tracker Pixel Detector}, ATLAS Collaboration, CERN, CERN-LHCC-2017-021. ATLAS-TDR-030, Geneva, Sep 2017, \url{https://cds.cern.ch/record/2285585}
 			% 9 %
 			\bibitem{SCT} J.R. Pater \textit{The ATLAS SemiConductor Tracker operation and performance}, 2012 JINST7 C04001. \url{https://iopscience.iop.org/article/10.1088/1748-0221/7/04/C04001/pdf}
 			% 10 % 
@@ -1168,27 +1187,36 @@
 			\textit{The ATLAS Calorimetry}
 			\url{https://atlas.cern/discover/detector/calorimeter}
 			% 13 %
+			\bibitem{LAr TDR}
+			\textit{Technical Design Report for the Phase-II Upgrade of the ATLAS LAr Calorimeter}, ATLAS Collaboration, CERN, CERN-LHCC-2017-018. ATLAS-TDR-027, Geneva, Sep 2017, \url{https://cds.cern.ch/record/2285582}
+			% 14 %
+			\bibitem{Tile TDR}
+			\textit{Technical Design Report for the Phase-II Upgrade of the ATLAS Tile Calorimeter}, ATLAS Collaboration, CERN, CERN-LHCC-2017-019. ATLAS-TDR-028, Geneva, Sep 2017, \url{https://cds.cern.ch/record/2285583}	
+			% 15 %
 			\bibitem{Muon system}
 			\textit{The ATLAS muon spectrometer: calibration and pattern recognition}, N. Van Eldik, CERN-THESIS-2007-045, 2007,
 			\url{http://cds.cern.ch/record/1044839}
-			% 14 %
+			% 16 %
+			\bibitem{Muon TDR}
+			\textit{Technical Design Report for the Phase-II Upgrade of the ATLAS Muon Spectrometer}, ATLAS Collaboration, CERN, CERN-LHCC-2017-017. ATLAS-TDR-026, Geneva, Sep 2017, \url{https://cds.cern.ch/record/2285580}
+			% 17 % 
 			\bibitem{Trigger intro}
 			\textit{Trigger and Data Acquisition System}
 			\url{https://atlas.cern/discover/detector/trigger-daq}	
-			% 15 % 
+			% 18 % 
 			\bibitem{Trigger system}
 			\textit{The Run-2 ATLAS Trigger System: Design, Performance and
 			Plan}, Martin zur Nedden, CERN, ATLAS Collaboration, Geneva, Dec 2016, ATL-DAQ-PROC-2016-039,
 			\url{https://cds.cern.ch/record/2238679}
-			% 16 % 
+			% 19 % 
 			\bibitem{STD Model}
 			\textit{The ATLAS Physics}
 			\url{https://atlas.cern/discover/physics}
-			% 17 %
+			% 20 %
 			\bibitem{CMS} 
 			\textit{The CMS experiment at the CERN LHC}, The CMS Collaboration
 			\url{https://doi.org/10.1088%2F1748-0221%2F3%2F08%2Fs08004}
-			% 18 %
+			% 21 %
 			\bibitem{Higgs}
 			\textit{Observation of a new particle in the search for the Standard Model Higgs boson with the ATLAS detector at the LHC},
 			The ATLAS Collaboration, In: \textit{Phys. Lett. B} 716.arXiv:1207.7214.CERN-PH-EP-2012-218 (Aug. 2012) DOI:\url{https://doi.org/10.1016/j.physletb.2012.08.020}, URL:\url{http://www.sciencedirect.com/science/article/pii/S037026931200857X}
@@ -1207,6 +1235,7 @@
 			\url{{https://doi.org/10.1088%2F1748-0221%2F9%2F09%2Fp09009}}
 			% 13 % 
 			\bibitem{Track reco}
+			\textit{Electron reconstruction and identification in the ATLAS experiment using the 2015 and 2016 LHC proton–proton collision data at $\sqrt{s}$ = 13 TeV}, ATLAS Collaboration, CERN, 1211 Geneva 23, Switzerland,
 			\url{https://link.springer.com/content/pdf/10.1140/epjc/s10052-019-7140-6.pdf}in
 			% 14 % 
 			\bibitem{ID reco alg} \textit{Optimisation of the ATLAS Track Reconstruction Software for Run-2}, Andreas Salzburger, CERN, Switzerland, \url{http://iopscience.iop.org/1742-6596/664/7/072042}
@@ -1255,7 +1284,15 @@
 			\bibitem{Pandas}
 			\textit{Data structures for statistical computing in python},
 			McKinney, W., \& others. (2010), In Proceedings of the 9th Python in Science Conference (Vol. 445, pp. 51–56)
-			
+			% 36 %
+			\bibitem{MAT}
+			\textit{Matplotlib: A 2D Graphics Environment}, J. D. Hunter, Computing in Science \& Engineering, vol. 9, no. 3, pp. 90-95, 2007.
+			% 37 %
+			\bibitem{Root}
+			\textit{ROOT - An Object Oriented Data Analysis Framework}, Rene Brun and Fons Rademakers, Proceedings AIHENP'96 Workshop, Lausanne, Sep. 1996, Nucl. Inst. \& Meth. in Phys. Res. A 389 (1997) 81-86. \url{http://root.cern.ch/}
+			% 38 %
+			\bibitem{Uproot}
+			\textit{Uproot}, \url{https://uproot.readthedocs.io/en/latest/#}
 			
 	\end{thebibliography}
 \end{document}
